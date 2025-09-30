@@ -1,47 +1,77 @@
-# Astro Starter Kit: Minimal
+# Hampton Roads DevFest
 
-```sh
-npm create astro@latest -- --template minimal
+A tech conference website showcasing local speakers and celebrating the Hampton Roads developer community.
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+yarn install
+
+# Start development server at http://localhost:4321
+yarn dev
+
+# Build for production
+yarn build
+
+# Preview production build
+yarn preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## 📁 Project Structure
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
+├── public/          # Static assets
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/      # Images (logo, sponsors)
+│   └── pages/       # Page routes
+│       ├── index.astro    # Landing page
+│       └── schedule.astro # Conference schedule
+├── astro.config.mjs # Astro config with redirects
+└── tailwind.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🛠 Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Astro 5.6.1** - Static site generator
+- **TypeScript** - Type checking enabled
+- **Tailwind CSS** - Utility-first styling
+- **Yarn** - Package manager (v1.22.22)
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🔗 Integrations
 
-## 🧞 Commands
+- **Tito** - Ticket sales widget
+- **Sessionize** - Speaker/session management
+- **Google Maps** - Venue location
+- **ActiveHosted** - Newsletter signup
 
-All commands are run from the root of the project, from a terminal:
+## 🏗 Development
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+The site features:
+- Sticky navigation that appears on scroll
+- Optimized images via Astro's Image component
+- Redirects configured in `astro.config.mjs`
+- All speakers are local to Hampton Roads (key differentiator)
 
-## 👀 Want to learn more?
+### Important Commands
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+# Type checking (run after changes)
+yarn astro check
+
+# Full build with type checking
+yarn build
+```
+
+## 📝 Contributing
+
+Before submitting changes:
+1. Run `yarn build` to ensure TypeScript checks pass
+2. Use the main branch for pull requests
+3. Import and use Astro's Image component for all images
+
+## 🌐 Links
+
+- [Live Site](https://hrdevfest.com)
+- [Sponsor Prospectus](https://hrdevfest.com/prospectus)
