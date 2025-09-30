@@ -13,28 +13,62 @@ import headerImage from "../assets/header-image.png";
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Hampton Roads DevFest | May 31st, 2024 | Virginia Beach, VA</title>
+    <title>Hampton Roads DevFest | Feb 27th, 2026 | Virginia Beach, VA - Schedule</title>
     <link href="/dist/index.css" rel="stylesheet" />
+    <style>
+      .gradient-text {
+        background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .card-shadow {
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        transition: all 0.3s ease;
+      }
+      .card-shadow:hover {
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        transform: translateY(-2px);
+      }
+    </style>
 
-    <script src="https://js.tito.io/v2/with/inline" async></script>
   </head>
   <body
     class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900"
   >
     <div class="w-full max-w-2xl p-4">
-      <Image src={headerImage} alt="Hampton Roads DevFest" class="mx-auto" />
-      <h1 class="mt-6 text-3xl font-bold text-center">
-        Hampton Roads DevFest 2024
+      <div class="relative">
+        <Image src={headerImage} alt="Hampton Roads DevFest" class="mx-auto rounded-lg shadow-xl" />
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent rounded-lg"></div>
+      </div>
+      <h1 class="mt-8 text-4xl md:text-5xl font-bold text-center gradient-text">
+        Hampton Roads DevFest 2026
       </h1>
-      <p class="mt-2 text-xl text-center">
-        May 31st, 2024 - Virginia Beach, VA
+      <p class="mt-4 text-xl md:text-2xl text-center text-blue-600 font-bold">
+        SAVE THE DATE: Feb 27th, 2026 - Virginia Beach, VA
       </p>
+      
+      <div class="mt-4 mb-6">
+        <nav class="flex justify-center space-x-6">
+          <a href="/" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">← Back to Home</a>
+        </nav>
+      </div>
 
-      <script type="text/javascript" src="https://sessionize.com/api/v2/pzokysfy/view/GridSmart"></script>
-      <div class="mb-56">&nbsp;</div>
+      <section class="mt-12">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 card-shadow text-center">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Schedule Coming Soon!</h2>
+          <p class="mb-5 text-lg">
+            We're working on an amazing lineup of local speakers for 2026.
+          </p>
+          <p class="mb-5 text-lg">
+            Check back later for the full schedule, or sign up for our newsletter to be notified when it's available.
+          </p>
+        </div>
+      </section>
+      <div class="mb-24">&nbsp;</div>
     </div>
     <footer
-    class="fixed inset-x-0 bottom-0 bg-gray-800 text-white text-center py-3"
+    class="fixed inset-x-0 bottom-0 bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-4 shadow-lg"
     style="z-index: 1000;"
   >
     <p>
