@@ -11,5 +11,9 @@ export default defineConfig({
       destination:
         "https://drive.google.com/file/d/1Pt1AwixVbP1C9HceFoaE28HB6f2MbH3P/view",
     },
+    "/years/2025": {
+      status: 302,
+      destination: "/years/2024",
+    },
   },
 });
