@@ -3,7 +3,12 @@ import { Image } from "astro:assets";
 import logo from "../assets/logo.png";
 import headerImage from "../assets/header-image.png";
 import cfsponsors from "../assets/sponsorship.png";
+import { speakers } from "../data/speakers";
+import lionelSappImage from "../assets/speakers/lionel-sapp.jpeg";
 
+const speakerImages: Record<string, any> = {
+  "lionel-sapp.jpeg": lionelSappImage,
+};
 ---
 
 <html lang="en">
@@ -78,7 +83,7 @@ import cfsponsors from "../assets/sponsorship.png";
     <script>
       // Handle active section highlighting
       function updateActiveSection() {
-        const sections = document.querySelectorAll('section[id], div[id="about"], div[id="tickets"], div[id="venue"], div[id="sponsors"]');
+        const sections = document.querySelectorAll('section[id], div[id="about"], div[id="tickets"], div[id="venue"], div[id="speakers"], div[id="sponsors"]');
         const navLinks = document.querySelectorAll('.nav-link');
         const scrollPosition = window.scrollY + 100;
 
@@ -110,6 +115,7 @@ import cfsponsors from "../assets/sponsorship.png";
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#about">About</a>
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#tickets">Tickets</a>
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#venue">Venue</a>
+        <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#speakers">Speakers</a>
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#sponsors">Sponsors</a>
       </nav>
     </div>
@@ -234,41 +240,83 @@ import cfsponsors from "../assets/sponsorship.png";
         </div>
       </section>
 
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-3xl font-bold text-gray-800">More Details Coming Soon!</h2>
-          </div>
+      <div class="section-divider"></div>
+
+      <section class="mt-12" id="speakers">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Featured Speakers</h2>
+        <div class="bg-white rounded-lg p-6 card-shadow mb-6">
+          <p class="text-center text-gray-700 mb-2">
+            Hampton Roads DevFest is special because it uniquely highlights the
+            amazing developer talent we have in our region.
+          </p>
+          <p class="text-center text-gray-700">
+            All HRDevFest speakers are current or past residents of the Hampton Roads area.
+          </p>
         </div>
-        <div class="mt-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 card-shadow">
-          <p class="text-center mb-5">
-            We're excited to bring you another amazing Hampton Roads DevFest in 2026.
-            Stay tuned for updates on speakers, sessions, and ticket information.
-          </p>
-          <p class="text-center mb-5">
-            Sign up for our newsletter above to be the first to know when registration opens!
-          </p>
+
+        <div class="grid grid-cols-1 gap-6">
+          {speakers.map((speaker) => (
+            <div class="bg-white rounded-lg p-6 card-shadow">
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-shrink-0 flex justify-center md:justify-start">
+                  <Image
+                    src={speakerImages[speaker.image]}
+                    alt={speaker.name}
+                    class="w-48 h-48 rounded-full object-cover"
+                    width={192}
+                    height={192}
+                  />
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-3">{speaker.name}</h3>
+                  <p class="text-gray-700 leading-relaxed mb-4">{speaker.bio}</p>
+                  <div class="flex gap-4">
+                    {speaker.linkedin && (
+                      <a
+                        href={speaker.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                      >
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                      </a>
+                    )}
+                    {speaker.twitter && (
+                      <a
+                        href={speaker.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-600 font-medium transition-colors duration-200"
+                      >
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                        Twitter
+                      </a>
+                    )}
+                    {speaker.website && (
+                      <a
+                        href={speaker.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-gray-600 hover:text-gray-800 font-medium transition-colors duration-200"
+                      >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                        Website
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
-<!-- 
-      <section class="mt-12 flex flex-col md:flex-row justify-between">
-        <div class="flex-1">
-          <h2 class="text-2xl font-bold" id="speakers">Speakers</h2>
-        </div>
-        <div class="flex-1">
-          <p>
-            Hampton Roads DevFest is special because it unique highlights the
-            amazing developer talent we have in our region. All HRDevFest
-            speakers are current or past residents of the Hampton Roads area.
-          </p>
-          <p class="mt-5">
-            Our <a
-              href="https://sessionize.com/hampton-roads-devfest-2024"
-              class="text-blue-500 hover:text-blue-700">Call For Speakers</a
-            > is currently open!
-          </p>
-        </div>
-      </section> -->
 
       <section class="mt-12 flex flex-col md:flex-row justify-between" id="sponsors">
         <div class="flex-1">
