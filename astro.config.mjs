@@ -8,8 +8,7 @@ export default defineConfig({
   redirects: {
     "/prospectus": {
       status: 302, // Use 301 for permanent redirects
-      destination:
-        "https://drive.google.com/file/d/1Pt1AwixVbP1C9HceFoaE28HB6f2MbH3P/view",
+      destination: "/2026/HRDevFest_Sponsorship Prospectus_min.pdf",
     },
     "/years/2025": {
       status: 302,
