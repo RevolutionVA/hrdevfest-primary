@@ -14,4 +14,12 @@ export const speakers: Speaker[] = [
     image: "lionel-sapp.jpeg",
     linkedin: "https://www.linkedin.com/in/lionelthebldr/",
   },
+  {
+    name: "Ryan Castillo",
+    bio: "Ryan is an author, developer and data-scientist with a passion for helping and teaching others. His deep expertise in large scale systems, data visualization and AI has helped Fortune 500 companies, the US Navy and startups of all sizes.",
+    image: "ryan-castillo.jpeg",
+    linkedin: "https://www.linkedin.com/in/rmcastil/",
+    twitter: "https://twitter.com/rmcastil",
+    website: "https://knowatoa.com",
+  },
 ];
