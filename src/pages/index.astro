@@ -6,6 +6,16 @@ import cfsponsors from "../assets/sponsorship.png";
 import { speakers } from "../data/speakers";
 import lionelSappImage from "../assets/speakers/lionel-sapp.jpeg";
 
+// 2024 Event Photos
+import photo1 from "../assets/2024-photos/2024-05-31 08.30.41.jpg";
+import photo2 from "../assets/2024-photos/2024-05-31 12.11.53.jpg";
+import photo3 from "../assets/2024-photos/2024-05-31 14.13.46.jpg";
+import photo4 from "../assets/2024-photos/IMG_9620.jpeg";
+import photo5 from "../assets/2024-photos/2024-05-31 12.04.00.jpg";
+import photo6 from "../assets/2024-photos/2024-05-31 09.48.48.jpg";
+import photo7 from "../assets/2024-photos/IMG_9651.jpeg";
+import photo8 from "../assets/2024-photos/IMG_9579.jpeg";
+
 const speakerImages: Record<string, any> = {
   "lionel-sapp.jpeg": lionelSappImage,
 };
@@ -75,6 +85,46 @@ const speakerImages: Record<string, any> = {
         margin-top: -80px;
         visibility: hidden;
       }
+      /* Photo modal styles */
+      .photo-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.95);
+        cursor: pointer;
+      }
+      .photo-modal.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .photo-modal img {
+        max-width: 95%;
+        max-height: 95vh;
+        object-fit: contain;
+        cursor: default;
+      }
+      .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: #ffffff;
+        font-size: 48px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10000;
+        transition: color 0.2s;
+      }
+      .modal-close:hover {
+        color: #bbb;
+      }
+      .photo-clickable {
+        cursor: zoom-in;
+      }
     </style>
   </head>
   <body
@@ -83,7 +133,7 @@ const speakerImages: Record<string, any> = {
     <script>
       // Handle active section highlighting
       function updateActiveSection() {
-        const sections = document.querySelectorAll('section[id], div[id="about"], div[id="tickets"], div[id="venue"], div[id="speakers"], div[id="sponsors"]');
+        const sections = document.querySelectorAll('section[id], div[id="about"], div[id="2024-highlights"], div[id="tickets"], div[id="venue"], div[id="speakers"], div[id="sponsors"]');
         const navLinks = document.querySelectorAll('.nav-link');
         const scrollPosition = window.scrollY + 100;
 
@@ -113,6 +163,7 @@ const speakerImages: Record<string, any> = {
     >
       <nav class="flex justify-around p-4">
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#about">About</a>
+        <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#2024-highlights">2024</a>
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#tickets">Tickets</a>
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#venue">Venue</a>
         <a class="nav-link hover:text-blue-400 transition-colors duration-200 font-medium" href="#speakers">Speakers</a>
@@ -191,6 +242,116 @@ const speakerImages: Record<string, any> = {
             that thrives in Hampton Roads. Let's connect, discover, and grow
             together at Hampton Roads DevFest 2026!
           </p>
+        </div>
+      </section>
+
+      <div class="section-divider"></div>
+
+      <section class="mt-12" id="2024-highlights">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">2024 Event Highlights</h2>
+        <div class="bg-white rounded-lg p-6 card-shadow mb-6">
+          <p class="text-center text-gray-700 mb-2">
+            Take a look back at Hampton Roads DevFest 2024! Our inaugural event brought together
+            local developers, industry professionals, and tech enthusiasts for a day of learning and networking.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo1}
+              alt="Attendees networking in modern lobby with registration table"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo1"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Networking in our modern venue lobby <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo2}
+              alt="Attendees relaxing on outdoor terrace with city skyline"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo2"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Beautiful outdoor terrace with city views <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo3}
+              alt="Keynote presentation on professional stage"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo3"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Keynote presentation: Keys to Empowering <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo4}
+              alt="Dual presenters delivering technical content on stage"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo4"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Local speakers sharing their expertise <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo5}
+              alt="Attendees mingling during conference break"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo5"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Community connections and conversations <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo6}
+              alt="Full auditorium showing strong attendance"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo6"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Engaged audience in our professional venue <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo7}
+              alt="Outdoor networking area with attendees"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo7"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Casual networking in the outdoor space <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
+
+          <div class="card-shadow rounded-lg overflow-hidden bg-white">
+            <Image
+              src={photo8}
+              alt="Professional catering with fresh food"
+              class="w-full h-64 object-cover photo-clickable"
+              data-photo="photo8"
+            />
+            <div class="p-4">
+              <p class="text-sm text-gray-600">Quality catering and hospitality <span class="text-blue-500 text-xs">(click to enlarge)</span></p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -346,5 +507,61 @@ const speakerImages: Record<string, any> = {
         organization.
       </p>
     </footer>
+
+    <!-- Photo Modal -->
+    <div id="photoModal" class="photo-modal">
+      <span class="modal-close">&times;</span>
+      <img id="modalImage" src="" alt="" />
+    </div>
+
+    <script>
+      // Photo modal functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('photoModal');
+        const modalImage = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.modal-close');
+        const clickablePhotos = document.querySelectorAll('.photo-clickable');
+
+        // Open modal when clicking a photo
+        clickablePhotos.forEach(photo => {
+          photo.addEventListener('click', function() {
+            const imgSrc = this.src;
+            const imgAlt = this.alt;
+
+            modalImage.src = imgSrc;
+            modalImage.alt = imgAlt;
+            modal.classList.add('active');
+
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+          });
+        });
+
+        // Close modal when clicking the X button
+        closeBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeModal();
+        });
+
+        // Close modal when clicking the background
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+          }
+        });
+
+        function closeModal() {
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    </script>
   </body>
 </html>
