@@ -536,6 +536,75 @@ const sponsorsByTier = {
               </a>
             </div>
 
+            <!-- Current Sponsors -->
+            {(sponsorsByTier.platinum.length > 0 || sponsorsByTier.gold.length > 0 || sponsorsByTier.silver.length > 0 || sponsorsByTier.logo.length > 0) && (
+              <div class="bg-white rounded-lg p-6 card-shadow">
+                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Our Sponsors</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8">
+                  {sponsorsByTier.platinum.map((sponsor) => (
+                    <a
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="transition-transform hover:scale-105"
+                      title={sponsor.name}
+                    >
+                      <Image
+                        src={sponsorLogos[sponsor.logo]}
+                        alt={sponsor.name}
+                        class="max-h-20 max-w-[280px] w-auto h-auto object-contain"
+                      />
+                    </a>
+                  ))}
+                  {sponsorsByTier.gold.map((sponsor) => (
+                    <a
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="transition-transform hover:scale-105"
+                      title={sponsor.name}
+                    >
+                      <Image
+                        src={sponsorLogos[sponsor.logo]}
+                        alt={sponsor.name}
+                        class="max-h-18 max-w-[240px] w-auto h-auto object-contain"
+                      />
+                    </a>
+                  ))}
+                  {sponsorsByTier.silver.map((sponsor) => (
+                    <a
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="transition-transform hover:scale-105"
+                      title={sponsor.name}
+                    >
+                      <Image
+                        src={sponsorLogos[sponsor.logo]}
+                        alt={sponsor.name}
+                        class="max-h-16 max-w-[220px] w-auto h-auto object-contain"
+                      />
+                    </a>
+                  ))}
+                  {sponsorsByTier.logo.map((sponsor) => (
+                    <a
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="transition-transform hover:scale-105"
+                      title={sponsor.name}
+                    >
+                      <Image
+                        src={sponsorLogos[sponsor.logo]}
+                        alt={sponsor.name}
+                        class="max-h-14 max-w-[180px] w-auto h-auto object-contain"
+                      />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <!-- Sponsorship Quick Card -->
             <div class="bg-white rounded-lg p-6 card-shadow border-2 border-cyan-200">
               <h3 class="text-xl font-bold text-gray-800 mb-3">Become a Sponsor</h3>
@@ -571,83 +640,6 @@ const sponsorsByTier = {
               >
                 Buy Logo Sponsorship ($500)
               </a>
-            </div>
-
-            <!-- Current Sponsors -->
-            {(sponsorsByTier.platinum.length > 0 || sponsorsByTier.gold.length > 0 || sponsorsByTier.silver.length > 0 || sponsorsByTier.logo.length > 0) && (
-              <div class="bg-white rounded-lg p-6 card-shadow">
-                <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Our Sponsors</h3>
-                <div class="flex flex-wrap justify-center items-center gap-6">
-                  {sponsorsByTier.platinum.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-16 max-w-[250px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                  {sponsorsByTier.gold.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-14 max-w-[200px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                  {sponsorsByTier.silver.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-12 max-w-[180px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                  {sponsorsByTier.logo.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-10 max-w-[150px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <!-- Newsletter Signup -->
-            <div class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-6 card-shadow">
-              <h3 class="text-lg font-bold text-center mb-4 text-gray-800">Stay Updated!</h3>
-              <div class="_form_23"></div><script
-                src="https://revolutionconf.activehosted.com/f/embed.php?id=23"
-                charset="utf-8"></script>
             </div>
 
           </div>
