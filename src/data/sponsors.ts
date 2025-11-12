@@ -14,4 +14,10 @@ export const sponsors: Sponsor[] = [
     url: "https://opensearch.org/",
     tier: "logo",
   },
+  {
+    name: "Swift Kick",
+    logo: "swiftkick.png",
+    url: "https://consultwithgriff.com",
+    tier: "logo",
+  },
 ];
