@@ -496,6 +496,114 @@ const sponsorsByTier = {
             </div>
           </section>
 
+          <div class="section-divider"></div>
+
+          <!-- Sponsors Section (Full Width) -->
+          <section id="sponsors">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Our Sponsors</h2>
+            <div class="bg-white rounded-lg p-8 card-shadow mb-6">
+              <p class="text-center text-gray-600 mb-8">
+                Thank you to our sponsors for supporting the Hampton Roads tech community and making this event possible.
+              </p>
+              <div class="flex flex-wrap justify-center items-center gap-12">
+                {/* Platinum Sponsors */}
+                {sponsorsByTier.platinum.map((sponsor) => (
+                  <a
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-transform hover:scale-105"
+                    title={sponsor.name}
+                  >
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="max-h-28 max-w-[350px] w-auto h-auto object-contain"
+                    />
+                  </a>
+                ))}
+
+                {/* Gold Sponsors */}
+                {sponsorsByTier.gold.map((sponsor) => (
+                  <a
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-transform hover:scale-105"
+                    title={sponsor.name}
+                  >
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="max-h-24 max-w-[300px] w-auto h-auto object-contain"
+                    />
+                  </a>
+                ))}
+
+                {/* Silver Sponsors */}
+                {sponsorsByTier.silver.map((sponsor) => (
+                  <a
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-transform hover:scale-105"
+                    title={sponsor.name}
+                  >
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="max-h-20 max-w-[250px] w-auto h-auto object-contain"
+                    />
+                  </a>
+                ))}
+
+                {/* Logo Sponsors */}
+                {sponsorsByTier.logo.map((sponsor) => (
+                  <a
+                    href={sponsor.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-transform hover:scale-105"
+                    title={sponsor.name}
+                  >
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="max-h-16 max-w-[200px] w-auto h-auto object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <!-- Sponsorship CTA -->
+            <div class="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-8 card-shadow text-center border-2 border-cyan-200">
+              <h3 class="text-2xl font-bold text-gray-800 mb-4">
+                Interested in Sponsoring Hampton Roads DevFest 2026?
+              </h3>
+              <p class="text-gray-700 mb-6 text-lg">
+                Help us make tech education accessible to our community while showcasing your organization to 200+ local developers.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="/prospectus"
+                  target="_blank"
+                  class="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-cyan-600 to-teal-700 hover:from-cyan-700 hover:to-teal-800 text-white font-bold rounded-lg shadow-md text-lg transition-all duration-200"
+                >
+                  View Sponsorship Prospectus
+                </a>
+                <a
+                  href="https://buy.stripe.com/3cIaEX12u0e1bjLf1U4AU01"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full sm:w-auto px-8 py-3 bg-white border-2 border-cyan-600 text-cyan-700 hover:bg-cyan-50 font-bold rounded-lg shadow-md text-lg transition-all duration-200"
+                >
+                  Quick Logo Sponsorship ($500)
+                </a>
+              </div>
+            </div>
+          </section>
+
         </div><!-- End Main Content -->
 
         <!-- Sticky Sidebar (Right - 1 column) -->
@@ -535,75 +643,6 @@ const sponsorsByTier = {
                 Get Tickets Now →
               </a>
             </div>
-
-            <!-- Current Sponsors -->
-            {(sponsorsByTier.platinum.length > 0 || sponsorsByTier.gold.length > 0 || sponsorsByTier.silver.length > 0 || sponsorsByTier.logo.length > 0) && (
-              <div class="bg-white rounded-lg p-6 card-shadow">
-                <h3 class="text-xl font-bold text-gray-800 mb-6 text-center">Our Sponsors</h3>
-                <div class="flex flex-wrap justify-center items-center gap-8">
-                  {sponsorsByTier.platinum.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-20 max-w-[280px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                  {sponsorsByTier.gold.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-18 max-w-[240px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                  {sponsorsByTier.silver.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-16 max-w-[220px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                  {sponsorsByTier.logo.map((sponsor) => (
-                    <a
-                      href={sponsor.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="transition-transform hover:scale-105"
-                      title={sponsor.name}
-                    >
-                      <Image
-                        src={sponsorLogos[sponsor.logo]}
-                        alt={sponsor.name}
-                        class="max-h-14 max-w-[180px] w-auto h-auto object-contain"
-                      />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
 
             <!-- Sponsorship Quick Card -->
             <div class="bg-white rounded-lg p-6 card-shadow border-2 border-cyan-200">
