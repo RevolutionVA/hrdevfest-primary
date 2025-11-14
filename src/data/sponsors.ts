@@ -32,4 +32,10 @@ export const sponsors: Sponsor[] = [
     url: "https://consultwithgriff.com",
     tier: "logo",
   },
+  {
+    name: "Land Records",
+    logo: "landrecords.png",
+    url: "https://landrecords.us",
+    tier: "logo",
+  },
 ];
