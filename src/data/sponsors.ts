@@ -9,6 +9,12 @@ export interface Sponsor {
 
 export const sponsors: Sponsor[] = [
   {
+    name: "Progress",
+    logo: "progress.png",
+    url: "https://www.telerik.com/",
+    tier: "gold",
+  },
+  {
     name: "Marathon Consulting",
     logo: "marathon.png",
     url: "https://marathonus.com/",
