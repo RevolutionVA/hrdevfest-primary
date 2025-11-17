@@ -22,4 +22,10 @@ export const speakers: Speaker[] = [
     twitter: "https://twitter.com/rmcastil",
     website: "https://knowatoa.com",
   },
+  {
+    name: "Katie Novotny",
+    bio: "Katie Novotny, AI Apps and Agents GBB at Microsoft. Software dev background but also manager, architect, and DevOps wrangler fluent in .NET, Python, and at least 10 other languages (some human, most not). Believes the best code - and life - comes from collaboration and curiosity. Loves: Functional fitness, skiing, and books that make her forget time. Hates: green peppers and chores that don't scale (looking at you, dusting).",
+    image: "katie-novotny.jpeg",
+    linkedin: "https://www.linkedin.com/in/katie-novotny/",
+  },
 ];
