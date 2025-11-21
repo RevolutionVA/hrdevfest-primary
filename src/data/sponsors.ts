@@ -15,6 +15,12 @@ export const sponsors: Sponsor[] = [
     tier: "gold",
   },
   {
+    name: "Stigian Consulting",
+    logo: "stigian.png",
+    url: "https://stigian.com/",
+    tier: "gold",
+  },
+  {
     name: "Marathon Consulting",
     logo: "marathon.png",
     url: "https://marathonus.com/",
