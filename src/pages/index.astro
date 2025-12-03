@@ -9,6 +9,7 @@ import { testimonials } from "../data/testimonials";
 import lionelSappImage from "../assets/speakers/lionel-sapp.jpeg";
 import ryanCastilloImage from "../assets/speakers/ryan-castillo.jpeg";
 import katieNovotnyImage from "../assets/speakers/katie-novotny.jpeg";
+import timBanksImage from "../assets/speakers/tim-banks.jpeg";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
 import issuetrakLogo from "../assets/sponsors/issuetrak.png";
 import marathonLogo from "../assets/sponsors/marathon.png";
@@ -32,6 +33,7 @@ const speakerImages: Record<string, any> = {
   "lionel-sapp.jpeg": lionelSappImage,
   "ryan-castillo.jpeg": ryanCastilloImage,
   "katie-novotny.jpeg": katieNovotnyImage,
+  "tim-banks.jpeg": timBanksImage,
 };
 
 const testimonialImages: Record<string, any> = {
@@ -551,6 +553,19 @@ const sponsorsByTier = {
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                         </svg>
                         Website
+                      </a>
+                    )}
+                    {speaker.bluesky && (
+                      <a
+                        href={speaker.bluesky}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                      >
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.038.415-.055-.265.2-.532.34-.796.531-2.32 1.673-2.788 2.927-1.706 4.649 1.082 1.723 4.883 1.08 5.67-.542.364-.75.28-1.68.28-2.722 0 1.042-.084 1.972.28 2.722.787 1.622 4.588 2.265 5.67.542 1.082-1.722.614-2.976-1.706-4.649-.264-.191-.531-.331-.796-.531.14.017.279.035.415.055 2.67.296 5.568-.628 6.383-3.364.246-.829.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
+                        </svg>
+                        Bluesky
                       </a>
                     )}
                   </div>

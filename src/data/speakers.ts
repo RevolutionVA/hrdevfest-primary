@@ -5,6 +5,7 @@ export interface Speaker {
   linkedin?: string;
   twitter?: string;
   website?: string;
+  bluesky?: string;
 }
 
 export const speakers: Speaker[] = [
@@ -27,5 +28,13 @@ export const speakers: Speaker[] = [
     bio: "Katie Novotny, AI Apps and Agents GBB at Microsoft. Software dev background but also manager, architect, and DevOps wrangler fluent in .NET, Python, and at least 10 other languages (some human, most not). Believes the best code - and life - comes from collaboration and curiosity. Loves: Functional fitness, skiing, and books that make her forget time. Hates: green peppers and chores that don't scale (looking at you, dusting).",
     image: "katie-novotny.jpeg",
     linkedin: "https://www.linkedin.com/in/katie-novotny/",
+  },
+  {
+    name: "Tim Banks",
+    bio: "Tim's tech career spans over 25 years through large corporate environments and in small startups, honing their skills in systems administration, automation, architecture, and operations for large cloud-based datastores. Today, Tim leverages their years in data, DevOps, and Site Reliability Engineering to advise and consult the open source and cloud computing communities on modernizing workloads, safe and efficient DevOps practices, and the effective use of AI in their current role. Tim is also a competitive Brazilian Jiu-Jitsu practitioner, having won over 10 international championships.",
+    image: "tim-banks.jpeg",
+    linkedin: "https://www.linkedin.com/in/timjb/",
+    twitter: "https://x.com/elchefe",
+    bluesky: "https://bsky.app/profile/elchefe.me",
   },
 ];
