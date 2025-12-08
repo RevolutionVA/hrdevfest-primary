@@ -37,4 +37,11 @@ export const speakers: Speaker[] = [
     twitter: "https://x.com/elchefe",
     bluesky: "https://bsky.app/profile/elchefe.me",
   },
+  {
+    name: "Ian Taylor",
+    bio: "Ian Taylor is the Economics Department Chair at Virginia Peninsula Community College, where his innovative teaching has earned rave reviews from students, including: \"Awesome teacher. Y'all should let him teach all the courses. Clone him or something.\" and \"Me and all my classmates learned the lesson with pleasure.\" A serial entrepreneur, Ian founded Carry Norfolk, a bicycle courier service delivering food and beer in Norfolk, VA (2013-2015; sold to a rider), and Carry Logistics, enterprise software automating information flows for online retailers (2014-2018; sold to Saatva). He now leads Question Foundry, an edtech startup creating individualized college textbooks with thousands of practice question variations and step-by-step solutions. Each textbook is accompanied by Aita—an AI teaching assistant that aids faculty in lesson preparation and guides students through discovery-based learning. Beyond his professional pursuits, Ian is a fun-loving dad to his daughter, serving as the \"daddyman\".",
+    image: "ian-taylor.jpeg",
+    linkedin: "https://www.linkedin.com/in/ian-taylor-95626045/",
+    twitter: "https://x.com/itsEcon",
+  },
 ];
