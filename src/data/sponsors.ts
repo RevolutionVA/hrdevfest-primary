@@ -33,6 +33,12 @@ export const sponsors: Sponsor[] = [
     tier: "silver",
   },
   {
+    name: "Noteable",
+    logo: "noteable.png",
+    url: "https://mynoteable.com/",
+    tier: "silver",
+  },
+  {
     name: "OpenSearch",
     logo: "opensearch.png",
     url: "https://opensearch.org/",
