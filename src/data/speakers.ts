@@ -44,4 +44,10 @@ export const speakers: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/ian-taylor-95626045/",
     twitter: "https://x.com/itsEcon",
   },
+  {
+    name: "Lauren Pryor",
+    bio: "Lauren is a tech leader with roots in architectural engineering (2010–2016). As the founder of a software development company that was later acquired, she went on to become the co-owner of an MSP and cybersecurity company serving financial and legal firms nationwide. Lauren sits on several boards, mentors youth in STEM, runs a cybersecurity training program, supports startups as a freelance CTO, and is an emerging angel investor and limited partner.",
+    image: "lauren-pryor.jpg",
+    linkedin: "https://www.linkedin.com/in/laurenepryor/",
+  },
 ];
