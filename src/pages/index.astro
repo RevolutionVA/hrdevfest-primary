@@ -249,11 +249,11 @@ const sponsorsByTier = {
     <nav class="fixed top-0 w-full bg-white z-50 shadow-sm">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between items-center py-3">
-          <!-- Desktop Nav - Tagline on far left -->
-          <div class="hidden lg:flex items-center space-x-1">
-            <span class="text-xs font-bold tracking-wide">C<span class="text-brand-blue">O</span>NNECT</span>
-            <span class="text-xs font-bold tracking-wide">DISC<span class="text-brand-yellow">O</span>VER</span>
-            <span class="text-xs font-bold tracking-wide">GR<span class="text-brand-green">O</span>W</span>
+          <!-- Desktop Nav - Tagline on far left (stacked vertically) -->
+          <div class="hidden lg:flex flex-col text-[10px] leading-tight">
+            <span class="font-bold tracking-wide">C<span class="text-brand-blue">O</span>NNECT</span>
+            <span class="font-bold tracking-wide">DISC<span class="text-brand-yellow">O</span>VER</span>
+            <span class="font-bold tracking-wide">GR<span class="text-brand-green">O</span>W</span>
           </div>
 
           <!-- Desktop Nav - Buy Tickets as red text + nav links -->
@@ -320,9 +320,9 @@ const sponsorsByTier = {
           </div>
         </div>
 
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 lg:pl-32 py-12">
-          <!-- Main Hero Content - Left aligned on desktop -->
-          <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 py-12">
+          <!-- Main Hero Content - Centered -->
+          <div class="flex flex-col items-center text-center">
             <Image src={logoNew} alt="Hampton Roads DevFest" class="w-40 md:w-48 mb-4" />
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
               Hampton Roads<br />DevFest 2026
