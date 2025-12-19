@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "Bash(npx update-browserslist-db:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "mcp__MCP_DOCKER__browser_navigate",
+      "mcp__MCP_DOCKER__browser_take_screenshot",
+      "mcp__MCP_DOCKER__browser_press_key",
+      "mcp__MCP_DOCKER__browser_evaluate"
     ],
     "deny": []
   }

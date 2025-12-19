@@ -249,15 +249,18 @@ const sponsorsByTier = {
     <nav class="fixed top-0 w-full bg-white z-50 shadow-sm">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex justify-between items-center py-3">
-          <!-- Desktop Nav - Buy Tickets on left -->
-          <div class="hidden md:block">
-            <a href="https://events.humanitix.com/hampton-roads-devfest-2026" target="_blank" class="px-4 py-2 bg-brand-red text-white font-semibold rounded-lg hover:bg-brand-red-dark transition-colors">
-              Buy Tickets
-            </a>
+          <!-- Desktop Nav - Tagline on far left -->
+          <div class="hidden lg:flex items-center space-x-1">
+            <span class="text-xs font-bold tracking-wide">C<span class="text-brand-blue">O</span>NNECT</span>
+            <span class="text-xs font-bold tracking-wide">DISC<span class="text-brand-yellow">O</span>VER</span>
+            <span class="text-xs font-bold tracking-wide">GR<span class="text-brand-green">O</span>W</span>
           </div>
 
-          <!-- Desktop Nav - Links on right -->
+          <!-- Desktop Nav - Buy Tickets as red text + nav links -->
           <div class="hidden md:flex items-center space-x-6">
+            <a href="https://events.humanitix.com/hampton-roads-devfest-2026" target="_blank" class="text-brand-red font-semibold hover:text-brand-red-dark transition-colors">
+              Buy Tickets
+            </a>
             <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#about">About</a>
             <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#venue">Venue</a>
             <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#speakers">Speakers</a>
