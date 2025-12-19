@@ -144,11 +144,15 @@ const sponsorsByTier = {
       }
       .faq-answer {
         max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
       }
       .faq-item.open .faq-answer {
         max-height: 500px;
+        padding-top: 0;
+        padding-bottom: 1rem;
       }
       .faq-toggle {
         transition: transform 0.3s ease;
@@ -537,7 +541,7 @@ const sponsorsByTier = {
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
-                <div class="faq-answer px-6 pb-4 text-gray-600">
+                <div class="faq-answer px-6 text-gray-600">
                   {item.answer}
                 </div>
               </div>
