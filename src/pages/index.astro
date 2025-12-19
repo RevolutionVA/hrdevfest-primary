@@ -245,28 +245,21 @@ const sponsorsByTier = {
       });
     </script>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white z-50 shadow-sm">
+    <!-- Navigation - Transparent, overlaid on hero -->
+    <nav class="fixed top-0 w-full z-50">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="flex justify-between items-center py-3">
-          <!-- Desktop Nav - Tagline on far left (stacked vertically) -->
-          <div class="hidden lg:flex flex-col text-[10px] leading-tight">
-            <span class="font-bold tracking-wide">C<span class="text-brand-blue">O</span>NNECT</span>
-            <span class="font-bold tracking-wide">DISC<span class="text-brand-yellow">O</span>VER</span>
-            <span class="font-bold tracking-wide">GR<span class="text-brand-green">O</span>W</span>
-          </div>
-
-          <!-- Desktop Nav - Buy Tickets as red text + nav links -->
+        <div class="flex justify-end items-center py-4">
+          <!-- Desktop Nav Links -->
           <div class="hidden md:flex items-center space-x-6">
             <a href="https://events.humanitix.com/hampton-roads-devfest-2026" target="_blank" class="text-brand-red font-semibold hover:text-brand-red-dark transition-colors">
               Buy Tickets
             </a>
-            <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#about">About</a>
-            <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#venue">Venue</a>
-            <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#speakers">Speakers</a>
-            <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#testimonials">Testimonials</a>
-            <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#years">2024</a>
-            <a class="nav-link text-gray-700 hover:text-brand-teal font-medium" href="#faq">FAQ</a>
+            <a class="nav-link text-white hover:text-white/80 font-medium" href="#about">About</a>
+            <a class="nav-link text-white hover:text-white/80 font-medium" href="#venue">Venue</a>
+            <a class="nav-link text-white hover:text-white/80 font-medium" href="#speakers">Speakers</a>
+            <a class="nav-link text-white hover:text-white/80 font-medium" href="#testimonials">Testimonials</a>
+            <a class="nav-link text-white hover:text-white/80 font-medium" href="#years">2024</a>
+            <a class="nav-link text-white hover:text-white/80 font-medium" href="#faq">FAQ</a>
           </div>
 
           <!-- Mobile Menu Button -->
@@ -274,7 +267,7 @@ const sponsorsByTier = {
             <a href="https://events.humanitix.com/hampton-roads-devfest-2026" target="_blank" class="px-4 py-2 bg-brand-red text-white font-semibold rounded-lg text-sm">
               Buy Tickets
             </a>
-            <button id="menuButton" class="p-2 text-gray-700">
+            <button id="menuButton" class="p-2 text-white">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
@@ -283,20 +276,20 @@ const sponsorsByTier = {
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu md:hidden pb-4">
-          <div class="flex flex-col space-y-3">
-            <a class="text-gray-700 hover:text-brand-teal font-medium py-2" href="#about">About</a>
-            <a class="text-gray-700 hover:text-brand-teal font-medium py-2" href="#venue">Venue</a>
-            <a class="text-gray-700 hover:text-brand-teal font-medium py-2" href="#speakers">Speakers</a>
-            <a class="text-gray-700 hover:text-brand-teal font-medium py-2" href="#testimonials">Testimonials</a>
-            <a class="text-gray-700 hover:text-brand-teal font-medium py-2" href="#years">2024</a>
-            <a class="text-gray-700 hover:text-brand-teal font-medium py-2" href="#faq">FAQ</a>
+        <div id="mobileMenu" class="mobile-menu md:hidden pb-4 bg-brand-teal/95">
+          <div class="flex flex-col space-y-3 px-4">
+            <a class="text-white hover:text-white/80 font-medium py-2" href="#about">About</a>
+            <a class="text-white hover:text-white/80 font-medium py-2" href="#venue">Venue</a>
+            <a class="text-white hover:text-white/80 font-medium py-2" href="#speakers">Speakers</a>
+            <a class="text-white hover:text-white/80 font-medium py-2" href="#testimonials">Testimonials</a>
+            <a class="text-white hover:text-white/80 font-medium py-2" href="#years">2024</a>
+            <a class="text-white hover:text-white/80 font-medium py-2" href="#faq">FAQ</a>
           </div>
         </div>
       </div>
     </nav>
 
-    <main class="flex-1 pt-16">
+    <main class="flex-1">
       <!-- Hero Section -->
       <section class="relative bg-brand-teal min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden">
         <!-- Desktop: background image includes CONNECT/DISCOVER/GROW tagline -->
@@ -304,23 +297,20 @@ const sponsorsByTier = {
         <Image src={heroBgTablet} alt="" class="absolute inset-0 w-full h-full object-cover hidden md:block lg:hidden" />
         <Image src={heroBgPhone} alt="" class="absolute inset-0 w-full h-full object-cover md:hidden" />
 
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 py-12">
-          <!-- Main Hero Content - Centered -->
-          <div class="flex flex-col items-center text-center">
-            <Image src={logoNew} alt="Hampton Roads DevFest" class="w-40 md:w-48 mb-4" />
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Hampton Roads<br />DevFest 2026
-            </h1>
-            <p class="text-xl md:text-2xl text-white/90 mb-6">
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 py-16 lg:py-24 lg:pl-48">
+          <!-- Hero Content: Logo left, Title right -->
+          <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <!-- Logo + Title row -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-center gap-4 lg:gap-6 mb-4">
+              <Image src={logoWhite} alt="Hampton Roads DevFest" class="w-24 md:w-32 lg:w-36" />
+              <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+                Hampton Roads<br />DevFest 2026
+              </h1>
+            </div>
+            <!-- Date -->
+            <p class="text-lg md:text-xl lg:text-2xl text-white/90 mb-6">
               SAVE THE DATE: Feb 27th, 2026 - Virginia Beach, VA
             </p>
-
-            <!-- Mobile Tagline -->
-            <div class="flex lg:hidden items-center justify-center gap-4 mb-6">
-              <span class="text-white text-sm font-semibold"><span class="tagline-dot bg-brand-blue"></span>CONNECT</span>
-              <span class="text-white text-sm font-semibold"><span class="tagline-dot bg-brand-yellow"></span>DISCOVER</span>
-              <span class="text-white text-sm font-semibold"><span class="tagline-dot bg-brand-green"></span>GROW</span>
-            </div>
 
             <div class="flex flex-col sm:flex-row gap-4">
               <a
