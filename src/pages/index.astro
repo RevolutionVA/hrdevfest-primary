@@ -268,20 +268,9 @@ const sponsorsByTier = {
         <!-- Content wrapper -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 flex flex-col lg:flex-row items-center lg:items-center min-h-[320px]">
 
-          <!-- Left Column: Labels + Logo -->
-          <div class="hidden lg:flex flex-col items-start gap-3 w-48">
-            <!-- DISCOVER label with line -->
-            <div class="flex items-center gap-3">
-              <span class="text-red-500 text-xs font-semibold tracking-widest uppercase">DISCOVER</span>
-              <div class="h-px w-16 bg-red-500"></div>
-            </div>
-            <!-- GROW label with line -->
-            <div class="flex items-center gap-3">
-              <span class="text-red-500 text-xs font-semibold tracking-widest uppercase">GROW</span>
-              <div class="h-px w-16 bg-red-500"></div>
-            </div>
-            <!-- Logo in white circle -->
-            <div class="mt-4 w-24 h-24 rounded-full bg-white flex items-center justify-center p-2">
+          <!-- Left Column: Logo only (DISCOVER/GROW labels come from hero-dots.svg background) -->
+          <div class="hidden lg:flex flex-col items-start w-48">
+            <div class="w-24 h-24 rounded-full bg-white flex items-center justify-center p-2">
               <Image src={hrdevfestLogo} alt="Hampton Roads DevFest" class="w-full h-full object-contain" />
             </div>
           </div>
