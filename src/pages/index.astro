@@ -457,38 +457,28 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
       </div>
     </section>
 
-    <!-- Tickets Section -->
-    <section id="tickets" class="w-full py-20 px-[200px] bg-[#F3F4F6]">
-      <div class="max-w-[1040px] mx-auto flex flex-col items-center gap-6">
-        <h2 class="text-black text-[32px] font-bold leading-10">Get Your Tickets</h2>
-        <div class="w-full p-8 bg-white card-shadow card-asymmetric">
-          <script src="https://events.humanitix.com/scripts/widgets/inline.js" type="module"></script>
-          <iframe data-checkout="hampton-roads-devfest-2026" data-params="c=website" style="width: 100%; min-height: 450px; border: none;"></iframe>
-        </div>
-      </div>
-    </section>
-
     <!-- Venue Section -->
-    <section id="venue" class="w-full card-shadow flex relative overflow-hidden">
-      <!-- Decorative text elements -->
-      <div class="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-10">
-        <span class="text-[#267BD9] text-[40px] font-black tracking-wider opacity-80">CONNECT</span>
-        <span class="text-[#F4B00F] text-[40px] font-black tracking-wider opacity-80">DISCOVER</span>
-        <span class="text-[#27B738] text-[40px] font-black tracking-wider opacity-80">GROW</span>
-      </div>
-      <!-- Left side with gradient and info -->
-      <div class="flex-1 venue-section pr-10 pl-48 flex flex-col justify-center items-center gap-2.5 relative">
-        <div class="text-right">
-          <h3 class="text-white text-[32px] font-bold leading-10">Venue</h3>
-          <p class="text-white text-2xl font-normal leading-[30px] mt-2">
+    <section id="venue" class="w-full card-shadow flex flex-col lg:flex-row relative">
+      <!-- Top/Left section with gradient and venue info -->
+      <div class="w-full lg:flex-1 h-[200px] lg:h-auto flex flex-col justify-center items-center gap-2.5 relative overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-br from-[#123F4E] to-[#052831]"></div>
+          <Image src={venuePic} alt="" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
+        </div>
+
+        <!-- Venue info - right aligned -->
+        <div class="w-full px-8 md:pr-10 md:pl-8 text-right relative z-10">
+          <p class="text-white text-base md:text-2xl font-normal leading-relaxed md:leading-[30px]">
             Zeiders American Dream Theater<br/>
             4509 Commerce Street,<br/>
             Virginia Beach, VA 23462
           </p>
         </div>
       </div>
-      <!-- Right side with map image -->
-      <div class="flex-1">
+
+      <!-- Bottom/Right section with map -->
+      <div class="w-full lg:flex-1">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.259579003214!2d-76.13574812406885!3d36.84155839379043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba959f7490b19d%3A0x2946d6df48a4c3ba!2sZeiders%20American%20Dream%20Theater!5e0!3m2!1sen!2sus!4v1708011885150!5m2!1sen!2sus"
           width="100%"
@@ -496,7 +486,8 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
           style="border:0;"
           allowfullscreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-[283px] md:h-[530px]"></iframe>
       </div>
     </section>
 
