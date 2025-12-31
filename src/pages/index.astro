@@ -460,15 +460,16 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
     <!-- Venue Section -->
     <section id="venue" class="w-full card-shadow flex flex-col lg:flex-row relative">
       <!-- Top/Left section with gradient and venue info -->
-      <div class="w-full lg:flex-1 h-[200px] lg:h-auto flex flex-col justify-center items-center gap-2.5 relative overflow-hidden">
+      <div class="w-full lg:flex-1 h-[200px] lg:h-[530px] flex flex-col justify-center items-center gap-2.5 relative overflow-hidden">
         <!-- Background -->
         <div class="absolute inset-0 pointer-events-none">
           <div class="absolute inset-0 bg-gradient-to-br from-[#123F4E] to-[#052831]"></div>
-          <Image src={venuePic} alt="" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay" />
+          <Image src={venuePic} alt="" class="absolute left-0 top-0 h-full w-auto min-w-full object-left-top mix-blend-overlay" />
         </div>
 
         <!-- Venue info - right aligned -->
         <div class="w-full px-8 md:pr-10 md:pl-8 text-right relative z-10">
+          <h2 class="text-white text-[32px] md:text-[40px] font-bold mb-4">Venue</h2>
           <p class="text-white text-base md:text-2xl font-normal leading-relaxed md:leading-[30px]">
             Zeiders American Dream Theater<br/>
             4509 Commerce Street,<br/>
