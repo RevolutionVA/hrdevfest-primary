@@ -463,8 +463,7 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
       <div class="w-full lg:flex-1 h-[200px] lg:h-[530px] flex flex-col justify-center items-center gap-2.5 relative overflow-hidden">
         <!-- Background -->
         <div class="absolute inset-0 pointer-events-none">
-          <div class="absolute inset-0 bg-gradient-to-br from-[#123F4E] to-[#052831]"></div>
-          <Image src={venuePic} alt="" class="absolute left-0 top-0 h-full w-auto min-w-full object-left-top mix-blend-overlay" />
+          <Image src={venuePic} alt="" class="absolute left-0 top-0 h-full w-auto min-w-full object-left-top object-cover" />
         </div>
 
         <!-- Venue info - right aligned -->
@@ -551,13 +550,18 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
     </section>
 
     <!-- Scholarship Section -->
-    <section class="scholarship-section w-full h-[400px] card-shadow flex">
-      <!-- Left side with content -->
-      <div class="flex-1 px-10 flex flex-col justify-center items-center gap-2">
-        <div class="p-10 flex flex-col gap-4">
-          <div class="flex justify-center items-center gap-2">
-            <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none">
-              <rect y="8" width="40" height="24" fill="#3361C9"/>
+    <section class="w-full bg-[#FFFCF3] card-shadow flex flex-col lg:flex-row">
+      <!-- Left/Main content -->
+      <div class="flex-1 p-10 flex flex-col items-center gap-8">
+        <div class="w-full flex flex-col gap-4 p-0 md:p-10">
+          <!-- Header: Mobile stacked, Tablet/Desktop horizontal -->
+          <div class="flex flex-col md:flex-row items-center justify-center gap-2">
+            <!-- Graduation Cap Icon -->
+            <svg class="w-10 h-10 shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 8L2 16L20 24L38 16L20 8Z" fill="#3361C9"/>
+              <path d="M8 19V27L20 33L32 27V19" stroke="#3361C9" stroke-width="2" fill="none"/>
+              <path d="M36 16V28" stroke="#3361C9" stroke-width="2"/>
+              <circle cx="36" cy="29" r="2" fill="#3361C9"/>
             </svg>
             <h3 class="text-center text-black text-2xl font-bold leading-8">Apply for a 2026 Scholarship!</h3>
           </div>
@@ -565,21 +569,22 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
             Hampton Roads DevFest is committed to making our conference accessible to everyone. We're offering scholarships to students, career changers, and underrepresented groups in tech to help remove financial barriers to attending.
           </p>
         </div>
+        <!-- Button: Full-width on mobile, auto on tablet/desktop -->
         <a
           href="https://forms.gle/2SyzmmEMrsEirZAFA"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-8 py-4 btn-primary text-white text-base font-bold leading-relaxed text-center"
+          class="w-full md:w-auto px-8 py-4 bg-[#D33B32] hover:bg-[#B32E27] text-white text-base font-bold leading-relaxed text-center rounded-full transition-colors"
         >
           Apply for Scholarship
         </a>
       </div>
-      <!-- Right side with image -->
-      <div class="flex-1 venue-section flex items-center justify-center">
+      <!-- Right side with image - Desktop only -->
+      <div class="hidden lg:flex flex-1 relative overflow-hidden">
         <Image
           src={scholarshipPic}
           alt="Scholarship"
-          class="w-full h-full object-cover"
+          class="absolute inset-0 w-full h-full object-cover"
         />
       </div>
     </section>

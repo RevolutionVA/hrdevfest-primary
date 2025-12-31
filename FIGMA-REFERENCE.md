@@ -61,9 +61,9 @@
 ### Scholarship CTA
 | Breakpoint | Figma Link | Status |
 |------------|------------|--------|
-| Desktop    | [Add link] | Pending |
-| Tablet     | [Add link] | Pending |
-| Mobile     | [Add link] | Pending |
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-2947&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=260-6044&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=261-1139&m=dev) | Implemented |
 
 ### Footer
 | Breakpoint | Figma Link | Status |
