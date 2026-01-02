@@ -1,24 +1,24 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../../../assets/logo.png";
-import headerImage from "../../../assets/header-image.png";
-import cfsponsors from "../../../assets/sponsorship.png";
+import logoWhite from "../../../assets/logo-white.png";
+import header2024 from "../../../assets/header_2024.png";
+import headerDots from "../../../assets/dots/header_dots.svg";
 
-import logoMarathon from "../../../assets/sponsors/marathon.png";
-import logoTechead from "../../../assets/sponsors/TECHEAD.png";
-import logoIssuetrak from "../../../assets/sponsors/issuetrak.png";
-import logoWafris from "../../../assets/sponsors/wafris.png";
-import logoStigian from "../../../assets/sponsors/stigian.png";
-import logoTechArk from "../../../assets/sponsors/techark.png";
-import logoNTG from "../../../assets/sponsors/ntg.png";
-import logoCustomInk from "../../../assets/sponsors/custom_ink.svg";
-import logoCastleRock from "../../../assets/sponsors/castle_rock.svg";
-import logoDecisions from "../../../assets/sponsors/decisions.svg";
-import logoAppwrite from "../../../assets/sponsors/appwrite.svg";
-import logoYellowDog from "../../../assets/sponsors/yellowdog.png";
-import logoMicrosoft from "../../../assets/sponsors/microsoft_crop.png";
-import logoMaxx from "../../../assets/sponsors/maxxPotential.png";
+// Import 2024 event photos
+import photo1 from "../../../assets/2024-photos/2024-05-31 08.30.41.jpg";
+import photo2 from "../../../assets/2024-photos/2024-05-31 09.48.48.jpg";
+import photo3 from "../../../assets/2024-photos/2024-05-31 12.04.00.jpg";
+import photo4 from "../../../assets/2024-photos/2024-05-31 12.11.53.jpg";
+import photo5 from "../../../assets/2024-photos/2024-05-31 14.13.46.jpg";
 
+// Photo data with captions
+const photos = [
+  { src: photo1, caption: "Attendees arriving at the venue" },
+  { src: photo2, caption: "Morning keynote session" },
+  { src: photo3, caption: "Lunch and networking" },
+  { src: photo4, caption: "Workshop in progress" },
+  { src: photo5, caption: "Panel discussion" },
+];
 ---
 
 <html lang="en">
@@ -30,282 +30,256 @@ import logoMaxx from "../../../assets/sponsors/maxxPotential.png";
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Hampton Roads DevFest | May 31st, 2024 | Virginia Beach, VA</title>
+    <title>Hampton Roads DevFest 2024 | Event Highlights</title>
     <link href="/dist/index.css" rel="stylesheet" />
-
-    <script src="https://js.tito.io/v2/with/inline" async></script>
   </head>
-  <body
-    class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900"
-  >
-    <script>
-      let lastScrollTop = 0;
-      window.addEventListener("scroll", function () {
-        let scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        let topLinkBar = document.getElementById("topLinkBar");
+  <body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+    <!-- Mobile hamburger button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60]" aria-label="Toggle menu">
+      <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 text-black hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
 
-        if (topLinkBar) {
-          if (scrollTop > lastScrollTop) {
-            topLinkBar.classList.remove("opacity-0");
-            topLinkBar.classList.add("opacity-100");
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+      <div class="flex flex-col h-full">
+        <div class="h-[60px]"></div>
+        <div class="flex flex-col gap-8 px-8 pt-4">
+          <a href="/#tickets" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+          <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
+          <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
+          <a href="/#speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
+          <a href="/#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
+          <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
+          <a href="/#faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
+      <div class="max-w-7xl mx-auto hidden md:flex justify-center">
+        <div class="flex items-center gap-12 lg:gap-20">
+          <a href="/#tickets" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
+          <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
+          <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
+          <a href="/#speakers" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Speakers</a>
+          <a href="/#testimonials" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Testimonials</a>
+          <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2024</a>
+          <a href="/#faq" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">FAQ</a>
+        </div>
+      </div>
+      <!-- Mobile nav placeholder for hamburger positioning -->
+      <div class="md:hidden h-6"></div>
+    </nav>
+
+    <!-- Header Section with Event Highlights and 2024 Image -->
+    <section class="w-full bg-white relative overflow-hidden">
+      <!-- Background dots - anchored to left -->
+      <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
+
+      <div class="relative z-10 flex flex-col items-center py-10 px-8 lg:px-[280px] md:px-8">
+        <!-- Event Highlights Title and Description -->
+        <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center mb-10">
+          <h1 class="text-black text-[24px] md:text-[32px] font-bold leading-8 md:leading-10">
+            Event Highlights
+          </h1>
+          <p class="text-black text-base font-normal leading-relaxed">
+            Take a look back at Hampton Roads DevFest 2024! Our 5th annual event brought together local developers, industry professionals, and tech enthusiasts for a day of learning and networking.
+          </p>
+        </div>
+
+        <!-- 2024 Header Image - Responsive sizes -->
+        <Image
+          src={header2024}
+          alt="2024"
+          class="w-[250px] md:w-[500px] lg:w-[763px] h-auto"
+        />
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="w-full bg-gray-100 py-10 px-8 lg:px-10">
+      <div class="max-w-7xl mx-auto">
+        <!-- Responsive grid: 1 col mobile, 2 col tablet, 3 col desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {photos.map((photo, index) => (
+            <div class="flex flex-col rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] overflow-hidden photo-card" data-index={index}>
+              <!-- Photo with asymmetric top corners -->
+              <div class="h-[160px] lg:h-[256px] relative rounded-tl-[40px] rounded-tr-[10px] overflow-hidden">
+                <Image
+                  src={photo.src}
+                  alt={photo.caption}
+                  class="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <!-- Caption with asymmetric bottom corners -->
+              <div class="bg-white p-4 rounded-bl-[10px] rounded-br-[40px]">
+                <p class="text-black text-sm font-normal leading-6">
+                  {photo.caption}
+                  <span class="text-[#3361c9] text-xs ml-1">(</span><button class="text-[#3361c9] text-xs underline enlarge-btn" data-index={index}>Enlarge Photo</button><span class="text-[#3361c9] text-xs">)</span>
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Modal -->
+    <div id="photo-modal" class="fixed inset-0 z-[100] bg-black/80 hidden items-center justify-center p-4">
+      <button id="modal-close" class="absolute top-4 right-4 text-white text-4xl font-light hover:opacity-80">&times;</button>
+      <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl font-light hover:opacity-80 p-2">&larr;</button>
+      <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl font-light hover:opacity-80 p-2">&rarr;</button>
+      <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
+        <img id="modal-image" src="" alt="" class="max-w-full max-h-[80vh] object-contain" />
+        <p id="modal-caption" class="text-white text-center mt-4 text-lg"></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#052831] py-4 px-8 lg:px-20 mt-auto">
+      <p class="text-white text-base font-normal leading-relaxed text-center">
+        Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+      </p>
+    </footer>
+
+    <script>
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const menuLinks = document.querySelectorAll('.mobile-menu-link');
+        let isOpen = false;
+
+        function toggleMenu() {
+          isOpen = !isOpen;
+          if (isOpen) {
+            mobileMenu?.classList.remove('hidden');
+            hamburgerIcon?.classList.add('hidden');
+            closeIcon?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
           } else {
-            topLinkBar.classList.remove("opacity-100");
-            topLinkBar.classList.add("opacity-0");
+            mobileMenu?.classList.add('hidden');
+            hamburgerIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+            document.body.style.overflow = '';
           }
         }
 
-        lastScrollTop = scrollTop;
+        menuBtn?.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (isOpen) toggleMenu();
+          });
+        });
+
+        // Photo modal functionality
+        const modal = document.getElementById('photo-modal');
+        const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+        const modalCaption = document.getElementById('modal-caption');
+        const modalClose = document.getElementById('modal-close');
+        const modalPrev = document.getElementById('modal-prev');
+        const modalNext = document.getElementById('modal-next');
+        const enlargeBtns = document.querySelectorAll('.enlarge-btn');
+        const photoCards = document.querySelectorAll('.photo-card');
+
+        // Get photo data from DOM
+        const photos: { src: string; caption: string }[] = [];
+        photoCards.forEach((card) => {
+          const img = card.querySelector('img') as HTMLImageElement;
+          const caption = card.querySelector('p')?.textContent?.split('(')[0].trim() || '';
+          if (img) {
+            photos.push({ src: img.src, caption });
+          }
+        });
+
+        let currentIndex = 0;
+
+        function showPhoto(index: number) {
+          if (photos[index]) {
+            currentIndex = index;
+            if (modalImage) modalImage.src = photos[index].src;
+            if (modalCaption) modalCaption.textContent = photos[index].caption;
+          }
+        }
+
+        function openModal(index: number) {
+          showPhoto(index);
+          modal?.classList.remove('hidden');
+          modal?.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          modal?.classList.add('hidden');
+          modal?.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+
+        enlargeBtns.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            const index = parseInt((btn as HTMLElement).dataset.index || '0');
+            openModal(index);
+          });
+        });
+
+        photoCards.forEach((card) => {
+          const img = card.querySelector('.relative');
+          img?.addEventListener('click', () => {
+            const index = parseInt((card as HTMLElement).dataset.index || '0');
+            openModal(index);
+          });
+        });
+
+        modalClose?.addEventListener('click', closeModal);
+
+        modalPrev?.addEventListener('click', () => {
+          const newIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
+          showPhoto(newIndex);
+        });
+
+        modalNext?.addEventListener('click', () => {
+          const newIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+          showPhoto(newIndex);
+        });
+
+        // Close on background click
+        modal?.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (modal?.classList.contains('hidden')) return;
+
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowLeft') {
+            const newIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
+            showPhoto(newIndex);
+          }
+          if (e.key === 'ArrowRight') {
+            const newIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+            showPhoto(newIndex);
+          }
+        });
       });
     </script>
 
-    <div
-      id="topLinkBar"
-      class="fixed top-0 w-full bg-gray-800 text-white z-50 opacity-0 transition-opacity duration-500"
-    >
-      <nav class="flex justify-around p-4">
-        <a class="hover:text-blue-500" href="#about">About</a>
-        <a class="hover:text-blue-500" href="#venue">Venue</a>
-        <a class="hover:text-blue-500" href="#tickets">Tickets</a>
-        <a class="hover:text-blue-500" href="#speakers">Speakers</a>
-        <a class="hover:text-blue-500" href="#sponsors">Sponsors</a>
-      </nav>
-    </div>
-    <div class="w-full max-w-2xl p-4">
-      <Image src={headerImage} alt="Hampton Roads DevFest" class="mx-auto" />
-      <h1 class="mt-6 text-3xl font-bold text-center">
-        Hampton Roads DevFest 2024
-      </h1>
-      <p class="mt-2 text-xl text-center">
-        May 31st, 2024 - Virginia Beach, VA
-      </p>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="about">About</h2>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden text-sm">
-          <p class="mb-3">
-            You're invited to Hampton Roads DevFest, returning for its exciting
-            5th event since its inception in 2016. This unique gathering
-            spotlights local speakers, showcasing our community's deep and
-            diverse talent.
-          </p>
-          <p class="mb-3">
-            Hampton Roads DevFest is more than a conference; it's a tribute to
-            our dynamic local developer community. It's an ideal platform to
-            highlight the exceptional places to work in the Hampton Roads area,
-            emphasizing innovative technological strides. This event caters to
-            everyone in the tech sphere, from seasoned developers and industry
-            veterans to emerging talents and students.
-          </p>
-          <p class="mb-3">
-            Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our
-            mission is to advance software development education throughout
-            Virginia. Our passion for promoting learning and growth in
-            technology is at the heart of DevFest.
-          </p>
-          <p class="mb-3">
-            Take advantage of this unparalleled opportunity to network, learn
-            from top industry professionals, and celebrate the remarkable
-            achievements of our tech community. Whether you're looking to
-            sharpen your skills, explore new career pathways, or simply immerse
-            yourself in a community of like-minded tech enthusiasts, Hampton
-            Roads DevFest is your destination.
-          </p>
-          <p class="mb-3">
-            Join us as we recognize and nurture the extraordinary tech talent
-            that thrives in Hampton Roads. Let's connect, discover, and grow
-            together at Hampton Roads DevFest 2025!
-          </p>
-        </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="_form_23"></div><script
-          src="https://revolutionconf.activehosted.com/f/embed.php?id=23"
-          charset="utf-8"></script>
-      </section>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="venue">Venue</h2>
-          </div>
-          <div class="flex-1">
-            <p class="mt-2 text-xl">Zeiders American Dream Theater</p>
-            <p class="mt-2 text-lg">4509 Commerce Street,</p>
-            <p class="mt-2 text-lg">Virginia Beach, VA 23462</p>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden shadow-lg">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.259579003214!2d-76.13574812406885!3d36.84155839379043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba959f7490b19d%3A0x2946d6df48a4c3ba!2sZeiders%20American%20Dream%20Theater!5e0!3m2!1sen!2sus!4v1708011885150!5m2!1sen!2sus"
-            width="100%"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="tickets">Tickets</h2>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden shadow-lg">
-          <tito-widget event="revolutionva/hrdevfest2025"></tito-widget>
-        </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="speakers">Sessions</h2>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden shadow-lg">
-          <p class="text-center mb-5">All our speakers are Hampton Roads locals!</p>
-          <script type="text/javascript" src="https://sessionize.com/api/v2/pzokysfy/view/Sessions"></script>
-        </div>
-      </section>
-<!-- 
-      <section class="mt-12 flex flex-col md:flex-row justify-between">
-        <div class="flex-1">
-          <h2 class="text-2xl font-bold" id="speakers">Speakers</h2>
-        </div>
-        <div class="flex-1">
-          <p>
-            Hampton Roads DevFest is special because it unique highlights the
-            amazing developer talent we have in our region. All HRDevFest
-            speakers are current or past residents of the Hampton Roads area.
-          </p>
-          <p class="mt-5">
-            Our <a
-              href="https://sessionize.com/hampton-roads-devfest-2025"
-              class="text-blue-500 hover:text-blue-700">Call For Speakers</a
-            > is currently open!
-          </p>
-        </div>
-      </section> -->
-
-      <section class="mt-12 flex flex-col md:flex-row justify-between">
-        <div class="flex-1">
-          <h2 class="text-2xl font-bold" id="sponsors">Sponsors</h2>
-        </div>
-        <div class="flex-1">
-          <p class="mb-5">Thank you so much to our sponsors!</p>
-          <div class="my-5 flex items-center justify-center">
-            <a href="https://stigian.com/" target="_blank">
-              <Image src={logoStigian} alt="Stigian Consulting" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://marathonus.com" target="_blank">
-              <Image src={logoMarathon} alt="Marathon Consulting" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://techead.com" target="_blank">
-              <Image src={logoTechead} alt="Techead" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://issuetrak.com" target="_blank">
-              <Image src={logoIssuetrak} alt="Issuetrak" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://wafris.org/?ref=hrdevfest" target="_blank">
-              <Image src={logoWafris} alt="Wafris" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://azure.microsoft.com" target="_blank">
-              <Image src={logoMicrosoft} alt="Microsoft" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://yellowdogsoftware.com" target="_blank">
-              <Image src={logoYellowDog} alt="Yellow Dog" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://gotechark.com" target="_blank">
-              <Image src={logoTechArk} alt="TechArk" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://notthegolfer.com" target="_blank">
-              <Image src={logoNTG} alt="NTG Consulting" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://customink.com" target="_blank">
-              <Image src={logoCustomInk} alt="Custom Ink" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://castlerockcs.com" target="_blank">
-              <Image src={logoCastleRock} alt="Castle Rock" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://decisions.com" target="_blank">
-              <Image src={logoDecisions} alt="Decisions" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5 flex justify-center">
-            <a href="https://appwrite.io" target="_blank">
-              <Image src={logoAppwrite} alt="Appwrite" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5 flex justify-center">
-            <a href="http://www.maxxpotential.com/" target="_blank">
-              <Image src={logoMaxx} alt="MAXXPotential" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <p class="text-center">
-            Our <a
-              href="https://drive.google.com/file/u/5/d/1Pt1AwixVbP1C9HceFoaE28HB6f2MbH3P/view?usp=drive_link"
-              class="text-blue-500 hover:text-blue-700">Call For Sponsors</a
-            > is open!
-          </p>
-          <br />
-          <a
-            href="https://drive.google.com/file/u/5/d/1Pt1AwixVbP1C9HceFoaE28HB6f2MbH3P/view?usp=drive_link"
-          >
-            <Image src={cfsponsors} alt="Call For Sponsors" />
-          </a>
-        </div>
-      </section>
-    </div>
-    <footer
-      class="fixed inset-x-0 bottom-0 bg-gray-800 text-white text-center py-3"
-    >
-      <p>
-        Hampton Roads DevFest is presented by RevolutionVA, a 501c3
-        organization.
-      </p>
-    </footer>
+    <style>
+      .photo-card .relative {
+        cursor: pointer;
+      }
+      .photo-card .relative:hover {
+        opacity: 0.9;
+      }
+    </style>
   </body>
 </html>

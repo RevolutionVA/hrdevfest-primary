@@ -82,6 +82,31 @@
 
 ---
 
+## 2024 Page
+
+### Navigation
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2465&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-694&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-163&m=dev) | Implemented |
+
+### Header
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2481&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2643&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=265-2925&m=dev) | Implemented |
+
+### Photo Gallery
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2484&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2709&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=265-2928&m=dev) | Implemented |
+
+---
+
 ## Design Tokens
 
 ### Colors
@@ -114,3 +139,4 @@ Located in `src/assets/`:
 - `sponsor_bkgd.png`
 - `scholarship_pic.png`
 - `logo-white.png`
+- `header_2024.png` - 2024 page header image with photo clipping mask
