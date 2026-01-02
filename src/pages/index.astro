@@ -165,26 +165,21 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
       .scholarship-section {
         background: var(--cream);
       }
-
-
-      /* Mobile sticky bottom bar */
-      .mobile-sticky-cta {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: 40;
-        background: var(--teal-dark);
-        box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1);
-      }
-      @media (min-width: 1024px) {
-        .mobile-sticky-cta {
-          display: none;
-        }
-      }
     </style>
   </head>
   <body class="flex flex-col items-center min-h-screen bg-[#F3F4F6] text-gray-900">
+
+    <!-- Mobile hamburger button - outside hero to avoid overflow:hidden clipping -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60]" aria-label="Toggle menu">
+      <!-- Hamburger icon -->
+      <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <!-- X icon (hidden by default) -->
+      <svg id="close-icon" class="w-6 h-6 text-black hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
 
     <!-- Hero Section with Nav -->
     <section class="hero-section w-full relative overflow-hidden">
@@ -197,9 +192,10 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
         <!-- Desktop hero (1024px+) -->
         <Image src={heroBkgd} alt="" class="w-full h-full object-cover object-left-top hidden lg:block" width={1920} height={800} />
       </div>
-      <!-- Navigation - hidden on mobile -->
+      <!-- Navigation -->
       <nav class="w-full px-4 md:px-8 lg:pr-[40px] pt-[17px] pb-[17px] relative z-10">
-        <div class="max-w-7xl mx-auto flex justify-center lg:justify-end">
+        <div class="max-w-7xl mx-auto flex justify-end">
+          <!-- Desktop/Tablet nav links -->
           <div class="hidden md:flex items-center gap-6 lg:gap-10">
             <a href="#tickets" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Buy Tickets</a>
             <a href="#about" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">About</a>
@@ -211,6 +207,24 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
           </div>
         </div>
       </nav>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+        <div class="flex flex-col h-full">
+          <!-- Spacer for hamburger button area -->
+          <div class="h-[60px]"></div>
+          <!-- Menu links -->
+          <div class="flex flex-col gap-8 px-8 pt-4">
+            <a href="#tickets" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+            <a href="#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
+            <a href="#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
+            <a href="#speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
+            <a href="#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
+            <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
+            <a href="#faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
+          </div>
+        </div>
+      </div>
 
       <!-- Hero Content -->
       <div class="w-full px-4 md:px-8 lg:pr-[40px] pb-8 pt-8 relative z-10">
@@ -587,29 +601,47 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
 
     <!-- Footer -->
     <footer class="w-full bg-[#052831] py-4 px-8 lg:px-20">
-      <p class="text-white text-base font-normal leading-relaxed text-center lg:text-left">
+      <p class="text-white text-base font-normal leading-relaxed text-center">
         Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
       </p>
     </footer>
 
-    <!-- Mobile Sticky Bottom CTA Bar -->
-    <div class="mobile-sticky-cta py-3 px-4 lg:hidden">
-      <div class="flex gap-3 max-w-2xl mx-auto">
-        <a
-          href="#tickets"
-          class="flex-1 btn-primary text-white font-bold py-3 px-4 text-center text-sm"
-        >
-          Buy Tickets
-        </a>
-        <a
-          href="/prospectus"
-          target="_blank"
-          class="flex-1 btn-secondary font-bold py-3 px-4 text-center text-sm"
-        >
-          Sponsor
-        </a>
-      </div>
-    </div>
+    <!-- Mobile Menu JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const menuLinks = document.querySelectorAll('.mobile-menu-link');
+        let isOpen = false;
+
+        function toggleMenu() {
+          isOpen = !isOpen;
+          if (isOpen) {
+            mobileMenu?.classList.remove('hidden');
+            hamburgerIcon?.classList.add('hidden');
+            closeIcon?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          } else {
+            mobileMenu?.classList.add('hidden');
+            hamburgerIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        }
+
+        // Toggle menu on button click
+        menuBtn?.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (isOpen) toggleMenu();
+          });
+        });
+      });
+    </script>
 
     <!-- FAQ Accordion JavaScript -->
     <script>

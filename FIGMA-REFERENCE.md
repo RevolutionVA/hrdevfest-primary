@@ -3,53 +3,61 @@
 ## Project: Hampton Roads DevFest 2026 - "Connect the Dots" Theme
 
 ### Design File
-- **Main File**: [Add Figma file URL here]
+- **Main File**: [HR-DevFest - Connect the Dots](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots)
+
+### Full Page Designs
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-1864&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-899&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-1472&m=dev) | Implemented |
+| Mobile Menu | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=286-4986&m=dev) | Implemented |
 
 ---
 
 ## Homepage Sections
 
 ### Hero Section
-| Breakpoint | Figma Link | Status |
-|------------|------------|--------|
-| Desktop    | [Add link] | Implemented |
-| Tablet     | [Add link] | Implemented |
-| Mobile     | [Add link] | Implemented |
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
 
 ### Become a Sponsor CTA
-| Breakpoint | Figma Link | Status |
-|------------|------------|--------|
-| Desktop    | [Add link] | Implemented |
-| Tablet     | [Add link] | Implemented |
-| Mobile     | [Add link] | Implemented |
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
 
 ### About Section
-| Breakpoint | Figma Link | Status |
-|------------|------------|--------|
-| Desktop    | [Add link] | Implemented |
-| Tablet     | [Add link] | Implemented |
-| Mobile     | [Add link] | Implemented |
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
 
 ### Sponsors Section
-| Breakpoint | Figma Link | Status |
-|------------|------------|--------|
-| Desktop    | [Add link] | Implemented |
-| Tablet     | [Add link] | Implemented |
-| Mobile     | [Add link] | Implemented |
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
 
 ### FAQ Section
-| Breakpoint | Figma Link | Status |
-|------------|------------|--------|
-| Desktop    | [Add link] | Implemented |
-| Tablet     | [Add link] | Implemented |
-| Mobile     | [Add link] | Implemented |
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
 
 ### Venue Section
-| Breakpoint | Figma Link | Status |
-|------------|------------|--------|
-| Desktop    | [Add link] | Implemented |
-| Tablet     | [Add link] | Implemented |
-| Mobile     | [Add link] | Implemented |
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
 
 ### Testimonials Section
 | Breakpoint | Figma Link | Status |
