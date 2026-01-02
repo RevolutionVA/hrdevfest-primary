@@ -170,13 +170,13 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
   <body class="flex flex-col items-center min-h-screen bg-[#F3F4F6] text-gray-900">
 
     <!-- Mobile hamburger button - outside hero to avoid overflow:hidden clipping -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60]" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
       <!-- Hamburger icon -->
       <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
       <!-- X icon (hidden by default) -->
-      <svg id="close-icon" class="w-6 h-6 text-black hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
@@ -197,7 +197,7 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
         <div class="max-w-7xl mx-auto flex justify-end">
           <!-- Desktop/Tablet nav links -->
           <div class="hidden md:flex items-center gap-6 lg:gap-10">
-            <a href="#tickets" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Buy Tickets</a>
+            <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Buy Tickets</a>
             <a href="#about" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">About</a>
             <a href="#venue" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Venue</a>
             <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Speakers</a>
@@ -215,7 +215,7 @@ const allSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold, ...spon
           <div class="h-[60px]"></div>
           <!-- Menu links -->
           <div class="flex flex-col gap-8 px-8 pt-4">
-            <a href="#tickets" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+            <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
             <a href="#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
             <a href="#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
             <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>

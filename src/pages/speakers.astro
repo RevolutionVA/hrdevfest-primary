@@ -49,11 +49,11 @@ const speakerImages: Record<string, any> = {
   </head>
   <body class="flex flex-col min-h-screen bg-[#F3F4F6] text-gray-900">
     <!-- Mobile hamburger button -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60]" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
       <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-      <svg id="close-icon" class="w-6 h-6 text-black hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
@@ -63,7 +63,7 @@ const speakerImages: Record<string, any> = {
       <div class="flex flex-col h-full">
         <div class="h-[60px]"></div>
         <div class="flex flex-col gap-8 px-8 pt-4">
-          <a href="/#tickets" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
           <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
           <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
           <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
@@ -78,7 +78,7 @@ const speakerImages: Record<string, any> = {
     <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
       <div class="max-w-7xl mx-auto hidden md:flex justify-center">
         <div class="flex items-center gap-12 lg:gap-20">
-          <a href="/#tickets" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
           <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
           <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
           <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Speakers</a>

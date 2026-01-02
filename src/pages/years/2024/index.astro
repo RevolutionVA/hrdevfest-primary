@@ -35,11 +35,11 @@ const photos = [
   </head>
   <body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
     <!-- Mobile hamburger button -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60]" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
       <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-      <svg id="close-icon" class="w-6 h-6 text-black hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
@@ -49,7 +49,7 @@ const photos = [
       <div class="flex flex-col h-full">
         <div class="h-[60px]"></div>
         <div class="flex flex-col gap-8 px-8 pt-4">
-          <a href="/#tickets" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
           <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
           <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
           <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
@@ -64,7 +64,7 @@ const photos = [
     <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
       <div class="max-w-7xl mx-auto hidden md:flex justify-center">
         <div class="flex items-center gap-12 lg:gap-20">
-          <a href="/#tickets" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
           <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
           <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
           <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Speakers</a>
@@ -151,7 +151,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">You Really Should Look at the Execution Plan</p>
               <p class="text-sm text-gray-600">Monica Morehouse (Rathbun)</p>
-              <p class="text-sm text-gray-700 mt-2">Learn to gather and read execution plans, understand query operators, and improve database performance through plan analysis.</p>
+              <p class="text-sm text-gray-700 mt-2">Do you struggle to understand why a query is running slowly? Or why it runs in less than a second most of the time, and takes 10 minutes other times? Being able to review and understand query execution plans is essential to understand bottlenecks in database performance. While DBAs need to be able to understand execution plans, for proactive performance management developers need to be able to review plans as queries and procedures get developed. In this session you will learn how to gather and read execution plans, understand what query operators are and what actions they perform, understand the differences in plan types. Finally, you will learn how to improve your code and its performance by using the data revealed in these plans.</p>
             </div>
           </div>
 
@@ -163,7 +163,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">Is Gen AI the killer app, or the final boss?</p>
               <p class="text-sm text-gray-600">Travis Webb</p>
-              <p class="text-sm text-gray-700 mt-2">Explores whether generative AI will reshape technology markets or follow historical patterns of overhyped innovations.</p>
+              <p class="text-sm text-gray-700 mt-2">Many things appear to be taking over the world at the height of their power, but they often don't finish the job. Is GenAI the exception, or the rule? Can it give us a superior grasp of reality, or will it lead us down the rabbit hole? Is Nvidia experiencing an "Intel Inside" moment, and can it last? Will GenAI cause the Cloud market to fragment or homogenize? And why do the best features always seem to be one version away? This talk discusses these questions, and others, and tries to answer them by looking at clues in the present and in our past.</p>
             </div>
           </div>
 
@@ -175,7 +175,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">How love lessons can land you a great job</p>
               <p class="text-sm text-gray-600">Chazona Baum</p>
-              <p class="text-sm text-gray-700 mt-2">Apply relationship-building principles to job searching, showing communication can be your greatest job-seeking superpower.</p>
+              <p class="text-sm text-gray-700 mt-2">Tightened hiring budgets are shaking even experienced developers' confidence in their ability to secure their next role. But because getting hired has a lot in common with other relationships, what allows you to successfully navigate dating can also give you an edge in a competitive talent market. Communication (not AI) can be your greatest job-seeking superpower. In this lighthearted but safe-for-work talk, we'll look at the attitudes, skills and strategies that will best allow you to stand out, align fit and remain compelling regardless of your existing experience level.</p>
             </div>
           </div>
 
@@ -187,7 +187,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">How to Lose an App in 60 seconds</p>
               <p class="text-sm text-gray-600">Michael Buckbee</p>
-              <p class="text-sm text-gray-700 mt-2">Practical web security strategies based on real-world attacks covering threat identification and prevention.</p>
+              <p class="text-sm text-gray-700 mt-2">Learn practical web application security survival strategies based on hundreds of real-world attacks I've personally helped stop. Come away knowing what kinds of attacks you do and don't need to worry about, how to identify them and how to prevent them in the future.</p>
             </div>
           </div>
 
@@ -199,7 +199,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">Empowering Efficiency at a National Lab through Low Code Solutions</p>
               <p class="text-sm text-gray-600">Jenah Parman & Marla Schuchman</p>
-              <p class="text-sm text-gray-700 mt-2">Case study of a low-code grant management system developed at Jefferson Lab.</p>
+              <p class="text-sm text-gray-700 mt-2">In this session, we'll delve into the journey of the Sponsored Research Portal (SRP), spotlighting its development as a low code/no code solution that simplified grant management and proposal development at Jefferson Lab, a U.S. Department of Energy Office of Science national laboratory. Explore how simplicity meets innovation as we discuss the potential of low code/no code solutions in addressing internal workflow challenges.</p>
             </div>
           </div>
 
@@ -211,7 +211,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">The Rise of AI Copilots</p>
               <p class="text-sm text-gray-600">Ken Collins</p>
-              <p class="text-sm text-gray-700 mt-2">Guide to implementing AI assistants using semantic interfaces and modern software architecture.</p>
+              <p class="text-sm text-gray-700 mt-2">Embark on a transformative journey into AI Agents and Assistants with Custom Ink's insights, empowering your engineering and product teams from the get-go. We chart the course from AI's inception to the cutting-edge of Copilots, unveiling novel semantic interfaces and cognitive architectures. Discover revolutionary mental models to revitalize your team dynamics. We'll demystify how blending traditional software architecture with AI-informed team strategies catalyzes rapid, ethical learning and cost-effective knowledge retrieval.</p>
             </div>
           </div>
 
@@ -223,7 +223,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">The Day of Learning: Amplifying L&D</p>
               <p class="text-sm text-gray-600">Omar McNeil</p>
-              <p class="text-sm text-gray-700 mt-2">Transform organizational learning programs using agile principles and data-driven strategies.</p>
+              <p class="text-sm text-gray-700 mt-2">As a change maker, have you ever wondered how even the smallest of roles can spark significant transformations within an organization? In today's highly disruptive and busy workplace, squeezing in self-development and learning is hard. I'm thrilled to share how we turned GitHub's Day of Learning (DoL) program from just another event into a powerhouse of employee learning and development. It transformed into a beacon of continuous learning by injecting a few agile values and principles into the program. From this talk, you'll walk away with improved insights on applying agile principles to revamp learning programs, strategies for fostering continuous improvement and personalized learning, tips on leveraging cross-functional relationships, and practical advice on managing learning programs through data-driven decision-making.</p>
             </div>
           </div>
 
@@ -235,7 +235,7 @@ const photos = [
             <div class="flex-1">
               <p class="font-semibold text-black">Managing On-Call Chaos</p>
               <p class="text-sm text-gray-600">Guillermo Fisher</p>
-              <p class="text-sm text-gray-700 mt-2">Strategies to optimize on-call rotations, communication, scheduling, and post-mortems to reduce burnout.</p>
+              <p class="text-sm text-gray-700 mt-2">For many software engineers, the on-call experience can be daunting, characterized by unexpected middle-of-the-night alerts that disrupt sleep, contribute to heightened stress levels, and undermine work/life balance. This talk aims to tackle the on-call conundrum head-on, sharing effective strategies and industry innovations to transform on-call from a dreaded obligation into a manageable, and even rewarding, aspect of software engineering work. Attendees will leave equipped with actionable insights on optimizing rotation configurations, enhancing communication, refining scheduling practices, streamlining hand-offs, conducting effective post-mortems, and balancing sprint work with on-call duties.</p>
             </div>
           </div>
         </div>
