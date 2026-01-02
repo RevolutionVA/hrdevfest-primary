@@ -1,7 +1,57 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../assets/logo.png";
-import headerImage from "../assets/header-image.png";
+import headerDots from "../assets/dots/header_dots.svg";
+
+interface ScheduleItem {
+  time: string;
+  title: string;
+  description?: string;
+}
+
+const scheduleItems: ScheduleItem[] = [
+  {
+    time: "8:00 AM",
+    title: "Registration Opens",
+    description: "Check in, grab your badge, and enjoy coffee and light refreshments."
+  },
+  {
+    time: "9:00 AM",
+    title: "To Be Determined",
+  },
+  {
+    time: "10:00 AM",
+    title: "To Be Determined",
+  },
+  {
+    time: "11:00 AM",
+    title: "To Be Determined",
+  },
+  {
+    time: "12:00 PM",
+    title: "Lunch",
+    description: "Lunch is included with your ticket."
+  },
+  {
+    time: "1:00 PM",
+    title: "To Be Determined",
+  },
+  {
+    time: "2:00 PM",
+    title: "To Be Determined",
+  },
+  {
+    time: "3:00 PM",
+    title: "To Be Determined",
+  },
+  {
+    time: "4:00 PM",
+    title: "To Be Determined",
+  },
+  {
+    time: "5:00 PM",
+    title: "Closing & Networking",
+    description: "Wrap up the day and connect with fellow attendees."
+  },
+];
 ---
 
 <html lang="en">
@@ -13,68 +63,166 @@ import headerImage from "../assets/header-image.png";
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Hampton Roads DevFest | Feb 27th, 2026 | Virginia Beach, VA - Schedule</title>
+    <title>Schedule | Hampton Roads DevFest 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link href="/dist/index.css" rel="stylesheet" />
     <style>
-      .gradient-text {
-        background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .card-asymmetric {
+        border-top-left-radius: 40px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 40px;
+        border-bottom-left-radius: 10px;
       }
       .card-shadow {
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        transition: all 0.3s ease;
-      }
-      .card-shadow:hover {
-        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        transform: translateY(-2px);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
       }
     </style>
-
   </head>
-  <body
-    class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900"
-  >
-    <div class="w-full max-w-2xl p-4">
-      <div class="relative">
-        <Image src={headerImage} alt="Hampton Roads DevFest" class="mx-auto rounded-lg shadow-xl" />
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/20 to-transparent rounded-lg"></div>
-      </div>
-      <h1 class="mt-8 text-4xl md:text-5xl font-bold text-center gradient-text">
-        Hampton Roads DevFest 2026
-      </h1>
-      <p class="mt-4 text-xl md:text-2xl text-center text-blue-600 font-bold">
-        SAVE THE DATE: Feb 27th, 2026 - Virginia Beach, VA
-      </p>
-      
-      <div class="mt-4 mb-6">
-        <nav class="flex justify-center space-x-6">
-          <a href="/" class="text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">← Back to Home</a>
-        </nav>
-      </div>
+  <body class="flex flex-col min-h-screen bg-[#F3F4F6] text-gray-900">
+    <!-- Mobile hamburger button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
+      <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
 
-      <section class="mt-12">
-        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 card-shadow text-center">
-          <h2 class="text-3xl font-bold text-gray-800 mb-6">Schedule Coming Soon!</h2>
-          <p class="mb-5 text-lg">
-            We're working on an amazing lineup of local speakers for 2026.
-          </p>
-          <p class="mb-5 text-lg">
-            Check back later for the full schedule, or sign up for our newsletter to be notified when it's available.
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+      <div class="flex flex-col h-full">
+        <div class="h-[60px]"></div>
+        <div class="flex flex-col gap-8 px-8 pt-4">
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+          <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
+          <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
+          <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
+          <a href="/schedule" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Schedule</a>
+          <a href="/#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
+          <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
+          <a href="/faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
+      <div class="max-w-7xl mx-auto hidden md:flex justify-center">
+        <div class="flex items-center gap-12 lg:gap-20">
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
+          <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
+          <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
+          <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Speakers</a>
+          <a href="/schedule" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Schedule</a>
+          <a href="/#testimonials" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Testimonials</a>
+          <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2024</a>
+          <a href="/faq" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">FAQ</a>
+        </div>
+      </div>
+      <div class="md:hidden h-6"></div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="w-full bg-white relative overflow-hidden">
+      <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
+
+      <div class="relative z-10 flex flex-col items-center py-8 px-8 lg:py-10 lg:px-[280px] md:px-8">
+        <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center">
+          <h1 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">
+            Schedule
+          </h1>
+          <p class="text-black text-base font-normal leading-relaxed">
+            February 27th, 2026 at Zeiders American Dream Theater
           </p>
         </div>
-      </section>
-      <div class="mb-24">&nbsp;</div>
-    </div>
-    <footer
-    class="fixed inset-x-0 bottom-0 bg-gradient-to-r from-gray-800 to-gray-900 text-white text-center py-4 shadow-lg"
-    style="z-index: 1000;"
-  >
-    <p>
-      Hampton Roads DevFest is presented by RevolutionVA, a 501c3
-      organization.
-    </p>
-  </footer>
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="w-full py-8 px-8 md:py-10 lg:py-20 lg:px-[200px] bg-[#F3F4F6]">
+      <div class="max-w-4xl mx-auto flex flex-col gap-4">
+        {scheduleItems.map((item) => (
+          <div class="bg-white p-6 md:p-8 card-asymmetric card-shadow relative overflow-hidden">
+            <!-- Dots decoration -->
+            <img
+              src={headerDots.src}
+              alt=""
+              class="absolute left-0 top-0 h-16 w-auto opacity-20 pointer-events-none"
+            />
+            <img
+              src={headerDots.src}
+              alt=""
+              class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
+            />
+
+            <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
+              <div class="text-[#D33B32] text-lg font-bold min-w-[100px]">
+                {item.time}
+              </div>
+              <div class="flex-1">
+                <p class={`text-base font-bold ${item.title === "To Be Determined" ? "text-gray-400" : "text-black"}`}>
+                  {item.title}
+                </p>
+                {item.description && (
+                  <p class="text-sm text-gray-600 mt-1">{item.description}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Coming Soon Note -->
+      <div class="max-w-4xl mx-auto mt-8 text-center">
+        <p class="text-gray-600 text-base">
+          Full schedule coming soon! Follow us for updates.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#052831] py-4 px-8 lg:px-20 mt-auto">
+      <p class="text-white text-base font-normal leading-relaxed text-center">
+        Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+      </p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const menuLinks = document.querySelectorAll('.mobile-menu-link');
+        let isOpen = false;
+
+        function toggleMenu() {
+          isOpen = !isOpen;
+          if (isOpen) {
+            mobileMenu?.classList.remove('hidden');
+            hamburgerIcon?.classList.add('hidden');
+            closeIcon?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+          } else {
+            mobileMenu?.classList.add('hidden');
+            hamburgerIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        }
+
+        menuBtn?.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (isOpen) toggleMenu();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
