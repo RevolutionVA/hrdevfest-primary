@@ -1,0 +1,11 @@
+/* TEAM */
+Organization: RevolutionVA
+Site: https://revolutionva.com
+Twitter: @hrdevfest
+Location: Hampton Roads, Virginia
+
+/* SITE */
+Last update: 2026/01/03
+Standards: HTML5, CSS3
+Components: Astro, Tailwind CSS, TypeScript
+Software: VS Code
