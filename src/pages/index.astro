@@ -390,13 +390,13 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         <div class="pt-10 flex flex-col items-center gap-6 md:gap-10">
           {/* Platinum Sponsors - Largest */}
           {sponsorsByTier.platinum.length > 0 && (
-            <div class={`w-full flex flex-wrap justify-center gap-6 md:gap-10 max-w-3xl mx-auto ${sponsorsByTier.platinum.length === 1 ? '' : 'md:grid md:grid-cols-2'}`}>
+            <div class="w-full flex flex-wrap justify-center gap-6 md:gap-10 max-w-3xl mx-auto">
               {sponsorsByTier.platinum.map((sponsor) => (
                 <a
                   href={sponsor.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="p-12 md:p-14 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
+                  class="w-full md:w-[calc(50%-1.25rem)] p-12 md:p-14 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
                   title={sponsor.name}
                 >
                   <Image
