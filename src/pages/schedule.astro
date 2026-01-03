@@ -8,6 +8,7 @@ interface ScheduleItem {
 }
 
 const scheduleItems: ScheduleItem[] = [
+  // Morning
   {
     time: "8:00 AM",
     title: "Registration Opens",
@@ -15,41 +16,102 @@ const scheduleItems: ScheduleItem[] = [
   },
   {
     time: "9:00 AM",
-    title: "To Be Determined",
+    title: "Opening & Announcements",
+    description: "15 minutes"
+  },
+  // Content Block 1
+  {
+    time: "9:15 AM",
+    title: "Talk #1",
+    description: "Speaker TBD"
   },
   {
     time: "10:00 AM",
-    title: "To Be Determined",
+    title: "Break",
+    description: "15 minutes"
+  },
+  {
+    time: "10:15 AM",
+    title: "Talk #2",
+    description: "Speaker TBD"
   },
   {
     time: "11:00 AM",
-    title: "To Be Determined",
+    title: "Break",
+    description: "15 minutes"
   },
   {
-    time: "12:00 PM",
+    time: "11:15 AM",
+    title: "Potentially Something Special",
+    description: "15 minutes"
+  },
+  {
+    time: "11:30 AM",
+    title: "Break",
+    description: "15 minutes"
+  },
+  // Lunch
+  {
+    time: "11:45 AM",
     title: "Lunch",
-    description: "Lunch is included with your ticket."
+    description: "60 minutes - Lunch is included with your ticket."
+  },
+  // Content Block 2
+  {
+    time: "12:45 PM",
+    title: "Talk #3",
+    description: "Speaker TBD"
   },
   {
-    time: "1:00 PM",
-    title: "To Be Determined",
+    time: "1:30 PM",
+    title: "Break",
+    description: "15 minutes"
   },
   {
-    time: "2:00 PM",
-    title: "To Be Determined",
+    time: "1:45 PM",
+    title: "Talk #4",
+    description: "Speaker TBD"
   },
   {
-    time: "3:00 PM",
-    title: "To Be Determined",
+    time: "2:30 PM",
+    title: "Break",
+    description: "15 minutes"
+  },
+  {
+    time: "2:45 PM",
+    title: "Talk #5",
+    description: "Speaker TBD"
+  },
+  {
+    time: "3:30 PM",
+    title: "Break",
+    description: "15 minutes"
+  },
+  {
+    time: "3:45 PM",
+    title: "Potentially Something Special",
+    description: "15 minutes"
   },
   {
     time: "4:00 PM",
-    title: "To Be Determined",
+    title: "Break",
+    description: "15 minutes"
   },
   {
+    time: "4:15 PM",
+    title: "Talk #6",
+    description: "Speaker TBD"
+  },
+  // Close
+  {
     time: "5:00 PM",
-    title: "Closing & Networking",
-    description: "Wrap up the day and connect with fellow attendees."
+    title: "Closing Remarks",
+    description: "15 minutes"
+  },
+  {
+    time: "5:15 PM",
+    title: "Networking",
+    description: "Connect with fellow attendees before heading out."
   },
 ];
 ---
@@ -164,7 +226,7 @@ const scheduleItems: ScheduleItem[] = [
                 {item.time}
               </div>
               <div class="flex-1">
-                <p class={`text-base font-bold ${item.title === "To Be Determined" ? "text-gray-400" : "text-black"}`}>
+                <p class={`text-base font-bold ${item.title.startsWith("Talk #") ? "text-gray-400" : "text-black"}`}>
                   {item.title}
                 </p>
                 {item.description && (
@@ -176,10 +238,10 @@ const scheduleItems: ScheduleItem[] = [
         ))}
       </div>
 
-      <!-- Coming Soon Note -->
+      <!-- Note -->
       <div class="max-w-4xl mx-auto mt-8 text-center">
         <p class="text-gray-600 text-base">
-          Full schedule coming soon! Follow us for updates.
+          Speaker assignments coming soon!
         </p>
       </div>
     </section>
