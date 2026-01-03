@@ -5,6 +5,11 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind()],
+  vite: {
+    server: {
+      allowedHosts: ['host.docker.internal'],
+    },
+  },
   redirects: {
     "/prospectus": {
       status: 302, // Use 301 for permanent redirects

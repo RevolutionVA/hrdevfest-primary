@@ -1,24 +1,24 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../../../assets/logo.png";
-import headerImage from "../../../assets/header-image.png";
-import cfsponsors from "../../../assets/sponsorship.png";
+import logoWhite from "../../../assets/logo-white.png";
+import header2024 from "../../../assets/header_2024.png";
+import headerDots from "../../../assets/dots/header_dots.svg";
 
-import logoMarathon from "../../../assets/sponsors/marathon.png";
-import logoTechead from "../../../assets/sponsors/TECHEAD.png";
-import logoIssuetrak from "../../../assets/sponsors/issuetrak.png";
-import logoWafris from "../../../assets/sponsors/wafris.png";
-import logoStigian from "../../../assets/sponsors/stigian.png";
-import logoTechArk from "../../../assets/sponsors/techark.png";
-import logoNTG from "../../../assets/sponsors/ntg.png";
-import logoCustomInk from "../../../assets/sponsors/custom_ink.svg";
-import logoCastleRock from "../../../assets/sponsors/castle_rock.svg";
-import logoDecisions from "../../../assets/sponsors/decisions.svg";
-import logoAppwrite from "../../../assets/sponsors/appwrite.svg";
-import logoYellowDog from "../../../assets/sponsors/yellowdog.png";
-import logoMicrosoft from "../../../assets/sponsors/microsoft_crop.png";
-import logoMaxx from "../../../assets/sponsors/maxxPotential.png";
+// Import 2024 event photos
+import photo1 from "../../../assets/2024-photos/2024-05-31 08.30.41.jpg";
+import photo2 from "../../../assets/2024-photos/2024-05-31 09.48.48.jpg";
+import photo3 from "../../../assets/2024-photos/2024-05-31 12.04.00.jpg";
+import photo4 from "../../../assets/2024-photos/2024-05-31 12.11.53.jpg";
+import photo5 from "../../../assets/2024-photos/2024-05-31 14.13.46.jpg";
 
+// Photo data with captions
+const photos = [
+  { src: photo1, caption: "Attendees arriving at the venue" },
+  { src: photo2, caption: "Morning keynote session" },
+  { src: photo3, caption: "Lunch and networking" },
+  { src: photo4, caption: "Workshop in progress" },
+  { src: photo5, caption: "Panel discussion" },
+];
 ---
 
 <html lang="en">
@@ -30,282 +30,588 @@ import logoMaxx from "../../../assets/sponsors/maxxPotential.png";
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Hampton Roads DevFest | May 31st, 2024 | Virginia Beach, VA</title>
-    <link href="/dist/index.css" rel="stylesheet" />
-
-    <script src="https://js.tito.io/v2/with/inline" async></script>
+    <title>Hampton Roads DevFest 2024 | Event Highlights</title>
+    <script is:inline src="https://events.humanitix.com/scripts/widgets/popup.js" type="module"></script>
   </head>
-  <body
-    class="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900"
-  >
-    <script>
-      let lastScrollTop = 0;
-      window.addEventListener("scroll", function () {
-        let scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
-        let topLinkBar = document.getElementById("topLinkBar");
+  <body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+    <!-- Mobile hamburger button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
+      <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
 
-        if (topLinkBar) {
-          if (scrollTop > lastScrollTop) {
-            topLinkBar.classList.remove("opacity-0");
-            topLinkBar.classList.add("opacity-100");
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+      <div class="flex flex-col h-full">
+        <div class="h-[60px]"></div>
+        <div class="flex flex-col gap-8 px-8 pt-4">
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Buy Tickets</a>
+          <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
+          <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
+          <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
+          <a href="/schedule" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Schedule</a>
+          <a href="/#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
+          <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
+          <a href="/faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
+      <div class="max-w-7xl mx-auto hidden md:flex justify-center">
+        <div class="flex items-center gap-12 lg:gap-20">
+          <a href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
+          <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
+          <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
+          <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Speakers</a>
+          <a href="/schedule" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Schedule</a>
+          <a href="/#testimonials" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Testimonials</a>
+          <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2024</a>
+          <a href="/faq" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">FAQ</a>
+        </div>
+      </div>
+      <!-- Mobile nav placeholder for hamburger positioning -->
+      <div class="md:hidden h-6"></div>
+    </nav>
+
+    <!-- Header Section with Event Highlights and 2024 Image -->
+    <section class="w-full bg-white relative overflow-hidden">
+      <!-- Background dots - anchored to left -->
+      <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
+
+      <div class="relative z-10 flex flex-col items-center py-10 px-8 lg:px-[280px] md:px-8">
+        <!-- Event Highlights Title and Description -->
+        <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center mb-10">
+          <h1 class="text-black text-[24px] md:text-[32px] font-bold leading-8 md:leading-10">
+            Event Highlights
+          </h1>
+          <p class="text-black text-base font-normal leading-relaxed">
+            Take a look back at Hampton Roads DevFest 2024! Our 5th annual event brought together local developers, industry professionals, and tech enthusiasts for a day of learning and networking.
+          </p>
+        </div>
+
+        <!-- 2024 Header Image - Responsive sizes -->
+        <Image
+          src={header2024}
+          alt="2024"
+          class="w-[250px] md:w-[500px] lg:w-[763px] h-auto"
+        />
+      </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="w-full bg-gray-100 py-10 px-8 lg:px-10">
+      <div class="max-w-7xl mx-auto">
+        <!-- Responsive grid: 1 col mobile, 2 col tablet, 3 col desktop -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {photos.map((photo, index) => (
+            <div class="flex flex-col rounded-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] overflow-hidden photo-card" data-index={index}>
+              <!-- Photo with asymmetric top corners -->
+              <div class="h-[160px] lg:h-[256px] relative rounded-tl-[40px] rounded-tr-[10px] overflow-hidden">
+                <Image
+                  src={photo.src}
+                  alt={photo.caption}
+                  class="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <!-- Caption with asymmetric bottom corners -->
+              <div class="bg-white p-4 rounded-bl-[10px] rounded-br-[40px]">
+                <p class="text-black text-sm font-normal leading-6">
+                  {photo.caption}
+                  <span class="text-[#3361c9] text-xs ml-1">(</span><button class="text-[#3361c9] text-xs underline enlarge-btn" data-index={index}>Enlarge Photo</button><span class="text-[#3361c9] text-xs">)</span>
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 2024 Schedule Section -->
+    <section class="w-full py-10 px-8 bg-white relative overflow-hidden">
+      <!-- Background dots - anchored to left -->
+      <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
+
+      <div class="max-w-4xl mx-auto flex flex-col gap-6 relative z-10">
+        <h2 class="text-[24px] md:text-[32px] font-bold text-black text-center">
+          2024 Schedule
+        </h2>
+        <p class="text-black text-base font-normal leading-relaxed text-center">
+          All sessions took place in the Main Auditorium on May 31, 2024.
+        </p>
+        <div class="flex flex-col gap-4">
+          <!-- Session 1 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              1:15 PM – 2:00 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">You Really Should Look at the Execution Plan</p>
+              <p class="text-sm text-gray-600">Monica Morehouse (Rathbun)</p>
+              <p class="text-sm text-gray-700 mt-2">Do you struggle to understand why a query is running slowly? Or why it runs in less than a second most of the time, and takes 10 minutes other times? Being able to review and understand query execution plans is essential to understand bottlenecks in database performance. While DBAs need to be able to understand execution plans, for proactive performance management developers need to be able to review plans as queries and procedures get developed. In this session you will learn how to gather and read execution plans, understand what query operators are and what actions they perform, understand the differences in plan types. Finally, you will learn how to improve your code and its performance by using the data revealed in these plans.</p>
+            </div>
+          </div>
+
+          <!-- Session 2 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              2:15 PM – 3:00 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">Is Gen AI the killer app, or the final boss?</p>
+              <p class="text-sm text-gray-600">Travis Webb</p>
+              <p class="text-sm text-gray-700 mt-2">Many things appear to be taking over the world at the height of their power, but they often don't finish the job. Is GenAI the exception, or the rule? Can it give us a superior grasp of reality, or will it lead us down the rabbit hole? Is Nvidia experiencing an "Intel Inside" moment, and can it last? Will GenAI cause the Cloud market to fragment or homogenize? And why do the best features always seem to be one version away? This talk discusses these questions, and others, and tries to answer them by looking at clues in the present and in our past.</p>
+            </div>
+          </div>
+
+          <!-- Session 3 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              3:15 PM – 4:00 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">How love lessons can land you a great job</p>
+              <p class="text-sm text-gray-600">Chazona Baum</p>
+              <p class="text-sm text-gray-700 mt-2">Tightened hiring budgets are shaking even experienced developers' confidence in their ability to secure their next role. But because getting hired has a lot in common with other relationships, what allows you to successfully navigate dating can also give you an edge in a competitive talent market. Communication (not AI) can be your greatest job-seeking superpower. In this lighthearted but safe-for-work talk, we'll look at the attitudes, skills and strategies that will best allow you to stand out, align fit and remain compelling regardless of your existing experience level.</p>
+            </div>
+          </div>
+
+          <!-- Session 4 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              4:45 PM – 5:30 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">How to Lose an App in 60 seconds</p>
+              <p class="text-sm text-gray-600">Michael Buckbee</p>
+              <p class="text-sm text-gray-700 mt-2">Learn practical web application security survival strategies based on hundreds of real-world attacks I've personally helped stop. Come away knowing what kinds of attacks you do and don't need to worry about, how to identify them and how to prevent them in the future.</p>
+            </div>
+          </div>
+
+          <!-- Session 5 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              5:45 PM – 6:30 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">Empowering Efficiency at a National Lab through Low Code Solutions</p>
+              <p class="text-sm text-gray-600">Jenah Parman & Marla Schuchman</p>
+              <p class="text-sm text-gray-700 mt-2">In this session, we'll delve into the journey of the Sponsored Research Portal (SRP), spotlighting its development as a low code/no code solution that simplified grant management and proposal development at Jefferson Lab, a U.S. Department of Energy Office of Science national laboratory. Explore how simplicity meets innovation as we discuss the potential of low code/no code solutions in addressing internal workflow challenges.</p>
+            </div>
+          </div>
+
+          <!-- Session 6 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              6:45 PM – 7:30 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">The Rise of AI Copilots</p>
+              <p class="text-sm text-gray-600">Ken Collins</p>
+              <p class="text-sm text-gray-700 mt-2">Embark on a transformative journey into AI Agents and Assistants with Custom Ink's insights, empowering your engineering and product teams from the get-go. We chart the course from AI's inception to the cutting-edge of Copilots, unveiling novel semantic interfaces and cognitive architectures. Discover revolutionary mental models to revitalize your team dynamics. We'll demystify how blending traditional software architecture with AI-informed team strategies catalyzes rapid, ethical learning and cost-effective knowledge retrieval.</p>
+            </div>
+          </div>
+
+          <!-- Session 7 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              7:45 PM – 8:30 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">The Day of Learning: Amplifying L&D</p>
+              <p class="text-sm text-gray-600">Omar McNeil</p>
+              <p class="text-sm text-gray-700 mt-2">As a change maker, have you ever wondered how even the smallest of roles can spark significant transformations within an organization? In today's highly disruptive and busy workplace, squeezing in self-development and learning is hard. I'm thrilled to share how we turned GitHub's Day of Learning (DoL) program from just another event into a powerhouse of employee learning and development. It transformed into a beacon of continuous learning by injecting a few agile values and principles into the program. From this talk, you'll walk away with improved insights on applying agile principles to revamp learning programs, strategies for fostering continuous improvement and personalized learning, tips on leveraging cross-functional relationships, and practical advice on managing learning programs through data-driven decision-making.</p>
+            </div>
+          </div>
+
+          <!-- Session 8 -->
+          <div class="bg-[#F3F4F6] p-6 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] flex flex-col md:flex-row gap-4">
+            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+              8:45 PM – 9:30 PM
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-black">Managing On-Call Chaos</p>
+              <p class="text-sm text-gray-600">Guillermo Fisher</p>
+              <p class="text-sm text-gray-700 mt-2">For many software engineers, the on-call experience can be daunting, characterized by unexpected middle-of-the-night alerts that disrupt sleep, contribute to heightened stress levels, and undermine work/life balance. This talk aims to tackle the on-call conundrum head-on, sharing effective strategies and industry innovations to transform on-call from a dreaded obligation into a manageable, and even rewarding, aspect of software engineering work. Attendees will leave equipped with actionable insights on optimizing rotation configurations, enhancing communication, refining scheduling practices, streamlining hand-offs, conducting effective post-mortems, and balancing sprint work with on-call duties.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2024 Speakers Section -->
+    <section class="w-full py-10 px-8 bg-[#F3F4F6]">
+      <div class="max-w-7xl mx-auto flex flex-col gap-10">
+        <!-- Header -->
+        <div class="flex flex-col gap-2 text-center lg:px-[280px]">
+          <h2 class="text-black text-[24px] md:text-[32px] font-semibold md:font-bold leading-8 md:leading-10">
+            2024 Speakers
+          </h2>
+          <p class="text-black text-base font-normal leading-relaxed">
+            Meet the amazing speakers who shared their knowledge at Hampton Roads DevFest 2024.
+          </p>
+        </div>
+
+        <!-- Speakers Grid -->
+        <div class="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+          <!-- Chazona Baum -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/7315-400o400o1-YpS113ikSWsdK8K3KHsw23.png"
+              alt="Chazona Baum"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Chazona Baum</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Founder at Tingles Labs</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Self-taught engineer who transitioned from veterinary, tax, and insurance work to tech. Observing frustrations in recruiting systems, she's building an improved dating-like platform for jobseekers.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/chazonabaum/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guillermo Fisher -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/3919-400o400o1-YWrj9vFGi2MPTugaMZq86p.jpg"
+              alt="Guillermo Fisher"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Guillermo Fisher</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Fractional CTO</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Two decades of experience in driving organizational innovation and cultivating high-performing software engineering teams.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/guillermofisher/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ken Collins -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/ba13-400o400o1-hMqZRiMq985nP1FZCz1Nfg.jpg"
+              alt="Ken Collins"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Ken Collins</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Principal Engineer & GenAI R&D at Custom Ink</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                AWS Serverless Hero and AI industry analyst & researcher merging technical expertise with strategic business insights.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/metaskills/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Michael Buckbee -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/b0c4-400o400o1-L8qnWhL2upTUZo5aZ2zsVC.jpg"
+              alt="Michael Buckbee"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Michael Buckbee</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Founder, Expedited Security</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Long-time Rails developer who built secure applications for the U.S. Navy and Fortune 100 companies, helping thousands recover from attacks.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/michaelbuckbee/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Monica Morehouse -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/199b-400o400o1-TqwwmUiQFQoYkmoY5EEdBP.jpg"
+              alt="Monica Morehouse (Rathbun)"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Monica Morehouse</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Denny Cherry & Associates Consulting</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Microsoft MVP and vExpert with nearly two decades of experience working with a wide variety of database platforms.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/yourfriendlydbagirl/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Omar McNeil -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/3ac1-400o400o1-nY9DbMjRfaBFATZV5iZhwh.jpg"
+              alt="Omar McNeil"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Omar McNeil</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">GitHub Learning & Development Program Manager</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Staff L&D manager passionate about helping teams create collaborative environments and coaching in Agile practices.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/omarmcneil/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Travis Webb -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/f059-400o400o1-hYgCHhKFptLGZiNiWStnMw.png"
+              alt="Travis Webb"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Travis Webb</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Solutions Architect at Google</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Software engineer experienced in startups and consulting, currently focused on geospatial analytics.
+              </p>
+              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center">
+                <a href="https://www.linkedin.com/in/tjwebb/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
+                  <span class="text-sm font-medium">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jenah Parman -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/3082-400o400o1-9efyKYkaSF8jMigMMeGspV.jpg"
+              alt="Jenah Parman"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Jenah Parman</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Technology Transfer Intern at Jefferson Lab</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Data science graduate student who developed the Sponsored Research Portal transforming grant management processes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Marla Schuchman -->
+          <div class="bg-white p-6 md:p-8 rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.1)] flex flex-col md:flex-row lg:flex-col gap-4 items-center">
+            <img
+              src="https://sessionize.com/image/9177-400o400o1-ECj4Z2ShFYfGoE2ByfDsLo.jpg"
+              alt="Marla Schuchman"
+              class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+            />
+            <div class="flex flex-col gap-4 w-full">
+              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">Marla Schuchman</p>
+              <p class="text-sm text-gray-600 text-center md:text-left lg:text-center">Connector of Dots</p>
+              <p class="text-base font-normal text-black leading-relaxed">
+                Co-presented on empowering efficiency at a national lab through low code solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo Modal -->
+    <div id="photo-modal" class="fixed inset-0 z-[100] bg-black/80 hidden items-center justify-center p-4">
+      <button id="modal-close" class="absolute top-4 right-4 text-white text-4xl font-light hover:opacity-80">&times;</button>
+      <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl font-light hover:opacity-80 p-2">&larr;</button>
+      <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl font-light hover:opacity-80 p-2">&rarr;</button>
+      <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
+        <img id="modal-image" src="" alt="" class="max-w-full max-h-[80vh] object-contain" />
+        <p id="modal-caption" class="text-white text-center mt-4 text-lg"></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full bg-[#052831] py-4 px-8 lg:px-20 mt-auto">
+      <p class="text-white text-base font-normal leading-relaxed text-center">
+        Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+      </p>
+    </footer>
+
+    <script>
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const menuLinks = document.querySelectorAll('.mobile-menu-link');
+        let isOpen = false;
+
+        function toggleMenu() {
+          isOpen = !isOpen;
+          if (isOpen) {
+            mobileMenu?.classList.remove('hidden');
+            hamburgerIcon?.classList.add('hidden');
+            closeIcon?.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
           } else {
-            topLinkBar.classList.remove("opacity-100");
-            topLinkBar.classList.add("opacity-0");
+            mobileMenu?.classList.add('hidden');
+            hamburgerIcon?.classList.remove('hidden');
+            closeIcon?.classList.add('hidden');
+            document.body.style.overflow = '';
           }
         }
 
-        lastScrollTop = scrollTop;
+        menuBtn?.addEventListener('click', toggleMenu);
+
+        menuLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (isOpen) toggleMenu();
+          });
+        });
+
+        // Photo modal functionality
+        const modal = document.getElementById('photo-modal');
+        const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+        const modalCaption = document.getElementById('modal-caption');
+        const modalClose = document.getElementById('modal-close');
+        const modalPrev = document.getElementById('modal-prev');
+        const modalNext = document.getElementById('modal-next');
+        const enlargeBtns = document.querySelectorAll('.enlarge-btn');
+        const photoCards = document.querySelectorAll('.photo-card');
+
+        // Get photo data from DOM
+        const photos: { src: string; caption: string }[] = [];
+        photoCards.forEach((card) => {
+          const img = card.querySelector('img') as HTMLImageElement;
+          const caption = card.querySelector('p')?.textContent?.split('(')[0].trim() || '';
+          if (img) {
+            photos.push({ src: img.src, caption });
+          }
+        });
+
+        let currentIndex = 0;
+
+        function showPhoto(index: number) {
+          if (photos[index]) {
+            currentIndex = index;
+            if (modalImage) modalImage.src = photos[index].src;
+            if (modalCaption) modalCaption.textContent = photos[index].caption;
+          }
+        }
+
+        function openModal(index: number) {
+          showPhoto(index);
+          modal?.classList.remove('hidden');
+          modal?.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          modal?.classList.add('hidden');
+          modal?.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+
+        enlargeBtns.forEach((btn) => {
+          btn.addEventListener('click', (e) => {
+            const index = parseInt((btn as HTMLElement).dataset.index || '0');
+            openModal(index);
+          });
+        });
+
+        photoCards.forEach((card) => {
+          const img = card.querySelector('.relative');
+          img?.addEventListener('click', () => {
+            const index = parseInt((card as HTMLElement).dataset.index || '0');
+            openModal(index);
+          });
+        });
+
+        modalClose?.addEventListener('click', closeModal);
+
+        modalPrev?.addEventListener('click', () => {
+          const newIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
+          showPhoto(newIndex);
+        });
+
+        modalNext?.addEventListener('click', () => {
+          const newIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+          showPhoto(newIndex);
+        });
+
+        // Close on background click
+        modal?.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (modal?.classList.contains('hidden')) return;
+
+          if (e.key === 'Escape') closeModal();
+          if (e.key === 'ArrowLeft') {
+            const newIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
+            showPhoto(newIndex);
+          }
+          if (e.key === 'ArrowRight') {
+            const newIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
+            showPhoto(newIndex);
+          }
+        });
       });
     </script>
 
-    <div
-      id="topLinkBar"
-      class="fixed top-0 w-full bg-gray-800 text-white z-50 opacity-0 transition-opacity duration-500"
-    >
-      <nav class="flex justify-around p-4">
-        <a class="hover:text-blue-500" href="#about">About</a>
-        <a class="hover:text-blue-500" href="#venue">Venue</a>
-        <a class="hover:text-blue-500" href="#tickets">Tickets</a>
-        <a class="hover:text-blue-500" href="#speakers">Speakers</a>
-        <a class="hover:text-blue-500" href="#sponsors">Sponsors</a>
-      </nav>
-    </div>
-    <div class="w-full max-w-2xl p-4">
-      <Image src={headerImage} alt="Hampton Roads DevFest" class="mx-auto" />
-      <h1 class="mt-6 text-3xl font-bold text-center">
-        Hampton Roads DevFest 2024
-      </h1>
-      <p class="mt-2 text-xl text-center">
-        May 31st, 2024 - Virginia Beach, VA
-      </p>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="about">About</h2>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden text-sm">
-          <p class="mb-3">
-            You're invited to Hampton Roads DevFest, returning for its exciting
-            5th event since its inception in 2016. This unique gathering
-            spotlights local speakers, showcasing our community's deep and
-            diverse talent.
-          </p>
-          <p class="mb-3">
-            Hampton Roads DevFest is more than a conference; it's a tribute to
-            our dynamic local developer community. It's an ideal platform to
-            highlight the exceptional places to work in the Hampton Roads area,
-            emphasizing innovative technological strides. This event caters to
-            everyone in the tech sphere, from seasoned developers and industry
-            veterans to emerging talents and students.
-          </p>
-          <p class="mb-3">
-            Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our
-            mission is to advance software development education throughout
-            Virginia. Our passion for promoting learning and growth in
-            technology is at the heart of DevFest.
-          </p>
-          <p class="mb-3">
-            Take advantage of this unparalleled opportunity to network, learn
-            from top industry professionals, and celebrate the remarkable
-            achievements of our tech community. Whether you're looking to
-            sharpen your skills, explore new career pathways, or simply immerse
-            yourself in a community of like-minded tech enthusiasts, Hampton
-            Roads DevFest is your destination.
-          </p>
-          <p class="mb-3">
-            Join us as we recognize and nurture the extraordinary tech talent
-            that thrives in Hampton Roads. Let's connect, discover, and grow
-            together at Hampton Roads DevFest 2025!
-          </p>
-        </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="_form_23"></div><script
-          src="https://revolutionconf.activehosted.com/f/embed.php?id=23"
-          charset="utf-8"></script>
-      </section>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="venue">Venue</h2>
-          </div>
-          <div class="flex-1">
-            <p class="mt-2 text-xl">Zeiders American Dream Theater</p>
-            <p class="mt-2 text-lg">4509 Commerce Street,</p>
-            <p class="mt-2 text-lg">Virginia Beach, VA 23462</p>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden shadow-lg">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.259579003214!2d-76.13574812406885!3d36.84155839379043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba959f7490b19d%3A0x2946d6df48a4c3ba!2sZeiders%20American%20Dream%20Theater!5e0!3m2!1sen!2sus!4v1708011885150!5m2!1sen!2sus"
-            width="100%"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="tickets">Tickets</h2>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden shadow-lg">
-          <tito-widget event="revolutionva/hrdevfest2025"></tito-widget>
-        </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="flex flex-col md:flex-row justify-between">
-          <div class="flex-1">
-            <h2 class="text-2xl font-bold" id="speakers">Sessions</h2>
-          </div>
-        </div>
-        <div class="mt-4 rounded overflow-hidden shadow-lg">
-          <p class="text-center mb-5">All our speakers are Hampton Roads locals!</p>
-          <script type="text/javascript" src="https://sessionize.com/api/v2/pzokysfy/view/Sessions"></script>
-        </div>
-      </section>
-<!-- 
-      <section class="mt-12 flex flex-col md:flex-row justify-between">
-        <div class="flex-1">
-          <h2 class="text-2xl font-bold" id="speakers">Speakers</h2>
-        </div>
-        <div class="flex-1">
-          <p>
-            Hampton Roads DevFest is special because it unique highlights the
-            amazing developer talent we have in our region. All HRDevFest
-            speakers are current or past residents of the Hampton Roads area.
-          </p>
-          <p class="mt-5">
-            Our <a
-              href="https://sessionize.com/hampton-roads-devfest-2025"
-              class="text-blue-500 hover:text-blue-700">Call For Speakers</a
-            > is currently open!
-          </p>
-        </div>
-      </section> -->
-
-      <section class="mt-12 flex flex-col md:flex-row justify-between">
-        <div class="flex-1">
-          <h2 class="text-2xl font-bold" id="sponsors">Sponsors</h2>
-        </div>
-        <div class="flex-1">
-          <p class="mb-5">Thank you so much to our sponsors!</p>
-          <div class="my-5 flex items-center justify-center">
-            <a href="https://stigian.com/" target="_blank">
-              <Image src={logoStigian} alt="Stigian Consulting" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://marathonus.com" target="_blank">
-              <Image src={logoMarathon} alt="Marathon Consulting" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://techead.com" target="_blank">
-              <Image src={logoTechead} alt="Techead" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://issuetrak.com" target="_blank">
-              <Image src={logoIssuetrak} alt="Issuetrak" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://wafris.org/?ref=hrdevfest" target="_blank">
-              <Image src={logoWafris} alt="Wafris" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://azure.microsoft.com" target="_blank">
-              <Image src={logoMicrosoft} alt="Microsoft" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://yellowdogsoftware.com" target="_blank">
-              <Image src={logoYellowDog} alt="Yellow Dog" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://gotechark.com" target="_blank">
-              <Image src={logoTechArk} alt="TechArk" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://notthegolfer.com" target="_blank">
-              <Image src={logoNTG} alt="NTG Consulting" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://customink.com" target="_blank">
-              <Image src={logoCustomInk} alt="Custom Ink" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://castlerockcs.com" target="_blank">
-              <Image src={logoCastleRock} alt="Castle Rock" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5">
-            <a href="https://decisions.com" target="_blank">
-              <Image src={logoDecisions} alt="Decisions" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5 flex justify-center">
-            <a href="https://appwrite.io" target="_blank">
-              <Image src={logoAppwrite} alt="Appwrite" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <div class="my-5 flex justify-center">
-            <a href="http://www.maxxpotential.com/" target="_blank">
-              <Image src={logoMaxx} alt="MAXXPotential" />
-            </a>
-          </div>
-          <hr class="border-t border-gray-500 my-4 mx" />
-          <p class="text-center">
-            Our <a
-              href="https://drive.google.com/file/u/5/d/1Pt1AwixVbP1C9HceFoaE28HB6f2MbH3P/view?usp=drive_link"
-              class="text-blue-500 hover:text-blue-700">Call For Sponsors</a
-            > is open!
-          </p>
-          <br />
-          <a
-            href="https://drive.google.com/file/u/5/d/1Pt1AwixVbP1C9HceFoaE28HB6f2MbH3P/view?usp=drive_link"
-          >
-            <Image src={cfsponsors} alt="Call For Sponsors" />
-          </a>
-        </div>
-      </section>
-    </div>
-    <footer
-      class="fixed inset-x-0 bottom-0 bg-gray-800 text-white text-center py-3"
-    >
-      <p>
-        Hampton Roads DevFest is presented by RevolutionVA, a 501c3
-        organization.
-      </p>
-    </footer>
+    <style>
+      .photo-card .relative {
+        cursor: pointer;
+      }
+      .photo-card .relative:hover {
+        opacity: 0.9;
+      }
+    </style>
   </body>
 </html>

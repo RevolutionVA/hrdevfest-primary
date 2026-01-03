@@ -9,6 +9,12 @@ export interface Sponsor {
 
 export const sponsors: Sponsor[] = [
   {
+    name: "City of Virginia Beach",
+    logo: "cvb.png",
+    url: "https://virginiabeach.gov",
+    tier: "platinum",
+  },
+  {
     name: "Progress",
     logo: "progress.png",
     url: "https://www.telerik.com/",

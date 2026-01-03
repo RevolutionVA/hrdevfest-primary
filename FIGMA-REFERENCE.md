@@ -1,0 +1,142 @@
+# Figma Design Reference
+
+## Project: Hampton Roads DevFest 2026 - "Connect the Dots" Theme
+
+### Design File
+- **Main File**: [HR-DevFest - Connect the Dots](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots)
+
+### Full Page Designs
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-1864&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-899&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-1472&m=dev) | Implemented |
+| Mobile Menu | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=286-4986&m=dev) | Implemented |
+
+---
+
+## Homepage Sections
+
+### Hero Section
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
+
+### Become a Sponsor CTA
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
+
+### About Section
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
+
+### Sponsors Section
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
+
+### FAQ Section
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
+
+### Venue Section
+| Breakpoint | Status |
+|------------|--------|
+| Desktop    | Implemented |
+| Tablet     | Implemented |
+| Mobile     | Implemented |
+
+### Testimonials Section
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-2916&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=260-6011&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=261-1109&m=dev) | Implemented |
+
+### Scholarship CTA
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-2947&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=260-6044&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=261-1139&m=dev) | Implemented |
+
+### Footer
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=252-3048&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=260-6144&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=261-1151&m=dev) | Implemented |
+
+---
+
+## 2024 Page
+
+### Navigation
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2465&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-694&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-163&m=dev) | Implemented |
+
+### Header
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2481&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2643&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=265-2925&m=dev) | Implemented |
+
+### Photo Gallery
+| Breakpoint | Figma Link | Status |
+|------------|------------|--------|
+| Desktop    | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2484&m=dev) | Implemented |
+| Tablet     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=264-2709&m=dev) | Implemented |
+| Mobile     | [Figma](https://www.figma.com/design/YqCMTOepcgLpPUfq0zvB7Y/HR-DevFest---Connect-the-Dots?node-id=265-2928&m=dev) | Implemented |
+
+---
+
+## Design Tokens
+
+### Colors
+- **Primary Navy**: #17163E
+- **Teal Gradient Start**: #123F4E
+- **Teal Gradient End**: #052831
+- **Primary CTA (Red)**: #D33B32
+- **Divider Teal**: #4DB7B9
+- **Connect Dot (Blue)**: #267BD9
+- **Discover Dot (Yellow)**: #F4B00F
+- **Grow Dot (Green)**: #27B738
+
+### Typography
+- Headings: Bold, various sizes (32px-40px)
+- Body: Regular, 16px base
+
+### Card Styles
+- Asymmetric corners: `rounded-tl-[40px] rounded-tr-[10px] rounded-br-[40px] rounded-bl-[10px]`
+- Standard border radius: 10px
+
+---
+
+## Assets from Figma
+Located in `src/assets/`:
+- `dots/header_dots.svg`
+- `dots/hero_dots.svg`
+- `hero_bkgd.png`
+- `about_bkgd.png`
+- `venue_pic.png`
+- `sponsor_bkgd.png`
+- `scholarship_pic.png`
+- `logo-white.png`
+- `header_2024.png` - 2024 page header image with photo clipping mask
