@@ -183,6 +183,52 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal-dark) 100%);
       }
 
+      /* Rotating border animation for "Your Company Here" */
+      @keyframes spin-border {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .rotating-border {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 2px dashed #D33B32;
+      }
+      .rotating-border::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        top: -50%;
+        left: -50%;
+        z-index: 0;
+        background: conic-gradient(
+          #D33B32 0deg,
+          #FF6B6B 60deg,
+          #4DB7B9 120deg,
+          #2D8B8E 180deg,
+          #D33B32 240deg,
+          #FF6B6B 300deg,
+          #D33B32 360deg
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .sponsor-cta:hover .rotating-border {
+        border-color: transparent;
+      }
+      .sponsor-cta:hover .rotating-border::before {
+        opacity: 1;
+        animation: spin-border 1s linear infinite;
+      }
+      .rotating-border-inner {
+        position: relative;
+        z-index: 1;
+        background: white;
+        border-radius: 8px;
+        margin: 3px;
+      }
+
       /* FAQ Accordion */
       .faq-item .faq-answer {
         max-height: 0;
@@ -450,10 +496,12 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             <!-- Your Company Here placeholder -->
             <a
               href="/prospectus"
-              class="p-6 md:p-8 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
+              class="sponsor-cta p-6 md:p-8 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-all"
             >
-              <div class="w-full p-3 rounded-[10px] border-2 border-dashed border-[#D33B32] flex justify-center items-center">
-                <span class="text-center text-black text-sm font-bold">Your Company Here</span>
+              <div class="w-full rotating-border">
+                <div class="rotating-border-inner p-3 flex justify-center items-center">
+                  <span class="text-center text-black text-sm font-bold">Your Company Here</span>
+                </div>
               </div>
             </a>
           </div>
