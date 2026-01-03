@@ -26,6 +26,7 @@ import landrecordsLogo from "../assets/sponsors/landrecords.png";
 import progressLogo from "../assets/sponsors/progress.png";
 import stigianLogo from "../assets/sponsors/stigian.png";
 import noteableLogo from "../assets/sponsors/noteable.png";
+import cvbLogo from "../assets/sponsors/cvb.png";
 import heroDots from "../assets/dots/hero_dots.svg";
 import headerDots from "../assets/dots/header_dots.svg";
 import aboutBkgd from "../assets/about_bkgd.png";
@@ -53,6 +54,7 @@ const sponsorLogos: Record<string, any> = {
   "progress.png": progressLogo,
   "stigian.png": stigianLogo,
   "noteable.png": noteableLogo,
+  "cvb.png": cvbLogo,
 };
 
 // Group sponsors by tier for display
@@ -155,6 +157,27 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         background: linear-gradient(125deg, var(--teal-mid) 0.73%, var(--teal-dark) 99.53%);
       }
 
+      /* Hero image breakpoints - desktop starts at 1370px */
+      .hero-tablet {
+        display: none;
+      }
+      .hero-desktop {
+        display: none;
+      }
+      @media (min-width: 768px) {
+        .hero-tablet {
+          display: block;
+        }
+      }
+      @media (min-width: 1370px) {
+        .hero-tablet {
+          display: none;
+        }
+        .hero-desktop {
+          display: block;
+        }
+      }
+
       /* Sponsor section */
       .sponsor-section {
         background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal-dark) 100%);
@@ -207,10 +230,10 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
       <div class="absolute inset-0 pointer-events-none">
         <!-- Phone hero (up to 767px) -->
         <Image src={heroPhone} alt="" class="w-full h-full object-cover object-center md:hidden" width={390} height={680} />
-        <!-- Tablet hero (768px to 1023px) -->
-        <Image src={heroTablet} alt="" class="w-full h-full object-cover object-center hidden md:block lg:hidden" width={768} height={400} />
-        <!-- Desktop hero (1024px+) -->
-        <Image src={heroBkgd} alt="" class="w-full h-full object-cover object-left-top hidden lg:block" width={1920} height={800} />
+        <!-- Tablet hero (768px to 1369px) -->
+        <Image src={heroTablet} alt="" class="hero-tablet w-full h-full object-cover object-center" width={768} height={400} />
+        <!-- Desktop hero (1370px+) -->
+        <Image src={heroBkgd} alt="" class="hero-desktop w-full h-full object-cover object-left-top" width={1920} height={800} />
       </div>
       <!-- Navigation -->
       <nav class="w-full px-4 md:px-8 lg:pr-[40px] pt-[17px] pb-[17px] relative z-10">
@@ -264,7 +287,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
               </h1>
               <!-- Mobile: 18px stacked, Tablet: 24px centered, Desktop: 32px right-aligned on one line -->
               <p class="text-center lg:text-right text-white text-[18px] md:text-[24px] lg:text-[32px] font-semibold leading-[1.3] lg:leading-10">
-                <span class="block lg:inline">SAVE THE DATE: Feb 27th, 2026 - </span>
+                <span class="block lg:inline">Feb 27th, 2026 - </span>
                 <span class="block lg:inline">Virginia Beach, VA</span>
               </p>
             </div>
@@ -367,7 +390,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         <div class="pt-10 flex flex-col items-center gap-6 md:gap-10">
           {/* Platinum Sponsors - Largest */}
           {sponsorsByTier.platinum.length > 0 && (
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-3xl mx-auto">
+            <div class={`w-full flex flex-wrap justify-center gap-6 md:gap-10 max-w-3xl mx-auto ${sponsorsByTier.platinum.length === 1 ? '' : 'md:grid md:grid-cols-2'}`}>
               {sponsorsByTier.platinum.map((sponsor) => (
                 <a
                   href={sponsor.url}
@@ -425,18 +448,14 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
               </a>
             ))}
             <!-- Your Company Here placeholder -->
-            <div class="p-6 md:p-8 bg-white card-asymmetric flex flex-col justify-center items-center gap-3">
+            <a
+              href="/prospectus"
+              class="p-6 md:p-8 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
+            >
               <div class="w-full p-3 rounded-[10px] border-2 border-dashed border-[#D33B32] flex justify-center items-center">
                 <span class="text-center text-black text-sm font-bold">Your Company Here</span>
               </div>
-              <a
-                href="/prospectus"
-                target="_blank"
-                class="w-full px-6 py-3 btn-primary text-white text-sm font-bold text-center"
-              >
-                Become a Sponsor
-              </a>
-            </div>
+            </a>
           </div>
         </div>
 
