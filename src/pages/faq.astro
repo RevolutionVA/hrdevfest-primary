@@ -1,118 +1,135 @@
 ---
 import headerDots from "../assets/dots/header_dots.svg";
 
-interface ScheduleItem {
-  time: string;
-  title: string;
-  description?: string;
+interface FAQItem {
+  question: string;
+  answer: string;
 }
 
-const scheduleItems: ScheduleItem[] = [
-  // Morning
+interface FAQCategory {
+  title: string;
+  items: FAQItem[];
+}
+
+const faqData: FAQCategory[] = [
   {
-    time: "8:00 AM",
-    title: "Registration Opens",
-    description: "Check in, grab your badge, and enjoy coffee and light refreshments."
+    title: "General",
+    items: [
+      {
+        question: "What is Hampton Roads DevFest?",
+        answer: "Hampton Roads DevFest is a curated, community-driven software development conference produced by RevolutionVA. It brings together developers, technical leaders, and decision-makers from across the Hampton Roads region for a full day of high-quality technical and professional content."
+      },
+      {
+        question: "Who should attend?",
+        answer: "This event is designed for a broad technical audience—from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels."
+      }
+    ]
   },
   {
-    time: "9:00 AM",
-    title: "Opening & Announcements",
-    description: "15 minutes"
-  },
-  // Content Block 1
-  {
-    time: "9:15 AM",
-    title: "Technical Session",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  {
-    time: "10:00 AM",
-    title: "Break",
-    description: "15 minutes"
-  },
-  {
-    time: "10:15 AM",
-    title: "Technical Session",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  {
-    time: "11:00 AM",
-    title: "Break",
-    description: "15 minutes"
-  },
-  {
-    time: "11:15 AM",
-    title: "Lightning Talks / Community Spotlight",
-    description: "15 minutes"
+    title: "Tickets",
+    items: [
+      {
+        question: "What does my ticket include?",
+        answer: "Your ticket includes full-day conference admission, lunch, and drink tickets (cash bar available for additional purchases)."
+      },
+      {
+        question: "Are tickets refundable or transferable?",
+        answer: "Tickets are not refundable, but they are transferable. If you can no longer attend, you may transfer your ticket to another person."
+      },
+      {
+        question: "Can my employer pay by invoice?",
+        answer: "Yes. Employer invoice payments are available for purchases of 10 or more tickets, upon request. Please contact the conference team for details."
+      },
+      {
+        question: "Are scholarships available?",
+        answer: "Yes. We offer a limited number of scholarships to help reduce financial barriers to attendance."
+      },
+      {
+        question: "Will I receive a receipt for reimbursement?",
+        answer: "Yes. Receipts are automatically provided via Humanitix, our ticketing and payment processor."
+      }
+    ]
   },
   {
-    time: "11:30 AM",
-    title: "Break",
-    description: "15 minutes"
-  },
-  // Lunch
-  {
-    time: "11:45 AM",
-    title: "Lunch",
-    description: "60 minutes - Lunch is included with your ticket."
-  },
-  // Content Block 2
-  {
-    time: "12:45 PM",
-    title: "Technical Session",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  {
-    time: "1:30 PM",
-    title: "Break",
-    description: "15 minutes"
-  },
-  {
-    time: "1:45 PM",
-    title: "Technical Session",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  {
-    time: "2:30 PM",
-    title: "Break",
-    description: "15 minutes"
+    title: "Day of Event",
+    items: [
+      {
+        question: "When does registration open?",
+        answer: "Registration opens at 8:00 AM on the day of the event."
+      },
+      {
+        question: "Is re-entry allowed?",
+        answer: "Yes. Re-entry is allowed with your conference badge."
+      },
+      {
+        question: "Can I bring a laptop or backpack?",
+        answer: "Yes. You are welcome to bring a laptop or backpack. Please note that power outlets are limited, so plan accordingly."
+      },
+      {
+        question: "Is Wi-Fi available?",
+        answer: "No. Wi-Fi will not be provided at the venue."
+      },
+      {
+        question: "Is the venue accessible?",
+        answer: "Yes. The venue is fully accessible. If you have accessibility needs, please indicate them during registration so we can accommodate you."
+      },
+      {
+        question: "Is lunch provided, and can dietary restrictions be accommodated?",
+        answer: "Lunch is included with your ticket. We do accommodate dietary restrictions—please note your needs during registration."
+      }
+    ]
   },
   {
-    time: "2:45 PM",
-    title: "Technical Session",
-    description: "45 min session - Speaker announcement coming soon"
+    title: "Sessions & Speakers",
+    items: [
+      {
+        question: "When will the schedule be published?",
+        answer: "The full schedule will be published soon."
+      },
+      {
+        question: "How long are sessions?",
+        answer: "All sessions are 45 minutes long."
+      },
+      {
+        question: "What types of topics will be covered?",
+        answer: "Sessions are selected to appeal across roles and seniority levels, with content relevant to individual contributors, technical leads, engineering managers, directors, and executives."
+      },
+      {
+        question: "Will sessions be recorded?",
+        answer: "No. Sessions will not be recorded."
+      },
+      {
+        question: "How are speakers selected?",
+        answer: "Speakers are curated by RevolutionVA. All speakers are either local to Hampton Roads or alumni of the regional tech community. There is no Call for Proposals (CFP)."
+      },
+      {
+        question: "Are there opportunities for local user groups?",
+        answer: "Yes. We offer an exhibition program for local user groups. If your group is interested in participating, please contact the team for more information."
+      }
+    ]
   },
   {
-    time: "3:30 PM",
-    title: "Break",
-    description: "15 minutes"
+    title: "Travel",
+    items: [
+      {
+        question: "What airport should I fly into?",
+        answer: "The closest airport is Norfolk International Airport (ORF)."
+      },
+      {
+        question: "How far is the venue from the airport?",
+        answer: "Norfolk International Airport is approximately 10–12 miles from the venue, which is typically a 15–20 minute drive, depending on traffic."
+      }
+    ]
   },
   {
-    time: "3:45 PM",
-    title: "Panel Discussion / Q&A",
-    description: "15 minutes"
-  },
-  {
-    time: "4:00 PM",
-    title: "Break",
-    description: "15 minutes"
-  },
-  {
-    time: "4:15 PM",
-    title: "Closing Keynote",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  // Close
-  {
-    time: "5:00 PM",
-    title: "Closing Remarks",
-    description: "15 minutes"
-  },
-  {
-    time: "5:15 PM",
-    title: "Networking",
-    description: "Connect with fellow attendees before heading out."
-  },
+    title: "Contact",
+    items: [
+      {
+        question: "Who should I contact with questions?",
+        answer: "Please contact team@revolutionva.org with any questions."
+      }
+    ]
+  }
 ];
 ---
 
@@ -125,21 +142,21 @@ const scheduleItems: ScheduleItem[] = [
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Schedule | Hampton Roads DevFest 2026</title>
-    <meta name="description" content="Full day schedule for Hampton Roads DevFest 2026 on Feb 27th. 6 technical sessions, networking, lunch included." />
+    <title>FAQ | Hampton Roads DevFest 2026</title>
+    <meta name="description" content="Frequently asked questions about Hampton Roads DevFest 2026. Find answers about tickets, venue, sessions, and more." />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Schedule | Hampton Roads DevFest 2026" />
-    <meta property="og:description" content="Full day schedule for Hampton Roads DevFest 2026. 6 technical sessions, networking, lunch included." />
-    <meta property="og:url" content="https://hrdevfest.com/schedule" />
+    <meta property="og:title" content="FAQ | Hampton Roads DevFest 2026" />
+    <meta property="og:description" content="Frequently asked questions about Hampton Roads DevFest 2026. Find answers about tickets, venue, sessions, and more." />
+    <meta property="og:url" content="https://hrdevfest.com/faq" />
     <meta property="og:image" content="https://hrdevfest.com/2026/og_promo_2026.jpeg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hrdevfest" />
-    <meta name="twitter:title" content="Schedule | Hampton Roads DevFest 2026" />
-    <meta name="twitter:description" content="Full day schedule for Hampton Roads DevFest 2026. 6 technical sessions, networking, lunch included." />
+    <meta name="twitter:title" content="FAQ | Hampton Roads DevFest 2026" />
+    <meta name="twitter:description" content="Frequently asked questions about Hampton Roads DevFest 2026. Find answers about tickets, venue, sessions, and more." />
     <meta name="twitter:image" content="https://hrdevfest.com/2026/og_promo_2026.jpeg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -165,6 +182,24 @@ const scheduleItems: ScheduleItem[] = [
       .btn-primary:hover {
         filter: brightness(0.9);
         transform: scale(1.02);
+      }
+      .faq-item[data-expanded="true"] .chevron-right {
+        display: none;
+      }
+      .faq-item[data-expanded="true"] .chevron-down {
+        display: block;
+      }
+      .faq-item[data-expanded="true"] .chevron-right {
+        display: block;
+      }
+      .faq-item[data-expanded="true"] .chevron-down {
+        display: none;
+      }
+      .faq-item[data-expanded="true"] .faq-answer {
+        display: none;
+      }
+      .faq-item[data-expanded="true"] .faq-answer {
+        display: block;
       }
     </style>
   </head>
@@ -220,54 +255,60 @@ const scheduleItems: ScheduleItem[] = [
       <div class="relative z-10 flex flex-col items-center py-8 px-8 lg:py-10 lg:px-[280px] md:px-8">
         <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center">
           <h1 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">
-            Schedule
+            FAQ
           </h1>
-          <p class="text-black text-base font-normal leading-relaxed">
-            February 27th, 2026 at Zeiders American Dream Theater
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- Schedule Section -->
+    <!-- FAQ Section -->
     <section class="w-full py-8 px-8 md:py-10 lg:py-20 lg:px-[200px] bg-[#F3F4F6]">
-      <div class="max-w-4xl mx-auto flex flex-col gap-4">
-        {scheduleItems.map((item) => (
-          <div class="bg-white p-6 md:p-8 card-asymmetric card-shadow relative overflow-hidden">
-            <!-- Dots decoration -->
-            <img
-              src={headerDots.src}
-              alt=""
-              class="absolute left-0 top-0 h-16 w-auto opacity-20 pointer-events-none"
-            />
-            <img
-              src={headerDots.src}
-              alt=""
-              class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
-            />
+      <div class="max-w-4xl mx-auto flex flex-col gap-8">
+        {faqData.map((category) => (
+          <div class="flex flex-col gap-6">
+            <h2 class="text-black text-xl font-bold">{category.title}</h2>
+            <div class="flex flex-col gap-6">
+              {category.items.map((item, index) => (
+                <div
+                  class="faq-item bg-white p-8 card-asymmetric card-shadow cursor-pointer relative overflow-hidden"
+                  data-expanded="true"
+                >
+                  <!-- Dots decoration top-left -->
+                  <img
+                    src={headerDots.src}
+                    alt=""
+                    class="absolute left-0 top-0 h-16 w-auto opacity-20 pointer-events-none"
+                  />
+                  <!-- Dots decoration bottom-right (rotated) -->
+                  <img
+                    src={headerDots.src}
+                    alt=""
+                    class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
+                  />
 
-            <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-              <div class="text-[#D33B32] text-lg font-bold min-w-[100px]">
-                {item.time}
-              </div>
-              <div class="flex-1">
-                <p class="text-base font-bold text-black">
-                  {item.title}
-                </p>
-                {item.description && (
-                  <p class="text-sm text-gray-600 mt-1">{item.description}</p>
-                )}
-              </div>
+                  <div class="relative z-10 flex items-start gap-4">
+                    <div class="flex-1">
+                      <div class="flex items-center gap-4">
+                        <!-- Chevron Right (collapsed) -->
+                        <svg class="chevron-right w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                        <!-- Chevron Down (expanded) -->
+                        <svg class="chevron-down w-5 h-5 text-black shrink-0 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                        <p class="text-base font-bold text-black">{item.question}</p>
+                      </div>
+                      <div class="faq-answer mt-4 pl-9">
+                        <p class="text-base font-normal text-black leading-relaxed">{item.answer}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         ))}
-      </div>
-
-      <!-- Note -->
-      <div class="max-w-4xl mx-auto mt-8 text-center">
-        <p class="text-gray-600 text-base">
-          Speaker assignments coming soon!
-        </p>
       </div>
     </section>
 
@@ -328,6 +369,7 @@ const scheduleItems: ScheduleItem[] = [
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -355,6 +397,15 @@ const scheduleItems: ScheduleItem[] = [
         menuLinks.forEach(link => {
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
+          });
+        });
+
+        // FAQ accordion toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+          item.addEventListener('click', () => {
+            const isExpanded = item.getAttribute('data-expanded') === 'true';
+            item.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
           });
         });
       });
