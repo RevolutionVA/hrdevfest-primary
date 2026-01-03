@@ -1,7 +1,7 @@
 /* TEAM */
 Organization: RevolutionVA
 Site: https://revolutionva.com
-Twitter: @RevolutionVA
+Twitter: @hrdevfest
 Location: Hampton Roads, Virginia
 
 /* SITE */
