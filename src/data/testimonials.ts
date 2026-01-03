@@ -18,7 +18,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Michael Buckbee",
-    quote: "As soon as I heard DevFest was coming back for a second year I scrambled to get a ticket. I was amazed at the depth of talent and expertise the area has—every person I spoke with was working on interesting things. Great venue, amazing speakers, and 100% worth it.",
+    quote: "As soon as I heard DevFest was coming back for a sixth year I scrambled to get a ticket. I was amazed at the depth of talent and expertise the area has—every person I spoke with was working on interesting things. Great venue, amazing speakers, and 100% worth it.",
     image: "https://sessionize.com/image/b0c4-400o400o1-L8qnWhL2upTUZo5aZ2zsVC.jpg",
     linkedin: "https://www.linkedin.com/in/michaelbuckbee/",
   },
