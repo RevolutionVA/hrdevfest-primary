@@ -1,7 +1,7 @@
 {
   "name": "Hampton Roads DevFest",
   "short_name": "HRDevFest",
-  "description": "Annual developer conference in Virginia Beach, VA",
+  "description": "A community-driven developer conference featuring local speakers, networking, and technical sessions in Virginia Beach, VA",
   "start_url": "/",
   "icons": [
     {
