@@ -22,4 +22,10 @@ export const testimonials: Testimonial[] = [
     image: "https://sessionize.com/image/b0c4-400o400o1-L8qnWhL2upTUZo5aZ2zsVC.jpg",
     linkedin: "https://www.linkedin.com/in/michaelbuckbee/",
   },
+  {
+    name: "Travis Webb",
+    quote: "Hampton Roads DevFest is the center of the tech universe for this area. I've met many amazing people who I've been able to work with and partner with, and it's a great way to learn about the innovation happening in Norfolk and surrounding areas. Every company in the area with software engineers should send their teams here to bring back and implement the best ideas.",
+    image: "https://sessionize.com/image/f059-400o400o1-hYgCHhKFptLGZiNiWStnMw.png",
+    linkedin: "https://www.linkedin.com/in/tjwebb/",
+  },
 ];
