@@ -272,16 +272,17 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
     </button>
 
     <!-- Hero Section with Nav -->
-    <section class="hero-section w-full relative overflow-hidden max-h-[800px]">
-      <!-- Hero background image - responsive for phone/tablet/desktop -->
-      <div class="absolute inset-0 pointer-events-none max-h-[800px]">
-        <!-- Phone hero (up to 767px) -->
-        <Image src={heroPhone} alt="" class="w-full h-full object-cover object-center md:hidden" width={390} height={680} />
-        <!-- Tablet hero (768px to 1369px) -->
-        <Image src={heroTablet} alt="" class="hero-tablet w-full h-full object-cover object-center" width={768} height={400} />
-        <!-- Desktop hero (1370px+) -->
-        <Image src={heroBkgd} alt="" class="hero-desktop w-full h-full object-cover object-left-top" width={1920} height={800} />
-      </div>
+    <section class="w-full bg-white">
+      <div class="hero-section w-full max-w-[1920px] mx-auto relative overflow-hidden">
+        <!-- Hero background image - responsive for phone/tablet/desktop -->
+        <div class="absolute inset-0 pointer-events-none">
+          <!-- Phone hero (up to 767px) -->
+          <Image src={heroPhone} alt="" class="w-full h-full object-cover object-center md:hidden" width={390} height={680} />
+          <!-- Tablet hero (768px to 1369px) -->
+          <Image src={heroTablet} alt="" class="hero-tablet w-full h-full object-cover object-center" width={768} height={400} />
+          <!-- Desktop hero (1370px+) -->
+          <Image src={heroBkgd} alt="" class="hero-desktop w-full h-full object-cover object-left-top" width={1920} height={800} />
+        </div>
       <!-- Navigation -->
       <nav class="w-full px-4 md:px-8 lg:pr-[40px] pt-[17px] pb-[17px] relative z-10">
         <div class="max-w-7xl mx-auto flex justify-end">
@@ -376,6 +377,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
 
