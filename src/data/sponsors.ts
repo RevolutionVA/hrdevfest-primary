@@ -11,7 +11,7 @@ export const sponsors: Sponsor[] = [
   {
     name: "City of Virginia Beach",
     logo: "cvb.png",
-    url: "https://virginiabeach.gov",
+    url: "https://yesvirginiabeach.com",
     tier: "platinum",
   },
   {
