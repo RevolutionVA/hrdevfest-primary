@@ -62,4 +62,10 @@ export const sponsors: Sponsor[] = [
     url: "https://landrecords.us",
     tier: "logo",
   },
+  {
+    name: "Techead",
+    logo: "TECHEAD.png",
+    url: "https://www.techead.com",
+    tier: "logo",
+  },
 ];
