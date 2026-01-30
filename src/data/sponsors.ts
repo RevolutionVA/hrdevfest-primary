@@ -27,8 +27,8 @@ export const sponsors: Sponsor[] = [
     tier: "gold",
   },
   {
-    name: "Decisions",
-    logo: "decisions.png",
+    name: "Decisions + ProcessMaker",
+    logo: "decisions+processmaker.png",
     url: "https://decisions.com/",
     tier: "gold",
   },
