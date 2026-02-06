@@ -74,4 +74,10 @@ export const sponsors: Sponsor[] = [
     url: "https://www.techead.com",
     tier: "logo",
   },
+  {
+    name: "Yellow Dog Software",
+    logo: "yellowdog.png",
+    url: "https://yellowdogsoftware.com",
+    tier: "logo",
+  },
 ];
