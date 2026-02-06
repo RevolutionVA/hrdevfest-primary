@@ -6,6 +6,8 @@ export interface Speaker {
   twitter?: string;
   website?: string;
   bluesky?: string;
+  sessionTitle?: string;
+  sessionAbstract?: string;
 }
 
 export const speakers: Speaker[] = [
@@ -14,6 +16,8 @@ export const speakers: Speaker[] = [
     bio: "Lionel Sapp is a Hampton Roads–based software engineer, community builder, and founder of The Digital Builders, a studio and mentorship network empowering others to turn their ideas into real-world products. A self-taught developer, Lionel has worked for two Techstars-backed startups, serving as CTO for one. Through Digital Builders, he leads mentorship programs and community events that teach aspiring creators how to build, launch, and grow their own tech ventures—right here in the 757.",
     image: "lionel-sapp.jpeg",
     linkedin: "https://www.linkedin.com/in/lionelthebldr/",
+    sessionTitle: "The 1-Person DevOps Stack: How I Keep Client Apps Alive Without a Big Team",
+    sessionAbstract: "When you're a solo builder, \"DevOps\" isn't a department — it's whatever keeps production stable at 11pm when a client pings you and real users are stuck. In this TED-style talk, I'll share the minimal, battle-tested operations stack I use to ship and maintain client apps without a big team: preview deployments for safe releases, error tracking and logging that actually matter, and a calm incident loop for when something breaks. I'll also show how AI fits in practically (not hype): using v0 for rapid UI mockups and Cursor/MCP agents to speed up implementation while keeping quality guardrails in place. The stack is modern, simple, and repeatable — Next.js + Supabase + Vercel + Resend + Stripe — but the real value is the workflow: what to monitor (and what to ignore), how to deploy with confidence, and the \"stability rituals\" that keep apps alive long after launch.",
   },
   {
     name: "Ryan Castillo",
@@ -22,12 +26,16 @@ export const speakers: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/rmcastil/",
     twitter: "https://twitter.com/rmcastil",
     website: "https://knowatoa.com",
+    sessionTitle: "How to have a successful dev career in the 757*",
+    sessionAbstract: "What if the biggest limiter on your developer career isn't your technical skill? In Hampton Roads, there are plenty of talented developers doing solid work. Yet opportunities often feel inconsistent. People get passed over for promotions. Job searches feel exhausting. Great ideas and side projects don't go anywhere. This talk explores why that happens and what actually drives opportunity. Whether you're looking for a new role, doing freelance work, or building something of your own. Through real examples, Ryan will share a practical mental model for creating more surface luck area for opportunity without pretending to be someone you're not. Midway through the talk, the real title will be revealed. Once you see it, you'll start noticing the pattern everywhere.",
   },
   {
     name: "Katie Novotny",
     bio: "Katie Novotny, AI Apps and Agents GBB at Microsoft. Software dev background but also manager, architect, and DevOps wrangler fluent in .NET, Python, and at least 10 other languages (some human, most not). Believes the best code - and life - comes from collaboration and curiosity. Loves: Functional fitness, skiing, and books that make her forget time. Hates: green peppers and chores that don't scale (looking at you, dusting).",
     image: "katie-novotny.jpeg",
     linkedin: "https://www.linkedin.com/in/katie-novotny/",
+    sessionTitle: "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart",
+    sessionAbstract: "Everyone has a GenAI demo. Very few have a GenAI system. In this talk, we'll roast the most common GenAI anti-patterns - chatbots pretending to be apps, agents with no guardrails, and \"just add RAG\" architectures that collapse under real users. Then we'll rebuild them the right way. You'll learn how production GenAI actually works: tools over prompts, systems over models, and architectures that assume failure, hallucination, and chaos from day one. We'll cover when agents are useful (and when they're absolutely not), why observability matters more for AI than traditional services, and how to ship GenAI without lighting your cloud bill on fire. This is not a hype talk. This is a survival guide.",
   },
   {
     name: "Tim Banks",
