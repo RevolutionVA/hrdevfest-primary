@@ -5,107 +5,96 @@ interface ScheduleItem {
   time: string;
   title: string;
   description?: string;
+  abstract?: string;
 }
 
 const scheduleItems: ScheduleItem[] = [
   // Morning
   {
-    time: "9:00 AM",
-    title: "Welcome & Announcements",
-    description: "15 minutes"
+    time: "8:00 AM",
+    title: "Registration & Breakfast",
+    description: "8:00 – 8:45"
   },
   {
-    time: "9:15 AM",
-    title: "Session 1",
-    description: "45 min session - Speaker announcement coming soon"
+    time: "8:45 AM",
+    title: "Welcome",
+    description: "8:45 – 9:00"
+  },
+  {
+    time: "9:00 AM",
+    title: "The 1-Person DevOps Stack: How I Keep Client Apps Alive Without a Big Team",
+    description: "Lionel Sapp",
+    abstract: "When you're a solo builder, \"DevOps\" isn't a department — it's whatever keeps production stable at 11pm when a client pings you and real users are stuck. In this TED-style talk, I'll share the minimal, battle-tested operations stack I use to ship and maintain client apps without a big team: preview deployments for safe releases, error tracking and logging that actually matter, and a calm incident loop for when something breaks. I'll also show how AI fits in practically (not hype): using v0 for rapid UI mockups and Cursor/MCP agents to speed up implementation while keeping quality guardrails in place. The stack is modern, simple, and repeatable — Next.js + Supabase + Vercel + Resend + Stripe — but the real value is the workflow: what to monitor (and what to ignore), how to deploy with confidence, and the \"stability rituals\" that keep apps alive long after launch."
+  },
+  {
+    time: "9:45 AM",
+    title: "Break",
+    description: "9:45 – 10:00"
   },
   {
     time: "10:00 AM",
-    title: "Break",
-    description: "15 minutes"
+    title: "How to have a successful dev career in the 757*",
+    description: "Ryan Castillo",
+    abstract: "What if the biggest limiter on your developer career isn't your technical skill? In Hampton Roads, there are plenty of talented developers doing solid work. Yet opportunities often feel inconsistent. People get passed over for promotions. Job searches feel exhausting. Great ideas and side projects don't go anywhere. This talk explores why that happens and what actually drives opportunity. Whether you're looking for a new role, doing freelance work, or building something of your own. Through real examples, Ryan will share a practical mental model for creating more surface luck area for opportunity without pretending to be someone you're not. Midway through the talk, the real title will be revealed. Once you see it, you'll start noticing the pattern everywhere."
   },
   {
-    time: "10:15 AM",
-    title: "Session 2",
-    description: "45 min session - Speaker announcement coming soon"
+    time: "10:45 AM",
+    title: "Break",
+    description: "10:45 – 11:00"
   },
   {
     time: "11:00 AM",
-    title: "Break",
-    description: "15 minutes"
+    title: "Special Segment",
+    description: "11:00 – 11:15"
   },
   {
     time: "11:15 AM",
-    title: "TBD",
-    description: "15 minutes"
-  },
-  {
-    time: "11:30 AM",
-    title: "Break",
-    description: "15 minutes"
+    title: "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart",
+    description: "Katie Novotny",
+    abstract: "Everyone has a GenAI demo. Very few have a GenAI system. In this talk, we'll roast the most common GenAI anti-patterns - chatbots pretending to be apps, agents with no guardrails, and \"just add RAG\" architectures that collapse under real users. Then we'll rebuild them the right way. You'll learn how production GenAI actually works: tools over prompts, systems over models, and architectures that assume failure, hallucination, and chaos from day one. We'll cover when agents are useful (and when they're absolutely not), why observability matters more for AI than traditional services, and how to ship GenAI without lighting your cloud bill on fire. This is not a hype talk. This is a survival guide."
   },
   // Lunch
   {
-    time: "11:45 AM",
+    time: "12:00 PM",
     title: "Lunch",
     description: "Lunch is included with your ticket."
   },
   // Afternoon
   {
-    time: "12:45 PM",
-    title: "Session 3",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  {
-    time: "1:30 PM",
-    title: "Break",
-    description: "15 minutes"
+    time: "1:00 PM",
+    title: "Session TBA",
+    description: "Ian Taylor"
   },
   {
     time: "1:45 PM",
-    title: "Session 4",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  {
-    time: "2:30 PM",
     title: "Break",
-    description: "15 minutes"
+    description: "1:45 – 2:00"
   },
   {
-    time: "2:45 PM",
-    title: "Session 5",
-    description: "45 min session - Speaker announcement coming soon"
+    time: "2:00 PM",
+    title: "Special Segment",
+    description: "2:00 – 2:15"
   },
   {
-    time: "3:30 PM",
+    time: "2:15 PM",
+    title: "Session TBA",
+    description: "Tim Banks"
+  },
+  {
+    time: "3:00 PM",
     title: "Break",
-    description: "15 minutes"
+    description: "3:00 – 3:15"
   },
   {
-    time: "3:45 PM",
-    title: "TBD",
-    description: "15 minutes"
+    time: "3:15 PM",
+    title: "Session TBA",
+    description: "Lauren Pryor"
   },
+  // Closing
   {
     time: "4:00 PM",
-    title: "Break",
-    description: "15 minutes"
-  },
-  {
-    time: "4:15 PM",
-    title: "Session 6",
-    description: "45 min session - Speaker announcement coming soon"
-  },
-  // Wrap-Up
-  {
-    time: "5:00 PM",
-    title: "Closing Remarks",
-    description: "15 minutes"
-  },
-  {
-    time: "5:15 PM",
-    title: "Networking & Departure",
-    description: "Connect with fellow attendees before heading out."
+    title: "Closing Session",
+    description: "4:00 – 4:45"
   },
 ];
 ---
@@ -244,8 +233,8 @@ const scheduleItems: ScheduleItem[] = [
               class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
             />
 
-            <div class="relative z-10 flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-              <div class="text-[#D33B32] text-lg font-bold min-w-[100px]">
+            <div class="relative z-10 flex flex-col md:flex-row md:items-start gap-2 md:gap-6">
+              <div class="text-[#D33B32] text-lg font-bold min-w-[100px] md:pt-0.5">
                 {item.time}
               </div>
               <div class="flex-1">
@@ -255,18 +244,15 @@ const scheduleItems: ScheduleItem[] = [
                 {item.description && (
                   <p class="text-sm text-gray-600 mt-1">{item.description}</p>
                 )}
+                {item.abstract && (
+                  <p class="text-sm text-gray-500 mt-2 leading-relaxed">{item.abstract}</p>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      <!-- Note -->
-      <div class="max-w-4xl mx-auto mt-8 text-center">
-        <p class="text-gray-600 text-base">
-          Speaker assignments coming soon!
-        </p>
-      </div>
     </section>
 
     <!-- Ticket CTA Section -->
