@@ -44,6 +44,8 @@ export const speakers: Speaker[] = [
     linkedin: "https://www.linkedin.com/in/timjb/",
     twitter: "https://x.com/elchefe",
     bluesky: "https://bsky.app/profile/elchefe.me",
+    sessionTitle: "AI Can't Teach You Jiu-Jitsu: Developing Your Craft in the Age of AI",
+    sessionAbstract: "This talk uses Brazilian Jiu-Jitsu as a lens to explore the fundamental limitations of AI in teaching complex, embodied skills, and why the same principles apply to software development. Just as BJJ practitioners must master fundamentals through physical repetition, strategic thinking, and real-world testing on the mat, software engineers must develop deep understanding through hands-on experience rather than relying on AI-generated solutions. The presentation examines how BJJ's progression system, from white belt fundamentals to black belt mastery, mirrors the journey of becoming a skilled engineer. It challenges the notion that AI can shortcut genuine learning, drawing parallels between \"Instagram BJJ\" (flashy techniques that don't work in reality) and \"vibe coding\" (AI-generated code that lacks fundamental understanding). Through the metaphor of BJJ as chess rather than checkers, the talk illustrates why rote learning and pattern matching fail when faced with novel situations that require strategic adaptation. Ultimately, this session argues that while AI has its place as a tool, dependency on something you don't control is a mistake. True expertise, whether in martial arts or software engineering, comes from learning by doing, embracing failure, seeking mentorship, engaging with community, and focusing on getting good rather than just winning. There are no shortcuts to becoming a black belt in any craft.",
   },
   {
     name: "Ian Taylor",
