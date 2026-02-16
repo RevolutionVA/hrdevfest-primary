@@ -130,6 +130,23 @@ function truncateText(text, maxLen) {
   return text.slice(0, maxLen - 1) + "…";
 }
 
+/**
+ * Resolve a sponsor logo variant path. Given a logo filename like "foo.png",
+ * returns the path to "foo_white.png" if variant is "white" and the file exists,
+ * otherwise falls back to the original logo path.
+ */
+function resolveSponsorLogoPath(logoFilename, variant) {
+  const baseLogoPath = resolve(projectRoot, "src/assets/sponsors", logoFilename);
+  if (!variant) return baseLogoPath;
+
+  const ext = extname(logoFilename);
+  const baseName = logoFilename.slice(0, -ext.length);
+  const variantFilename = `${baseName}_${variant}${ext}`;
+  const variantPath = resolve(projectRoot, "src/assets/sponsors", variantFilename);
+
+  return existsSync(variantPath) ? variantPath : baseLogoPath;
+}
+
 // ---------------------------------------------------------------------------
 // Load shared logo
 // ---------------------------------------------------------------------------
@@ -257,12 +274,12 @@ async function processSponsors() {
 
   for (const sponsor of list) {
     const slug = slugify(sponsor.name);
-    const logoFilePath = resolve(
-      projectRoot,
-      "src/assets/sponsors",
-      sponsor.logo
-    );
-    const sponsorLogoUri = loadImageAsDataUri(logoFilePath);
+
+    // Resolve standard logo and white variant (for dark backgrounds)
+    const standardLogoPath = resolveSponsorLogoPath(sponsor.logo, null);
+    const whiteLogoPath = resolveSponsorLogoPath(sponsor.logo, "white");
+    const sponsorLogoUri = loadImageAsDataUri(standardLogoPath);
+    const sponsorLogoWhiteUri = loadImageAsDataUri(whiteLogoPath);
 
     if (!sponsorLogoUri) {
       console.warn(
@@ -288,8 +305,8 @@ async function processSponsors() {
       try {
         const template =
           format === "square"
-            ? sponsorSquareTemplate({ sponsor, sponsorLogoUri, logoDataUri })
-            : sponsorLandscapeTemplate({ sponsor, sponsorLogoUri, logoDataUri });
+            ? sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhiteUri, logoDataUri })
+            : sponsorLandscapeTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhiteUri, logoDataUri });
 
         const png = await renderToPng(template, width, height);
         writeFileSync(outPath, png);
