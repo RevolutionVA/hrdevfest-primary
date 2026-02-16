@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { speakerSquareTemplate } from "./templates/speaker-square.mjs";
+import { speakerLandscapeTemplate } from "./templates/speaker-landscape.mjs";
 
 // ---------------------------------------------------------------------------
 // Resolve project root and import .ts data files (tsx loaded via --import flag)
@@ -165,161 +166,8 @@ async function renderToPng(template, width, height) {
 
 // ---------------------------------------------------------------------------
 // Speaker card template — Landscape (1200x630)
+// Imported from scripts/templates/speaker-landscape.mjs
 // ---------------------------------------------------------------------------
-function speakerLandscapeTemplate(speaker, headshotUri) {
-  const title = speaker.sessionTitle || "Speaker at HRDevFest 2026";
-  const displayTitle = truncateText(title, 100);
-
-  return {
-    type: "div",
-    props: {
-      style: {
-        display: "flex",
-        width: "100%",
-        height: "100%",
-        backgroundColor: COLORS.white,
-        fontFamily: "Inter",
-        padding: "40px",
-      },
-      children: [
-        // Left column — headshot
-        {
-          type: "div",
-          props: {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 380,
-              minWidth: 380,
-            },
-            children: {
-              type: "div",
-              props: {
-                style: {
-                  width: 280,
-                  height: 280,
-                  borderRadius: 140,
-                  border: `4px solid ${COLORS.teal}`,
-                  overflow: "hidden",
-                  display: "flex",
-                },
-                children: {
-                  type: "img",
-                  props: {
-                    src: headshotUri,
-                    width: 280,
-                    height: 280,
-                    style: { objectFit: "cover" },
-                  },
-                },
-              },
-            },
-          },
-        },
-        // Right column — text
-        {
-          type: "div",
-          props: {
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              flex: 1,
-              paddingLeft: 20,
-            },
-            children: [
-              // Logo
-              {
-                type: "img",
-                props: {
-                  src: logoDataUri,
-                  width: 140,
-                  style: { objectFit: "contain" },
-                },
-              },
-              // Badge
-              {
-                type: "div",
-                props: {
-                  style: {
-                    display: "flex",
-                    marginTop: 20,
-                  },
-                  children: {
-                    type: "div",
-                    props: {
-                      style: {
-                        backgroundColor: COLORS.orange,
-                        color: COLORS.white,
-                        fontSize: 12,
-                        fontWeight: 700,
-                        padding: "6px 20px",
-                        borderRadius: 6,
-                        textTransform: "uppercase",
-                        letterSpacing: 2,
-                      },
-                      children: "SPEAKER",
-                    },
-                  },
-                },
-              },
-              // Name
-              {
-                type: "div",
-                props: {
-                  style: {
-                    fontSize: 36,
-                    fontWeight: 700,
-                    color: COLORS.charcoal,
-                    marginTop: 12,
-                  },
-                  children: speaker.name,
-                },
-              },
-              // Talk title
-              {
-                type: "div",
-                props: {
-                  style: {
-                    fontSize: 18,
-                    color: COLORS.teal,
-                    marginTop: 8,
-                    lineHeight: 1.4,
-                    display: "flex",
-                  },
-                  children: displayTitle,
-                },
-              },
-              // Spacer
-              { type: "div", props: { style: { flex: 1 } } },
-              // Event info
-              {
-                type: "div",
-                props: {
-                  style: { fontSize: 14, color: COLORS.gray },
-                  children: "Feb 27, 2026 | Virginia Beach, VA",
-                },
-              },
-              // Website
-              {
-                type: "div",
-                props: {
-                  style: {
-                    fontSize: 14,
-                    color: COLORS.teal,
-                    marginTop: 4,
-                  },
-                  children: "hrdevfest.org",
-                },
-              },
-            ],
-          },
-        },
-      ],
-    },
-  };
-}
 
 // ---------------------------------------------------------------------------
 // Sponsor card template — Square (1080x1080)
@@ -698,7 +546,7 @@ async function processSpeakers() {
         const template =
           format === "square"
             ? speakerSquareTemplate({ speaker, headshotUri, logoDataUri })
-            : speakerLandscapeTemplate(speaker, headshotUri);
+            : speakerLandscapeTemplate({ speaker, headshotUri, logoDataUri });
 
         const png = await renderToPng(template, width, height);
         writeFileSync(outPath, png);
