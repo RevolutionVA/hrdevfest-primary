@@ -23,3 +23,8 @@ pnpm-debug.log*
 # Playwright
 test-results/
 playwright-report/
+
+# Generated social media images
+speaker-social/**/generated/
+speaker-social/**/generated-ai/
+speaker-social/**/backgrounds/
