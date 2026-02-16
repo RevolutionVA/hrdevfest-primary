@@ -89,18 +89,6 @@ mkdirSync(speakersOutDir, { recursive: true });
 mkdirSync(sponsorsOutDir, { recursive: true });
 
 // ---------------------------------------------------------------------------
-// Brand colors
-// ---------------------------------------------------------------------------
-const COLORS = {
-  teal: "#00B4D8",
-  darkTeal: "#2B5F6D",
-  charcoal: "#1A1A2E",
-  orange: "#D9531E",
-  gray: "#666666",
-  white: "#FFFFFF",
-};
-
-// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 function slugify(name) {
@@ -123,11 +111,6 @@ function loadImageAsDataUri(filePath) {
   const mime = mimeMap[ext] || "image/png";
   const data = readFileSync(filePath).toString("base64");
   return `data:${mime};base64,${data}`;
-}
-
-function truncateText(text, maxLen) {
-  if (!text || text.length <= maxLen) return text;
-  return text.slice(0, maxLen - 1) + "…";
 }
 
 /**
