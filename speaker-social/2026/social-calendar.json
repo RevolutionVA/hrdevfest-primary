@@ -1,0 +1,184 @@
+[
+  {
+    "date": "2026-02-17",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-2weeks-square.png"
+  },
+  {
+    "date": "2026-02-17",
+    "timeSlot": "afternoon",
+    "contentType": "speaker",
+    "speakerOrSponsorName": "Lionel Sapp",
+    "imagePath": "speaker-social/2026/generated/speakers/lionel-sapp.png"
+  },
+  {
+    "date": "2026-02-17",
+    "timeSlot": "evening",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Progress",
+    "imagePath": "speaker-social/2026/generated/sponsors/progress.png"
+  },
+  {
+    "date": "2026-02-18",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-2weeks-square.png"
+  },
+  {
+    "date": "2026-02-18",
+    "timeSlot": "afternoon",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Stigian Consulting",
+    "imagePath": "speaker-social/2026/generated/sponsors/stigian-consulting.png"
+  },
+  {
+    "date": "2026-02-19",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-2weeks-square.png"
+  },
+  {
+    "date": "2026-02-19",
+    "timeSlot": "afternoon",
+    "contentType": "speaker",
+    "speakerOrSponsorName": "Ryan Castillo",
+    "imagePath": "speaker-social/2026/generated/speakers/ryan-castillo.png"
+  },
+  {
+    "date": "2026-02-19",
+    "timeSlot": "evening",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Decisions + ProcessMaker",
+    "imagePath": "speaker-social/2026/generated/sponsors/decisions-processmaker.png"
+  },
+  {
+    "date": "2026-02-20",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-1week-square.png"
+  },
+  {
+    "date": "2026-02-20",
+    "timeSlot": "afternoon",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Marathon Consulting & Issuetrak",
+    "imagePath": "speaker-social/2026/generated/sponsors/marathon-consulting.png"
+  },
+  {
+    "date": "2026-02-21",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-1week-square.png"
+  },
+  {
+    "date": "2026-02-21",
+    "timeSlot": "afternoon",
+    "contentType": "speaker",
+    "speakerOrSponsorName": "Katie Novotny",
+    "imagePath": "speaker-social/2026/generated/speakers/katie-novotny.png"
+  },
+  {
+    "date": "2026-02-21",
+    "timeSlot": "evening",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Noteable & OpenSearch",
+    "imagePath": "speaker-social/2026/generated/sponsors/noteable.png"
+  },
+  {
+    "date": "2026-02-22",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-1week-square.png"
+  },
+  {
+    "date": "2026-02-22",
+    "timeSlot": "afternoon",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Swift Kick & Land Records",
+    "imagePath": "speaker-social/2026/generated/sponsors/swift-kick.png"
+  },
+  {
+    "date": "2026-02-23",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-1week-square.png"
+  },
+  {
+    "date": "2026-02-23",
+    "timeSlot": "afternoon",
+    "contentType": "speaker",
+    "speakerOrSponsorName": "Tim Banks",
+    "imagePath": "speaker-social/2026/generated/speakers/tim-banks.png"
+  },
+  {
+    "date": "2026-02-23",
+    "timeSlot": "evening",
+    "contentType": "sponsor",
+    "speakerOrSponsorName": "Techead & Yellow Dog Software",
+    "imagePath": "speaker-social/2026/generated/sponsors/techead.png"
+  },
+  {
+    "date": "2026-02-24",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  },
+  {
+    "date": "2026-02-24",
+    "timeSlot": "afternoon",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  },
+  {
+    "date": "2026-02-25",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  },
+  {
+    "date": "2026-02-25",
+    "timeSlot": "afternoon",
+    "contentType": "speaker",
+    "speakerOrSponsorName": "Ian Taylor",
+    "imagePath": "speaker-social/2026/generated/speakers/ian-taylor.png"
+  },
+  {
+    "date": "2026-02-26",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  },
+  {
+    "date": "2026-02-26",
+    "timeSlot": "afternoon",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  },
+  {
+    "date": "2026-02-27",
+    "timeSlot": "morning",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  },
+  {
+    "date": "2026-02-27",
+    "timeSlot": "afternoon",
+    "contentType": "countdown",
+    "speakerOrSponsorName": null,
+    "imagePath": "speaker-social/2026/backgrounds/countdown-tomorrow-square.png"
+  }
+]
