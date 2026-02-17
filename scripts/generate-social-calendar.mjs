@@ -216,7 +216,7 @@ function buildCalendar(startDate, endDate) {
 
   // Now build the actual calendar entries with time slots
   for (const plan of dayPlans) {
-    const { date, daysRemaining, isFinal3Days, posts: plannedContent } = plan;
+    const { date, daysRemaining, posts: plannedContent } = plan;
     const dayEntries = [];
 
     // Determine if we need a morning countdown
@@ -310,6 +310,326 @@ function buildCalendar(startDate, endDate) {
 }
 
 // ---------------------------------------------------------------------------
+// Platform-specific post copy generation (US-002)
+// ---------------------------------------------------------------------------
+const REG_LINK = "https://hrdevfest.org";
+const HASHTAGS = "#HRDevFest #HamptonRoads #DevFest2026";
+const EVENT_INFO = "Feb 27 in Virginia Beach";
+
+function getCountdownText(daysRemaining) {
+  if (daysRemaining >= 10) return `${daysRemaining} days until DevFest!`;
+  if (daysRemaining === 7) return "1 week until DevFest!";
+  if (daysRemaining >= 4) return `${daysRemaining} days until DevFest!`;
+  if (daysRemaining === 3) return "3 days until DevFest!";
+  if (daysRemaining === 2) return "2 days until DevFest!";
+  if (daysRemaining === 1) return "DevFest is TOMORROW!";
+  return "It's DevFest day! See you TODAY!";
+}
+
+function getCountdownUrgency(daysRemaining) {
+  if (daysRemaining >= 8) return "early";
+  if (daysRemaining >= 4) return "mid";
+  if (daysRemaining >= 1) return "final";
+  return "today";
+}
+
+function lookupSpeaker(name) {
+  return eligibleSpeakers.find((s) => s.name === name) || null;
+}
+
+function lookupSponsors(nameField) {
+  if (!nameField) return [];
+  const names = nameField.split(" & ").map((n) => n.trim());
+  return names
+    .map((n) => eligibleSponsors.find((s) => s.name === n))
+    .filter(Boolean);
+}
+
+function tierLabel(tier) {
+  const labels = { platinum: "Platinum", gold: "Gold", silver: "Silver", logo: "Community" };
+  return labels[tier] || tier;
+}
+
+/**
+ * Ensure X copy fits within 280 characters.
+ * Trimming order: drop hashtags first, then session title, keep name + link.
+ */
+function fitXCopy(parts) {
+  // parts: { prefix, sessionLine, hashtags, link }
+  const { prefix, sessionLine, hashtags, link } = parts;
+
+  // Try full version: prefix + sessionLine + hashtags + link
+  const full = [prefix, sessionLine, hashtags, link].filter(Boolean).join("\n\n");
+  if (full.length <= 280) return full;
+
+  // Drop hashtags
+  const noHashtags = [prefix, sessionLine, link].filter(Boolean).join("\n\n");
+  if (noHashtags.length <= 280) return noHashtags;
+
+  // Drop session title
+  const noSession = [prefix, link].filter(Boolean).join("\n\n");
+  if (noSession.length <= 280) return noSession;
+
+  // Last resort: truncate prefix to fit with link
+  const maxPrefix = 280 - link.length - 2; // 2 for \n\n
+  return prefix.slice(0, maxPrefix) + "\n\n" + link;
+}
+
+function generateSpeakerCopy(entry) {
+  const speaker = lookupSpeaker(entry.speakerOrSponsorName);
+  if (!speaker) return generateFallbackCopy(entry);
+
+  const name = speaker.name;
+  const session = speaker.sessionTitle || "";
+
+  return {
+    x: fitXCopy({
+      prefix: `Speaker spotlight: ${name} at Hampton Roads DevFest, ${EVENT_INFO}!`,
+      sessionLine: session ? `Presenting: "${session}"` : null,
+      hashtags: HASHTAGS,
+      link: REG_LINK,
+    }),
+
+    linkedin: [
+      `We're excited to spotlight ${name} at Hampton Roads DevFest on ${EVENT_INFO}!`,
+      session
+        ? `${name} will be presenting "${session}" — a session you won't want to miss. This is a great opportunity to learn from one of our talented local speakers and connect with the Hampton Roads tech community.`
+        : `${name} is one of our talented local speakers. This is a great opportunity to connect with the Hampton Roads tech community.`,
+      `Register now and join us: ${REG_LINK}\n\n${HASHTAGS}`,
+    ].join("\n\n"),
+
+    instagram: [
+      `🎤 Speaker spotlight: ${name}!`,
+      session ? `💡 "${session}"` : "",
+      `📅 ${EVENT_INFO}`,
+      `🔗 Link in bio to register!`,
+      ``,
+      HASHTAGS,
+    ]
+      .filter(Boolean)
+      .join("\n"),
+
+    facebook: [
+      `Meet ${name}, one of our amazing speakers at Hampton Roads DevFest on ${EVENT_INFO}! 🎉`,
+      session
+        ? `They'll be presenting "${session}" — come learn and connect with the local tech community.`
+        : `Come learn and connect with the local tech community.`,
+      `Grab your spot now: ${REG_LINK}\n\n${HASHTAGS}`,
+    ].join("\n\n"),
+  };
+}
+
+function generateSponsorCopy(entry) {
+  const matchedSponsors = lookupSponsors(entry.speakerOrSponsorName);
+  if (matchedSponsors.length === 0) return generateFallbackCopy(entry);
+
+  const isGroup = matchedSponsors.length > 1;
+  const primary = matchedSponsors[0];
+  const tier = tierLabel(primary.tier);
+  const nameDisplay = entry.speakerOrSponsorName;
+
+  if (isGroup) {
+    const tiers = matchedSponsors.map((s) => `${s.name} (${tierLabel(s.tier)})`).join(" and ");
+    return {
+      x: fitXCopy({
+        prefix: `Thank you to our sponsors ${nameDisplay} for supporting Hampton Roads DevFest, ${EVENT_INFO}!`,
+        sessionLine: null,
+        hashtags: HASHTAGS,
+        link: REG_LINK,
+      }),
+
+      linkedin: [
+        `A huge thank you to our sponsors — ${tiers} — for supporting Hampton Roads DevFest on ${EVENT_INFO}!`,
+        `Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like these make it happen.`,
+        `Join us: ${REG_LINK}\n\n${HASHTAGS}`,
+      ].join("\n\n"),
+
+      instagram: [
+        `🙌 Sponsor shoutout!`,
+        `Thanks to ${nameDisplay} for supporting DevFest!`,
+        `📅 ${EVENT_INFO}`,
+        `🔗 Link in bio to register!`,
+        ``,
+        HASHTAGS,
+      ].join("\n"),
+
+      facebook: [
+        `Shoutout to our sponsors ${nameDisplay} for helping make Hampton Roads DevFest possible on ${EVENT_INFO}! 🎉`,
+        `We're grateful for their support in bringing the local tech community together.`,
+        `Register now: ${REG_LINK}\n\n${HASHTAGS}`,
+      ].join("\n\n"),
+    };
+  }
+
+  return {
+    x: fitXCopy({
+      prefix: `Thank you to our ${tier} sponsor ${nameDisplay} for supporting Hampton Roads DevFest, ${EVENT_INFO}!`,
+      sessionLine: null,
+      hashtags: HASHTAGS,
+      link: REG_LINK,
+    }),
+
+    linkedin: [
+      `We're grateful to have ${nameDisplay} as a ${tier} sponsor of Hampton Roads DevFest on ${EVENT_INFO}!`,
+      `Their support helps bring together developers across Hampton Roads for a day of learning, networking, and community. Thank you, ${nameDisplay}!`,
+      `Register now: ${REG_LINK}\n\n${HASHTAGS}`,
+    ].join("\n\n"),
+
+    instagram: [
+      `🙌 ${tier} Sponsor spotlight: ${nameDisplay}!`,
+      `Thank you for supporting DevFest! 💪`,
+      `📅 ${EVENT_INFO}`,
+      `🔗 Link in bio to register!`,
+      ``,
+      HASHTAGS,
+    ].join("\n"),
+
+    facebook: [
+      `Big thanks to our ${tier} sponsor ${nameDisplay} for supporting Hampton Roads DevFest on ${EVENT_INFO}! 🎉`,
+      `Their partnership helps make this community event possible. We appreciate the support!`,
+      `Get your ticket: ${REG_LINK}\n\n${HASHTAGS}`,
+    ].join("\n\n"),
+  };
+}
+
+function generateCountdownCopy(entry) {
+  const daysRemaining = daysBetween(entry.date, EVENT_DATE);
+  const countdown = getCountdownText(daysRemaining);
+  const urgency = getCountdownUrgency(daysRemaining);
+
+  if (urgency === "today") {
+    return {
+      x: fitXCopy({
+        prefix: `It's happening NOW! Hampton Roads DevFest is TODAY in Virginia Beach!`,
+        sessionLine: `See you there!`,
+        hashtags: HASHTAGS,
+        link: REG_LINK,
+      }),
+
+      linkedin: [
+        `It's here — Hampton Roads DevFest is happening TODAY in Virginia Beach!`,
+        `We're thrilled to welcome developers from across the region for a day of incredible sessions, networking, and community. Whether you're joining us in person or following along online, today is going to be special.`,
+        `See you there! ${REG_LINK}\n\n${HASHTAGS}`,
+      ].join("\n\n"),
+
+      instagram: [
+        `🚀 IT'S DEVFEST DAY! 🎉`,
+        `Hampton Roads DevFest is happening NOW in Virginia Beach!`,
+        `See you there! 🙌`,
+        `🔗 Link in bio`,
+        ``,
+        HASHTAGS,
+      ].join("\n"),
+
+      facebook: [
+        `IT'S DEVFEST DAY! 🚀🎉 Hampton Roads DevFest is happening right now in Virginia Beach!`,
+        `We can't wait to see everyone today. It's going to be an amazing day of talks, learning, and community.`,
+        `Happening now: ${REG_LINK}\n\n${HASHTAGS}`,
+      ].join("\n\n"),
+    };
+  }
+
+  if (urgency === "final") {
+    const urgencyPrefix = daysRemaining === 1 ? "TOMORROW" : `Just ${daysRemaining} days away`;
+    return {
+      x: fitXCopy({
+        prefix: `${urgencyPrefix}! Hampton Roads DevFest, ${EVENT_INFO}. Don't miss out!`,
+        sessionLine: null,
+        hashtags: HASHTAGS,
+        link: REG_LINK,
+      }),
+
+      linkedin: [
+        `${countdown} Hampton Roads DevFest is almost here!`,
+        `${EVENT_INFO} — join us for a day packed with sessions from talented local speakers, sponsor showcases, and networking with the Hampton Roads tech community. Last chance to register!`,
+        `Secure your spot: ${REG_LINK}\n\n${HASHTAGS}`,
+      ].join("\n\n"),
+
+      instagram: [
+        `⏰ ${countdown}`,
+        `Hampton Roads DevFest is almost here!`,
+        `📅 ${EVENT_INFO}`,
+        `Don't miss out! 🔗 Link in bio`,
+        ``,
+        HASHTAGS,
+      ].join("\n"),
+
+      facebook: [
+        `⏰ ${countdown} Hampton Roads DevFest is right around the corner!`,
+        `Join us ${EVENT_INFO} for amazing talks, community, and networking. Spots are filling up — register now!`,
+        `Register: ${REG_LINK}\n\n${HASHTAGS}`,
+      ].join("\n\n"),
+    };
+  }
+
+  // Early or mid urgency
+  return {
+    x: fitXCopy({
+      prefix: `${countdown} Hampton Roads DevFest is coming ${EVENT_INFO}.`,
+      sessionLine: `Local speakers, great sessions, and community networking await!`,
+      hashtags: HASHTAGS,
+      link: REG_LINK,
+    }),
+
+    linkedin: [
+      `${countdown} We're counting down to Hampton Roads DevFest on ${EVENT_INFO}!`,
+      `This is the premier local developer conference celebrating the Hampton Roads tech community. Join us for sessions from amazing local speakers, sponsor showcases, and opportunities to connect with fellow developers in the 757.`,
+      `Register today: ${REG_LINK}\n\n${HASHTAGS}`,
+    ].join("\n\n"),
+
+    instagram: [
+      `📣 ${countdown}`,
+      `Hampton Roads DevFest is coming! 🎉`,
+      `📅 ${EVENT_INFO}`,
+      `Local speakers. Great sessions. Community vibes. ✨`,
+      `🔗 Link in bio to register!`,
+      ``,
+      HASHTAGS,
+    ].join("\n"),
+
+    facebook: [
+      `📣 ${countdown} Hampton Roads DevFest is coming to Virginia Beach on Feb 27!`,
+      `Join us for a full day of sessions from talented local speakers, networking, and celebrating the tech community in Hampton Roads. It's going to be a great time!`,
+      `Register now: ${REG_LINK}\n\n${HASHTAGS}`,
+    ].join("\n\n"),
+  };
+}
+
+function generateFallbackCopy() {
+  return {
+    x: fitXCopy({
+      prefix: `Hampton Roads DevFest, ${EVENT_INFO}. Join the local tech community!`,
+      sessionLine: null,
+      hashtags: HASHTAGS,
+      link: REG_LINK,
+    }),
+    linkedin: `Join us at Hampton Roads DevFest on ${EVENT_INFO}! Register: ${REG_LINK}\n\n${HASHTAGS}`,
+    instagram: `🎉 Hampton Roads DevFest\n📅 ${EVENT_INFO}\n🔗 Link in bio!\n\n${HASHTAGS}`,
+    facebook: `Join us at Hampton Roads DevFest on ${EVENT_INFO}! Register: ${REG_LINK}\n\n${HASHTAGS}`,
+  };
+}
+
+function generatePlatformCopy(entry) {
+  switch (entry.contentType) {
+    case "speaker":
+      return generateSpeakerCopy(entry);
+    case "sponsor":
+      return generateSponsorCopy(entry);
+    case "countdown":
+      return generateCountdownCopy(entry);
+    default:
+      return generateFallbackCopy(entry);
+  }
+}
+
+function addPlatformCopyToCalendar(calendar) {
+  for (const entry of calendar) {
+    entry.platforms = generatePlatformCopy(entry);
+  }
+  return calendar;
+}
+
+// ---------------------------------------------------------------------------
 // Validate image paths
 // ---------------------------------------------------------------------------
 function validateImages(calendar) {
@@ -342,6 +662,10 @@ function main() {
   console.log();
 
   const calendar = buildCalendar(startDateArg, endDateArg);
+
+  console.log("Generating platform-specific post copy...");
+  addPlatformCopyToCalendar(calendar);
+  console.log();
 
   console.log("Validating image paths...");
   validateImages(calendar);
