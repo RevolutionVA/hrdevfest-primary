@@ -10,9 +10,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-2weeks-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-10-days-square.png`
 
 ---
 
@@ -24,7 +24,7 @@ Lionel Sapp will be presenting "The 1-Person DevOps Stack: How I Keep Client App
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/speakers/lionel-sapp.png`
 
@@ -38,7 +38,7 @@ Their support helps bring together developers across Hampton Roads for a day of 
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/progress.png`
 
@@ -54,9 +54,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-2weeks-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-9-days-square.png`
 
 ---
 
@@ -68,7 +68,7 @@ Their support helps bring together developers across Hampton Roads for a day of 
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/stigian-consulting.png`
 
@@ -84,9 +84,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-2weeks-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-8-days-square.png`
 
 ---
 
@@ -98,7 +98,7 @@ Ryan Castillo will be presenting "How to have a successful dev career in the 757
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/speakers/ryan-castillo.png`
 
@@ -112,7 +112,7 @@ Their support helps bring together developers across Hampton Roads for a day of 
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/decisions-processmaker.png`
 
@@ -128,9 +128,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-7-days-square.png`
 
 ---
 
@@ -142,7 +142,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/marathon-consulting.png`
 
@@ -158,9 +158,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-6-days-square.png`
 
 ---
 
@@ -172,7 +172,7 @@ Katie Novotny will be presenting "Cool Demo, Bro. Now Ship It: Why Most GenAI Ap
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/speakers/katie-novotny.png`
 
@@ -186,7 +186,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/noteable.png`
 
@@ -202,9 +202,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-5-days-square.png`
 
 ---
 
@@ -216,7 +216,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/swift-kick.png`
 
@@ -232,9 +232,9 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-4-days-square.png`
 
 ---
 
@@ -246,7 +246,7 @@ Tim Banks will be presenting "AI Can't Teach You Jiu-Jitsu: Developing Your Craf
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/speakers/tim-banks.png`
 
@@ -260,7 +260,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/techead.png`
 
@@ -276,9 +276,9 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
 
 ---
 
@@ -290,9 +290,9 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
 
 ---
 
@@ -306,9 +306,9 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-2-days-square.png`
 
 ---
 
@@ -320,7 +320,7 @@ Ian Taylor will be presenting "AI with AI with AI" — a session you won't want 
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/speakers/ian-taylor.png`
 
@@ -336,9 +336,9 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-1-days-square.png`
 
 ---
 
@@ -350,9 +350,9 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-1-days-square.png`
 
 ---
 
@@ -366,9 +366,9 @@ We're thrilled to welcome developers from across the region for a day of incredi
 
 See you there! https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-0-days-square.png`
 
 ---
 
@@ -380,8 +380,8 @@ We're thrilled to welcome developers from across the region for a day of incredi
 
 See you there! https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-0-days-square.png`
 
 ---

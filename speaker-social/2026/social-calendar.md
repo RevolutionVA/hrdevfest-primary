@@ -4,7 +4,7 @@
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-2weeks-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-10-days-square.png`
 
 #### X (Twitter)
 
@@ -12,7 +12,7 @@
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -24,7 +24,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -34,7 +34,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -44,7 +44,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -58,7 +58,7 @@ Speaker spotlight: Lionel Sapp at Hampton Roads DevFest, Feb 27 in Virginia Beac
 
 Presenting: "The 1-Person DevOps Stack: How I Keep Client Apps Alive Without a Big Team"
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -70,7 +70,7 @@ Lionel Sapp will be presenting "The 1-Person DevOps Stack: How I Keep Client App
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -80,7 +80,7 @@ They'll be presenting "The 1-Person DevOps Stack: How I Keep Client Apps Alive W
 
 Grab your spot now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -88,7 +88,7 @@ Grab your spot now: https://hrdevfest.org
 💡 "The 1-Person DevOps Stack: How I Keep Client Apps Alive Without a Big Team"
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -100,7 +100,7 @@ Grab your spot now: https://hrdevfest.org
 
 Thank you to our Gold sponsor Progress for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -112,7 +112,7 @@ Their support helps bring together developers across Hampton Roads for a day of 
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -122,7 +122,7 @@ Their partnership helps make this community event possible. We appreciate the su
 
 Get your ticket: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -131,7 +131,7 @@ Thank you for supporting DevFest! 💪
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -139,7 +139,7 @@ Thank you for supporting DevFest! 💪
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-2weeks-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-9-days-square.png`
 
 #### X (Twitter)
 
@@ -147,7 +147,7 @@ Thank you for supporting DevFest! 💪
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -159,7 +159,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -169,7 +169,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -179,7 +179,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -191,7 +191,7 @@ Local speakers. Great sessions. Community vibes. ✨
 
 Thank you to our Gold sponsor Stigian Consulting for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -203,7 +203,7 @@ Their support helps bring together developers across Hampton Roads for a day of 
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -213,7 +213,7 @@ Their partnership helps make this community event possible. We appreciate the su
 
 Get your ticket: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -222,7 +222,7 @@ Thank you for supporting DevFest! 💪
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -230,7 +230,7 @@ Thank you for supporting DevFest! 💪
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-2weeks-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-8-days-square.png`
 
 #### X (Twitter)
 
@@ -238,7 +238,7 @@ Thank you for supporting DevFest! 💪
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -250,7 +250,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -260,7 +260,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -270,7 +270,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -284,7 +284,7 @@ Speaker spotlight: Ryan Castillo at Hampton Roads DevFest, Feb 27 in Virginia Be
 
 Presenting: "How to have a successful dev career in the 757*"
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -296,7 +296,7 @@ Ryan Castillo will be presenting "How to have a successful dev career in the 757
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -306,7 +306,7 @@ They'll be presenting "How to have a successful dev career in the 757*" — come
 
 Grab your spot now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -314,7 +314,7 @@ Grab your spot now: https://hrdevfest.org
 💡 "How to have a successful dev career in the 757*"
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -326,7 +326,7 @@ Grab your spot now: https://hrdevfest.org
 
 Thank you to our Gold sponsor Decisions + ProcessMaker for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -338,7 +338,7 @@ Their support helps bring together developers across Hampton Roads for a day of 
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -348,7 +348,7 @@ Their partnership helps make this community event possible. We appreciate the su
 
 Get your ticket: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -357,7 +357,7 @@ Thank you for supporting DevFest! 💪
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -365,7 +365,7 @@ Thank you for supporting DevFest! 💪
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-7-days-square.png`
 
 #### X (Twitter)
 
@@ -373,7 +373,7 @@ Thank you for supporting DevFest! 💪
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -385,7 +385,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -395,7 +395,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -405,7 +405,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -417,7 +417,7 @@ Local speakers. Great sessions. Community vibes. ✨
 
 Thank you to our sponsors Marathon Consulting & Issuetrak for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -429,7 +429,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -439,7 +439,7 @@ We're grateful for their support in bringing the local tech community together.
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -448,7 +448,7 @@ Thanks to Marathon Consulting & Issuetrak for supporting DevFest!
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -456,7 +456,7 @@ Thanks to Marathon Consulting & Issuetrak for supporting DevFest!
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-6-days-square.png`
 
 #### X (Twitter)
 
@@ -464,7 +464,7 @@ Thanks to Marathon Consulting & Issuetrak for supporting DevFest!
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -476,7 +476,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -486,7 +486,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -496,7 +496,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -510,7 +510,7 @@ Speaker spotlight: Katie Novotny at Hampton Roads DevFest, Feb 27 in Virginia Be
 
 Presenting: "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart"
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -522,7 +522,7 @@ Katie Novotny will be presenting "Cool Demo, Bro. Now Ship It: Why Most GenAI Ap
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -532,7 +532,7 @@ They'll be presenting "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apa
 
 Grab your spot now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -540,7 +540,7 @@ Grab your spot now: https://hrdevfest.org
 💡 "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart"
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -552,7 +552,7 @@ Grab your spot now: https://hrdevfest.org
 
 Thank you to our sponsors Noteable & OpenSearch for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -564,7 +564,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -574,7 +574,7 @@ We're grateful for their support in bringing the local tech community together.
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -583,7 +583,7 @@ Thanks to Noteable & OpenSearch for supporting DevFest!
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -591,7 +591,7 @@ Thanks to Noteable & OpenSearch for supporting DevFest!
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-5-days-square.png`
 
 #### X (Twitter)
 
@@ -599,7 +599,7 @@ Thanks to Noteable & OpenSearch for supporting DevFest!
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -611,7 +611,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -621,7 +621,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -631,7 +631,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -643,7 +643,7 @@ Local speakers. Great sessions. Community vibes. ✨
 
 Thank you to our sponsors Swift Kick & Land Records for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -655,7 +655,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -665,7 +665,7 @@ We're grateful for their support in bringing the local tech community together.
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -674,7 +674,7 @@ Thanks to Swift Kick & Land Records for supporting DevFest!
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -682,7 +682,7 @@ Thanks to Swift Kick & Land Records for supporting DevFest!
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1week-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-4-days-square.png`
 
 #### X (Twitter)
 
@@ -690,7 +690,7 @@ Thanks to Swift Kick & Land Records for supporting DevFest!
 
 Local speakers, great sessions, and community networking await!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -702,7 +702,7 @@ This is the premier local developer conference celebrating the Hampton Roads tec
 
 Register today: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -712,7 +712,7 @@ Join us for a full day of sessions from talented local speakers, networking, and
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -722,7 +722,7 @@ Hampton Roads DevFest is coming! 🎉
 Local speakers. Great sessions. Community vibes. ✨
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -736,7 +736,7 @@ Speaker spotlight: Tim Banks at Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
 Presenting: "AI Can't Teach You Jiu-Jitsu: Developing Your Craft in the Age of AI"
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -748,7 +748,7 @@ Tim Banks will be presenting "AI Can't Teach You Jiu-Jitsu: Developing Your Craf
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -758,7 +758,7 @@ They'll be presenting "AI Can't Teach You Jiu-Jitsu: Developing Your Craft in th
 
 Grab your spot now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -766,7 +766,7 @@ Grab your spot now: https://hrdevfest.org
 💡 "AI Can't Teach You Jiu-Jitsu: Developing Your Craft in the Age of AI"
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -778,7 +778,7 @@ Grab your spot now: https://hrdevfest.org
 
 Thank you to our sponsors Techead & Yellow Dog Software for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -790,7 +790,7 @@ Their support helps make this community event possible. We're proud to bring tog
 
 Join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -800,7 +800,7 @@ We're grateful for their support in bringing the local tech community together.
 
 Register now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -809,7 +809,7 @@ Thanks to Techead & Yellow Dog Software for supporting DevFest!
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -817,13 +817,13 @@ Thanks to Techead & Yellow Dog Software for supporting DevFest!
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
 
 #### X (Twitter)
 
 Just 3 days away! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -835,7 +835,7 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -845,7 +845,7 @@ Join us Feb 27 in Virginia Beach for amazing talks, community, and networking. S
 
 Register: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -854,19 +854,19 @@ Hampton Roads DevFest is almost here!
 📅 Feb 27 in Virginia Beach
 Don't miss out! 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
 ### Afternoon · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
 
 #### X (Twitter)
 
 Just 3 days away! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -878,7 +878,7 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -888,7 +888,7 @@ Join us Feb 27 in Virginia Beach for amazing talks, community, and networking. S
 
 Register: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -897,7 +897,7 @@ Hampton Roads DevFest is almost here!
 📅 Feb 27 in Virginia Beach
 Don't miss out! 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -905,13 +905,13 @@ Don't miss out! 🔗 Link in bio
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-2-days-square.png`
 
 #### X (Twitter)
 
 Just 2 days away! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -923,7 +923,7 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -933,7 +933,7 @@ Join us Feb 27 in Virginia Beach for amazing talks, community, and networking. S
 
 Register: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -942,7 +942,7 @@ Hampton Roads DevFest is almost here!
 📅 Feb 27 in Virginia Beach
 Don't miss out! 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -956,7 +956,7 @@ Speaker spotlight: Ian Taylor at Hampton Roads DevFest, Feb 27 in Virginia Beach
 
 Presenting: "AI with AI with AI"
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -968,7 +968,7 @@ Ian Taylor will be presenting "AI with AI with AI" — a session you won't want 
 
 Register now and join us: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -978,7 +978,7 @@ They'll be presenting "AI with AI with AI" — come learn and connect with the l
 
 Grab your spot now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -986,7 +986,7 @@ Grab your spot now: https://hrdevfest.org
 💡 "AI with AI with AI"
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -994,13 +994,13 @@ Grab your spot now: https://hrdevfest.org
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-1-days-square.png`
 
 #### X (Twitter)
 
 TOMORROW! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -1012,7 +1012,7 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -1022,7 +1022,7 @@ Join us Feb 27 in Virginia Beach for amazing talks, community, and networking. S
 
 Register: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -1031,19 +1031,19 @@ Hampton Roads DevFest is almost here!
 📅 Feb 27 in Virginia Beach
 Don't miss out! 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
 ### Afternoon · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-1-days-square.png`
 
 #### X (Twitter)
 
 TOMORROW! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -1055,7 +1055,7 @@ Feb 27 in Virginia Beach — join us for a day packed with sessions from talente
 
 Secure your spot: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -1065,7 +1065,7 @@ Join us Feb 27 in Virginia Beach for amazing talks, community, and networking. S
 
 Register: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -1074,7 +1074,7 @@ Hampton Roads DevFest is almost here!
 📅 Feb 27 in Virginia Beach
 Don't miss out! 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
@@ -1082,7 +1082,7 @@ Don't miss out! 🔗 Link in bio
 
 ### Morning · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-0-days-square.png`
 
 #### X (Twitter)
 
@@ -1090,7 +1090,7 @@ It's happening NOW! Hampton Roads DevFest is TODAY in Virginia Beach!
 
 See you there!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -1102,7 +1102,7 @@ We're thrilled to welcome developers from across the region for a day of incredi
 
 See you there! https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -1112,7 +1112,7 @@ We can't wait to see everyone today. It's going to be an amazing day of talks, l
 
 Happening now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -1121,13 +1121,13 @@ Hampton Roads DevFest is happening NOW in Virginia Beach!
 See you there! 🙌
 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---
 
 ### Afternoon · Countdown
 
-**Image:** `speaker-social/2026/backgrounds/countdown-tomorrow-square.png`
+**Image:** `speaker-social/2026/backgrounds/countdown-0-days-square.png`
 
 #### X (Twitter)
 
@@ -1135,7 +1135,7 @@ It's happening NOW! Hampton Roads DevFest is TODAY in Virginia Beach!
 
 See you there!
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
@@ -1147,7 +1147,7 @@ We're thrilled to welcome developers from across the region for a day of incredi
 
 See you there! https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
@@ -1157,7 +1157,7 @@ We can't wait to see everyone today. It's going to be an amazing day of talks, l
 
 Happening now: https://hrdevfest.org
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
@@ -1166,6 +1166,6 @@ Hampton Roads DevFest is happening NOW in Virginia Beach!
 See you there! 🙌
 🔗 Link in bio
 
-#HRDevFest #HamptonRoads #DevFest2026
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---

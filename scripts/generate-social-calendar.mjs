@@ -80,9 +80,7 @@ function daysBetween(dateStr, eventDateStr) {
 }
 
 function getCountdownImagePath(daysRemaining) {
-  if (daysRemaining >= 8) return "speaker-social/2026/backgrounds/countdown-2weeks-square.png";
-  if (daysRemaining >= 4) return "speaker-social/2026/backgrounds/countdown-1week-square.png";
-  return "speaker-social/2026/backgrounds/countdown-tomorrow-square.png";
+  return `speaker-social/2026/backgrounds/countdown-${daysRemaining}-days-square.png`;
 }
 
 function getSpeakerImagePath(speaker) {
@@ -313,7 +311,7 @@ function buildCalendar(startDate, endDate) {
 // Platform-specific post copy generation (US-002)
 // ---------------------------------------------------------------------------
 const REG_LINK = "https://hrdevfest.org";
-const HASHTAGS = "#HRDevFest #HamptonRoads #DevFest2026";
+const HASHTAGS = "#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake";
 const EVENT_INFO = "Feb 27 in Virginia Beach";
 
 function getCountdownText(daysRemaining) {

@@ -6,6 +6,7 @@
  *   yarn generate:social                          # Generate all images
  *   yarn generate:social -- --speakers-only       # Only speakers
  *   yarn generate:social -- --sponsors-only       # Only sponsors
+ *   yarn generate:social -- --countdown-only      # Only countdown
  *   yarn generate:social -- --speaker "Lionel Sapp"
  *   yarn generate:social -- --sponsor "Progress"
  *   yarn generate:social -- --force               # Regenerate existing
@@ -20,6 +21,7 @@ import { resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { speakerSquareTemplate } from "./templates/speaker-square.mjs";
 import { sponsorSquareTemplate } from "./templates/sponsor-square.mjs";
+import { countdownSquareTemplate } from "./templates/countdown-square.mjs";
 
 // ---------------------------------------------------------------------------
 // Resolve project root and import .ts data files (tsx loaded via --import flag)
@@ -50,6 +52,7 @@ function getFlagValue(name) {
 
 const speakersOnly = hasFlag("speakers-only");
 const sponsorsOnly = hasFlag("sponsors-only");
+const countdownOnly = hasFlag("countdown-only");
 const force = hasFlag("force");
 const singleSpeaker = getFlagValue("speaker");
 const singleSponsor = getFlagValue("sponsor");
@@ -77,8 +80,10 @@ const FORMAT = { width: 1080, height: 1080, label: "1:1 square" };
 const outBase = resolve(projectRoot, "speaker-social/2026/generated");
 const speakersOutDir = resolve(outBase, "speakers");
 const sponsorsOutDir = resolve(outBase, "sponsors");
+const countdownOutDir = resolve(projectRoot, "speaker-social/2026/backgrounds");
 mkdirSync(speakersOutDir, { recursive: true });
 mkdirSync(sponsorsOutDir, { recursive: true });
+mkdirSync(countdownOutDir, { recursive: true });
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -270,6 +275,41 @@ async function processSponsors() {
 }
 
 // ---------------------------------------------------------------------------
+// Process countdown images (one per day, 10 down to 0)
+// ---------------------------------------------------------------------------
+async function processCountdown() {
+  let generated = 0,
+    skipped = 0,
+    failed = 0;
+
+  for (let days = 10; days >= 0; days--) {
+    const filename = `countdown-${days}-days-square.png`;
+    const outPath = resolve(countdownOutDir, filename);
+
+    if (existsSync(outPath) && !force) {
+      console.log(`  SKIP ${filename} (exists, use --force)`);
+      skipped++;
+      continue;
+    }
+
+    console.log(`  Generating ${filename} (${FORMAT.label})...`);
+
+    try {
+      const template = countdownSquareTemplate({ daysLeft: days, logoDataUri });
+      const png = await renderToPng(template, FORMAT.width, FORMAT.height);
+      writeFileSync(outPath, png);
+      generated++;
+      console.log(`  OK ${filename}`);
+    } catch (err) {
+      console.error(`  ERROR generating ${filename}: ${err.message}`);
+      failed++;
+    }
+  }
+
+  return { generated, skipped, failed };
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 async function main() {
@@ -280,25 +320,32 @@ async function main() {
 
   let speakerStats = { generated: 0, skipped: 0, failed: 0 };
   let sponsorStats = { generated: 0, skipped: 0, failed: 0 };
+  let countdownStats = { generated: 0, skipped: 0, failed: 0 };
 
-  if (!sponsorsOnly && !singleSponsor) {
+  if (!sponsorsOnly && !countdownOnly && !singleSponsor) {
     console.log("SPEAKERS:");
     speakerStats = await processSpeakers();
     console.log();
   }
 
-  if (!speakersOnly && !singleSpeaker) {
+  if (!speakersOnly && !countdownOnly && !singleSpeaker) {
     console.log("SPONSORS:");
     sponsorStats = await processSponsors();
+    console.log();
+  }
+
+  if (!speakersOnly && !sponsorsOnly && !singleSpeaker && !singleSponsor) {
+    console.log("COUNTDOWN:");
+    countdownStats = await processCountdown();
     console.log();
   }
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 
   const total = {
-    generated: speakerStats.generated + sponsorStats.generated,
-    skipped: speakerStats.skipped + sponsorStats.skipped,
-    failed: speakerStats.failed + sponsorStats.failed,
+    generated: speakerStats.generated + sponsorStats.generated + countdownStats.generated,
+    skipped: speakerStats.skipped + sponsorStats.skipped + countdownStats.skipped,
+    failed: speakerStats.failed + sponsorStats.failed + countdownStats.failed,
   };
 
   console.log("SUMMARY:");
