@@ -44,6 +44,7 @@ function getFlagValue(name) {
 
 const startDateArg = getFlagValue("start-date") || "2026-02-17";
 const endDateArg = getFlagValue("end-date") || "2026-02-27";
+const combinedFlag = hasFlag("combined");
 
 // ---------------------------------------------------------------------------
 // Constants
@@ -331,6 +332,7 @@ function main() {
   console.log("==========================================\n");
 
   console.log(`Date range: ${startDateArg} to ${endDateArg}`);
+  console.log(`Combined output: ${combinedFlag ? "yes" : "no (use --combined to include)"}`);
   console.log(
     `Speakers: ${eligibleSpeakers.length} (excluding Lauren Pryor - no session topic)`
   );
@@ -378,11 +380,12 @@ function main() {
     console.log(`  ${date} (${daysLeft}d left): ${types.join(", ")}`);
   }
 
-  console.log(`\nOutput: speaker-social/2026/social-calendar.json`);
+  console.log(`\nGenerated files:`);
+  console.log(`  speaker-social/2026/social-calendar.json`);
 
   return calendar;
 }
 
 main();
 
-export { buildCalendar, slugify, daysBetween, getCountdownImagePath };
+export { buildCalendar, slugify, daysBetween, getCountdownImagePath, combinedFlag };
