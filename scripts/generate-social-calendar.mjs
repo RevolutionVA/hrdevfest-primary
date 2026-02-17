@@ -630,6 +630,113 @@ function addPlatformCopyToCalendar(calendar) {
 }
 
 // ---------------------------------------------------------------------------
+// Markdown generation (US-004)
+// ---------------------------------------------------------------------------
+const PLATFORMS = ["x", "linkedin", "facebook", "instagram"];
+const PLATFORM_LABELS = { x: "X (Twitter)", linkedin: "LinkedIn", facebook: "Facebook", instagram: "Instagram" };
+const TIME_SLOT_LABELS = { morning: "Morning", afternoon: "Afternoon", evening: "Evening" };
+
+function groupByDate(calendar) {
+  const grouped = {};
+  for (const entry of calendar) {
+    if (!grouped[entry.date]) grouped[entry.date] = [];
+    grouped[entry.date].push(entry);
+  }
+  return grouped;
+}
+
+function formatContentType(type) {
+  return type.charAt(0).toUpperCase() + type.slice(1);
+}
+
+function generatePlatformMarkdown(calendar, platform) {
+  const byDate = groupByDate(calendar);
+  const label = PLATFORM_LABELS[platform];
+  const lines = [`# HRDevFest Social Media Calendar — ${label}`, ""];
+
+  for (const [date, posts] of Object.entries(byDate)) {
+    const daysLeft = daysBetween(date, EVENT_DATE);
+    lines.push(`## ${date} (${daysLeft} day${daysLeft !== 1 ? "s" : ""} until DevFest)`);
+    lines.push("");
+
+    for (const post of posts) {
+      const slotLabel = TIME_SLOT_LABELS[post.timeSlot] || post.timeSlot;
+      const typeLabel = formatContentType(post.contentType);
+      const nameInfo = post.speakerOrSponsorName ? ` — ${post.speakerOrSponsorName}` : "";
+
+      lines.push(`### ${slotLabel} · ${typeLabel}${nameInfo}`);
+      lines.push("");
+      lines.push(post.platforms[platform]);
+      lines.push("");
+      lines.push(`**Image:** \`${post.imagePath}\``);
+      lines.push("");
+      lines.push("---");
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
+}
+
+function generateCombinedMarkdown(calendar) {
+  const byDate = groupByDate(calendar);
+  const lines = ["# HRDevFest Social Media Calendar — All Platforms", ""];
+
+  for (const [date, posts] of Object.entries(byDate)) {
+    const daysLeft = daysBetween(date, EVENT_DATE);
+    lines.push(`## ${date} (${daysLeft} day${daysLeft !== 1 ? "s" : ""} until DevFest)`);
+    lines.push("");
+
+    for (const post of posts) {
+      const slotLabel = TIME_SLOT_LABELS[post.timeSlot] || post.timeSlot;
+      const typeLabel = formatContentType(post.contentType);
+      const nameInfo = post.speakerOrSponsorName ? ` — ${post.speakerOrSponsorName}` : "";
+
+      lines.push(`### ${slotLabel} · ${typeLabel}${nameInfo}`);
+      lines.push("");
+      lines.push(`**Image:** \`${post.imagePath}\``);
+      lines.push("");
+
+      for (const platform of PLATFORMS) {
+        lines.push(`#### ${PLATFORM_LABELS[platform]}`);
+        lines.push("");
+        lines.push(post.platforms[platform]);
+        lines.push("");
+      }
+
+      lines.push("---");
+      lines.push("");
+    }
+  }
+
+  return lines.join("\n");
+}
+
+function writeMarkdownFiles(calendar) {
+  const files = [];
+
+  // Always generate per-platform files
+  for (const platform of PLATFORMS) {
+    const filename = `social-calendar-${platform}.md`;
+    const filePath = resolve(outDir, filename);
+    const content = generatePlatformMarkdown(calendar, platform);
+    writeFileSync(filePath, content);
+    files.push(`speaker-social/2026/${filename}`);
+  }
+
+  // Generate combined file only with --combined flag
+  if (combinedFlag) {
+    const filename = "social-calendar.md";
+    const filePath = resolve(outDir, filename);
+    const content = generateCombinedMarkdown(calendar);
+    writeFileSync(filePath, content);
+    files.push(`speaker-social/2026/${filename}`);
+  }
+
+  return files;
+}
+
+// ---------------------------------------------------------------------------
 // Validate image paths
 // ---------------------------------------------------------------------------
 function validateImages(calendar) {
@@ -674,14 +781,18 @@ function main() {
   // Write JSON output
   const jsonPath = resolve(outDir, "social-calendar.json");
   writeFileSync(jsonPath, JSON.stringify(calendar, null, 2));
-  console.log(`Calendar JSON written to: speaker-social/2026/social-calendar.json`);
+
+  // Write markdown files (per-platform always, combined with --combined)
+  console.log("Generating markdown files...");
+  const mdFiles = writeMarkdownFiles(calendar);
+  console.log();
 
   // Summary
   const countdownPosts = calendar.filter((e) => e.contentType === "countdown").length;
   const speakerPosts = calendar.filter((e) => e.contentType === "speaker").length;
   const sponsorPosts = calendar.filter((e) => e.contentType === "sponsor").length;
 
-  console.log(`\nSUMMARY:`);
+  console.log(`SUMMARY:`);
   console.log(`  Total posts:     ${calendar.length}`);
   console.log(`  Countdown posts: ${countdownPosts}`);
   console.log(`  Speaker posts:   ${speakerPosts}`);
@@ -706,6 +817,9 @@ function main() {
 
   console.log(`\nGenerated files:`);
   console.log(`  speaker-social/2026/social-calendar.json`);
+  for (const f of mdFiles) {
+    console.log(`  ${f}`);
+  }
 
   return calendar;
 }
