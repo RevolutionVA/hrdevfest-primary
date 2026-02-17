@@ -2,7 +2,7 @@
  * Sponsor Card Template — Square (1080x1080)
  *
  * Fixed layout zones:
- *   - Conference logo top-left (~160px wide)
+ *   - Conference logo top-left (~220px wide)
  *   - "THANK YOU" header in teal
  *   - Sponsor logo centered in rounded card area
  *   - Sponsor name below logo (Inter Bold, charcoal)
@@ -75,7 +75,7 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
                 type: "img",
                 props: {
                   src: logoDataUri,
-                  width: 160,
+                  width: 220,
                   style: { objectFit: "contain" },
                 },
               },
@@ -85,9 +85,9 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
                   style: {
                     backgroundColor: tierColor,
                     color: COLORS.white,
-                    fontSize: 14,
+                    fontSize: 20,
                     fontWeight: 700,
-                    padding: "8px 28px",
+                    padding: "12px 32px",
                     borderRadius: 8,
                     textTransform: "uppercase",
                     letterSpacing: 2,
@@ -98,6 +98,8 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
             ],
           },
         },
+        // Spacer (top)
+        { type: "div", props: { style: { flex: 1 } } },
         // "THANK YOU" heading
         {
           type: "div",
@@ -106,7 +108,6 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
               fontSize: 48,
               fontWeight: 700,
               color: COLORS.teal,
-              marginTop: 40,
               textTransform: "uppercase",
               letterSpacing: 4,
             },
@@ -121,12 +122,12 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              width: 360,
-              height: 220,
+              width: 500,
+              height: 300,
               backgroundColor: COLORS.white,
               border: `1px solid ${COLORS.lightGray}`,
               borderRadius: 16,
-              marginTop: 40,
+              marginTop: 30,
               padding: 30,
               boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
             },
@@ -148,7 +149,7 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
           type: "div",
           props: {
             style: {
-              fontSize: 28,
+              fontSize: 40,
               fontWeight: 700,
               color: COLORS.charcoal,
               marginTop: 24,
@@ -157,7 +158,7 @@ export function sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhit
             children: sponsor.name,
           },
         },
-        // Spacer
+        // Spacer (bottom)
         { type: "div", props: { style: { flex: 1 } } },
         // Event info bar
         {
