@@ -28,3 +28,4 @@ playwright-report/
 speaker-social/**/generated/
 speaker-social/**/generated-ai/
 speaker-social/**/backgrounds/
+.chief/
