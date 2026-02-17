@@ -9,8 +9,6 @@
  *   yarn generate:social -- --speaker "Lionel Sapp"
  *   yarn generate:social -- --sponsor "Progress"
  *   yarn generate:social -- --force               # Regenerate existing
- *   yarn generate:social -- --format square       # Only 1080x1080
- *   yarn generate:social -- --format landscape    # Only 1200x630
  *
  * No API key or network connection required.
  */
@@ -21,9 +19,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { resolve, dirname, extname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { speakerSquareTemplate } from "./templates/speaker-square.mjs";
-import { speakerLandscapeTemplate } from "./templates/speaker-landscape.mjs";
 import { sponsorSquareTemplate } from "./templates/sponsor-square.mjs";
-import { sponsorLandscapeTemplate } from "./templates/sponsor-landscape.mjs";
 
 // ---------------------------------------------------------------------------
 // Resolve project root and import .ts data files (tsx loaded via --import flag)
@@ -55,7 +51,6 @@ function getFlagValue(name) {
 const speakersOnly = hasFlag("speakers-only");
 const sponsorsOnly = hasFlag("sponsors-only");
 const force = hasFlag("force");
-const formatFilter = getFlagValue("format"); // "square" | "landscape" | null
 const singleSpeaker = getFlagValue("speaker");
 const singleSponsor = getFlagValue("sponsor");
 
@@ -74,10 +69,7 @@ const fonts = [
 // ---------------------------------------------------------------------------
 // Image formats
 // ---------------------------------------------------------------------------
-const FORMATS = {
-  square: { width: 1080, height: 1080, label: "1:1 square" },
-  landscape: { width: 1200, height: 630, label: "landscape" },
-};
+const FORMAT = { width: 1080, height: 1080, label: "1:1 square" };
 
 // ---------------------------------------------------------------------------
 // Output directories
@@ -154,19 +146,7 @@ async function renderToPng(template, width, height) {
 }
 
 // ---------------------------------------------------------------------------
-// Speaker card template — Square (1080x1080)
-// Imported from scripts/templates/speaker-square.mjs
-// ---------------------------------------------------------------------------
-
-// ---------------------------------------------------------------------------
-// Speaker card template — Landscape (1200x630)
-// Imported from scripts/templates/speaker-landscape.mjs
-// ---------------------------------------------------------------------------
-
-// ---------------------------------------------------------------------------
-// Sponsor card templates imported from:
-//   scripts/templates/sponsor-square.mjs
-//   scripts/templates/sponsor-landscape.mjs
+// Templates imported from scripts/templates/
 // ---------------------------------------------------------------------------
 
 // ---------------------------------------------------------------------------
@@ -203,33 +183,25 @@ async function processSpeakers() {
       continue;
     }
 
-    const formats = formatFilter ? [formatFilter] : ["square", "landscape"];
-    for (const format of formats) {
-      const outPath = resolve(speakersOutDir, `${slug}-${format}.png`);
-      const { width, height } = FORMATS[format];
+    const outPath = resolve(speakersOutDir, `${slug}.png`);
 
-      if (existsSync(outPath) && !force) {
-        console.log(`  SKIP ${slug}-${format}.png (exists, use --force)`);
-        skipped++;
-        continue;
-      }
+    if (existsSync(outPath) && !force) {
+      console.log(`  SKIP ${slug}.png (exists, use --force)`);
+      skipped++;
+      continue;
+    }
 
-      console.log(`  Generating ${slug}-${format}.png (${FORMATS[format].label})...`);
+    console.log(`  Generating ${slug}.png (${FORMAT.label})...`);
 
-      try {
-        const template =
-          format === "square"
-            ? speakerSquareTemplate({ speaker, headshotUri, logoDataUri })
-            : speakerLandscapeTemplate({ speaker, headshotUri, logoDataUri });
-
-        const png = await renderToPng(template, width, height);
-        writeFileSync(outPath, png);
-        generated++;
-        console.log(`  OK ${slug}-${format}.png`);
-      } catch (err) {
-        console.error(`  ERROR generating ${slug}-${format}.png: ${err.message}`);
-        failed++;
-      }
+    try {
+      const template = speakerSquareTemplate({ speaker, headshotUri, logoDataUri });
+      const png = await renderToPng(template, FORMAT.width, FORMAT.height);
+      writeFileSync(outPath, png);
+      generated++;
+      console.log(`  OK ${slug}.png`);
+    } catch (err) {
+      console.error(`  ERROR generating ${slug}.png: ${err.message}`);
+      failed++;
     }
   }
 
@@ -272,33 +244,25 @@ async function processSponsors() {
       continue;
     }
 
-    const formats = formatFilter ? [formatFilter] : ["square", "landscape"];
-    for (const format of formats) {
-      const outPath = resolve(sponsorsOutDir, `${slug}-${format}.png`);
-      const { width, height } = FORMATS[format];
+    const outPath = resolve(sponsorsOutDir, `${slug}.png`);
 
-      if (existsSync(outPath) && !force) {
-        console.log(`  SKIP ${slug}-${format}.png (exists, use --force)`);
-        skipped++;
-        continue;
-      }
+    if (existsSync(outPath) && !force) {
+      console.log(`  SKIP ${slug}.png (exists, use --force)`);
+      skipped++;
+      continue;
+    }
 
-      console.log(`  Generating ${slug}-${format}.png (${FORMATS[format].label})...`);
+    console.log(`  Generating ${slug}.png (${FORMAT.label})...`);
 
-      try {
-        const template =
-          format === "square"
-            ? sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhiteUri, logoDataUri })
-            : sponsorLandscapeTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhiteUri, logoDataUri });
-
-        const png = await renderToPng(template, width, height);
-        writeFileSync(outPath, png);
-        generated++;
-        console.log(`  OK ${slug}-${format}.png`);
-      } catch (err) {
-        console.error(`  ERROR generating ${slug}-${format}.png: ${err.message}`);
-        failed++;
-      }
+    try {
+      const template = sponsorSquareTemplate({ sponsor, sponsorLogoUri, sponsorLogoWhiteUri, logoDataUri });
+      const png = await renderToPng(template, FORMAT.width, FORMAT.height);
+      writeFileSync(outPath, png);
+      generated++;
+      console.log(`  OK ${slug}.png`);
+    } catch (err) {
+      console.error(`  ERROR generating ${slug}.png: ${err.message}`);
+      failed++;
     }
   }
 
