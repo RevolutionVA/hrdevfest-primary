@@ -103,9 +103,8 @@ function warnIfMissing(imagePath) {
 // ---------------------------------------------------------------------------
 // Filter data per PRD requirements
 // ---------------------------------------------------------------------------
-// Exclude Lauren Pryor (no session topic yet)
 const eligibleSpeakers = speakers.filter(
-  (s) => s.sessionTitle && s.name !== "Lauren Pryor"
+  (s) => s.sessionTitle
 );
 
 // Exclude City of Virginia Beach (already posted)
@@ -164,17 +163,17 @@ function buildCalendar(startDate, endDate) {
   //   - Each day gets 2-3 posts total
 
   // Pre-assign content to specific days for even distribution.
-  // With 11 days, 5 speakers, and 7 sponsor groups, we want to spread
+  // With 11 days, 6 speakers, and 7 sponsor groups, we want to spread
   // content so every day (especially early ones) has variety, and the
   // final days lean toward countdowns for urgency.
   //
   // Layout plan (days 0-10, i.e. Feb 17-27):
-  //   Days 0-8: speaker + sponsor content mixed with countdowns
-  //   Days 9-10: countdown-heavy (final push)
+  //   Days 0-9: speaker + sponsor content mixed with countdowns
+  //   Day 10: countdown-heavy (event day)
   //
-  // Speakers on days: 0, 2, 4, 6, 8  (every other day)
+  // Speakers on days: 0, 2, 4, 6, 8, 9  (every other day, plus day before event)
   // Sponsors on days: 0, 1, 2, 3, 4, 5, 6  (one per day)
-  const speakerDayIndices = [0, 2, 4, 6, 8];
+  const speakerDayIndices = [0, 2, 4, 6, 8, 9];
 
   const sponsorDayIndices = [];
   for (let i = 0; i < sponsorGroups.length; i++) {
@@ -759,7 +758,7 @@ function main() {
   console.log(`Date range: ${startDateArg} to ${endDateArg}`);
   console.log(`Combined output: ${combinedFlag ? "yes" : "no (use --combined to include)"}`);
   console.log(
-    `Speakers: ${eligibleSpeakers.length} (excluding Lauren Pryor - no session topic)`
+    `Speakers: ${eligibleSpeakers.length}`
   );
   console.log(
     `Sponsors: ${eligibleSponsors.length} (excluding City of Virginia Beach - already posted)`

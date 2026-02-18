@@ -320,15 +320,17 @@ https://hrdevfest.org
 
 ---
 
-### Afternoon · Countdown
+### Afternoon · Speaker — Lauren Pryor
 
-TOMORROW! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
+Speaker spotlight: Lauren Pryor at Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+Presenting: "Why "Delete" Doesn't Exist: Digital Forensics in a Post-Quantum World"
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1-days-square.png`
+**Image:** `speaker-social/2026/generated/speakers/lauren-pryor.png`
 
 ---
 

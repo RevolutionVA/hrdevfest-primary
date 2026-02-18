@@ -321,16 +321,15 @@ Don't miss out! 🔗 Link in bio
 
 ---
 
-### Afternoon · Countdown
+### Afternoon · Speaker — Lauren Pryor
 
-⏰ DevFest is TOMORROW!
-Hampton Roads DevFest is almost here!
+🎤 Speaker spotlight: Lauren Pryor!
+💡 "Why "Delete" Doesn't Exist: Digital Forensics in a Post-Quantum World"
 📅 Feb 27 in Virginia Beach
-Don't miss out! 🔗 Link in bio
-
+🔗 Link in bio to register!
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-1-days-square.png`
+**Image:** `speaker-social/2026/generated/speakers/lauren-pryor.png`
 
 ---
 

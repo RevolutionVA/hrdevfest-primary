@@ -61,5 +61,7 @@ export const speakers: Speaker[] = [
     bio: "Lauren is a tech leader with roots in architectural engineering (2010–2016). As the founder of a software development company that was later acquired, she went on to become the co-owner of an MSP and cybersecurity company serving financial and legal firms nationwide. Lauren sits on several boards, mentors youth in STEM, runs a cybersecurity training program, supports startups as a freelance CTO, and is an emerging angel investor and limited partner.",
     image: "lauren-pryor.jpg",
     linkedin: "https://www.linkedin.com/in/laurenepryor/",
+    sessionTitle: "Why \"Delete\" Doesn't Exist: Digital Forensics in a Post-Quantum World",
+    sessionAbstract: "When you press \"delete,\" what actually happens to your data?\n\nFrom cell phones and enterprise email systems to Slack channels and even the vehicles we drive, modern technology is built on layers of storage, replication, logging, and encryption. What appears to disappear often persists in ways users rarely consider.\n\nThis keynote explores the lifecycle of digital data — post deletion — and examines where \"deleted\" information truly resides. We will uncover how digital forensics reconstructs timelines, recovers artifacts, and validates evidence across devices and platforms.\n\nFinally, we look ahead: as quantum computing advances and traditional encryption models face disruption, what happens to digital evidence? How will forensic integrity, cryptographic trust, and data preservation evolve in a post-quantum world?",
   },
 ];
