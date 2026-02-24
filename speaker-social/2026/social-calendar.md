@@ -770,13 +770,13 @@ Grab your spot now: https://hrdevfest.org
 
 ---
 
-### Evening · Sponsor — Techead & Yellow Dog Software
+### Evening · Sponsor — Techead
 
 **Image:** `speaker-social/2026/generated/sponsors/techead.png`
 
 #### X (Twitter)
 
-Thank you to our sponsors Techead & Yellow Dog Software for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+Thank you to our Community sponsor Techead for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
@@ -784,9 +784,9 @@ https://hrdevfest.org
 
 #### LinkedIn
 
-A huge thank you to our sponsors — Techead (Community) and Yellow Dog Software (Community) — for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach!
+Thank you to Techead, a Community sponsor of Hampton Roads DevFest on Feb 27 in Virginia Beach!
 
-Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like these make it happen.
+Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like Techead make it happen.
 
 Join us: https://hrdevfest.org
 
@@ -794,7 +794,7 @@ Join us: https://hrdevfest.org
 
 #### Facebook
 
-Shoutout to our sponsors Techead & Yellow Dog Software for helping make Hampton Roads DevFest possible on Feb 27 in Virginia Beach! 🎉
+Thanks to our Community sponsor Techead for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
 
 We're grateful for their support in bringing the local tech community together.
 
@@ -804,8 +804,94 @@ Register now: https://hrdevfest.org
 
 #### Instagram
 
-🙌 Sponsor shoutout!
-Thanks to Techead & Yellow Dog Software for supporting DevFest!
+🙌 Sponsor spotlight: Techead!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+---
+
+### Late Evening · Sponsor — Yellow Dog Software
+
+**Image:** `speaker-social/2026/generated/sponsors/yellow-dog-software.png`
+
+#### X (Twitter)
+
+Thank you to our Community sponsor Yellow Dog Software for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+#### LinkedIn
+
+Thank you to Yellow Dog Software, a Community sponsor of Hampton Roads DevFest on Feb 27 in Virginia Beach!
+
+Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like Yellow Dog Software make it happen.
+
+Join us: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Facebook
+
+Thanks to our Community sponsor Yellow Dog Software for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
+
+We're grateful for their support in bringing the local tech community together.
+
+Register now: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Instagram
+
+🙌 Sponsor spotlight: Yellow Dog Software!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+---
+
+### Night · Sponsor — OpenSearch
+
+**Image:** `speaker-social/2026/generated/sponsors/opensearch.png`
+
+#### X (Twitter)
+
+Thank you to our Community sponsor OpenSearch for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+#### LinkedIn
+
+Thank you to OpenSearch, a Community sponsor of Hampton Roads DevFest on Feb 27 in Virginia Beach!
+
+Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like OpenSearch make it happen.
+
+Join us: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Facebook
+
+Thanks to our Community sponsor OpenSearch for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
+
+We're grateful for their support in bringing the local tech community together.
+
+Register now: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Instagram
+
+🙌 Sponsor spotlight: OpenSearch!
+Thank you for supporting DevFest! 💪
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
@@ -858,13 +944,15 @@ Don't miss out! 🔗 Link in bio
 
 ---
 
-### Afternoon · Countdown
+### Afternoon · Speaker — Katie Novotny
 
-**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
+**Image:** `speaker-social/2026/generated/speakers/katie-novotny.png`
 
 #### X (Twitter)
 
-Just 3 days away! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
+Speaker spotlight: Katie Novotny at Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+Presenting: "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart"
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
@@ -872,30 +960,72 @@ https://hrdevfest.org
 
 #### LinkedIn
 
-3 days until DevFest! Hampton Roads DevFest is almost here!
+We're excited to spotlight Katie Novotny at Hampton Roads DevFest on Feb 27 in Virginia Beach!
 
-Feb 27 in Virginia Beach — join us for a day packed with sessions from talented local speakers, sponsor showcases, and networking with the Hampton Roads tech community. Last chance to register!
+Katie Novotny will be presenting "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart" — a session you won't want to miss. This is a great opportunity to learn from one of our talented local speakers and connect with the Hampton Roads tech community.
 
-Secure your spot: https://hrdevfest.org
+Register now and join us: https://hrdevfest.org
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Facebook
 
-⏰ 3 days until DevFest! Hampton Roads DevFest is right around the corner!
+Meet Katie Novotny, one of our amazing speakers at Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
 
-Join us Feb 27 in Virginia Beach for amazing talks, community, and networking. Spots are filling up — register now!
+They'll be presenting "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart" — come learn and connect with the local tech community.
 
-Register: https://hrdevfest.org
+Grab your spot now: https://hrdevfest.org
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 #### Instagram
 
-⏰ 3 days until DevFest!
-Hampton Roads DevFest is almost here!
+🎤 Speaker spotlight: Katie Novotny!
+💡 "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart"
 📅 Feb 27 in Virginia Beach
-Don't miss out! 🔗 Link in bio
+🔗 Link in bio to register!
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+---
+
+### Evening · Sponsor — Noteable
+
+**Image:** `speaker-social/2026/generated/sponsors/noteable.png`
+
+#### X (Twitter)
+
+Thank you to our Silver sponsor Noteable for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+#### LinkedIn
+
+Thank you to Noteable, a Silver sponsor of Hampton Roads DevFest on Feb 27 in Virginia Beach!
+
+Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like Noteable make it happen.
+
+Join us: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Facebook
+
+Thanks to our Silver sponsor Noteable for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
+
+We're grateful for their support in bringing the local tech community together.
+
+Register now: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Instagram
+
+🙌 Sponsor spotlight: Noteable!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
@@ -990,6 +1120,49 @@ Grab your spot now: https://hrdevfest.org
 
 ---
 
+### Evening · Sponsor — Swift Kick
+
+**Image:** `speaker-social/2026/generated/sponsors/swift-kick.png`
+
+#### X (Twitter)
+
+Thank you to our Community sponsor Swift Kick for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+#### LinkedIn
+
+Thank you to Swift Kick, a Community sponsor of Hampton Roads DevFest on Feb 27 in Virginia Beach!
+
+Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like Swift Kick make it happen.
+
+Join us: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Facebook
+
+Thanks to our Community sponsor Swift Kick for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
+
+We're grateful for their support in bringing the local tech community together.
+
+Register now: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Instagram
+
+🙌 Sponsor spotlight: Swift Kick!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+---
+
 ## 2026-02-26 (1 day until DevFest)
 
 ### Morning · Countdown
@@ -1075,6 +1248,49 @@ Grab your spot now: https://hrdevfest.org
 💡 "Why "Delete" Doesn't Exist: Digital Forensics in a Post-Quantum World"
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+---
+
+### Evening · Sponsor — Land Records
+
+**Image:** `speaker-social/2026/generated/sponsors/land-records.png`
+
+#### X (Twitter)
+
+Thank you to our Community sponsor Land Records for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+#### LinkedIn
+
+Thank you to Land Records, a Community sponsor of Hampton Roads DevFest on Feb 27 in Virginia Beach!
+
+Their support helps make this community event possible. We're proud to bring together local developers, and sponsors like Land Records make it happen.
+
+Join us: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Facebook
+
+Thanks to our Community sponsor Land Records for supporting Hampton Roads DevFest on Feb 27 in Virginia Beach! 🎉
+
+We're grateful for their support in bringing the local tech community together.
+
+Register now: https://hrdevfest.org
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+#### Instagram
+
+🙌 Sponsor spotlight: Land Records!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 ---

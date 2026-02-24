@@ -240,15 +240,39 @@ https://hrdevfest.org
 
 ---
 
-### Evening · Sponsor — Techead & Yellow Dog Software
+### Evening · Sponsor — Techead
 
-Thank you to our sponsors Techead & Yellow Dog Software for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+Thank you to our Community sponsor Techead for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
 **Image:** `speaker-social/2026/generated/sponsors/techead.png`
+
+---
+
+### Late Evening · Sponsor — Yellow Dog Software
+
+Thank you to our Community sponsor Yellow Dog Software for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+**Image:** `speaker-social/2026/generated/sponsors/yellow-dog-software.png`
+
+---
+
+### Night · Sponsor — OpenSearch
+
+Thank you to our Community sponsor OpenSearch for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+**Image:** `speaker-social/2026/generated/sponsors/opensearch.png`
 
 ---
 
@@ -266,15 +290,29 @@ https://hrdevfest.org
 
 ---
 
-### Afternoon · Countdown
+### Afternoon · Speaker — Katie Novotny
 
-Just 3 days away! Hampton Roads DevFest, Feb 27 in Virginia Beach. Don't miss out!
+Speaker spotlight: Katie Novotny at Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+Presenting: "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart"
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 https://hrdevfest.org
 
-**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
+**Image:** `speaker-social/2026/generated/speakers/katie-novotny.png`
+
+---
+
+### Evening · Sponsor — Noteable
+
+Thank you to our Silver sponsor Noteable for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+**Image:** `speaker-social/2026/generated/sponsors/noteable.png`
 
 ---
 
@@ -306,6 +344,18 @@ https://hrdevfest.org
 
 ---
 
+### Evening · Sponsor — Swift Kick
+
+Thank you to our Community sponsor Swift Kick for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+**Image:** `speaker-social/2026/generated/sponsors/swift-kick.png`
+
+---
+
 ## 2026-02-26 (1 day until DevFest)
 
 ### Morning · Countdown
@@ -331,6 +381,18 @@ Presenting: "Why "Delete" Doesn't Exist: Digital Forensics in a Post-Quantum Wor
 https://hrdevfest.org
 
 **Image:** `speaker-social/2026/generated/speakers/lauren-pryor.png`
+
+---
+
+### Evening · Sponsor — Land Records
+
+Thank you to our Community sponsor Land Records for supporting Hampton Roads DevFest, Feb 27 in Virginia Beach!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+https://hrdevfest.org
+
+**Image:** `speaker-social/2026/generated/sponsors/land-records.png`
 
 ---
 

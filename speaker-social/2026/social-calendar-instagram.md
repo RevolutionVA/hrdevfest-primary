@@ -238,16 +238,42 @@ Local speakers. Great sessions. Community vibes. ✨
 
 ---
 
-### Evening · Sponsor — Techead & Yellow Dog Software
+### Evening · Sponsor — Techead
 
-🙌 Sponsor shoutout!
-Thanks to Techead & Yellow Dog Software for supporting DevFest!
+🙌 Sponsor spotlight: Techead!
+Thank you for supporting DevFest! 💪
 📅 Feb 27 in Virginia Beach
 🔗 Link in bio to register!
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/sponsors/techead.png`
+
+---
+
+### Late Evening · Sponsor — Yellow Dog Software
+
+🙌 Sponsor spotlight: Yellow Dog Software!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+**Image:** `speaker-social/2026/generated/sponsors/yellow-dog-software.png`
+
+---
+
+### Night · Sponsor — OpenSearch
+
+🙌 Sponsor spotlight: OpenSearch!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+**Image:** `speaker-social/2026/generated/sponsors/opensearch.png`
 
 ---
 
@@ -266,16 +292,28 @@ Don't miss out! 🔗 Link in bio
 
 ---
 
-### Afternoon · Countdown
+### Afternoon · Speaker — Katie Novotny
 
-⏰ 3 days until DevFest!
-Hampton Roads DevFest is almost here!
+🎤 Speaker spotlight: Katie Novotny!
+💡 "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart"
 📅 Feb 27 in Virginia Beach
-Don't miss out! 🔗 Link in bio
+🔗 Link in bio to register!
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+**Image:** `speaker-social/2026/generated/speakers/katie-novotny.png`
+
+---
+
+### Evening · Sponsor — Noteable
+
+🙌 Sponsor spotlight: Noteable!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
 
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
-**Image:** `speaker-social/2026/backgrounds/countdown-3-days-square.png`
+**Image:** `speaker-social/2026/generated/sponsors/noteable.png`
 
 ---
 
@@ -306,6 +344,19 @@ Don't miss out! 🔗 Link in bio
 
 ---
 
+### Evening · Sponsor — Swift Kick
+
+🙌 Sponsor spotlight: Swift Kick!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+**Image:** `speaker-social/2026/generated/sponsors/swift-kick.png`
+
+---
+
 ## 2026-02-26 (1 day until DevFest)
 
 ### Morning · Countdown
@@ -330,6 +381,19 @@ Don't miss out! 🔗 Link in bio
 #HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
 
 **Image:** `speaker-social/2026/generated/speakers/lauren-pryor.png`
+
+---
+
+### Evening · Sponsor — Land Records
+
+🙌 Sponsor spotlight: Land Records!
+Thank you for supporting DevFest! 💪
+📅 Feb 27 in Virginia Beach
+🔗 Link in bio to register!
+
+#HRDevFest #HamptonRoads #VirginiaBeach #Norfolk #Chesapeake
+
+**Image:** `speaker-social/2026/generated/sponsors/land-records.png`
 
 ---
 
