@@ -21,5 +21,13 @@ export default defineConfig({
       status: 302,
       destination: "/years/2024",
     },
+    "/coc": {
+      status: 302,
+      destination: "/code-of-conduct",
+    },
+    "/parking": {
+      status: 302,
+      destination: "/2026/Town Center Parking Guide.pdf",
+    },
   },
 });

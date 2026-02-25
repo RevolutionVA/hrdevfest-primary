@@ -1,141 +1,6 @@
 ---
 import "../styles/global.css";
 import headerDots from "../assets/dots/header_dots.svg";
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-interface FAQCategory {
-  title: string;
-  items: FAQItem[];
-}
-
-const faqData: FAQCategory[] = [
-  {
-    title: "General",
-    items: [
-      {
-        question: "What is Hampton Roads DevFest?",
-        answer: "Hampton Roads DevFest is a curated, community-driven software development conference produced by RevolutionVA. It brings together developers, technical leaders, and decision-makers from across the Hampton Roads region for a full day of high-quality technical and professional content."
-      },
-      {
-        question: "Who should attend?",
-        answer: "This event is designed for a broad technical audience—from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels."
-      }
-    ]
-  },
-  {
-    title: "Tickets",
-    items: [
-      {
-        question: "What does my ticket include?",
-        answer: "Your ticket includes full-day conference admission, lunch, and drink tickets (cash bar available for additional purchases)."
-      },
-      {
-        question: "Are tickets refundable or transferable?",
-        answer: "Tickets are not refundable, but they are transferable. If you can no longer attend, you may transfer your ticket to another person."
-      },
-      {
-        question: "Can my employer pay by invoice?",
-        answer: "Yes. Employer invoice payments are available for purchases of 10 or more tickets, upon request. Please contact the conference team for details."
-      },
-      {
-        question: "Are scholarships available?",
-        answer: "Yes. We offer a limited number of scholarships to help reduce financial barriers to attendance."
-      },
-      {
-        question: "Will I receive a receipt for reimbursement?",
-        answer: "Yes. Receipts are automatically provided via Humanitix, our ticketing and payment processor."
-      }
-    ]
-  },
-  {
-    title: "Day of Event",
-    items: [
-      {
-        question: "When does registration open?",
-        answer: "Registration opens at 8:00 AM on the day of the event."
-      },
-      {
-        question: "Is re-entry allowed?",
-        answer: "Yes. Re-entry is allowed with your conference badge."
-      },
-      {
-        question: "Can I bring a laptop or backpack?",
-        answer: "Yes. You are welcome to bring a laptop or backpack. Please note that power outlets are limited, so plan accordingly."
-      },
-      {
-        question: "Is Wi-Fi available?",
-        answer: "No. Wi-Fi will not be provided at the venue."
-      },
-      {
-        question: "Is the venue accessible?",
-        answer: "Yes. The venue is fully accessible. If you have accessibility needs, please indicate them during registration so we can accommodate you."
-      },
-      {
-        question: "Is lunch provided, and can dietary restrictions be accommodated?",
-        answer: "Lunch is included with your ticket. We do accommodate dietary restrictions—please note your needs during registration."
-      }
-    ]
-  },
-  {
-    title: "Sessions & Speakers",
-    items: [
-      {
-        question: "When will the schedule be published?",
-        answer: "The full schedule will be published soon."
-      },
-      {
-        question: "How long are sessions?",
-        answer: "All sessions are 45 minutes long."
-      },
-      {
-        question: "What types of topics will be covered?",
-        answer: "Sessions are selected to appeal across roles and seniority levels, with content relevant to individual contributors, technical leads, engineering managers, directors, and executives."
-      },
-      {
-        question: "Will sessions be recorded?",
-        answer: "No. Sessions will not be recorded."
-      },
-      {
-        question: "How are speakers selected?",
-        answer: "Speakers are curated by RevolutionVA. All speakers are either local to Hampton Roads or alumni of the regional tech community. There is no Call for Proposals (CFP)."
-      },
-      {
-        question: "Are there opportunities for local user groups?",
-        answer: "Yes. We offer an exhibition program for local user groups. If your group is interested in participating, please contact the team for more information."
-      }
-    ]
-  },
-  {
-    title: "Travel",
-    items: [
-      {
-        question: "What airport should I fly into?",
-        answer: "The closest airport is Norfolk International Airport (ORF)."
-      },
-      {
-        question: "How far is the venue from the airport?",
-        answer: "Norfolk International Airport is approximately 10–12 miles from the venue, which is typically a 15–20 minute drive, depending on traffic."
-      },
-      {
-        question: "Where do I park?",
-        answer: "There are several parking garages and surface lots in the Town Center area near the venue. View our <a href='/parking' class='text-[#D33B32] underline hover:opacity-80'>Town Center Parking Guide</a> for details."
-      }
-    ]
-  },
-  {
-    title: "Contact",
-    items: [
-      {
-        question: "Who should I contact with questions?",
-        answer: "Please contact team@revolutionva.org with any questions."
-      }
-    ]
-  }
-];
 ---
 
 <html lang="en">
@@ -147,21 +12,21 @@ const faqData: FAQCategory[] = [
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>FAQ | Hampton Roads DevFest 2026</title>
-    <meta name="description" content="Frequently asked questions about Hampton Roads DevFest 2026. Find answers about tickets, venue, sessions, and more." />
+    <title>Code of Conduct | Hampton Roads DevFest 2026</title>
+    <meta name="description" content="Hampton Roads DevFest Code of Conduct. We are dedicated to providing a harassment-free conference experience for everyone." />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="FAQ | Hampton Roads DevFest 2026" />
-    <meta property="og:description" content="Frequently asked questions about Hampton Roads DevFest 2026. Find answers about tickets, venue, sessions, and more." />
-    <meta property="og:url" content="https://hrdevfest.org/faq" />
+    <meta property="og:title" content="Code of Conduct | Hampton Roads DevFest 2026" />
+    <meta property="og:description" content="Hampton Roads DevFest Code of Conduct. We are dedicated to providing a harassment-free conference experience for everyone." />
+    <meta property="og:url" content="https://hrdevfest.org/code-of-conduct" />
     <meta property="og:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hrdevfest" />
-    <meta name="twitter:title" content="FAQ | Hampton Roads DevFest 2026" />
-    <meta name="twitter:description" content="Frequently asked questions about Hampton Roads DevFest 2026. Find answers about tickets, venue, sessions, and more." />
+    <meta name="twitter:title" content="Code of Conduct | Hampton Roads DevFest 2026" />
+    <meta name="twitter:description" content="Hampton Roads DevFest Code of Conduct. We are dedicated to providing a harassment-free conference experience for everyone." />
     <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -188,23 +53,41 @@ const faqData: FAQCategory[] = [
         filter: brightness(0.9);
         transform: scale(1.02);
       }
-      .faq-item[data-expanded="true"] .chevron-right {
-        display: none;
+      .coc-content h2 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #000;
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
       }
-      .faq-item[data-expanded="true"] .chevron-down {
-        display: block;
+      .coc-content p {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #374151;
+        margin-bottom: 1rem;
       }
-      .faq-item[data-expanded="true"] .chevron-right {
-        display: block;
+      .coc-content ol {
+        list-style-type: decimal;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
       }
-      .faq-item[data-expanded="true"] .chevron-down {
-        display: none;
+      .coc-content ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
       }
-      .faq-item[data-expanded="true"] .faq-answer {
-        display: none;
+      .coc-content li {
+        font-size: 1rem;
+        line-height: 1.75;
+        color: #374151;
+        margin-bottom: 0.25rem;
       }
-      .faq-item[data-expanded="true"] .faq-answer {
-        display: block;
+      .coc-content a {
+        color: #D33B32;
+        text-decoration: underline;
+      }
+      .coc-content a:hover {
+        opacity: 0.8;
       }
     </style>
   </head>
@@ -261,60 +144,105 @@ const faqData: FAQCategory[] = [
       <div class="relative z-10 flex flex-col items-center py-8 px-8 lg:py-10 lg:px-[280px] md:px-8">
         <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center">
           <h1 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">
-            FAQ
+            Code of Conduct
           </h1>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Code of Conduct Content -->
     <section class="w-full py-8 px-8 md:py-10 lg:py-20 lg:px-[200px] bg-[#F3F4F6]">
-      <div class="max-w-4xl mx-auto flex flex-col gap-8">
-        {faqData.map((category) => (
-          <div class="flex flex-col gap-6">
-            <h2 class="text-black text-xl font-bold">{category.title}</h2>
-            <div class="flex flex-col gap-6">
-              {category.items.map((item, index) => (
-                <div
-                  class="faq-item bg-white p-8 card-asymmetric card-shadow cursor-pointer relative overflow-hidden"
-                  data-expanded="true"
-                >
-                  <!-- Dots decoration top-left -->
-                  <img
-                    src={headerDots.src}
-                    alt=""
-                    class="absolute left-0 top-0 h-16 w-auto opacity-20 pointer-events-none"
-                  />
-                  <!-- Dots decoration bottom-right (rotated) -->
-                  <img
-                    src={headerDots.src}
-                    alt=""
-                    class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
-                  />
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white p-8 md:p-12 card-asymmetric card-shadow relative overflow-hidden">
+          <!-- Dots decoration -->
+          <img
+            src={headerDots.src}
+            alt=""
+            class="absolute left-0 top-0 h-16 w-auto opacity-20 pointer-events-none"
+          />
+          <img
+            src={headerDots.src}
+            alt=""
+            class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
+          />
 
-                  <div class="relative z-10 flex items-start gap-4">
-                    <div class="flex-1">
-                      <div class="flex items-center gap-4">
-                        <!-- Chevron Right (collapsed) -->
-                        <svg class="chevron-right w-5 h-5 text-black shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                        <!-- Chevron Down (expanded) -->
-                        <svg class="chevron-down w-5 h-5 text-black shrink-0 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                        <p class="text-base font-bold text-black">{item.question}</p>
-                      </div>
-                      <div class="faq-answer mt-4 pl-9">
-                        <p class="text-base font-normal text-black leading-relaxed" set:html={item.answer} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div class="relative z-10 coc-content">
+            <p>
+              All attendees, speakers, sponsors and volunteers at Hampton Roads DevFest are required to agree with the following code of conduct. Organizers will enforce this code throughout the event. We are expecting cooperation from all participants to help ensuring a safe environment for everybody.
+            </p>
+
+            <h2>Need Help?</h2>
+            <p>
+              If you need to report an incident or have any concerns, please contact the organizing team at <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. You can also speak directly with any staff member during the event.
+            </p>
+
+            <h2>The Quick Version</h2>
+            <p>
+              Hampton Roads DevFest is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), socioeconomic status, immigration or citizenship status, pregnancy, veteran status, neurodiversity, or technology choices. We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks, workshops, parties, social media (including Twitter/X, Discord, Slack), and other online media. Conference participants violating these rules may be sanctioned or expelled from the conference <em>without a refund</em> at the discretion of the conference organizers.
+            </p>
+
+            <h2>The Less Quick Version</h2>
+            <p>
+              Harassment includes offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, unwelcome sexual attention, doxing or sharing of private information without consent, deliberate misgendering or deadnaming, and threats of violence.
+            </p>
+            <p>
+              Participants asked to stop any harassing behavior are expected to comply immediately.
+            </p>
+            <p>
+              Sponsors are also subject to the anti-harassment policy. In particular, sponsors should not use sexualized images, activities, or other material. Booth staff (including volunteers) should not use sexualized clothing/uniforms/costumes, or otherwise create a sexualized environment.
+            </p>
+
+            <h2>Consequences</h2>
+            <p>
+              If a participant engages in harassing behavior, the conference organizers may take action including but not limited to:
+            </p>
+            <ol>
+              <li>A verbal warning and request to stop the behavior</li>
+              <li>Temporary removal from the event space</li>
+              <li>Permanent expulsion from the conference with no refund</li>
+              <li>Referral to venue security or local law enforcement</li>
+            </ol>
+            <p>
+              The severity of the response will be determined by the organizers based on the nature and context of the behavior.
+            </p>
+
+            <h2>Reporting Process</h2>
+            <p>
+              If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of the staff immediately. Hampton Roads DevFest staff can be identified by their designated staff t-shirts and badges.
+            </p>
+            <p>
+              You can also report incidents by emailing <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. When you make a report, here is what you can expect:
+            </p>
+            <ul>
+              <li><strong>Acknowledgment:</strong> Your report will be acknowledged promptly.</li>
+              <li><strong>Confidentiality:</strong> All reports will be handled with discretion. Details will only be shared as needed to investigate and resolve the situation.</li>
+              <li><strong>Investigation:</strong> The organizers will review the report and speak with involved parties as appropriate.</li>
+              <li><strong>Outcome:</strong> You will be informed of the resolution. Actions taken will follow the consequences outlined above.</li>
+            </ul>
+            <p>
+              Hampton Roads DevFest staff will be happy to help participants contact venue/event staff or local law enforcement, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
+            </p>
+
+            <h2>Photography and Recording</h2>
+            <p>
+              We want everyone to feel comfortable at Hampton Roads DevFest. Please ask for consent before photographing or recording other attendees. If someone asks you not to photograph or record them, please respect their wishes. Official event photographers will be clearly identified; if you prefer not to be photographed, please let them know.
+            </p>
+
+            <h2>Applicability</h2>
+            <p>
+              We expect participants to follow these rules at all Hampton Roads DevFest venues, conference-related social events, and event-specific online platforms (such as Discord, Slack, or other community channels). This code of conduct also applies to interactions between participants after the event if they stem from conduct that occurred during the conference. Continued harassment outside the event will be treated with the same seriousness.
+            </p>
+
+            <h2>Accessibility</h2>
+            <p>
+              Hampton Roads DevFest is committed to providing an accessible and inclusive environment for all participants. If you need accommodations to fully participate in the event, please contact us at <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> and we will do our best to meet your needs.
+            </p>
+
+            <p class="text-sm text-gray-400 mt-8">
+              <em>Original source and credit: JSConf 2012 &amp; <a href="https://geekfeminism.fandom.com/wiki/Conference_anti-harassment/Policy">The Ada Initiative</a>. Please help by translating or improving: <a href="https://github.com/leftlogic/confcodeofconduct.com">github.com/leftlogic/confcodeofconduct.com</a>. This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.</em>
+            </p>
           </div>
-        ))}
+        </div>
       </div>
     </section>
 
@@ -376,7 +304,6 @@ const faqData: FAQCategory[] = [
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        // Mobile menu toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');
@@ -404,15 +331,6 @@ const faqData: FAQCategory[] = [
         menuLinks.forEach(link => {
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
-          });
-        });
-
-        // FAQ accordion toggle
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-          item.addEventListener('click', () => {
-            const isExpanded = item.getAttribute('data-expanded') === 'true';
-            item.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
           });
         });
       });
