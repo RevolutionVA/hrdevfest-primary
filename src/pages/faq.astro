@@ -119,6 +119,10 @@ const faqData: FAQCategory[] = [
       {
         question: "How far is the venue from the airport?",
         answer: "Norfolk International Airport is approximately 10–12 miles from the venue, which is typically a 15–20 minute drive, depending on traffic."
+      },
+      {
+        question: "Where do I park?",
+        answer: "There are several parking garages and surface lots in the Town Center area near the venue. View our <a href='/parking' class='text-[#D33B32] underline hover:opacity-80'>Town Center Parking Guide</a> for details."
       }
     ]
   },
@@ -302,7 +306,7 @@ const faqData: FAQCategory[] = [
                         <p class="text-base font-bold text-black">{item.question}</p>
                       </div>
                       <div class="faq-answer mt-4 pl-9">
-                        <p class="text-base font-normal text-black leading-relaxed">{item.answer}</p>
+                        <p class="text-base font-normal text-black leading-relaxed" set:html={item.answer} />
                       </div>
                     </div>
                   </div>
