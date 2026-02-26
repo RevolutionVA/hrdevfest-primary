@@ -48,7 +48,6 @@ const speakerImages: Record<string, any> = {
     <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script is:inline src="https://events.humanitix.com/scripts/widgets/popup.js" type="module"></script>
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -75,6 +74,27 @@ const speakerImages: Record<string, any> = {
   </head>
   <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
     <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">
+    <!-- See You Next Year Banner -->
+    <div class="w-full bg-[#D33B32] text-white text-center py-3 px-4 font-bold text-sm md:text-base">
+      Thanks for an amazing Hampton Roads DevFest 2026! See you next year! 🎉
+    </div>
+
+    <!-- Mailing List Signup -->
+    <section class="w-full py-12 px-8 bg-[#F3F4F6]">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-bold text-black mb-2">Stay in the Loop</h2>
+        <p class="text-gray-600 mb-6">Sign up for updates on next year's Hampton Roads DevFest</p>
+        <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
+          <input type="hidden" name="redirect" value="/thank-you">
+          <input type="text" name="fields_first_name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <input type="text" name="fields_last_name" placeholder="Last Name" required class="w-full mb-3 px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Subscribe</button>
+          <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our Privacy Policy and Terms of Service.</p>
+        </form>
+      </div>
+    </section>
+
     <!-- Mobile hamburger button -->
     <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
       <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,7 +110,6 @@ const speakerImages: Record<string, any> = {
       <div class="flex flex-col h-full">
         <div class="h-[60px]"></div>
         <div class="flex flex-col gap-8 px-8 pt-4">
-          <a href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup" class="mobile-menu-link px-6 py-3 btn-primary text-white text-base font-bold leading-relaxed text-center">Procrastinator Tickets - $100</a>
           <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
           <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
           <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
@@ -106,7 +125,6 @@ const speakerImages: Record<string, any> = {
     <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
       <div class="max-w-7xl mx-auto hidden md:flex justify-center">
         <div class="flex items-center gap-12 lg:gap-20">
-          <a href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Buy Tickets</a>
           <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
           <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
           <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Speakers</a>
@@ -201,20 +219,6 @@ const speakerImages: Record<string, any> = {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-
-    <!-- Ticket CTA Section -->
-    <section class="w-full bg-[#052831] py-12 px-8">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-white text-2xl md:text-3xl font-bold mb-4">Ready to Join These Amazing Speakers?</h2>
-        <p class="text-white text-base opacity-90 mb-6">Get your ticket now and learn from Hampton Roads' best developers.</p>
-        <a
-          href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup"
-          class="inline-block px-8 py-4 btn-primary text-white text-base font-bold leading-relaxed"
-        >
-          Procrastinator Tickets - $100
-        </a>
       </div>
     </section>
 
