@@ -29,5 +29,13 @@ export default defineConfig({
       status: 302,
       destination: "/2026/Town Center Parking Guide.pdf",
     },
+    "/speakers": {
+      status: 302,
+      destination: "/years/2026",
+    },
+    "/schedule": {
+      status: 302,
+      destination: "/years/2026",
+    },
   },
 });
