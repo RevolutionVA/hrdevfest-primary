@@ -7,7 +7,6 @@ import heroBkgd from "../assets/hero_bkgd.png";
 import heroTablet from "../assets/hero_tablet.png";
 import heroPhone from "../assets/hero_phone.png";
 import venuePic from "../assets/venue_pic.png";
-import scholarshipPic from "../assets/scholarship_pic.png";
 import { speakers } from "../data/speakers";
 import { sponsors } from "../data/sponsors";
 import { testimonials } from "../data/testimonials";
@@ -108,7 +107,6 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
     <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <script is:inline src="https://events.humanitix.com/scripts/widgets/popup.js" type="module"></script>
     <style>
       :root {
         --teal-dark: #052831;
@@ -191,52 +189,6 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal-dark) 100%);
       }
 
-      /* Rotating border animation for "Your Company Here" */
-      @keyframes spin-border {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      .rotating-border {
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        border: 2px dashed #D33B32;
-      }
-      .rotating-border::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        top: -50%;
-        left: -50%;
-        z-index: 0;
-        background: conic-gradient(
-          #D33B32 0deg,
-          #FF6B6B 60deg,
-          #4DB7B9 120deg,
-          #2D8B8E 180deg,
-          #D33B32 240deg,
-          #FF6B6B 300deg,
-          #D33B32 360deg
-        );
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      .sponsor-cta:hover .rotating-border {
-        border-color: transparent;
-      }
-      .sponsor-cta:hover .rotating-border::before {
-        opacity: 1;
-        animation: spin-border 1s linear infinite;
-      }
-      .rotating-border-inner {
-        position: relative;
-        z-index: 1;
-        background: white;
-        border-radius: 8px;
-        margin: 3px;
-      }
-
       /* FAQ Accordion */
       .faq-item .faq-answer {
         max-height: 0;
@@ -258,14 +210,15 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         background: linear-gradient(134deg, var(--teal-mid) 0%, var(--teal-dark) 100%);
       }
 
-      /* Scholarship section */
-      .scholarship-section {
-        background: var(--cream);
-      }
     </style>
   </head>
   <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
     <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">
+
+    <!-- See You Next Year Banner -->
+    <div class="w-full bg-[#D33B32] text-white text-center py-3 px-4 font-bold text-sm md:text-base">
+      Thanks for an amazing Hampton Roads DevFest 2026! See you next year! 🎉
+    </div>
 
     <!-- Mobile hamburger button - outside hero to avoid overflow:hidden clipping -->
     <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
@@ -295,13 +248,11 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         <div class="max-w-7xl mx-auto flex justify-end">
           <!-- Desktop/Tablet nav links -->
           <div class="hidden md:flex items-center gap-6 lg:gap-10">
-            <a href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Buy Tickets</a>
             <a href="#about" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">About</a>
             <a href="#venue" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Venue</a>
-            <a href="/speakers" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Speakers</a>
-            <a href="/schedule" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Schedule</a>
             <a href="#testimonials" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Testimonials</a>
             <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">2024</a>
+            <a href="/years/2026" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">2026</a>
             <a href="#faq" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">FAQ</a>
           </div>
         </div>
@@ -314,13 +265,11 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
           <div class="h-[60px]"></div>
           <!-- Menu links -->
           <div class="flex flex-col gap-8 px-8 pt-4">
-            <a href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup" class="mobile-menu-link px-6 py-3 btn-primary text-white text-base font-bold leading-relaxed text-center">Procrastinator Tickets - $100</a>
             <a href="#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
             <a href="#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
-            <a href="/speakers" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Speakers</a>
-            <a href="/schedule" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Schedule</a>
             <a href="#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
             <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
+            <a href="/years/2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2026</a>
             <a href="#faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
           </div>
         </div>
@@ -347,43 +296,23 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
               </p>
             </div>
           </div>
-          <!-- Buttons: Stacked on mobile, side-by-side on tablet/desktop -->
-          <div class="flex flex-col md:flex-row justify-center lg:justify-end gap-4 mt-4">
-            <a
-              href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup"
-              class="px-6 md:px-8 py-3 md:py-4 btn-primary text-white text-base font-bold leading-relaxed text-center"
-            >
-              Procrastinator Tickets - $100
-            </a>
-            <a
-              href="/prospectus"
-              target="_blank"
-              class="px-6 md:px-8 py-3 md:py-4 btn-secondary text-base font-bold leading-relaxed text-center"
-            >
-              Become a Sponsor
-            </a>
-          </div>
-
-          <!-- Countdown Timer -->
-          <div id="countdown" class="flex justify-center lg:justify-end gap-4 mt-6 text-white">
-            <div class="flex flex-col items-center">
-              <span id="days" class="text-3xl md:text-4xl font-bold">--</span>
-              <span class="text-xs md:text-sm uppercase tracking-wide opacity-80">Days</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span id="hours" class="text-3xl md:text-4xl font-bold">--</span>
-              <span class="text-xs md:text-sm uppercase tracking-wide opacity-80">Hours</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span id="minutes" class="text-3xl md:text-4xl font-bold">--</span>
-              <span class="text-xs md:text-sm uppercase tracking-wide opacity-80">Min</span>
-            </div>
-            <div class="flex flex-col items-center">
-              <span id="seconds" class="text-3xl md:text-4xl font-bold">--</span>
-              <span class="text-xs md:text-sm uppercase tracking-wide opacity-80">Sec</span>
-            </div>
-          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Mailing List Signup -->
+    <section class="w-full py-12 px-8 bg-[#F3F4F6]">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-2xl font-bold text-black mb-2">Stay in the Loop</h2>
+        <p class="text-gray-600 mb-6">Sign up for updates on next year's Hampton Roads DevFest</p>
+        <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
+          <input type="hidden" name="redirect" value="/thank-you">
+          <input type="text" name="fields_first_name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <input type="text" name="fields_last_name" placeholder="Last Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full mb-4 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Subscribe</button>
+          <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our Privacy Policy and Terms of Service.</p>
+        </form>
       </div>
     </section>
 
@@ -400,7 +329,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
       <div class="max-w-[1040px] mx-auto p-8 bg-white card-shadow card-asymmetric flex flex-col gap-2 relative z-10">
         <h2 class="text-black text-[24px] lg:text-[32px] font-semibold leading-8 lg:leading-10 text-center lg:text-left">About</h2>
         <p class="text-black text-base font-normal leading-relaxed">
-          Mark your calendar for Hampton Roads DevFest 2026! This unique gathering will once again spotlight local speakers, showcasing our community's deep and diverse talent.
+          Hampton Roads DevFest 2026 spotlighted local speakers, showcasing our community's deep and diverse talent.
           <br/><br/>
           Hampton Roads DevFest is more than a conference; it's a tribute to our dynamic local developer community. It's an ideal platform to highlight the exceptional places to work in the Hampton Roads area, emphasizing innovative technological strides. This event caters to everyone in the tech sphere, from seasoned developers and industry veterans to emerging talents and students.
         </p>
@@ -410,9 +339,9 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             <p class="mt-4 text-black text-base font-normal leading-relaxed">
               Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our mission is to advance software development education throughout Virginia. Our passion for promoting learning and growth in technology is at the heart of DevFest.
               <br/><br/>
-              Take advantage of this unparalleled opportunity to network, learn from top industry professionals, and celebrate the remarkable achievements of our tech community. Whether you're looking to sharpen your skills, explore new career pathways, or simply immerse yourself in a community of like-minded tech enthusiasts, Hampton Roads DevFest is your destination.
+              Thank you to everyone who joined us to network, learn from top industry professionals, and celebrate the remarkable achievements of our tech community.
               <br/><br/>
-              Join us as we recognize and nurture the extraordinary tech talent that thrives in Hampton Roads. Let's connect, discover, and grow together at Hampton Roads DevFest 2026!
+              We loved recognizing and nurturing the extraordinary tech talent that thrives in Hampton Roads. Stay tuned for Hampton Roads DevFest 2027!
             </p>
           </details>
         </div>
@@ -502,50 +431,6 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
                 />
               </a>
             ))}
-            <!-- Your Company Here placeholder -->
-            <a
-              href="/prospectus"
-              class="sponsor-cta p-6 md:p-8 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-all"
-            >
-              <div class="w-full rotating-border">
-                <div class="rotating-border-inner p-3 flex justify-center items-center">
-                  <span class="text-center text-black text-sm font-bold">Your Company Here</span>
-                </div>
-              </div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Divider -->
-        <div class="w-full h-px bg-[#4DB7B9]"></div>
-
-        <!-- Sponsorship CTA -->
-        <div class="p-6 rounded-[10px] flex flex-col items-center gap-2">
-          <div class="pb-10 flex flex-col gap-2 text-center">
-            <h3 class="text-white text-[24px] md:text-[32px] font-bold leading-8 md:leading-10">
-              Interested in Sponsoring Hampton Roads DevFest 2026?
-            </h3>
-            <p class="text-white text-base font-normal leading-relaxed">
-              Help us make tech education accessible to our community while showcasing your organization to 250+ local developers.
-            </p>
-          </div>
-          <!-- Buttons: stacked on mobile, side-by-side on tablet+ -->
-          <div class="w-full md:w-auto flex flex-col md:flex-row justify-center gap-4">
-            <a
-              href="/prospectus"
-              target="_blank"
-              class="w-full md:w-auto px-8 py-4 btn-primary text-white text-base font-bold text-center"
-            >
-              View Sponsorship Prospectus
-            </a>
-            <a
-              href="https://buy.stripe.com/3cIaEX12u0e1bjLf1U4AU01"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full md:w-auto px-8 py-4 btn-secondary text-base font-bold text-center"
-            >
-              Quick Logo Sponsorship ($500)
-            </a>
           </div>
         </div>
       </div>
@@ -687,46 +572,6 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
       </div>
     </section>
 
-    <!-- Scholarship Section -->
-    <section class="w-full bg-[#FFFCF3] card-shadow flex flex-col lg:flex-row">
-      <!-- Left/Main content -->
-      <div class="flex-1 p-10 flex flex-col items-center gap-8">
-        <div class="w-full flex flex-col gap-4 p-0 md:p-10">
-          <!-- Header: Mobile stacked, Tablet/Desktop horizontal -->
-          <div class="flex flex-col md:flex-row items-center justify-center gap-2">
-            <!-- Graduation Cap Icon -->
-            <svg class="w-10 h-10 shrink-0" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 8L2 16L20 24L38 16L20 8Z" fill="#3361C9"/>
-              <path d="M8 19V27L20 33L32 27V19" stroke="#3361C9" stroke-width="2" fill="none"/>
-              <path d="M36 16V28" stroke="#3361C9" stroke-width="2"/>
-              <circle cx="36" cy="29" r="2" fill="#3361C9"/>
-            </svg>
-            <h3 class="text-center text-black text-2xl font-bold leading-8">Apply for a 2026 Scholarship!</h3>
-          </div>
-          <p class="text-black text-base font-normal leading-relaxed">
-            Hampton Roads DevFest is committed to making our conference accessible to everyone. We're offering scholarships to students, career changers, and underrepresented groups in tech to help remove financial barriers to attending.
-          </p>
-        </div>
-        <!-- Button: Full-width on mobile, auto on tablet/desktop -->
-        <a
-          href="https://forms.gle/2SyzmmEMrsEirZAFA"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-full md:w-auto px-8 py-4 bg-[#D33B32] hover:bg-[#B32E27] text-white text-base font-bold leading-relaxed text-center rounded-full transition-colors"
-        >
-          Apply for Scholarship
-        </a>
-      </div>
-      <!-- Right side with image - Desktop only -->
-      <div class="hidden lg:flex flex-1 relative overflow-hidden">
-        <Image
-          src={scholarshipPic}
-          alt="Scholarship"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-      </div>
-    </section>
-
     <!-- Shop Merch Section -->
     <section id="merch" class="py-16 md:py-24" style="background-color: #FFFCF3;">
       <div class="container mx-auto px-4 md:px-8">
@@ -797,25 +642,14 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         </div>
         <div class="flex flex-col items-center md:items-end gap-2">
           <div class="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
-            <a href="/speakers" class="text-white hover:text-[#4DB7B9] transition-colors">Speakers</a>
-            <a href="/schedule" class="text-white hover:text-[#4DB7B9] transition-colors">Schedule</a>
             <a href="/faq" class="text-white hover:text-[#4DB7B9] transition-colors">FAQ</a>
             <a href="/code-of-conduct" class="text-white hover:text-[#4DB7B9] transition-colors">Code of Conduct</a>
             <a href="/years/2024" class="text-white hover:text-[#4DB7B9] transition-colors">2024 Archive</a>
+            <a href="/years/2026" class="text-white hover:text-[#4DB7B9] transition-colors">2026 Archive</a>
           </div>
         </div>
       </div>
     </footer>
-
-    <!-- Sticky Mobile CTA - visible only on mobile when scrolling -->
-    <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white shadow-[0_-4px_6px_rgba(0,0,0,0.1)] hidden md:hidden">
-      <a
-        href="https://events.humanitix.com/hampton-roads-devfest-2026/tickets?widget=popup"
-        class="block w-full px-6 py-4 btn-primary text-white text-base font-bold leading-relaxed text-center"
-      >
-        Procrastinator Tickets - $100
-      </a>
-    </div>
 
     <!-- Mobile Menu JavaScript -->
     <script>
@@ -877,65 +711,6 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
       });
     </script>
 
-    <!-- Countdown Timer JavaScript -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const eventDate = new Date('2026-02-27T09:00:00-05:00').getTime();
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        const countdownEl = document.getElementById('countdown');
-
-        function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = eventDate - now;
-
-          if (distance > 0) {
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-            if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-            if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-            if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
-          } else if (countdownEl) {
-            countdownEl.innerHTML = '<span class="text-2xl font-bold">Event Day!</span>';
-          }
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-      });
-    </script>
-
-    <!-- Sticky Mobile CTA JavaScript -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const stickyCta = document.getElementById('sticky-cta');
-        const heroSection = document.querySelector('.hero-section');
-
-        if (stickyCta && heroSection) {
-          const cta = stickyCta;
-          const hero = heroSection;
-
-          function checkScroll() {
-            const heroBottom = hero.getBoundingClientRect().bottom;
-            // Show sticky CTA when hero is scrolled out of view
-            if (heroBottom < 0) {
-              cta.classList.remove('hidden');
-            } else {
-              cta.classList.add('hidden');
-            }
-          }
-
-          window.addEventListener('scroll', checkScroll);
-          checkScroll(); // Initial check
-        }
-      });
-    </script>
     </div>
   </body>
 </html>
