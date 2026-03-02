@@ -3251,9 +3251,9 @@ run-parallel@^1.1.9:
     queue-microtask "^1.2.2"
 
 satori@^0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/satori/-/satori-0.19.2.tgz#47e9e3d1413a783c3d54fca6e0d35126625e8e26"
-  integrity sha512-71plFHWcq6WJBM5sf/n0eHOmTBiKLUB/G8du7SmLTTLHKEKrV3TPHGKcEVIoyjnbhnjvu9HhLyF9MATB/zzL7g==
+  version "0.19.3"
+  resolved "https://registry.yarnpkg.com/satori/-/satori-0.19.3.tgz#88cad7091688db975799f8164388975613cd6322"
+  integrity sha512-dKr8TNYSyceWqBoTHWntjy25xaiWMw5GF+f8QOqFsov9OpTswLs7xdbvZudGRp9jkzbhv/4mVjVZYFtpruGKiA==
   dependencies:
     "@shuding/opentype.js" "1.4.0-beta.0"
     css-background-parser "^0.1.0"
