@@ -8,7 +8,6 @@ import heroTablet from "../assets/hero_tablet.png";
 import heroPhone from "../assets/hero_phone.png";
 import venuePic from "../assets/venue_pic.png";
 import { speakers } from "../data/speakers";
-import { sponsors } from "../data/sponsors";
 import { testimonials } from "../data/testimonials";
 import { faqItems } from "../data/faq";
 import lionelSappImage from "../assets/speakers/lionel-sapp.jpeg";
@@ -18,18 +17,6 @@ import timBanksImage from "../assets/speakers/tim-banks.jpeg";
 import ianTaylorImage from "../assets/speakers/ian-taylor.jpeg";
 import laurenPryorImage from "../assets/speakers/lauren-pryor.jpg";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
-import issuetrakLogo from "../assets/sponsors/issuetrak.png";
-import marathonLogo from "../assets/sponsors/marathon.png";
-import opensearchLogo from "../assets/sponsors/opensearch.png";
-import swiftkickLogo from "../assets/sponsors/swiftkick.png";
-import landrecordsLogo from "../assets/sponsors/landrecords.png";
-import progressLogo from "../assets/sponsors/progress.png";
-import stigianLogo from "../assets/sponsors/stigian.png";
-import noteableLogo from "../assets/sponsors/noteable.png";
-import cvbLogo from "../assets/sponsors/cvb.png";
-import techeadLogo from "../assets/sponsors/TECHEAD.png";
-import decisionsProcessmakerLogo from "../assets/sponsors/decisions+processmaker.png";
-import yellowdogLogo from "../assets/sponsors/yellowdog.png";
 import heroDots from "../assets/dots/hero_dots.svg";
 import headerDots from "../assets/dots/header_dots.svg";
 import aboutBkgd from "../assets/about_bkgd.png";
@@ -48,35 +35,6 @@ const testimonialImages: Record<string, any> = {
   "paul-chin-jr.jpeg": paulChinJrImage,
 };
 
-const sponsorLogos: Record<string, any> = {
-  "issuetrak.png": issuetrakLogo,
-  "marathon.png": marathonLogo,
-  "opensearch.png": opensearchLogo,
-  "swiftkick.png": swiftkickLogo,
-  "landrecords.png": landrecordsLogo,
-  "progress.png": progressLogo,
-  "stigian.png": stigianLogo,
-  "noteable.png": noteableLogo,
-  "cvb.png": cvbLogo,
-  "TECHEAD.png": techeadLogo,
-  "decisions+processmaker.png": decisionsProcessmakerLogo,
-  "yellowdog.png": yellowdogLogo,
-};
-
-// Group sponsors by tier for display
-const sponsorsByTier = {
-  platinum: sponsors.filter(s => s.tier === 'platinum'),
-  gold: sponsors.filter(s => s.tier === 'gold'),
-  silver: sponsors.filter(s => s.tier === 'silver'),
-  logo: sponsors.filter(s => s.tier === 'logo'),
-};
-
-// Group sponsors for tiered display
-const topTierSponsors = [...sponsorsByTier.platinum, ...sponsorsByTier.gold];
-const standardSponsors = [...sponsorsByTier.silver, ...sponsorsByTier.logo];
-
-// Get all sponsors in display order (for reference)
-const allSponsors = [...topTierSponsors, ...standardSponsors];
 ---
 
 <html lang="en">
@@ -332,26 +290,18 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
       <div class="max-w-[1040px] mx-auto p-8 bg-white card-shadow card-asymmetric flex flex-col gap-2 relative z-10">
         <h2 class="text-black text-[24px] lg:text-[32px] font-semibold leading-8 lg:leading-10 text-center lg:text-left">About</h2>
         <p class="text-black text-base font-normal leading-relaxed">
-          Hampton Roads DevFest 2026 spotlighted local speakers, showcasing our community's deep and diverse talent.
+          Hampton Roads DevFest is returning in 2027 to once again spotlight local speakers and celebrate the deep, diverse talent of our developer community.
           <br/><br/>
-          Hampton Roads DevFest is more than a conference; it's a tribute to our dynamic local developer community. It's an ideal platform to highlight the exceptional places to work in the Hampton Roads area, emphasizing innovative technological strides. This event caters to everyone in the tech sphere, from seasoned developers and industry veterans to emerging talents and students.
+          DevFest is more than a conference; it's a tribute to our dynamic local developer community. It's an ideal platform to highlight the exceptional places to work in the Hampton Roads area, emphasizing innovative technological strides. The event caters to everyone in the tech sphere, from seasoned developers and industry veterans to emerging talents and students.
+          <br/><br/>
+          Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our mission is to advance software development education throughout Virginia. Our passion for promoting learning and growth in technology is at the heart of DevFest.
+          <br/><br/>
+          We can't wait to bring the community back together to network, learn from top industry professionals, and recognize the extraordinary tech talent that thrives in Hampton Roads. Sign up above to be the first to know when 2027 dates are announced.
         </p>
-        <div class="p-4 bg-white rounded-[10px] flex flex-col items-center lg:items-start">
-          <details class="w-full">
-            <summary class="text-center text-[#D33B32] text-base font-bold leading-relaxed cursor-pointer hover:underline list-none">Read more</summary>
-            <p class="mt-4 text-black text-base font-normal leading-relaxed">
-              Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our mission is to advance software development education throughout Virginia. Our passion for promoting learning and growth in technology is at the heart of DevFest.
-              <br/><br/>
-              Thank you to everyone who joined us to network, learn from top industry professionals, and celebrate the remarkable achievements of our tech community.
-              <br/><br/>
-              We loved recognizing and nurturing the extraordinary tech talent that thrives in Hampton Roads. Stay tuned for Hampton Roads DevFest 2027!
-            </p>
-          </details>
-        </div>
       </div>
     </section>
 
-    <!-- Sponsors Section -->
+    <!-- Sponsor 2027 CTA -->
     <section id="sponsors" class="w-full py-10 md:py-20 px-8 lg:px-20 relative overflow-hidden">
       <!-- Background - NO opacity on image per user requirement -->
       <div class="absolute inset-0 pointer-events-none">
@@ -359,91 +309,19 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
         <Image src={sponsorBkgd} alt="" class="absolute inset-0 w-full h-full object-cover" width={1920} height={800} />
       </div>
 
-      <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
+      <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10 text-center">
         <!-- Header with heart icon -->
-        <div class="py-6 rounded-[10px] flex flex-col items-center gap-2">
-          <div class="flex items-center gap-4">
-            <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 35.5L17.55 33.27C9.4 25.86 4 21.03 4 15.05C4 10.22 7.82 6.4 12.65 6.4C15.34 6.4 17.92 7.66 20 9.74C22.08 7.66 24.66 6.4 27.35 6.4C32.18 6.4 36 10.22 36 15.05C36 21.03 30.6 25.86 22.45 33.27L20 35.5Z" fill="#D33B32"/>
-            </svg>
-            <h2 class="text-center text-white text-[32px] font-bold leading-10">Our 2026 Sponsors</h2>
-          </div>
-          <p class="text-center text-white text-base font-normal leading-relaxed">
-            Thank you to our sponsors for supporting the Hampton Roads tech community and making this event possible.
-          </p>
+        <div class="flex items-center gap-4">
+          <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 35.5L17.55 33.27C9.4 25.86 4 21.03 4 15.05C4 10.22 7.82 6.4 12.65 6.4C15.34 6.4 17.92 7.66 20 9.74C22.08 7.66 24.66 6.4 27.35 6.4C32.18 6.4 36 10.22 36 15.05C36 21.03 30.6 25.86 22.45 33.27L20 35.5Z" fill="#D33B32"/>
+          </svg>
+          <h2 class="text-center text-white text-[32px] font-bold leading-10">Sponsor DevFest 2027</h2>
         </div>
-
-        <!-- Tiered Sponsor Grids -->
-        <div class="pt-10 flex flex-col items-center gap-6 md:gap-10">
-          {/* Platinum Sponsors - Largest */}
-          {sponsorsByTier.platinum.length > 0 && (
-            <div class="w-full flex flex-wrap justify-center gap-6 md:gap-10 max-w-3xl mx-auto">
-              {sponsorsByTier.platinum.map((sponsor) => (
-                <a
-                  href={sponsor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-full md:w-[calc(50%-1.25rem)] p-12 md:p-14 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
-                  title={sponsor.name}
-                >
-                  <Image
-                    src={sponsorLogos[sponsor.logo]}
-                    alt={sponsor.name}
-                    class="h-24 w-auto object-contain"
-                  />
-                </a>
-              ))}
-            </div>
-          )}
-
-          {/* Gold Sponsors - Large */}
-          {sponsorsByTier.gold.length > 0 && (
-            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
-              {sponsorsByTier.gold.map((sponsor) => (
-                <a
-                  href={sponsor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="p-10 md:p-12 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
-                  title={sponsor.name}
-                >
-                  <Image
-                    src={sponsorLogos[sponsor.logo]}
-                    alt={sponsor.name}
-                    class="h-20 w-auto object-contain"
-                  />
-                </a>
-              ))}
-            </div>
-          )}
-
-          {/* Silver/Logo Sponsors - Smaller, 4-column */}
-          <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {standardSponsors.map((sponsor) => (
-              <a
-                href={sponsor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="p-6 md:p-8 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
-                title={sponsor.name}
-              >
-                <Image
-                  src={sponsorLogos[sponsor.logo]}
-                  alt={sponsor.name}
-                  class="h-12 w-auto object-contain"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <!-- Sponsor 2027 nudge -->
-        <div class="pt-6 flex flex-col items-center gap-4 text-center">
-          <p class="text-white text-base font-normal leading-relaxed">
-            Interested in sponsoring Hampton Roads DevFest 2027?
-          </p>
-          <a href="/prospectus" class="px-8 py-3 btn-secondary text-base font-bold">Become a Sponsor</a>
-        </div>
+        <p class="text-white text-base font-normal leading-relaxed">
+          Hampton Roads DevFest is powered by sponsors who believe in our local tech community. Want to help make the 2027 event happen?
+        </p>
+        <a href="/prospectus" class="px-8 py-3 btn-primary text-white text-base font-bold">Become a Sponsor</a>
+        <a href="/years/2026#sponsors" class="text-[#4DB7B9] text-base font-bold hover:underline">See our 2026 sponsors →</a>
       </div>
     </section>
 

@@ -23,9 +23,9 @@ test.describe("Homepage", () => {
     ).toBeVisible();
   });
 
-  test("sponsors section is visible", async ({ page }) => {
+  test("sponsor 2027 CTA is visible", async ({ page }) => {
     await expect(
-      page.getByRole("heading", { name: "Our 2026 Sponsors" })
+      page.getByRole("heading", { name: "Sponsor DevFest 2027" })
     ).toBeVisible();
   });
 
