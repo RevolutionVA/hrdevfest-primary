@@ -88,13 +88,13 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Hampton Roads DevFest | Feb 27th, 2026 | Virginia Beach, VA</title>
-    <meta name="description" content="Join 250+ developers at Hampton Roads DevFest 2026 on Feb 27th in Virginia Beach, VA. A community-driven conference featuring local speakers, networking, and technical sessions." />
+    <title>Hampton Roads DevFest 2027 | Virginia Beach, VA</title>
+    <meta name="description" content="Hampton Roads DevFest returns in 2027 in Virginia Beach, VA. Dates coming soon — sign up for updates on our community-driven conference featuring local speakers, networking, and technical sessions." />
 
     <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="event" />
-    <meta property="og:title" content="Hampton Roads DevFest 2026 | Feb 27th, Virginia Beach" />
-    <meta property="og:description" content="Join 250+ developers at Hampton Roads DevFest 2026. A community-driven conference featuring local speakers, networking, and technical sessions." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
+    <meta property="og:description" content="Hampton Roads DevFest returns in 2027. Dates coming soon — sign up to be the first to know about our community-driven developer conference." />
     <meta property="og:url" content="https://hrdevfest.org" />
     <meta property="og:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
     <meta property="og:site_name" content="Hampton Roads DevFest" />
@@ -102,8 +102,8 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hrdevfest" />
-    <meta name="twitter:title" content="Hampton Roads DevFest 2026 | Feb 27th" />
-    <meta name="twitter:description" content="Join 250+ developers at Hampton Roads DevFest 2026. Local speakers, networking, and technical sessions in Virginia Beach." />
+    <meta name="twitter:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
+    <meta name="twitter:description" content="Hampton Roads DevFest returns in 2027. Dates coming soon — sign up to be the first to know." />
     <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -215,10 +215,10 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
   <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
     <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">
 
-    <!-- See You Next Year Banner -->
-    <div class="w-full bg-[#D33B32] text-white text-center py-3 px-4 font-bold text-sm md:text-base">
-      Thanks for an amazing Hampton Roads DevFest 2026! See you next year! 🎉
-    </div>
+    <!-- 2027 Teaser Banner -->
+    <a href="#signup" class="block w-full bg-[#D33B32] text-white text-center py-3 px-4 font-bold text-sm md:text-base hover:brightness-95 transition-all">
+      Hampton Roads DevFest returns in 2027 — sign up to be the first to know! 🎉
+    </a>
 
     <!-- Mobile hamburger button - outside hero to avoid overflow:hidden clipping -->
     <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
@@ -254,6 +254,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">2024</a>
             <a href="/years/2026" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">2026</a>
             <a href="#faq" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">FAQ</a>
+            <a href="#signup" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Sign Up</a>
           </div>
         </div>
       </nav>
@@ -271,6 +272,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
             <a href="/years/2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2026</a>
             <a href="#faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
+            <a href="#signup" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Sign Up</a>
           </div>
         </div>
       </div>
@@ -287,13 +289,14 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
               <!-- Mobile: 32px stacked, Tablet: 48px centered, Desktop: 56px right-aligned on one line -->
               <h1 class="text-center lg:text-right text-white text-[32px] md:text-[48px] lg:text-[56px] font-bold leading-[1.1] lg:leading-normal">
                 <span class="block lg:inline">Hampton Roads </span>
-                <span class="block lg:inline">DevFest 2026</span>
+                <span class="block lg:inline">DevFest 2027</span>
               </h1>
               <!-- Mobile: 18px stacked, Tablet: 24px centered, Desktop: 32px right-aligned on one line -->
               <p class="text-center lg:text-right text-white text-[18px] md:text-[24px] lg:text-[32px] font-semibold leading-[1.3] lg:leading-10">
-                <span class="block lg:inline">Feb 27th, 2026 - </span>
+                <span class="block lg:inline">Dates coming soon - </span>
                 <span class="block lg:inline">Virginia Beach, VA</span>
               </p>
+              <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-white text-base font-bold">Notify Me</a>
             </div>
           </div>
         </div>
@@ -301,10 +304,10 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
     </section>
 
     <!-- Mailing List Signup -->
-    <section class="w-full py-12 px-8 bg-[#F3F4F6]">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl font-bold text-black mb-2">Stay in the Loop</h2>
-        <p class="text-gray-600 mb-6">Sign up for updates on next year's Hampton Roads DevFest</p>
+    <section id="signup" class="w-full py-12 px-8 bg-[#F3F4F6] scroll-mt-4">
+      <div class="max-w-md mx-auto p-8 bg-white card-shadow card-asymmetric text-center">
+        <h2 class="text-2xl font-bold text-black mb-2">Be the First to Know</h2>
+        <p class="text-gray-600 mb-6">2027 dates haven't been announced yet — sign up and we'll email you the moment tickets go live.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="/thank-you">
           <input type="text" name="fields_first_name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
@@ -363,7 +366,7 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20 35.5L17.55 33.27C9.4 25.86 4 21.03 4 15.05C4 10.22 7.82 6.4 12.65 6.4C15.34 6.4 17.92 7.66 20 9.74C22.08 7.66 24.66 6.4 27.35 6.4C32.18 6.4 36 10.22 36 15.05C36 21.03 30.6 25.86 22.45 33.27L20 35.5Z" fill="#D33B32"/>
             </svg>
-            <h2 class="text-center text-white text-[32px] font-bold leading-10">Our Sponsors</h2>
+            <h2 class="text-center text-white text-[32px] font-bold leading-10">Our 2026 Sponsors</h2>
           </div>
           <p class="text-center text-white text-base font-normal leading-relaxed">
             Thank you to our sponsors for supporting the Hampton Roads tech community and making this event possible.
@@ -433,6 +436,14 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             ))}
           </div>
         </div>
+
+        <!-- Sponsor 2027 nudge -->
+        <div class="pt-6 flex flex-col items-center gap-4 text-center">
+          <p class="text-white text-base font-normal leading-relaxed">
+            Interested in sponsoring Hampton Roads DevFest 2027?
+          </p>
+          <a href="/prospectus" class="px-8 py-3 btn-secondary text-base font-bold">Become a Sponsor</a>
+        </div>
       </div>
     </section>
 
@@ -486,6 +497,9 @@ const allSponsors = [...topTierSponsors, ...standardSponsors];
             Zeiders American Dream Theater<br/>
             4509 Commerce Street,<br/>
             Virginia Beach, VA 23462
+          </p>
+          <p class="text-white/80 text-sm md:text-base font-normal italic mt-3">
+            Our 2026 venue — 2027 location to be confirmed.
           </p>
         </div>
       </div>
