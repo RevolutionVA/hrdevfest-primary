@@ -20,7 +20,7 @@ jobs:
         run: yarn test:e2e
         env:
           BASE_URL: https://hrdevfest.org
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
