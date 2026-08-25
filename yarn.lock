@@ -1921,6 +1921,11 @@ fdir@^6.4.4, fdir@^6.5.0:
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.5.0.tgz#ed2ab967a331ade62f18d077dae192684d50d350"
   integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
 
+fflate@0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.7.3.tgz#288b034ff0e9c380eaa2feff48c787b8371b7fa5"
+  integrity sha512-0Zz1jOzJWERhyhsimS54VTqOteCNwRtIlh8isdL0AXLo0g7xNTfTL7oWrkmCnPhZGocKIkWHBistBrrpoNH3aw==
+
 fflate@^0.7.3:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.7.4.tgz#61587e5d958fdabb5a9368a302c25363f4f69f50"
@@ -2010,6 +2015,11 @@ h3@^1.15.5:
     radix3 "^1.1.2"
     ufo "^1.6.3"
     uncrypto "^0.1.3"
+
+harfbuzzjs@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/harfbuzzjs/-/harfbuzzjs-0.10.0.tgz#7d447d8a122fdc58bcb8b5156799bb8a19e9a20d"
+  integrity sha512-SN8LVwCOzvTq3OPNd0+EAghgXugItz56wst567D1vs7LnnKGWprhi3EG58aVOBwhN8HEbQxL4I9NDWkcXUutRw==
 
 hast-util-from-html@^2.0.0, hast-util-from-html@^2.0.3:
   version "2.0.3"
@@ -3250,10 +3260,10 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-satori@^0.19.2:
-  version "0.19.2"
-  resolved "https://registry.yarnpkg.com/satori/-/satori-0.19.2.tgz#47e9e3d1413a783c3d54fca6e0d35126625e8e26"
-  integrity sha512-71plFHWcq6WJBM5sf/n0eHOmTBiKLUB/G8du7SmLTTLHKEKrV3TPHGKcEVIoyjnbhnjvu9HhLyF9MATB/zzL7g==
+satori@^0.33.0:
+  version "0.33.4"
+  resolved "https://registry.yarnpkg.com/satori/-/satori-0.33.4.tgz#3aba54abc159aa7da259124cca0537740e935380"
+  integrity sha512-dCnaW6D/tkCJxG5UvpZPWnnvfTdGTVVSAq1tzH6xC5MeOhAeeswRcSq5zT7C6lRCdTGow9PRGus7PCzdp5JJYw==
   dependencies:
     "@shuding/opentype.js" "1.4.0-beta.0"
     css-background-parser "^0.1.0"
@@ -3262,6 +3272,8 @@ satori@^0.19.2:
     css-to-react-native "^3.0.0"
     emoji-regex-xs "^2.0.1"
     escape-html "^1.0.3"
+    fflate "0.7.3"
+    harfbuzzjs "0.10.0"
     linebreak "^1.1.0"
     parse-css-color "^0.2.1"
     postcss-value-parser "^4.2.0"
