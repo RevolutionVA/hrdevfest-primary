@@ -13,7 +13,15 @@ test.describe("Homepage", () => {
     const hero = page.locator(".hero-section");
     await expect(hero).toBeVisible();
     await expect(hero.getByText("Hampton Roads DevFest 2027")).toBeVisible();
-    await expect(hero.getByText(/Dates coming soon/)).toBeVisible();
+    await expect(hero.getByText(/April 23, 2027/)).toBeVisible();
+  });
+
+  test("shows the confirmed 2027 venue", async ({ page }) => {
+    const venue = page.locator("#venue");
+    await expect(venue.getByText("Zeiders American Dream Theater")).toBeVisible();
+    await expect(
+      venue.getByText("Our confirmed venue for Hampton Roads DevFest 2027.")
+    ).toBeVisible();
   });
 
   test("hero has Notify Me button", async ({ page }) => {
@@ -36,3 +44,4 @@ test.describe("Homepage", () => {
     await expect(footer.locator("a[href*='x.com/hrdevfest']")).toBeVisible();
   });
 });
+
