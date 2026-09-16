@@ -1,23 +1,22 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Site Navigation", () => {
-  test("speakers page loads with speaker cards", async ({ page }) => {
+  test("speakers route loads the 2026 archive", async ({ page }) => {
     await page.goto("/speakers");
-    await expect(page).toHaveTitle(/Speakers.*Hampton Roads DevFest/);
+    await expect(page).toHaveURL(/\/years\/2026\/?$/);
+    await expect(page).toHaveTitle(/Hampton Roads DevFest 2026/);
     await expect(
-      page.getByRole("heading", { name: "Featured Speakers" })
+      page.getByRole("heading", { name: "2026 Speakers" })
     ).toBeVisible();
-    const speakerCards = page.locator(".card-asymmetric");
-    expect(await speakerCards.count()).toBeGreaterThan(0);
   });
 
-  test("schedule page loads with schedule items", async ({ page }) => {
+  test("schedule route loads the 2026 archive", async ({ page }) => {
     await page.goto("/schedule");
-    await expect(page).toHaveTitle(/Schedule.*Hampton Roads DevFest/);
+    await expect(page).toHaveURL(/\/years\/2026\/?$/);
+    await expect(page).toHaveTitle(/Hampton Roads DevFest 2026/);
     await expect(
-      page.getByRole("heading", { name: "Schedule" })
+      page.getByRole("heading", { name: "2026 Schedule" })
     ).toBeVisible();
-    await expect(page.getByText("8:00 AM")).toBeVisible();
   });
 
   test("FAQ page loads with FAQ categories", async ({ page }) => {
@@ -36,3 +35,4 @@ test.describe("Site Navigation", () => {
     await expect(page).toHaveTitle(/Hampton Roads DevFest.*2024/);
   });
 });
+
