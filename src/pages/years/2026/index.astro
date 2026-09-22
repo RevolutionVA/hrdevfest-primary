@@ -1,6 +1,7 @@
 ---
 import "../../../styles/global.css";
 import { Image } from "astro:assets";
+import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
 import logoWhite from "../../../assets/logo-white.png";
 import headerDots from "../../../assets/dots/header_dots.svg";
 import { speakers } from "../../../data/speakers";
@@ -193,6 +194,8 @@ const scheduleItems: ScheduleItem[] = [
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
       }
     </style>
+
+    <GoogleAnalytics />
   </head>
   <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
     <div class="w-full max-w-[1920px] mx-auto bg-gray-100">

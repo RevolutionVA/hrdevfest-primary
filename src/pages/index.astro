@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import logo from "../assets/logo.png";
 import logoWhite from "../assets/logo-white.png";
 import heroBkgd from "../assets/hero_bkgd.png";
@@ -169,6 +170,8 @@ const testimonialImages: Record<string, any> = {
       }
 
     </style>
+
+    <GoogleAnalytics />
   </head>
   <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
     <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">

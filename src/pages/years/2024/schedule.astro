@@ -1,6 +1,7 @@
 ---
 import "../../../styles/global.css";
 import { Image } from "astro:assets";
+import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
 import logo from "../../../assets/logo.png";
 import headerImage from "../../../assets/header-image.png";
 ---
@@ -17,6 +18,8 @@ import headerImage from "../../../assets/header-image.png";
     <title>Hampton Roads DevFest | May 31st, 2024 | Virginia Beach, VA</title>
 
     <script src="https://js.tito.io/v2/with/inline" async></script>
+
+    <GoogleAnalytics />
   </head>
   <body
     class="flex flex-col items-center justify-center min-h-screen bg-white text-gray-900"
