@@ -60,13 +60,16 @@ Annual. Everything in Platinum, plus:
 
 ### Platinum
 
-- 15-minute session in the DevFest schedule. Content is the sponsor's choice.
-  Listed as a sponsored session in the program.
+- 15-minute session in the DevFest schedule, as available\*. Content is the
+  sponsor's choice. Listed as a sponsored session in the program.
 - Showcase table with lobby priority.
 - Marketing email to registered attendees.
 - Opt-in attendee contact list, collected by a checkbox at registration.
 - Large placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
+
+\* Two 15-minute sponsor segments are available across Platinum and Partner
+sponsors, assigned first come, first served by signing date.
 
 ### Gold
 
@@ -77,7 +80,7 @@ Annual. Everything in Platinum, plus:
 
 ### Silver
 
-- Showcase table if space allows, in the lobby or the studio.
+- Showcase table if space allows, in the lobby or the studio lobby.
 - Small placement on the rotating sponsor slide.
 - Front entry banner, logo on website.
 
@@ -104,7 +107,7 @@ Available to any sponsor at Silver or above.
 ## Terms
 
 - Tables are allocated by tier, then by payment date within a tier. The
-  lobby fills first, then the studio.
+  lobby fills first, then the studio lobby.
 - 10% off any tier committed and paid before November 30, 2026.
 - Credit card payments carry a stated percentage fee. Net-30 invoice is
   available.
@@ -128,19 +131,19 @@ Available to any sponsor at Silver or above.
   170 sponsor tickets plus 30 scholarship seats, which would leave 100 seats
   for everyone else if all were used. The conservative scenario is 105,
   leaving 195.
-- We have the building from 8:00 AM to 6:00 PM. Sponsor setup and teardown
+- We have the building from 7:30 AM to 6:00 PM. Sponsor setup and teardown
   must fit inside that window.
-- Day of: sponsor setup at 8:00 AM, doors open to attendees at 8:30 AM,
-  kickoff at 9:00 AM. Tables must be ready by 8:30.
+- Day of: sponsor setup at 7:30 AM, doors open to attendees at 8:00 AM,
+  kickoff at 9:00 AM. Tables must be ready by 8:00.
 - The lobby holds 10 showcase tables. Three Partners, two Platinums, and five
   Golds fill it exactly, so at full caps every Silver table goes to the
-  studio.
-- The studio is a secondary room, normally used for lunch and as a place to
-  relax. Sponsor tables go there only when the lobby is full.
+  studio lobby.
+- The studio lobby is a secondary space, normally used for lunch and as a
+  place to relax. Sponsor tables go there when the lobby is full.
 - The schedule has room for two 15-minute sponsor segments, for Platinum and
-  Partner sponsors only. Up to three Partners and two Platinums can sell, so
-  caps above two combined need a decision on who gets a segment. See open
-  questions.
+  Partner sponsors only, assigned first come, first served by signing date.
+  Up to five Platinum and Partner sponsors can sell, so later signers may not
+  get a segment.
 - Studio room workshops are being tested in 2027 and are not sold as a
   sponsor benefit this year.
 
@@ -191,9 +194,6 @@ Cold targets for Partner, large local employers who hire engineers:
 
 - Final card fee percentage.
 - Whether speakers, volunteers, and organizers count toward the 300 cap.
-- How to allocate the two 15-minute sponsor segments if more than two
-  Platinum and Partner sponsors sign: lower the caps, give segments to
-  Partners only, or allocate by signing order.
 - Who owns fulfillment of Partner meetup benefits across the year.
 - Whether NorfolkJS carries any existing sponsor commitments that conflict
   with Partner exclusivity.
