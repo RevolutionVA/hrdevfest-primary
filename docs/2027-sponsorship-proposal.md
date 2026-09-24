@@ -5,6 +5,8 @@ Status: draft for review. Prepared 2026-09-24.
 This proposes the sponsorship offering for Hampton Roads DevFest 2027 and a
 new annual RevolutionVA Partner program. It replaces the 2026 tier structure.
 
+DevFest 2027 is Friday, April 23, 2027. Venue to be confirmed.
+
 ## Why change
 
 ### 2026 results
