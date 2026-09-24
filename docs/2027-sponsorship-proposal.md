@@ -118,6 +118,11 @@ Available to any sponsor at Silver or above.
 
 ## Capacity constraints
 
+- Attendance is capped at 300. 2026 had 255. Sponsor tickets and Partner
+  scholarship seats come out of the same 300. At full caps, allotments are
+  170 sponsor tickets plus 30 scholarship seats, which would leave 100 seats
+  for everyone else if all were used. The conservative scenario is 105,
+  leaving 195.
 - Main room holds 7 to 9 showcase tables. Three Partners, two Platinums, and
   five Golds would be 10 tables, so Gold overflow into the studio room is
   possible in a full year. The allocation rule above covers this.
@@ -172,6 +177,7 @@ Cold targets for Partner, large local employers who hire engineers:
 ## Open questions
 
 - Final card fee percentage.
+- Whether speakers, volunteers, and organizers count toward the 300 cap.
 - Whether Partner tier stage time at DevFest is the same 15 minutes as
   Platinum or longer.
 - Who owns fulfillment of Partner meetup benefits across the year.
