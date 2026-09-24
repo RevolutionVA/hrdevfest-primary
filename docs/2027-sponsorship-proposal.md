@@ -69,8 +69,8 @@ installments. Everything in Platinum, plus:
 - 5-minute sponsor segment on the main stage, as available\*. Content and
   presenter are the sponsor's choice.
 - Showcase table in the main lobby, guaranteed.
-- Pre-event and post-event emails to registered attendees, sent on the
-  sponsor's behalf.
+- One pre-event and one post-event email to registered attendees, sent on
+  the sponsor's behalf.
 - Opt-in attendee contact list, collected by a checkbox at registration.
 - Post-event report.
 - Large placement on the rotating sponsor slide.
@@ -84,8 +84,8 @@ by signing date.
 
 - Showcase table in the main lobby while space lasts, otherwise the studio
   lobby.
-- Pre-event and post-event emails to registered attendees, sent on the
-  sponsor's behalf.
+- One pre-event and one post-event email to registered attendees, sent on
+  the sponsor's behalf.
 - Opt-in attendee contact list, collected by a checkbox at registration.
 - Post-event report.
 - Medium placement on the rotating sponsor slide.
@@ -147,8 +147,9 @@ Community sponsors.
   Links are allowed.
 - The opt-in contact list is expected to be small. Table giveaways and
   collecting contacts at the table will usually reach more people.
-- Post-event reports cover emails sent on the sponsor's behalf, opt-in list
-  size, and ribbon counts.
+- Post-event reports cover total attendance, emails sent on the sponsor's
+  behalf, opt-in list size, and ribbon counts split into "Looking for work"
+  and "Hiring".
 - Attendees can pick up "Looking for work" or "Hiring" ribbons at
   registration. Ribbons are open to every attendee and are not a sponsor
   benefit. Staff count ribbons given out at registration.
@@ -230,11 +231,11 @@ Cold targets for Partner, large local employers who hire engineers:
 
 Staffing firms, for Gold or Platinum:
 
+- Techead, a 2026 Logo sponsor. Warmest staffing lead; pitch Gold first.
 - TEKsystems
 - Insight Global
 - Apex Systems
 - Robert Half
-- Techead (2026 Logo sponsor)
 
 Other Hampton Roads cities, following the City of Virginia Beach model:
 
