@@ -62,7 +62,7 @@ Annual. Everything in Platinum, plus:
 
 - 15-minute session in the DevFest schedule. Content is the sponsor's choice.
   Listed as a sponsored session in the program.
-- Showcase table with main-room priority.
+- Showcase table with lobby priority.
 - Marketing email to registered attendees.
 - Opt-in attendee contact list, collected by a checkbox at registration.
 - Large placement on the rotating sponsor slide.
@@ -70,14 +70,14 @@ Annual. Everything in Platinum, plus:
 
 ### Gold
 
-- Showcase table, main room while space lasts.
+- Showcase table in the lobby while space lasts.
 - Marketing email to registered attendees.
 - Medium placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
 ### Silver
 
-- Showcase table if space allows, most likely in the studio room.
+- Showcase table if space allows, in the lobby or the studio.
 - Small placement on the rotating sponsor slide.
 - Front entry banner, logo on website.
 
@@ -103,8 +103,8 @@ Available to any sponsor at Silver or above.
 
 ## Terms
 
-- Tables are allocated by tier, then by payment date within a tier. The main
-  room fills first, then the studio room.
+- Tables are allocated by tier, then by payment date within a tier. The
+  lobby fills first, then the studio.
 - 10% off any tier committed and paid before November 30, 2026.
 - Credit card payments carry a stated percentage fee. Net-30 invoice is
   available.
@@ -123,16 +123,22 @@ Available to any sponsor at Silver or above.
 
 ## Capacity constraints
 
-- Attendance is capped at 300. 2026 had 255. Sponsor tickets and Partner
+- Registrations are capped at 300. 2026 had 255. Sponsor tickets and Partner
   scholarship seats come out of the same 300. At full caps, allotments are
   170 sponsor tickets plus 30 scholarship seats, which would leave 100 seats
   for everyone else if all were used. The conservative scenario is 105,
   leaving 195.
-- Main room holds 7 to 9 showcase tables. Three Partners, two Platinums, and
-  five Golds would be 10 tables, so Gold overflow into the studio room is
-  possible in a full year. The allocation rule above covers this.
-- Five sponsored 15-minute sessions is 75 minutes of sponsor stage time. Worth
-  watching against the schedule once caps fill.
+- We have the building from 8:00 AM to 6:00 PM. Sponsor setup and teardown
+  must fit inside that window.
+- The lobby holds 10 showcase tables. Three Partners, two Platinums, and five
+  Golds fill it exactly, so at full caps every Silver table goes to the
+  studio.
+- The studio is a secondary room, normally used for lunch and as a place to
+  relax. Sponsor tables go there only when the lobby is full.
+- The schedule has room for two 15-minute sponsor segments, for Platinum and
+  Partner sponsors only. Up to three Partners and two Platinums can sell, so
+  caps above two combined need a decision on who gets a segment. See open
+  questions.
 - Studio room workshops are being tested in 2027 and are not sold as a
   sponsor benefit this year.
 
@@ -183,8 +189,9 @@ Cold targets for Partner, large local employers who hire engineers:
 
 - Final card fee percentage.
 - Whether speakers, volunteers, and organizers count toward the 300 cap.
-- Whether Partner tier stage time at DevFest is the same 15 minutes as
-  Platinum or longer.
+- How to allocate the two 15-minute sponsor segments if more than two
+  Platinum and Partner sponsors sign: lower the caps, give segments to
+  Partners only, or allocate by signing order.
 - Who owns fulfillment of Partner meetup benefits across the year.
 - Whether NorfolkJS carries any existing sponsor commitments that conflict
   with Partner exclusivity.
