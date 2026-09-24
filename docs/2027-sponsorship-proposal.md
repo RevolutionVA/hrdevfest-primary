@@ -63,7 +63,7 @@ installments. Everything in Platinum, plus:
   Meetup attendance ranges from 10 to 50 people, and more meetups are being
   added.
 - 10 of the scholarship seats DevFest already gives away, named for the
-  partner.
+  partner. The partner sits with its scholarship recipients at lunch.
 
 ### Platinum
 
@@ -80,12 +80,14 @@ installments. Everything in Platinum, plus:
 
 \* Four 5-minute sponsor segments run each year, two before lunch and two
 after. Partners are guaranteed one. Remaining segments go to Platinum
-sponsors, first come, first served by signing date.
+sponsors, then Gold sponsors, first come, first served by signing date.
 
 ### Gold
 
 - Showcase table in the main lobby while space lasts, otherwise the studio
   lobby.
+- 5-minute sponsor segment on the main stage if any remain after Partner and
+  Platinum sponsors.
 - One pre-event and one post-event email to registered attendees, sent on
   the sponsor's behalf.
 - Opt-in attendee contact list, collected at registration by a checkbox
@@ -121,8 +123,13 @@ Community sponsors.
 | Studio lobby | $2,000 | Studio lobby named for the sponsor, with signage. Sponsor may put its table there |
 | Scholarship | $1,000 | Per 10 seats. Included in Partner |
 
+Silver + After-party bundle: $4,500. Silver tier plus the after-party, sold as
+a named package for sponsors who want to meet attendees over a drink. Only one
+is available, since the after-party is sold once.
+
 ## Terms
 
+- Sponsors are posted on the website the day they agree to sponsor.
 - Tables are allocated by tier, then by signing date within a tier. The
   main lobby fills first, then the studio lobby. Staffing firms are not
   seated at adjacent tables.
@@ -135,9 +142,8 @@ Community sponsors.
   or venue.
 - Credit card payments carry a stated percentage fee. Net-30 invoice is
   available.
-- Sponsorship is a paid sponsorship, not a donation, so it is not
-  tax-deductible as a charitable contribution. Invoices include RevolutionVA's
-  EIN: 81-0738973.
+- Invoiced as a sponsorship, not a donation. Consult your accountant on
+  treatment. RevolutionVA EIN: 81-0738973.
 - The rotating sponsor slide runs between every session and includes every
   sponsor, sized by tier.
 - Sponsor segment content must be finalized two weeks before the event.
@@ -149,8 +155,9 @@ Community sponsors.
 - Sponsor emails go out as "A word from our sponsor." Content is up to the
   sponsor: a job posting, a follow-up link, a giveaway, or anything else.
   Links are allowed.
-- The opt-in contact list is expected to be small. Table giveaways and
-  collecting contacts at the table will usually reach more people.
+- Attendees who tick the opt-in box are entered in a raffle. The list is
+  still expected to be small. Table giveaways and collecting contacts at the
+  table will usually reach more people.
 - Post-event reports cover total attendance, emails sent on the sponsor's
   behalf, opt-in list size, and ribbon counts split into "Looking for work"
   and "Hiring".
@@ -178,10 +185,11 @@ Community sponsors.
   place to relax. It takes overflow Gold and Silver tables only. Partner and
   Platinum tables are always in the main lobby.
 - The schedule has room for four 5-minute sponsor segments, two before lunch
-  and two after, for Platinum and Partner sponsors only. Partners are
-  guaranteed one; with at most three Partners, at least one segment is always
-  left for Platinum, assigned by signing date. At full caps, the second
-  Platinum would not get a segment.
+  and two after. Partners are guaranteed one; with at most three Partners, at
+  least one segment is always left for Platinum. Remaining segments go to
+  Platinum, then Gold, by signing date. At full caps, the second Platinum
+  would not get a segment. In the conservative scenario, two segments are
+  left for Gold.
 - Workshops and side conversations happen in the studio. They are not sold
   as a sponsor benefit this year.
 
@@ -209,7 +217,7 @@ The 2027 prospectus should also fix these gaps from the 2026 document.
 - Update the chart. The 2026 version shows 2016, 2017, 2018, and 2024 only.
 - Replace the previous sponsor wall with all 12 sponsors from 2026.
 - Add four or five real 2026 session titles under Presentations.
-- Add two sponsor quotes.
+- Add two sponsor quotes. Ask Marathon Consulting first.
 - Add a commit deadline and payment terms.
 - Replace the "Restrictions apply" footnote for marketing emails with the
   email terms above.
