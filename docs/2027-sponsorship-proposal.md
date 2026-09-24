@@ -155,14 +155,14 @@ is available, since the after-party is sold once.
 - Sponsor emails go out as "A word from our sponsor." Content is up to the
   sponsor: a job posting, a follow-up link, a giveaway, or anything else.
   Links are allowed.
-- Registration asks each attendee for company name and role, as freeform
-  text.
+- Registration asks for company name and role on every ticket, not once
+  per order, as freeform text. Staff clean up the answers before reporting.
 - Attendees who tick the opt-in box are entered in a raffle. The list is
   still expected to be small. Table giveaways and collecting contacts at the
   table will usually reach more people.
 - Post-event reports cover total attendance, emails sent on the sponsor's
-  behalf, opt-in list size, and ribbon counts split into "Looking for work"
-  and "Hiring".
+  behalf, opt-in list size, ribbon counts split into "Looking for work" and
+  "Hiring", and a summary of attendee roles and companies.
 - Attendees can pick up "Looking for work" or "Hiring" ribbons at
   registration. Ribbons are open to every attendee and are not a sponsor
   benefit. Staff count ribbons given out at registration.
