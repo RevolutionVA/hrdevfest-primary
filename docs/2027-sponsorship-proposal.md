@@ -56,7 +56,7 @@ Theater in Virginia Beach.
 | 5-minute stage segment | Guaranteed | As available | If any remain | — | — |
 | Emails on sponsor's behalf | Pre and post | Pre and post | Pre and post | Post | — |
 | Opt-in contact list | Yes | Yes | Yes | — | — |
-| Named scholarship seats | 10 | 10 | 10 | — | — |
+| Named scholarship seats | 10 | 10 | 5 | — | — |
 | Social posts | Welcome, spotlight, meetup mentions | Welcome, spotlight | Welcome, spotlight | Welcome | Welcome |
 | Post-event report | Yes | Yes | Yes | Yes | Yes |
 | Rotating slide | Large | Large | Medium | Small | Small |
@@ -114,7 +114,7 @@ sponsors, then Gold sponsors, first come, first served by signing date.
   the sponsor's behalf.
 - Opt-in attendee contact list, collected at registration by a checkbox
   reading "Share my contact with sponsors who are hiring."
-- 10 of the scholarship seats DevFest already gives away, named for the
+- 5 of the scholarship seats DevFest already gives away, named for the
   sponsor.
 - Post-event report.
 - One spotlight post on LinkedIn, X, Instagram, and Facebook.
@@ -156,8 +156,8 @@ Silver + After-party bundle: $4,500. Silver tier plus the after-party, sold as
 a named package for sponsors who want to meet attendees over a drink. Only one
 is available, since the after-party is sold once.
 
-Meetup sponsor: $250 per meetup. Sponsors one RevolutionVA meetup, with a
-thank-you at the start. Open to any company, whether or not it sponsors
+Meetup sponsor: $250 per meetup. Covers the food at one RevolutionVA meetup,
+with a thank-you at the start. Open to any company, whether or not it sponsors
 DevFest.
 
 ## Terms
@@ -176,10 +176,11 @@ DevFest.
 - Full refund if the event is cancelled. No refunds for changes to the date
   or venue.
 - Payment by check, ACH, or credit card. Credit card payments carry a 4%
-  fee. Net-30 invoice is available. W-9 available on request.
+  fee. Net-30 invoice is available. W-9 and certificate of insurance
+  available on request.
 - Purchase orders are accepted. Supplier-portal onboarding is available at
-  Gold and above. Purchase orders and supplier portals carry an
-  administrative fee (amount to be set).
+  Gold and above. Purchase orders and supplier portals carry a 5%
+  administrative fee.
 - Invoiced as a sponsorship, not a donation. Consult your accountant on
   treatment. RevolutionVA EIN: 81-0738973.
 - The rotating sponsor slide runs between every session and includes every
@@ -193,8 +194,9 @@ DevFest.
   scholarship pool, credited in their name, including choosing at signing to
   send any unused tickets there.
 - Ticket allotments are a cap. Sponsors can buy additional tickets for their
-  organization at a steep discount (price to be set). Additional tickets
-  count toward the 300 registration cap.
+  organization at $20 each. Organizations that don't sponsor can buy tickets
+  in bulk at a group rate. Additional tickets count toward the 300
+  registration cap.
 - Sponsor emails go out as "A word from our sponsor." Content is up to the
   sponsor: a job posting, a follow-up link, a giveaway, or anything else.
   Links are allowed.
@@ -217,9 +219,10 @@ DevFest.
 ## Capacity constraints
 
 - Registrations are capped at 300. 2026 had 255. Sponsor tickets come out of
-  the same 300. At full caps, allotments are 170 sponsor tickets, which would
-  leave 130 seats for everyone else if all were used. The conservative
-  scenario is 95, leaving 205. Partner scholarship seats name seats already
+  the same 300. If every capped tier sells out, allotments are 170 sponsor
+  tickets, which would leave 130 seats for everyone else if all were used.
+  With one Partner, one Platinum, four Golds, and two Silvers, it is 95,
+  leaving 205. Partner scholarship seats name seats already
   set aside for scholarships, so they add nothing to the count.
 - We have the building from 7:30 AM to 6:00 PM. Sponsor setup and teardown
   must fit inside that window.
@@ -233,30 +236,16 @@ DevFest.
 - The studio lobby is a secondary space, normally used for lunch and as a
   place to relax. It holds 3 tables, for Silver sponsors once the main lobby
   is full. That makes 13 tables in total, so Silver is capped at however many
-  are left: 3 at full caps, 7 in the conservative scenario.
+  are left: 3 if every capped tier sells out, 7 with one Partner, one
+  Platinum, and four Golds.
 - The schedule has room for four 5-minute sponsor segments, two before lunch
   and two after. Partners are guaranteed one; with at most three Partners, at
   least one segment is always left for Platinum. Remaining segments go to
-  Platinum, then Gold, by signing date. At full caps, the second Platinum
-  would not get a segment. In the conservative scenario, two segments are
-  left for Gold.
+  Platinum, then Gold, by signing date. If all three Partners and both
+  Platinums sign, the second Platinum would not get a segment. With one
+  Partner and one Platinum, two segments are left for Gold.
 - Workshops and side conversations happen in the studio. They are not sold
   as a sponsor benefit this year.
-
-## Revenue scenarios
-
-Add-ons excluded. Selling coffee, lunch, after-party, and studio lobby once
-each adds $8,500. Lanyards add $1,500 more if no Partner signs.
-
-| Scenario | Partner | Platinum | Gold | Silver | Community | Total |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| 2026 actual | 0 | 1 | 3 | 3 | 5 | $19,500 |
-| Conservative | 1 | 1 | 4 | 2 | 5 | $30,500 |
-| Conservative, no Partner | 0 | 1 | 4 | 2 | 5 | $20,500 |
-| Full caps | 3 | 2 | 5 | 3 | 5 | $59,500 |
-
-If every sponsor takes the 10% early rate, conservative drops to $27,450 and
-full caps to $53,550.
 
 ## Prospectus content changes
 
@@ -276,42 +265,8 @@ The 2027 prospectus should also fix these gaps from the 2026 document.
 - Fix typos: "techical", "CTO's".
 - Update the booking link, which still points at the 2026 calendar.
 
-## Outreach targets
-
-Warmest for Partner or Platinum, based on 2026 spend:
-
-- City of Virginia Beach, the only 2026 Platinum. Renew first.
-- Progress
-- Stigian Consulting
-- Decisions + ProcessMaker
-
-Cold targets for Partner, large local employers who hire engineers:
-
-- HII
-- Dominion Energy
-- Sentara
-- Navy Federal Credit Union
-- ADP Virginia Beach
-- Booz Allen Hamilton Norfolk
-
-Staffing firms, for Gold or Platinum:
-
-- Techead, a 2026 Logo sponsor. Warmest staffing lead; pitch Gold first.
-- TEKsystems
-- Insight Global
-- Apex Systems
-- Robert Half
-
-Other Hampton Roads cities, following the City of Virginia Beach model:
-
-- Norfolk
-- Chesapeake
-- Portsmouth
-- Suffolk
-- Hampton
-- Newport News
-
-Cities usually budget on a July 1 fiscal year and pay by purchase order.
+Outreach targets and revenue scenarios are kept in the private planning
+repo.
 
 ## Open questions
 
