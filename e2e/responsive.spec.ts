@@ -41,8 +41,8 @@ test.describe("Responsive Layout", () => {
     test("desktop nav links are visible", async ({ page }) => {
       await page.goto("/");
       const nav = page.locator("nav");
-      await expect(nav.getByRole("link", { name: "Speakers" })).toBeVisible();
-      await expect(nav.getByRole("link", { name: "Schedule" })).toBeVisible();
+      await expect(nav.getByRole("link", { name: "About" })).toBeVisible();
+      await expect(nav.getByRole("link", { name: "Venue" })).toBeVisible();
     });
 
     test("mobile menu button is hidden on desktop", async ({ page }) => {
@@ -52,3 +52,4 @@ test.describe("Responsive Layout", () => {
     });
   });
 });
+
