@@ -89,7 +89,7 @@ sponsors, assigned first come, first served by signing date.
 
 ### Silver
 
-- Showcase table if space allows, in the main lobby or the studio lobby.
+- Showcase table, guaranteed, in the main lobby or the studio lobby.
 - Small placement on the rotating sponsor slide.
 - Front entry banner, logo on website.
 
@@ -102,13 +102,16 @@ Renamed from Logo.
 
 ## Add-ons
 
-Available to any sponsor at Silver or above.
+Available to any sponsor at Silver or above. Coffee is also available to
+Community sponsors.
 
 | Add-on | Price | Notes |
 | --- | ---: | --- |
 | Coffee | $1,000 | Signage at the coffee station, thank-you from stage |
 | Lunch | $2,500 | Signage at lunch, thank-you from stage |
 | After-party | $3,000 | Offsite, sponsor named on all after-party promotion |
+| Lanyards | $1,500 | Logo on attendee lanyards. Sold only if no Partner signs, since lanyards are a Partner benefit |
+| Studio lobby | $2,000 | Studio lobby named for the sponsor, with signage. Sponsor may put its table there |
 | Scholarship | $1,000 | Per 10 seats. Included in Partner |
 
 ## Terms
@@ -167,8 +170,8 @@ Available to any sponsor at Silver or above.
 
 ## Revenue scenarios
 
-Add-ons excluded. Selling coffee, lunch, and after-party once each adds
-$6,500.
+Add-ons excluded. Selling coffee, lunch, after-party, and studio lobby once
+each adds $8,500. Lanyards add $1,500 more if no Partner signs.
 
 | Scenario | Partner | Platinum | Gold | Silver | Community | Total |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
