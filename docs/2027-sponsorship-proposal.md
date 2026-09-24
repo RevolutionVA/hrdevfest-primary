@@ -66,17 +66,19 @@ installments. Everything in Platinum, plus:
 
 ### Platinum
 
-- 15-minute session in the DevFest schedule, as available\*. Content is the
-  sponsor's choice. Listed as a sponsored session in the program.
+- 5-minute sponsor segment on the main stage, as available\*. Content and
+  presenter are the sponsor's choice.
 - Showcase table in the main lobby, guaranteed.
 - Pre-event and post-event emails to registered attendees, sent on the
   sponsor's behalf.
 - Opt-in attendee contact list, collected by a checkbox at registration.
+- Post-event report.
 - Large placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
-\* Two 15-minute sponsor segments are available across Platinum and Partner
-sponsors, assigned first come, first served by signing date.
+\* Four 5-minute sponsor segments are available across Platinum and Partner
+sponsors, two before lunch and two after, assigned first come, first served
+by signing date.
 
 ### Gold
 
@@ -84,6 +86,8 @@ sponsors, assigned first come, first served by signing date.
   lobby.
 - Pre-event and post-event emails to registered attendees, sent on the
   sponsor's behalf.
+- Opt-in attendee contact list, collected by a checkbox at registration.
+- Post-event report.
 - Medium placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
@@ -132,15 +136,22 @@ Community sponsors.
   EIN: 81-0738973.
 - The rotating sponsor slide runs between every session and includes every
   sponsor, sized by tier.
-- Sponsored session content must be finalized two weeks before the event.
+- Sponsor segment content must be finalized two weeks before the event.
 - Sponsor tickets must be assigned to named attendees by April 9, 2027.
   Unassigned tickets are released to general sale or the scholarship pool.
   Sponsors who sign after April 9 have 48 hours from signing to assign
   their tickets. Sponsors may also donate any of their tickets to the
   scholarship pool, credited in their name.
+- Sponsor emails go out as "A word from our sponsor." Content is up to the
+  sponsor: a job posting, a follow-up link, a giveaway, or anything else.
+  Links are allowed.
+- The opt-in contact list is expected to be small. Table giveaways and
+  collecting contacts at the table will usually reach more people.
+- Post-event reports cover emails sent on the sponsor's behalf, opt-in list
+  size, and ribbon counts.
 - Attendees can pick up "Looking for work" or "Hiring" ribbons at
   registration. Ribbons are open to every attendee and are not a sponsor
-  benefit.
+  benefit. Staff count ribbons given out at registration.
 - Signage placement may be adjusted by staff. Equivalent visibility will be
   provided if changes occur.
 
@@ -161,10 +172,10 @@ Community sponsors.
 - The studio lobby is a secondary space, normally used for lunch and as a
   place to relax. It takes overflow Gold and Silver tables only. Partner and
   Platinum tables are always in the main lobby.
-- The schedule has room for two 15-minute sponsor segments, for Platinum and
-  Partner sponsors only, assigned first come, first served by signing date.
-  Up to five Platinum and Partner sponsors can sell, so later signers may not
-  get a segment.
+- The schedule has room for four 5-minute sponsor segments, two before lunch
+  and two after, for Platinum and Partner sponsors only, assigned first come,
+  first served by signing date. Up to five Platinum and Partner sponsors can
+  sell, so at full caps one would not get a segment.
 - Workshops and side conversations happen in the studio. They are not sold
   as a sponsor benefit this year.
 
@@ -194,7 +205,8 @@ The 2027 prospectus should also fix these gaps from the 2026 document.
 - Add four or five real 2026 session titles under Presentations.
 - Add two sponsor quotes.
 - Add a commit deadline and payment terms.
-- Define the "Restrictions apply" footnote for marketing emails.
+- Replace the "Restrictions apply" footnote for marketing emails with the
+  email terms above.
 - Fix typos: "techical", "CTO's".
 - Update the booking link, which still points at the 2026 calendar.
 
@@ -215,6 +227,14 @@ Cold targets for Partner, large local employers who hire engineers:
 - Navy Federal Credit Union
 - ADP Virginia Beach
 - Booz Allen Hamilton Norfolk
+
+Staffing firms, for Gold or Platinum:
+
+- TEKsystems
+- Insight Global
+- Apex Systems
+- Robert Half
+- Techead (2026 Logo sponsor)
 
 Other Hampton Roads cities, following the City of Virginia Beach model:
 
