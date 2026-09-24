@@ -130,6 +130,8 @@ Available to any sponsor at Silver or above.
   leaving 195.
 - We have the building from 8:00 AM to 6:00 PM. Sponsor setup and teardown
   must fit inside that window.
+- Day of: sponsor setup at 8:00 AM, doors open to attendees at 8:30 AM,
+  kickoff at 9:00 AM. Tables must be ready by 8:30.
 - The lobby holds 10 showcase tables. Three Partners, two Platinums, and five
   Golds fill it exactly, so at full caps every Silver table goes to the
   studio.
