@@ -116,7 +116,8 @@ Available to any sponsor at Silver or above.
 - Sponsor tickets must be assigned to named attendees by April 9, 2027.
   Unassigned tickets are released to general sale or the scholarship pool.
   Sponsors who sign after April 9 have 48 hours from signing to assign
-  their tickets.
+  their tickets. Sponsors may also donate any of their tickets to the
+  scholarship pool, credited in their name.
 - Signage placement may be adjusted by staff. Equivalent visibility will be
   provided if changes occur.
 
