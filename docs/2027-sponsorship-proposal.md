@@ -155,6 +155,8 @@ is available, since the after-party is sold once.
 - Sponsor emails go out as "A word from our sponsor." Content is up to the
   sponsor: a job posting, a follow-up link, a giveaway, or anything else.
   Links are allowed.
+- Registration asks each attendee for company name and role, as freeform
+  text.
 - Attendees who tick the opt-in box are entered in a raffle. The list is
   still expected to be small. Table giveaways and collecting contacts at the
   table will usually reach more people.
@@ -212,8 +214,9 @@ full caps to $53,550.
 
 The 2027 prospectus should also fix these gaps from the 2026 document.
 
-- Replace the ticket projection with actual 2026 attendance, plus a role and
-  company-size breakdown.
+- Replace the ticket projection with actual 2026 attendance. 2026
+  registration did not collect role or company, so that breakdown starts
+  with 2027 registration.
 - Update the chart. The 2026 version shows 2016, 2017, 2018, and 2024 only.
 - Replace the previous sponsor wall with all 12 sponsors from 2026.
 - Add four or five real 2026 session titles under Presentations.
