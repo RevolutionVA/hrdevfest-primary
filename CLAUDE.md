@@ -50,7 +50,7 @@ yarn astro check
   - Sessionize for speaker/session management
   - Google Maps embed for venue location
   - ActiveHosted form for newsletter signup
-- Redirects are configured in `astro.config.mjs` (e.g., `/prospectus` redirects to Google Drive)
+- Redirects are configured in `astro.config.mjs` (e.g., `/prospectus` redirects to the sponsorship PDF in `public/2026/`)
 - The site has a sticky navigation bar that appears on scroll
 - All speakers are local to Hampton Roads (key differentiator)
 
