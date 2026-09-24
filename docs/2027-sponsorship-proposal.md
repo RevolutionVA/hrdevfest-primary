@@ -126,7 +126,7 @@ Available to any sponsor at Silver or above.
   available.
 - Sponsorship is a paid sponsorship, not a donation, so it is not
   tax-deductible as a charitable contribution. Invoices include RevolutionVA's
-  EIN: TBD.
+  EIN: 81-0738973.
 - The rotating sponsor slide runs between every session and includes every
   sponsor, sized by tier.
 - Sponsored session content must be finalized two weeks before the event.
