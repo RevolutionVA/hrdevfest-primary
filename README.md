@@ -74,4 +74,4 @@ Before submitting changes:
 ## 🌐 Links
 
 - [Live Site](https://hrdevfest.com)
-- [Sponsor Prospectus](https://hrdevfest.com/prospectus)
+- [Sponsor Prospectus](https://hrdevfest.org/prospectus)
