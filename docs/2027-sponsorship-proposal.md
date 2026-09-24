@@ -110,7 +110,8 @@ Available to any sponsor at Silver or above.
 - Tables are allocated by tier, then by payment date within a tier. The
   main lobby fills first, then the studio lobby.
 - Tables have access to power. Sponsors bring their own extension cords and
-  power strips. No wifi is provided.
+  power strips. Staff may refuse power strips and cables that do not appear
+  to meet safety requirements. No wifi is provided.
 - 10% off any tier committed and paid before November 30, 2026.
 - Credit card payments carry a stated percentage fee. Net-30 invoice is
   available.
