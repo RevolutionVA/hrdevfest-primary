@@ -62,19 +62,23 @@ installments. Everything in Platinum, plus:
   NorfolkJS, Hampton Roads .NET, Hampton Roads Azure, and any new groups.
   Meetup attendance ranges from 10 to 50 people, and more meetups are being
   added.
+- Mention in each meetup announcement on social media.
 - 10 of the scholarship seats DevFest already gives away, named for the
   partner. The partner sits with its scholarship recipients at lunch.
+- A table at the RevolutionVA job fair, if one is scheduled during the
+  partner's year.
 
 ### Platinum
 
-- 5-minute sponsor segment on the main stage, as available\*. Content and
-  presenter are the sponsor's choice.
+- 5-minute sponsor segment on the main stage, as available\*: who you are
+  and what you do. Presenter is the sponsor's choice.
 - Showcase table in the main lobby, guaranteed.
 - One pre-event and one post-event email to registered attendees, sent on
   the sponsor's behalf.
 - Opt-in attendee contact list, collected at registration by a checkbox
   reading "Share my contact with sponsors who are hiring."
 - Post-event report.
+- One spotlight post on LinkedIn, X, Instagram, and Facebook.
 - Large placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
@@ -92,13 +96,19 @@ sponsors, then Gold sponsors, first come, first served by signing date.
   the sponsor's behalf.
 - Opt-in attendee contact list, collected at registration by a checkbox
   reading "Share my contact with sponsors who are hiring."
+- 10 of the scholarship seats DevFest already gives away, named for the
+  sponsor.
 - Post-event report.
+- One spotlight post on LinkedIn, X, Instagram, and Facebook.
 - Medium placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
 ### Silver
 
 - Showcase table, guaranteed, in the main lobby or the studio lobby.
+- One post-event email to registered attendees, sent on the sponsor's
+  behalf.
+- Post-event report.
 - Small placement on the rotating sponsor slide.
 - Front entry banner, logo on website.
 
@@ -106,6 +116,7 @@ sponsors, then Gold sponsors, first come, first served by signing date.
 
 Renamed from Logo.
 
+- Post-event report.
 - Small placement on the rotating sponsor slide.
 - Front entry banner, logo on website.
 
@@ -127,21 +138,27 @@ Silver + After-party bundle: $4,500. Silver tier plus the after-party, sold as
 a named package for sponsors who want to meet attendees over a drink. Only one
 is available, since the after-party is sold once.
 
+Meetup sponsor: $250 per meetup. Sponsors one RevolutionVA meetup, with a
+thank-you at the start. Open to any company, whether or not it sponsors
+DevFest.
+
 ## Terms
 
-- Sponsors are posted on the website the day they agree to sponsor.
+- Sponsors are posted on the website, and welcomed on LinkedIn, X,
+  Instagram, and Facebook, the day they agree to sponsor.
 - Tables are allocated by tier, then by signing date within a tier. The
   main lobby fills first, then the studio lobby. Staffing firms are not
-  seated at adjacent tables.
+  seated at adjacent tables. Local product companies are grouped together.
 - Tables have access to power. Sponsors bring their own extension cords and
   power strips. Staff may refuse power strips and cables that do not appear
   to meet safety requirements. No wifi is provided.
 - 10% off any tier committed by November 30, 2026 and paid by January 31,
+  2027. 5% off any tier committed after November 30 and paid by January 31,
   2027.
 - Full refund if the event is cancelled. No refunds for changes to the date
   or venue.
 - Credit card payments carry a stated percentage fee. Net-30 invoice is
-  available.
+  available. W-9 available on request.
 - Invoiced as a sponsorship, not a donation. Consult your accountant on
   treatment. RevolutionVA EIN: 81-0738973.
 - The rotating sponsor slide runs between every session and includes every
@@ -152,17 +169,22 @@ is available, since the after-party is sold once.
   Sponsors who sign after April 9 have 48 hours from signing to assign
   their tickets. Sponsors may also donate any of their tickets to the
   scholarship pool, credited in their name.
+- Ticket allotments are a cap. Sponsors can buy additional tickets for their
+  organization at a steep discount (price to be set). Additional tickets
+  count toward the 300 registration cap.
 - Sponsor emails go out as "A word from our sponsor." Content is up to the
   sponsor: a job posting, a follow-up link, a giveaway, or anything else.
   Links are allowed.
-- Registration asks for company name and role on every ticket, not once
-  per order, as freeform text. Staff clean up the answers before reporting.
-- Attendees who tick the opt-in box are entered in a raffle. The list is
-  still expected to be small. Table giveaways and collecting contacts at the
-  table will usually reach more people.
+- Registration asks for company name, role, and years of experience on every
+  ticket, not once per order, as freeform text. Staff clean up the answers before reporting.
+- Attendees who tick the opt-in box are entered in a raffle. The sponsor
+  email reaches every registered attendee; the opt-in list is the subset who
+  raised their hand. Table giveaways and collecting contacts at the table
+  reach more people still.
 - Post-event reports cover total attendance, emails sent on the sponsor's
   behalf, opt-in list size, ribbon counts split into "Looking for work" and
-  "Hiring", and a summary of attendee roles and companies.
+  "Hiring", a summary of attendee roles and companies, and reach for the
+  sponsor's social posts. Every tier gets one.
 - Attendees can pick up "Looking for work" or "Hiring" ribbons at
   registration. Ribbons are open to every attendee and are not a sponsor
   benefit. Staff count ribbons given out at registration.
@@ -180,6 +202,8 @@ is available, since the after-party is sold once.
   must fit inside that window.
 - Day of: sponsor setup at 7:30 AM, doors open to attendees at 8:00 AM,
   kickoff at 9:00 AM. Tables must be ready by 8:00.
+- Sponsor hours, when attendees are free to visit tables: 8:00 to 9:00 AM
+  and lunch.
 - The main lobby holds 10 showcase tables. Three Partners, two Platinums, and five
   Golds fill it exactly, so at full caps every Silver table goes to the
   studio lobby.
@@ -220,7 +244,8 @@ The 2027 prospectus should also fix these gaps from the 2026 document.
 - Update the chart. The 2026 version shows 2016, 2017, 2018, and 2024 only.
 - Replace the previous sponsor wall with all 12 sponsors from 2026.
 - Add four or five real 2026 session titles under Presentations.
-- Add two sponsor quotes. Ask Marathon Consulting first.
+- Add two sponsor quotes: Marathon Consulting and a local product company
+  such as Yellow Dog Software.
 - Add a commit deadline and payment terms.
 - Replace the "Restrictions apply" footnote for marketing emails with the
   email terms above.
