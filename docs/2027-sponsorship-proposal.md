@@ -45,8 +45,25 @@ Theater in Virginia Beach.
 | RevolutionVA Partner | $10,000 / year | 3 | 20 |
 | Platinum | $5,000 | 2 | 20 |
 | Gold | $2,500 | 5 | 10 |
-| Silver | $1,500 | open | 5 |
+| Silver | $1,500 | 3 to 7 | 5 |
 | Community | $500 | open | 1 |
+
+### Benefits at a glance
+
+| Benefit | Partner | Platinum | Gold | Silver | Community |
+| --- | --- | --- | --- | --- | --- |
+| Showcase table | Main lobby, guaranteed | Main lobby, guaranteed | Main lobby, guaranteed | Guaranteed, main or studio lobby | — |
+| 5-minute stage segment | Guaranteed | As available | If any remain | — | — |
+| Emails on sponsor's behalf | Pre and post | Pre and post | Pre and post | Post | — |
+| Opt-in contact list | Yes | Yes | Yes | — | — |
+| Named scholarship seats | 10 | 10 | 10 | — | — |
+| Social posts | Welcome, spotlight, meetup mentions | Welcome, spotlight | Welcome, spotlight | Welcome | Welcome |
+| Post-event report | Yes | Yes | Yes | Yes | Yes |
+| Rotating slide | Large | Large | Medium | Small | Small |
+| Signage | Banner, table signs, lanyards | Banner, table signs | Banner, table signs | Banner | Banner |
+| Stage thank-you at opening | Yes | — | — | — | — |
+| Year-round meetup presence | Yes | — | — | — | — |
+| Tickets | 20 | 20 | 10 | 5 | 1 |
 
 ### RevolutionVA Partner
 
@@ -61,10 +78,10 @@ installments. Everything in Platinum, plus:
   meetup throughout the year. This includes the quarterly pop-up meetups,
   NorfolkJS, Hampton Roads .NET, Hampton Roads Azure, and any new groups.
   Meetup attendance ranges from 10 to 50 people, and more meetups are being
-  added.
+  added. When a partner representative attends, they get two minutes at the
+  start to say who they are and what they are hiring for.
 - Mention in each meetup announcement on social media.
-- 10 of the scholarship seats DevFest already gives away, named for the
-  partner. The partner sits with its scholarship recipients at lunch.
+- The partner sits with its named scholarship recipients at lunch.
 - A table at the RevolutionVA job fair, if one is scheduled during the
   partner's year.
 
@@ -73,6 +90,8 @@ installments. Everything in Platinum, plus:
 - 5-minute sponsor segment on the main stage, as available\*: who you are
   and what you do. Presenter is the sponsor's choice.
 - Showcase table in the main lobby, guaranteed.
+- 10 of the scholarship seats DevFest already gives away, named for the
+  sponsor.
 - One pre-event and one post-event email to registered attendees, sent on
   the sponsor's behalf.
 - Opt-in attendee contact list, collected at registration by a checkbox
@@ -88,8 +107,7 @@ sponsors, then Gold sponsors, first come, first served by signing date.
 
 ### Gold
 
-- Showcase table in the main lobby while space lasts, otherwise the studio
-  lobby.
+- Showcase table in the main lobby, guaranteed.
 - 5-minute sponsor segment on the main stage if any remain after Partner and
   Platinum sponsors.
 - One pre-event and one post-event email to registered attendees, sent on
@@ -157,18 +175,23 @@ DevFest.
   2027.
 - Full refund if the event is cancelled. No refunds for changes to the date
   or venue.
-- Credit card payments carry a stated percentage fee. Net-30 invoice is
-  available. W-9 available on request.
+- Payment by check, ACH, or credit card. Credit card payments carry a 4%
+  fee. Net-30 invoice is available. W-9 available on request.
+- Purchase orders are accepted. Supplier-portal onboarding is available at
+  Gold and above. Purchase orders and supplier portals carry an
+  administrative fee (amount to be set).
 - Invoiced as a sponsorship, not a donation. Consult your accountant on
   treatment. RevolutionVA EIN: 81-0738973.
 - The rotating sponsor slide runs between every session and includes every
   sponsor, sized by tier.
 - Sponsor segment content must be finalized two weeks before the event.
+- Logos are due March 19, 2027, as vector (SVG, EPS, or PDF) plus PNG.
 - Sponsor tickets must be assigned to named attendees by April 9, 2027.
   Unassigned tickets are released to general sale or the scholarship pool.
   Sponsors who sign after April 9 have 48 hours from signing to assign
   their tickets. Sponsors may also donate any of their tickets to the
-  scholarship pool, credited in their name.
+  scholarship pool, credited in their name, including choosing at signing to
+  send any unused tickets there.
 - Ticket allotments are a cap. Sponsors can buy additional tickets for their
   organization at a steep discount (price to be set). Additional tickets
   count toward the 300 registration cap.
@@ -204,12 +227,13 @@ DevFest.
   kickoff at 9:00 AM. Tables must be ready by 8:00.
 - Sponsor hours, when attendees are free to visit tables: 8:00 to 9:00 AM
   and lunch.
-- The main lobby holds 10 showcase tables. Three Partners, two Platinums, and five
-  Golds fill it exactly, so at full caps every Silver table goes to the
-  studio lobby.
+- The main lobby holds 10 showcase tables. Three Partners, two Platinums, and
+  five Golds fill it exactly, so Partner, Platinum, and Gold tables are always
+  in the main lobby.
 - The studio lobby is a secondary space, normally used for lunch and as a
-  place to relax. It takes overflow Gold and Silver tables only. Partner and
-  Platinum tables are always in the main lobby.
+  place to relax. It holds 3 tables, for Silver sponsors once the main lobby
+  is full. That makes 13 tables in total, so Silver is capped at however many
+  are left: 3 at full caps, 7 in the conservative scenario.
 - The schedule has room for four 5-minute sponsor segments, two before lunch
   and two after. Partners are guaranteed one; with at most three Partners, at
   least one segment is always left for Platinum. Remaining segments go to
@@ -291,6 +315,5 @@ Cities usually budget on a July 1 fiscal year and pay by purchase order.
 
 ## Open questions
 
-- Final card fee percentage.
 - Whether speakers, volunteers, and organizers count toward the 300 cap.
 - Who owns fulfillment of Partner meetup benefits across the year.
