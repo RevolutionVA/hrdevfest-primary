@@ -62,7 +62,7 @@ Annual. Everything in Platinum, plus:
 
 - 15-minute session in the DevFest schedule, as available\*. Content is the
   sponsor's choice. Listed as a sponsored session in the program.
-- Showcase table with lobby priority.
+- Showcase table in the main lobby, guaranteed.
 - Marketing email to registered attendees.
 - Opt-in attendee contact list, collected by a checkbox at registration.
 - Large placement on the rotating sponsor slide.
@@ -73,14 +73,15 @@ sponsors, assigned first come, first served by signing date.
 
 ### Gold
 
-- Showcase table in the lobby while space lasts.
+- Showcase table in the main lobby while space lasts, otherwise the studio
+  lobby.
 - Marketing email to registered attendees.
 - Medium placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
 ### Silver
 
-- Showcase table if space allows, in the lobby or the studio lobby.
+- Showcase table if space allows, in the main lobby or the studio lobby.
 - Small placement on the rotating sponsor slide.
 - Front entry banner, logo on website.
 
@@ -107,7 +108,7 @@ Available to any sponsor at Silver or above.
 ## Terms
 
 - Tables are allocated by tier, then by payment date within a tier. The
-  lobby fills first, then the studio lobby.
+  main lobby fills first, then the studio lobby.
 - Tables have access to power. Sponsors bring their own extension cords and
   power strips. No wifi is provided.
 - 10% off any tier committed and paid before November 30, 2026.
@@ -137,11 +138,12 @@ Available to any sponsor at Silver or above.
   must fit inside that window.
 - Day of: sponsor setup at 7:30 AM, doors open to attendees at 8:00 AM,
   kickoff at 9:00 AM. Tables must be ready by 8:00.
-- The lobby holds 10 showcase tables. Three Partners, two Platinums, and five
+- The main lobby holds 10 showcase tables. Three Partners, two Platinums, and five
   Golds fill it exactly, so at full caps every Silver table goes to the
   studio lobby.
 - The studio lobby is a secondary space, normally used for lunch and as a
-  place to relax. Sponsor tables go there when the lobby is full.
+  place to relax. It takes overflow Gold and Silver tables only. Partner and
+  Platinum tables are always in the main lobby.
 - The schedule has room for two 15-minute sponsor segments, for Platinum and
   Partner sponsors only, assigned first come, first served by signing date.
   Up to five Platinum and Partner sponsors can sell, so later signers may not
