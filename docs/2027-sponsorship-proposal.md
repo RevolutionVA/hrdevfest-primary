@@ -34,7 +34,6 @@ Theater in Virginia Beach.
 
 - No stage time at any tier.
 - No recruiting product for an audience that is mostly working engineers.
-- No exclusivity.
 - Coffee, lunch, after-party, lanyards, and the scholarship program were all
   unsponsored.
 - Nothing reached beyond the one day. RevolutionVA runs meetups all year.
@@ -51,22 +50,27 @@ Theater in Virginia Beach.
 
 ### RevolutionVA Partner
 
-Annual. Everything in Platinum, plus:
+Annual: 12 months starting the month of payment. A sponsor who pays in
+October 2026 is a Partner from October 2026 to October 2027. Paid in full, no
+installments. Everything in Platinum, plus:
 
 - Thank-you from the stage at DevFest opening.
 - Logo on lanyards or badges.
 - Logo on the event page and a thank-you at the start of every RevolutionVA
   meetup throughout the year. This includes the quarterly pop-up meetups,
   NorfolkJS, Hampton Roads .NET, Hampton Roads Azure, and any new groups.
-- 10 scholarship seats at DevFest named for the partner.
-- Optional category exclusivity, see add-ons.
+  Meetup attendance ranges from 10 to 50 people, and more meetups are being
+  added.
+- 10 of the scholarship seats DevFest already gives away, named for the
+  partner.
 
 ### Platinum
 
 - 15-minute session in the DevFest schedule, as available\*. Content is the
   sponsor's choice. Listed as a sponsored session in the program.
 - Showcase table in the main lobby, guaranteed.
-- Marketing email to registered attendees.
+- Pre-event and post-event emails to registered attendees, sent on the
+  sponsor's behalf.
 - Opt-in attendee contact list, collected by a checkbox at registration.
 - Large placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
@@ -78,7 +82,8 @@ sponsors, assigned first come, first served by signing date.
 
 - Showcase table in the main lobby while space lasts, otherwise the studio
   lobby.
-- Marketing email to registered attendees.
+- Pre-event and post-event emails to registered attendees, sent on the
+  sponsor's behalf.
 - Medium placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
@@ -104,22 +109,24 @@ Available to any sponsor at Silver or above.
 | Coffee | $1,000 | Signage at the coffee station, thank-you from stage |
 | Lunch | $2,500 | Signage at lunch, thank-you from stage |
 | After-party | $3,000 | Offsite, sponsor named on all after-party promotion |
-| Hiring package | $500 | Job listings on the website, hiring sticker on badges, resume drop at table |
 | Scholarship | $1,000 | Per 10 seats. Included in Partner |
-| Category exclusivity | $2,500 | Partner tier only. One partner per category |
 
 ## Terms
 
-- Tables are allocated by tier, then by payment date within a tier. The
+- Tables are allocated by tier, then by signing date within a tier. The
   main lobby fills first, then the studio lobby.
 - Tables have access to power. Sponsors bring their own extension cords and
   power strips. Staff may refuse power strips and cables that do not appear
   to meet safety requirements. No wifi is provided.
-- 10% off any tier committed and paid before November 30, 2026.
+- 10% off any tier committed by November 30, 2026 and paid by January 31,
+  2027.
+- Full refund if the event is cancelled. No refunds for changes to the date
+  or venue.
 - Credit card payments carry a stated percentage fee. Net-30 invoice is
   available.
-- RevolutionVA is a 501(c)(3). The tax-deductible portion will be stated on
-  the invoice.
+- Sponsorship is a paid sponsorship, not a donation, so it is not
+  tax-deductible as a charitable contribution. Invoices include RevolutionVA's
+  EIN: TBD.
 - The rotating sponsor slide runs between every session and includes every
   sponsor, sized by tier.
 - Sponsored session content must be finalized two weeks before the event.
@@ -128,16 +135,19 @@ Available to any sponsor at Silver or above.
   Sponsors who sign after April 9 have 48 hours from signing to assign
   their tickets. Sponsors may also donate any of their tickets to the
   scholarship pool, credited in their name.
+- Attendees can pick up "Looking for work" or "Hiring" ribbons at
+  registration. Ribbons are open to every attendee and are not a sponsor
+  benefit.
 - Signage placement may be adjusted by staff. Equivalent visibility will be
   provided if changes occur.
 
 ## Capacity constraints
 
-- Registrations are capped at 300. 2026 had 255. Sponsor tickets and Partner
-  scholarship seats come out of the same 300. At full caps, allotments are
-  170 sponsor tickets plus 30 scholarship seats, which would leave 100 seats
-  for everyone else if all were used. The conservative scenario is 105,
-  leaving 195.
+- Registrations are capped at 300. 2026 had 255. Sponsor tickets come out of
+  the same 300. At full caps, allotments are 170 sponsor tickets, which would
+  leave 130 seats for everyone else if all were used. The conservative
+  scenario is 95, leaving 205. Partner scholarship seats name seats already
+  set aside for scholarships, so they add nothing to the count.
 - We have the building from 7:30 AM to 6:00 PM. Sponsor setup and teardown
   must fit inside that window.
 - Day of: sponsor setup at 7:30 AM, doors open to attendees at 8:00 AM,
@@ -152,8 +162,8 @@ Available to any sponsor at Silver or above.
   Partner sponsors only, assigned first come, first served by signing date.
   Up to five Platinum and Partner sponsors can sell, so later signers may not
   get a segment.
-- Studio room workshops are being tested in 2027 and are not sold as a
-  sponsor benefit this year.
+- Workshops and side conversations happen in the studio. They are not sold
+  as a sponsor benefit this year.
 
 ## Revenue scenarios
 
@@ -164,7 +174,11 @@ $6,500.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 2026 actual | 0 | 1 | 3 | 3 | 5 | $19,500 |
 | Conservative | 1 | 1 | 4 | 2 | 5 | $30,500 |
+| Conservative, no Partner | 0 | 1 | 4 | 2 | 5 | $20,500 |
 | Full caps | 3 | 2 | 5 | 3 | 5 | $59,500 |
+
+If every sponsor takes the 10% early rate, conservative drops to $27,450 and
+full caps to $53,550.
 
 ## Prospectus content changes
 
@@ -185,6 +199,7 @@ The 2027 prospectus should also fix these gaps from the 2026 document.
 
 Warmest for Partner or Platinum, based on 2026 spend:
 
+- City of Virginia Beach, the only 2026 Platinum. Renew first.
 - Progress
 - Stigian Consulting
 - Decisions + ProcessMaker
@@ -198,10 +213,19 @@ Cold targets for Partner, large local employers who hire engineers:
 - ADP Virginia Beach
 - Booz Allen Hamilton Norfolk
 
+Other Hampton Roads cities, following the City of Virginia Beach model:
+
+- Norfolk
+- Chesapeake
+- Portsmouth
+- Suffolk
+- Hampton
+- Newport News
+
+Cities usually budget on a July 1 fiscal year and pay by purchase order.
+
 ## Open questions
 
 - Final card fee percentage.
 - Whether speakers, volunteers, and organizers count toward the 300 cap.
 - Who owns fulfillment of Partner meetup benefits across the year.
-- Whether NorfolkJS carries any existing sponsor commitments that conflict
-  with Partner exclusivity.
