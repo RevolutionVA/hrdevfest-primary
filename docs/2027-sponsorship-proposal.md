@@ -54,6 +54,7 @@ Annual: 12 months starting the month of payment. A sponsor who pays in
 October 2026 is a Partner from October 2026 to October 2027. Paid in full, no
 installments. Everything in Platinum, plus:
 
+- Guaranteed 5-minute sponsor segment on the main stage.
 - Thank-you from the stage at DevFest opening.
 - Logo on lanyards or badges.
 - Logo on the event page and a thank-you at the start of every RevolutionVA
@@ -71,14 +72,15 @@ installments. Everything in Platinum, plus:
 - Showcase table in the main lobby, guaranteed.
 - One pre-event and one post-event email to registered attendees, sent on
   the sponsor's behalf.
-- Opt-in attendee contact list, collected by a checkbox at registration.
+- Opt-in attendee contact list, collected at registration by a checkbox
+  reading "Share my contact with sponsors who are hiring."
 - Post-event report.
 - Large placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
 
-\* Four 5-minute sponsor segments are available across Platinum and Partner
-sponsors, two before lunch and two after, assigned first come, first served
-by signing date.
+\* Four 5-minute sponsor segments run each year, two before lunch and two
+after. Partners are guaranteed one. Remaining segments go to Platinum
+sponsors, first come, first served by signing date.
 
 ### Gold
 
@@ -86,7 +88,8 @@ by signing date.
   lobby.
 - One pre-event and one post-event email to registered attendees, sent on
   the sponsor's behalf.
-- Opt-in attendee contact list, collected by a checkbox at registration.
+- Opt-in attendee contact list, collected at registration by a checkbox
+  reading "Share my contact with sponsors who are hiring."
 - Post-event report.
 - Medium placement on the rotating sponsor slide.
 - Front entry banner, table top signs, logo on website.
@@ -121,7 +124,8 @@ Community sponsors.
 ## Terms
 
 - Tables are allocated by tier, then by signing date within a tier. The
-  main lobby fills first, then the studio lobby.
+  main lobby fills first, then the studio lobby. Staffing firms are not
+  seated at adjacent tables.
 - Tables have access to power. Sponsors bring their own extension cords and
   power strips. Staff may refuse power strips and cables that do not appear
   to meet safety requirements. No wifi is provided.
@@ -174,9 +178,10 @@ Community sponsors.
   place to relax. It takes overflow Gold and Silver tables only. Partner and
   Platinum tables are always in the main lobby.
 - The schedule has room for four 5-minute sponsor segments, two before lunch
-  and two after, for Platinum and Partner sponsors only, assigned first come,
-  first served by signing date. Up to five Platinum and Partner sponsors can
-  sell, so at full caps one would not get a segment.
+  and two after, for Platinum and Partner sponsors only. Partners are
+  guaranteed one; with at most three Partners, at least one segment is always
+  left for Platinum, assigned by signing date. At full caps, the second
+  Platinum would not get a segment.
 - Workshops and side conversations happen in the studio. They are not sold
   as a sponsor benefit this year.
 
