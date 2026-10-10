@@ -406,8 +406,8 @@ const testimonialImages: Record<string, any> = {
 
         <!-- Cards: Mobile/Tablet stacked, Desktop row -->
         <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Card: Mobile/Desktop vertical layout, Tablet horizontal layout -->
           {testimonials.map((testimonial) => (
-            <!-- Card: Mobile/Desktop vertical layout, Tablet horizontal layout -->
             <div class="w-full lg:flex-1 p-6 bg-white card-shadow card-asymmetric flex flex-col md:flex-row lg:flex-col items-center gap-4">
               {testimonial.image.startsWith('http') ? (
                 <img
