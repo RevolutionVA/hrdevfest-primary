@@ -274,12 +274,12 @@ const testimonialImages: Record<string, any> = {
         <p class="text-gray-600 mb-6">Save the date for April 23, 2027 at Zeiders American Dream Theater. Be first to hear when tickets go on sale and speakers are announced.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
-          <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <input type="text" name="fields_last_name" aria-label="Last name" placeholder="Last Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name (optional)" class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
           <input type="email" name="email" aria-label="Email address" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full mb-4 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Subscribe</button>
+          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Get 2027 Updates</button>
           <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="underline hover:text-[#4DB7B9]">Privacy Policy</a>.</p>
         </form>
+        <p class="text-sm text-gray-600 mt-6">Add to calendar: <a href="/2027/hrdevfest-2027.ics" download class="font-bold underline hover:text-[#4DB7B9]">Apple / Outlook (.ics)</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hampton+Roads+DevFest+2027&amp;dates=20270423/20270424&amp;location=Zeiders+American+Dream+Theater,+4509+Commerce+Street,+Virginia+Beach,+VA+23462&amp;details=Save+the+date+for+Hampton+Roads+DevFest+2027.+Details+at+https://hrdevfest.org" target="_blank" rel="noopener" class="font-bold underline hover:text-[#4DB7B9]">Google Calendar</a></p>
       </div>
     </section>
 
@@ -466,6 +466,16 @@ const testimonialImages: Record<string, any> = {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- Final Signup Prompt -->
+    <section id="save-the-date" class="w-full py-12 md:py-16 px-8 bg-gradient-to-br from-[#123F4E] to-[#052831]">
+      <div class="max-w-3xl mx-auto flex flex-col items-center gap-4 text-center">
+        <h2 class="text-white text-[28px] md:text-[32px] font-bold leading-10">See you April 23, 2027</h2>
+        <p class="text-white text-base font-normal leading-relaxed">Zeiders American Dream Theater, Virginia Beach. Be first to hear when tickets go on sale and speakers are announced.</p>
+        <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-white text-base font-bold">Get 2027 Updates</a>
+        <p class="text-sm text-white/80">Add to calendar: <a href="/2027/hrdevfest-2027.ics" download class="font-bold underline hover:text-[#4DB7B9]">Apple / Outlook (.ics)</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hampton+Roads+DevFest+2027&amp;dates=20270423/20270424&amp;location=Zeiders+American+Dream+Theater,+4509+Commerce+Street,+Virginia+Beach,+VA+23462&amp;details=Save+the+date+for+Hampton+Roads+DevFest+2027.+Details+at+https://hrdevfest.org" target="_blank" rel="noopener" class="font-bold underline hover:text-[#4DB7B9]">Google Calendar</a></p>
       </div>
     </section>
 

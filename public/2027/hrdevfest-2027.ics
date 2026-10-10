@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//RevolutionVA//Hampton Roads DevFest//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:hrdevfest-2027@hrdevfest.org
+DTSTAMP:20261010T000000Z
+DTSTART;VALUE=DATE:20270423
+DTEND;VALUE=DATE:20270424
+SUMMARY:Hampton Roads DevFest 2027
+LOCATION:Zeiders American Dream Theater\, 4509 Commerce Street\, Virginia Beach\, VA 23462
+DESCRIPTION:Save the date for Hampton Roads DevFest 2027. Event times and tickets will be announced at https://hrdevfest.org
+URL:https://hrdevfest.org
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR
