@@ -8,7 +8,7 @@ Hampton Roads DevFest is an Astro-based static website for a local developer con
 
 ## Key Technologies
 
-- **Astro 5.6.1** - Static site generator
+- **Astro 7** - Static site generator (requires Node >= 22.12)
 - **TypeScript** - Type checking enabled
 - **Tailwind CSS** - Utility-first CSS framework
 - **Package Manager**: Yarn (v1.22.22)
