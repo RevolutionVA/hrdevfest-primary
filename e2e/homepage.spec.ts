@@ -24,7 +24,7 @@ test.describe("Homepage", () => {
     ).toBeVisible();
   });
 
-  test("hero has Notify Me button", async ({ page }) => {
+  test("hero has signup CTA button", async ({ page }) => {
     // Exclude mobile menu links which are hidden
     await expect(
       page.locator(".hero-section a.btn-primary:not(.mobile-menu-link)").first()
