@@ -48,22 +48,22 @@ const testimonialImages: Record<string, any> = {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Hampton Roads DevFest 2027 | Virginia Beach, VA</title>
-    <meta name="description" content="Hampton Roads DevFest returns in 2027 in Virginia Beach, VA. Dates coming soon — sign up for updates on our community-driven conference featuring local speakers, networking, and technical sessions." />
+    <meta name="description" content="Hampton Roads DevFest returns April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA. Sign up for updates about our community-driven developer conference." />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
-    <meta property="og:description" content="Hampton Roads DevFest returns in 2027. Dates coming soon — sign up to be the first to know about our community-driven developer conference." />
+    <meta property="og:description" content="Hampton Roads DevFest returns April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA." />
     <meta property="og:url" content="https://hrdevfest.org" />
-    <meta property="og:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
+    <meta property="og:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
     <meta property="og:site_name" content="Hampton Roads DevFest" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hrdevfest" />
     <meta name="twitter:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
-    <meta name="twitter:description" content="Hampton Roads DevFest returns in 2027. Dates coming soon — sign up to be the first to know." />
-    <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
+    <meta name="twitter:description" content="Hampton Roads DevFest returns April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA." />
+    <meta name="twitter:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
@@ -178,7 +178,7 @@ const testimonialImages: Record<string, any> = {
 
     <!-- 2027 Teaser Banner -->
     <a href="#signup" class="block w-full bg-[#D33B32] text-white text-center py-3 pl-4 pr-16 md:px-4 font-bold text-sm md:text-base hover:brightness-95 transition-all">
-      Hampton Roads DevFest returns in 2027 — sign up to be the first to know! 🎉
+      Hampton Roads DevFest returns April 23, 2027 — sign up for updates! 🎉
     </a>
 
     <!-- Mobile hamburger button - outside hero to avoid overflow:hidden clipping -->
@@ -254,10 +254,13 @@ const testimonialImages: Record<string, any> = {
               </h1>
               <!-- Mobile: 18px stacked, Tablet: 24px centered, Desktop: 32px right-aligned on one line -->
               <p class="text-center lg:text-right text-white text-[18px] md:text-[24px] lg:text-[32px] font-semibold leading-[1.3] lg:leading-10">
-                <span class="block lg:inline">Dates coming soon - </span>
+                <span class="block lg:inline">April 23, 2027 - </span>
                 <span class="block lg:inline">Virginia Beach, VA</span>
               </p>
-              <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-white text-base font-bold">Notify Me</a>
+              <p class="max-w-xl text-center lg:text-right text-white/90 text-base md:text-lg font-normal leading-relaxed">
+                A day of practical software talks and connections with the people building tech in Hampton Roads.
+              </p>
+              <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-white text-base font-bold">Get 2027 Updates</a>
             </div>
           </div>
         </div>
@@ -267,16 +270,16 @@ const testimonialImages: Record<string, any> = {
     <!-- Mailing List Signup - primary CTA -->
     <section id="signup" class="w-full py-12 md:py-16 px-8 bg-gradient-to-br from-[#123F4E] to-[#052831] scroll-mt-4">
       <div class="max-w-xl mx-auto p-8 md:p-10 bg-white shadow-2xl card-asymmetric text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-black mb-2">Be the First to Know</h2>
-        <p class="text-gray-600 mb-6">2027 dates haven't been announced yet — sign up and we'll email you the moment tickets go live.</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-black mb-2">Get 2027 Updates</h2>
+        <p class="text-gray-600 mb-6">Save the date for April 23, 2027 at Zeiders American Dream Theater. Be first to hear when tickets go on sale and speakers are announced.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
-          <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <input type="text" name="fields_last_name" aria-label="Last name" placeholder="Last Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
+          <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name (optional)" class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
           <input type="email" name="email" aria-label="Email address" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full mb-4 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Subscribe</button>
-          <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our Privacy Policy and Terms of Service.</p>
+          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Get 2027 Updates</button>
+          <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="underline hover:text-[#4DB7B9]">Privacy Policy</a>.</p>
         </form>
+        <p class="text-sm text-gray-600 mt-6">Add to calendar: <a href="/2027/hrdevfest-2027.ics" download class="font-bold underline hover:text-[#4DB7B9]">Apple / Outlook (.ics)</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hampton+Roads+DevFest+2027&amp;dates=20270423/20270424&amp;location=Zeiders+American+Dream+Theater,+4509+Commerce+Street,+Virginia+Beach,+VA+23462&amp;details=Save+the+date+for+Hampton+Roads+DevFest+2027.+Details+at+https://hrdevfest.org" target="_blank" rel="noopener" class="font-bold underline hover:text-[#4DB7B9]">Google Calendar</a></p>
       </div>
     </section>
 
@@ -299,7 +302,7 @@ const testimonialImages: Record<string, any> = {
           <br/><br/>
           Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our mission is to advance software development education throughout Virginia. Our passion for promoting learning and growth in technology is at the heart of DevFest.
           <br/><br/>
-          We can't wait to bring the community back together to network, learn from top industry professionals, and recognize the extraordinary tech talent that thrives in Hampton Roads. Sign up above to be the first to know when 2027 dates are announced.
+          We can't wait to bring the community back together to network, learn from top industry professionals, and recognize the extraordinary tech talent that thrives in Hampton Roads. Sign up above for 2027 event updates.
         </p>
       </div>
     </section>
@@ -379,7 +382,7 @@ const testimonialImages: Record<string, any> = {
             Virginia Beach, VA 23462
           </p>
           <p class="text-white/80 text-sm md:text-base font-normal italic mt-3">
-            Our 2026 venue — 2027 location to be confirmed.
+            Our confirmed venue for Hampton Roads DevFest 2027.
           </p>
         </div>
       </div>
@@ -463,6 +466,16 @@ const testimonialImages: Record<string, any> = {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+
+    <!-- Final Signup Prompt -->
+    <section id="save-the-date" class="w-full py-12 md:py-16 px-8 bg-gradient-to-br from-[#123F4E] to-[#052831]">
+      <div class="max-w-3xl mx-auto flex flex-col items-center gap-4 text-center">
+        <h2 class="text-white text-[28px] md:text-[32px] font-bold leading-10">See you April 23, 2027</h2>
+        <p class="text-white text-base font-normal leading-relaxed">Zeiders American Dream Theater, Virginia Beach. Be first to hear when tickets go on sale and speakers are announced.</p>
+        <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-white text-base font-bold">Get 2027 Updates</a>
+        <p class="text-sm text-white/80">Add to calendar: <a href="/2027/hrdevfest-2027.ics" download class="font-bold underline hover:text-[#4DB7B9]">Apple / Outlook (.ics)</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hampton+Roads+DevFest+2027&amp;dates=20270423/20270424&amp;location=Zeiders+American+Dream+Theater,+4509+Commerce+Street,+Virginia+Beach,+VA+23462&amp;details=Save+the+date+for+Hampton+Roads+DevFest+2027.+Details+at+https://hrdevfest.org" target="_blank" rel="noopener" class="font-bold underline hover:text-[#4DB7B9]">Google Calendar</a></p>
       </div>
     </section>
 
@@ -608,3 +621,4 @@ const testimonialImages: Record<string, any> = {
     </div>
   </body>
 </html>
+
