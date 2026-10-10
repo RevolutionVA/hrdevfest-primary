@@ -18,8 +18,6 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Run Playwright tests
         run: yarn test:e2e
-        env:
-          BASE_URL: https://hrdevfest.org
       - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         with:
