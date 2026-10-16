@@ -2398,10 +2398,10 @@ rolldown@^1.2.11, rolldown@~1.2.12:
     "@rolldown/binding-win32-arm64-msvc" "1.2.13"
     "@rolldown/binding-win32-x64-msvc" "1.2.13"
 
-satori@^0.47.0:
-  version "0.47.1"
-  resolved "https://registry.yarnpkg.com/satori/-/satori-0.47.1.tgz#8da9886dbeab918e792c3779223ebef73c8d61fd"
-  integrity sha512-hoRMFMXQ9o4VvcOZ+5pXKRAuWJkjvUzRz3fZJoFrAT3MVfuUvMWROe50lB7AREI1m9a0FAlEMDdQ3WPvHLm7FA==
+satori@^0.62.0:
+  version "0.62.0"
+  resolved "https://registry.yarnpkg.com/satori/-/satori-0.62.0.tgz#f5a8e453f611f327d3983ea73b606c9d32389d31"
+  integrity sha512-6w3G54svVX9B3RY3S7XgZ3i9ZNtvO7Z8AWWUPcHM3HMhgvmYAZOl5TkWBqE8moxRxHW0i2XPbjI1mUsUmWGriA==
   dependencies:
     "@shuding/opentype.js" "1.4.0-beta.0"
     css-background-parser "^0.1.0"
