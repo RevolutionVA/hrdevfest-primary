@@ -1,0 +1,135 @@
+---
+import { getEntry } from 'astro:content';
+import { Image } from "astro:assets";
+import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
+
+const event = await getEntry('events', '2016/event');
+if (!event) {
+  throw new Error('Event data not found for 2016');
+}
+const eventData = event.data;
+
+const speakerImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/archive/2016/*.{jpg,jpeg,png,gif}', { eager: true });
+
+function getSpeakerImage(imagePath: string): ImageMetadata | null {
+  const fullPath = `/src/assets/${imagePath}`;
+  const img = speakerImages[fullPath];
+  return img ? img.default : null;
+}
+
+const sponsorImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/archive/2016/*-logo*.{jpg,jpeg,png,gif}', { eager: true });
+
+function getSponsorImage(imagePath: string): ImageMetadata | null {
+  const fullPath = `/src/assets/${imagePath}`;
+  const img = sponsorImages[fullPath];
+  return img ? img.default : null;
+}
+---
+
+<YearLayout title={eventData.title} description={eventData.description} year={2016}>
+  <!-- Header Section -->
+  <section class="w-full bg-gray-800 text-white py-16 px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{eventData.title}</h1>
+      <p class="text-xl text-gray-300 mb-2">{eventData.dateFormatted}</p>
+      {eventData.venue && (
+        <p class="text-lg text-gray-400">
+          {eventData.venue.name} &bull; {eventData.venue.city}, {eventData.venue.state}
+        </p>
+      )}
+      <p class="text-base text-gray-300 mt-6 max-w-2xl mx-auto">{eventData.description}</p>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section class="w-full py-12 px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Schedule</h2>
+      <div class="flex flex-col gap-3">
+        {eventData.schedule.map((item) => (
+          <div class="bg-gray-50 p-4 rounded-lg flex flex-col md:flex-row gap-3">
+            <div class="text-blue-600 font-semibold whitespace-nowrap min-w-[100px]">
+              {item.time}
+            </div>
+            <div class="flex-1">
+              <p class="font-semibold text-gray-900">{item.title}</p>
+              {item.description && (
+                <p class="text-sm text-gray-600 mt-1">{item.description}</p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers Section -->
+  <section class="w-full py-12 px-8 bg-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Speakers</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {eventData.speakers.map((speaker) => {
+          const speakerImg = speaker.image ? getSpeakerImage(speaker.image) : null;
+          return (
+            <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
+              {speakerImg ? (
+                <Image
+                  src={speakerImg}
+                  alt={speaker.name}
+                  class="w-24 h-24 rounded-full object-cover mb-4"
+                  width={96}
+                  height={96}
+                />
+              ) : (
+                <div class="w-24 h-24 rounded-full bg-gray-300 mb-4 flex items-center justify-center text-gray-500 text-2xl font-bold">
+                  {speaker.name.charAt(0)}
+                </div>
+              )}
+              <h3 class="text-lg font-semibold text-gray-900">{speaker.name}</h3>
+              {speaker.bio && (
+                <p class="text-sm text-gray-600 mt-2 line-clamp-4">{speaker.bio}</p>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsors Section -->
+  {eventData.sponsors && eventData.sponsors.length > 0 && (
+    <section class="w-full py-12 px-8 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Sponsors</h2>
+        <div class="flex flex-wrap justify-center items-center gap-8">
+          {eventData.sponsors.map((sponsor) => {
+            const sponsorImg = sponsor.logo ? getSponsorImage(sponsor.logo) : null;
+            return (
+              <div class="flex flex-col items-center">
+                {sponsorImg ? (
+                  <Image
+                    src={sponsorImg}
+                    alt={sponsor.name}
+                    class="h-16 w-auto object-contain"
+                    height={64}
+                  />
+                ) : (
+                  <span class="text-gray-700 font-medium">{sponsor.name}</span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Back to Events -->
+  <section class="w-full py-8 px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <a href="/events" class="text-blue-600 hover:text-blue-800 font-medium">
+        &larr; View All Past Events
+      </a>
+    </div>
+  </section>
+</YearLayout>

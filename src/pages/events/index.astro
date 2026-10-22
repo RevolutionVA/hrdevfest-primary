@@ -1,0 +1,125 @@
+---
+import { getCollection } from 'astro:content';
+import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
+
+const allEvents = await getCollection('events');
+
+const events = allEvents
+  .map(event => event.data)
+  .sort((a, b) => b.year - a.year);
+
+const upcomingEvent = events.find(e => e.year === 2026);
+const pastEvents = events.filter(e => e.year !== 2026);
+---
+
+<YearLayout title="Past Events - Hampton Roads DevFest" description="Browse all Hampton Roads DevFest events from 2015 to present." year={2024}>
+  <!-- Header Section -->
+  <section class="w-full bg-gray-800 text-white py-16 px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Hampton Roads DevFest</h1>
+      <p class="text-xl text-gray-300">A History of Developer Community Events</p>
+    </div>
+  </section>
+
+  <!-- Upcoming Event Banner -->
+  {upcomingEvent && (
+    <section class="w-full py-8 px-8 bg-blue-600 text-white">
+      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <p class="text-lg font-semibold">Coming Soon: {upcomingEvent.title}</p>
+          <p class="text-blue-100">{upcomingEvent.dateFormatted}</p>
+        </div>
+        <a 
+          href="/2026" 
+          class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+        >
+          Learn More &rarr;
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Past Events Grid -->
+  <section class="w-full py-12 px-8 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Past Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pastEvents.map((event) => (
+          <a 
+            href={`/${event.year}`}
+            class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow group"
+          >
+            <div class="bg-gray-800 text-white p-6">
+              <p class="text-4xl font-bold">{event.year}</p>
+            </div>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                {event.title}
+              </h3>
+              <p class="text-sm text-gray-500 mt-1">{event.dateFormatted}</p>
+              {event.venue && (
+                <p class="text-sm text-gray-600 mt-2">
+                  {event.venue.name} &bull; {event.venue.city}, {event.venue.state}
+                </p>
+              )}
+              <div class="mt-4 flex flex-wrap gap-2">
+                {event.speakers && event.speakers.length > 0 && (
+                  <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                    {event.speakers.length} Speakers
+                  </span>
+                )}
+                {event.sponsors && event.sponsors.length > 0 && (
+                  <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                    {event.sponsors.length} Sponsors
+                  </span>
+                )}
+                {event.schedule && event.schedule.length > 0 && (
+                  <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                    {event.schedule.length} Sessions
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="w-full py-12 px-8 bg-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">About Hampton Roads DevFest</h2>
+      <p class="text-gray-600 leading-relaxed">
+        Hampton Roads DevFest is a community-driven developer conference serving the Hampton Roads 
+        region of Virginia. Since 2015, we've brought together local developers, designers, and 
+        technology professionals to learn, share, and connect. Our speakers are from the local 
+        community, making DevFest a unique opportunity to hear from your neighbors and colleagues.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="w-full py-12 px-8 bg-gray-100">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 text-center mb-8">Event Timeline</h2>
+      <div class="relative">
+        <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 bg-gray-300 h-full"></div>
+        {events.map((event, index) => (
+          <div class={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+            <div class={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+              <a href={`/${event.year}`} class="hover:text-blue-600 transition-colors">
+                <p class="text-2xl font-bold text-gray-900">{event.year}</p>
+                <p class="text-sm text-gray-600">{event.venue?.name}</p>
+              </a>
+            </div>
+            <div class="w-2/12 flex justify-center">
+              <div class={`w-4 h-4 rounded-full ${event.year === 2026 ? 'bg-blue-600' : 'bg-gray-400'}`}></div>
+            </div>
+            <div class="w-5/12"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</YearLayout>

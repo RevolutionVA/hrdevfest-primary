@@ -1,0 +1,131 @@
+{
+  "year": 2016,
+  "theme": "archive",
+  "title": "Hampton Roads DevFest 2016",
+  "date": "2016-11-04",
+  "dateFormatted": "Friday, November 4, 2016",
+  "tagline": "DevFest 2016",
+  "description": "Hampton Roads DevFest 2016 was held at Issuetrak in Norfolk, VA, featuring sessions on mobile development, web technologies, and developer topics.",
+  "venue": {
+    "name": "Issuetrak",
+    "address": "Smithfield Building, East Entrance, 6160 Kempsville Circle",
+    "city": "Norfolk",
+    "state": "VA",
+    "zip": ""
+  },
+  "speakers": [
+    {
+      "name": "Michael Rollins",
+      "bio": "I have done it all, from backend work, web services, front end JS before the great JS revolution (back in the days of ExtJS). I teethed on gov't contracting here locally, then made the jump to Silicon Valley and Flurry as a remote worker. Now, I'm a mobile engineer focusing on developer and partner relations, a rare breed of engineer that speaks to the outside world and loves every second of it.",
+      "image": "archive/2016/michael-rollins.jpg"
+    },
+    {
+      "name": "Blaine Price",
+      "bio": "Senior Developer at Langa, serial tinkerer, Ghent-dweller.",
+      "image": "archive/2016/blaine-price.jpeg"
+    },
+    {
+      "name": "Guillermo Fisher",
+      "bio": "I am a father, husband, and software developer currently working at Dominion Enterprises. I'm also the founder of the Hampton Roads PHP User Group, and a contributor to a number of FOSS projects.",
+      "image": "archive/2016/guillermo-fisher.png"
+    },
+    {
+      "name": "Travis Webb",
+      "bio": "Travis is the CEO of Langa, a software consultancy specializing in Node.js and React.js development. Travis has given talks at numerous conference venues, including JSConf, RevolutionConf, and numerous Javascript meetups across the country.",
+      "image": "archive/2016/travis-webb.jpg"
+    },
+    {
+      "name": "John Hadzima",
+      "bio": "John Hadzima is a Senior IT Consultant at Marathon Consulting and a Microsoft Certified Solutions Developer. He has been working as a developer in Hampton Roads for over 20 years in a variety of languages. He has worked primarily with Microsoft technologies going back to Visual Basic and Visual FoxPro, then progressing to Classic ASP and has worked with .NET since version 1. He is also has extensive database experience with SQL Server, SQL Server Reporting Services, and SQL Server Integration Services and is also doing mobile development. John is one of the co-organizers of the Hampton Roads .NET Users Group and enjoys surfing, golf, and road biking in his free time.",
+      "image": "archive/2016/john-hadzima.jpg"
+    },
+    {
+      "name": "Benjamin Earley",
+      "bio": "I'm a software engineer currently developing for Android. I am particularly passionate about the open web where people can share, collaborate, learn, and teach freely with each other. Activities that interest me are games, design, hanging out with friends, and finding ways to contribute and share my skills with the community.",
+      "image": "archive/2016/benjamin-earley.jpg"
+    },
+    {
+      "name": "Sidney Andrews",
+      "bio": "Sidney Andrews is a Microsoft Certified Trainer and Azure MVP with SeeSharpRun.NET. He has a background in ASP.NET web development along with extensive experience developing applications using XAML. Sidney has driven efforts to develop and deliver Azure readiness training through channels such as the Ignite Conference, Microsoft Virtual Academy, Microsoft Official Courseware, internal Microsoft training and even public whitepapers. Sidney is the author of multiple free, online courses on XAML, Cloud and Web development on edX.org. Sidney also leads efforts to open-source traditional classroom training for Azure using GitHub.",
+      "image": "archive/2016/sidney.jpg"
+    },
+    {
+      "name": "Kristin Fitch",
+      "bio": "Co-founder http://ZiggityZoom.com , and a network of Family-related web/mobile properties- focusing on Fun, Games, and Creative Learning / Web Strategy",
+      "image": "archive/2016/kristin-fitch.jpg"
+    },
+    {
+      "name": "Troy Connor",
+      "bio": "Software Engineer for ETA (Emerging Technology Advisors) and diversity advocate.",
+      "image": "archive/2016/troy-connor.jpg"
+    },
+    {
+      "name": "Sarah Bray",
+      "bio": "Sarah Bray is a digital strategist, designer/dev, and author who spends a lot of time thinking about how our design and marketing choices affect people, including ourselves. She wrote the book Gather the People: A simple, honest approach to creating work that people love, buy, and share. She is currently team lead and strategist at yes&, where she works collaboratively to design experiences that build connection. When she's not hanging out with her team, she's probably reading a book, playing MarioKart or Pokemon Go with her favorite guy and three kids, or dreaming up the next adventure.",
+      "image": "archive/2016/sarah-bray.jpg"
+    },
+    {
+      "name": "Austin Hodge",
+      "bio": "Austin is a software developer working at 80|20. He spent two years as an engineering student at Virginia Tech, and then left to pursue a career in web development. Austin has focused his efforts on using the latest innovations in web technology to make cutting-edge user interfaces.",
+      "image": "archive/2016/austin-hodge.png"
+    },
+    {
+      "name": "Jen Holloway",
+      "bio": "",
+      "image": "archive/2016/jen-holloway.jpg"
+    },
+    {
+      "name": "Marla Schuchman",
+      "bio": "",
+      "image": "archive/2016/marla-schuchman.jpg"
+    },
+    {
+      "name": "Greg Norman",
+      "bio": "",
+      "image": "archive/2016/greg-norman.jpg"
+    },
+    {
+      "name": "Kevin Druff",
+      "bio": "",
+      "image": "archive/2016/kevin-druff.jpg"
+    },
+    {
+      "name": "Paul Chin Jr.",
+      "bio": "Hi, I'm Paul Chin Jr! Hampton Roads native and lover of all things technology, business, and food. I studied business, worked in finance, and went on to start a series of different companies in a wide variety of industries. I've been teaching myself JavaScript for the past year and truly appreciate all of the opportunities that software development has to offer. My current projects revolve around Nodebots and interactive art.",
+      "image": "archive/2016/paul-chin.jpg"
+    }
+  ],
+  "schedule": [
+    { "time": "8:00 AM", "title": "Registration & Breakfast", "description": "Registration for attendees and complimentary breakfast. Please bring your ticket confirmation." },
+    { "time": "9:00 AM", "title": "Keynote - Suffering: Rebasing Reality", "description": "Michael Rollins" },
+    { "time": "10:00 AM", "title": "My Power Bill is Too Darn High", "description": "Blaine Price - Blaine describes the process of building an inexpensive home automation system using TrailsJS and Arduino." },
+    { "time": "10:00 AM", "title": "Pokemon Go: Don't Copy the Phenomenon Learn from it", "description": "Kristin Fitch - What can we learn from Pokemon Go, Virtual Reality and new mobile devices and change the way to design and develop our projects." },
+    { "time": "11:00 AM", "title": "PHP, AWS, and Sleep", "description": "Guillermo Fisher - Deploying scalable, fault-tolerant PHP applications into AWS is easier than you think." },
+    { "time": "11:00 AM", "title": "Diversity in Tech", "description": "Troy Connor - Explain how diversity in tech can actually help your company and the means companies are doing for conferences and employment in the future." },
+    { "time": "12:00 PM", "title": "API-Driven Development with GraphQL", "description": "Travis Webb - Novel patterns for middleware and backend development using GraphQL." },
+    { "time": "12:00 PM", "title": "Developing for Connection: Building software that people love, buy, & share", "description": "Sarah Bray - A simple, honest, human-centered approach to building connection into your software development process." },
+    { "time": "1:00 PM", "title": "Lunch", "description": "Complimentary lunch in the main conference area." },
+    { "time": "2:00 PM", "title": "Getting Started With Xamarin and Visual Studio 2015", "description": "John Hadzima - Learn how to get started developing mobile applications in Visual Studio and Xamarin." },
+    { "time": "2:00 PM", "title": "UI Natural Selection - Evolving Front Ends", "description": "Austin Hodge - Learn how you can use machine learning, user analytics, or user feedback to build a user interface that will try to improve itself." },
+    { "time": "3:00 PM", "title": "Firebase: Totally Not Parse All Over Again", "description": "Benjamin Earley - Google has added a ton of features to Firebase, their popular backend-as-a-service solution." },
+    { "time": "3:00 PM", "title": "Panel: Interacting with the Real World - for Developers", "description": "Jen Holloway, Marla Schuchman, Greg Norman, Kevin Druff" },
+    { "time": "4:00 PM", "title": "Building a Better Angular 2 Dev Environment using Visual Studio and TypeScript", "description": "Sidney Andrews - Angular 2 has dramatically changed the way Angular applications are built." },
+    { "time": "4:00 PM", "title": "Nicolas Cage & The Path to Programming", "description": "Paul Chin Jr. - How I used Nodebots as an excuse to learn to program with no formal training in computer science or engineering." },
+    { "time": "5:00 PM", "title": "Closing remarks & Raffle", "description": "Closing remarks for the conference end and raffle time!" },
+    { "time": "5:30 PM", "title": "Happy Hour", "description": "Happy Hour in the main conference area until 7:30." }
+  ],
+  "sponsors": [
+    { "name": "Google Developers", "logo": "archive/2016/google-developers-logo.png", "url": "https://developers.google.com/", "tier": "logo" },
+    { "name": "Issuetrak", "logo": "archive/2016/issuetrak-logo.png", "url": "http://www.issuetrak.com", "tier": "logo" },
+    { "name": "Revolution VA", "logo": "archive/2016/revolutionva-logo.png", "url": "https://revolutionconf.com/", "tier": "logo" },
+    { "name": "Ferguson", "logo": "archive/2016/ferguson-logo.jpg", "url": "https://www.ferguson.com/", "tier": "logo" },
+    { "name": "World Usability Day", "logo": "archive/2016/wud-logo-color.png", "url": "http://www.worldusabilityday.org/", "tier": "logo" },
+    { "name": "Emerging Technology Advisors", "logo": "archive/2016/eta-logo.png", "url": "http://www.emergingtechnologyadvisors.com/", "tier": "logo" },
+    { "name": "Swift Kick Software Training and Consulting", "logo": "archive/2016/swiftkick-logo.png", "url": "http://swiftkick.in/", "tier": "logo" },
+    { "name": "Grow Interactive", "logo": "archive/2016/grow-logo.png", "url": "http://thisisgrow.com/", "tier": "logo" }
+  ],
+  "testimonials": [],
+  "faq": [],
+  "photos": [],
+  "isArchive": true
+}
