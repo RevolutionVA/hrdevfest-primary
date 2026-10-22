@@ -1,0 +1,95 @@
+{
+  "year": 2018,
+  "theme": "archive",
+  "title": "Hampton Roads DevFest 2018",
+  "date": "2018-11-16",
+  "dateFormatted": "Friday, November 16, 2018",
+  "tagline": "DevFest 2018",
+  "description": "Hampton Roads DevFest 2018 was held at Slover Library in Norfolk, VA, featuring 9 talks on topics from web accessibility to cloud computing, IoT, and security.",
+  "venue": {
+    "name": "Slover Library",
+    "address": "235 E Plume St",
+    "city": "Norfolk",
+    "state": "VA",
+    "zip": "23510"
+  },
+  "speakers": [
+    {
+      "name": "Joel Hulen",
+      "bio": "Joel Hulen has more than 23 years of experience in the IT field, gaining expertise in a variety of disciplines ranging from systems engineering to cloud-based computing. He has focused on software development for over 18 years, developing and architecting software solutions for many platforms. He is a lead maintainer of the popular open source resiliency library, Polly.",
+      "image": ""
+    },
+    {
+      "name": "Chazona Baum",
+      "bio": "As a Principal Technologist at MAXX Potential, Chazona tackles challenges using a variety of languages and technologies, from front end fixes to API creation and workflow automation, while coaching a growing pool of rising technologists. Chazona is a self-taught developer building on a decade of customer service experience.",
+      "image": ""
+    },
+    {
+      "name": "Dylan Sheffer",
+      "bio": "Dylan Sheffer is a software developer with a passion for accessibility and user-centered design. Outside of code, he enjoys creating cocktails, playing the Irish tin whistle, and drinking Chinese tea.",
+      "image": ""
+    },
+    {
+      "name": "Hayden Braxton",
+      "bio": "Hayden is a native resident of Richmond, Virginia, currently working as a software engineer for Unboxed Technology. In his free time, you will probably find him writing code, honing his South Indian cooking skills, or helplessly trying to learn ALL THE THINGS!",
+      "image": ""
+    },
+    {
+      "name": "Emily Young",
+      "bio": "Emily is a software engineer who loves working with automation, data, computer vision, and robots! Her experience includes things like architecting the infrastructure for major ad campaigns, creating interactive murals, and hand making small batch hardware projects.",
+      "image": ""
+    },
+    {
+      "name": "Matthew Sargent",
+      "bio": "Matt Sargent is a longtime Virginia native who graduated from James Madison University with a BS in Computer Science in 1985. He is a Team Lead and Senior Consultant at Marathon Consulting. Matt is a life-long electronics hobbyist who has been developing projects using Arduino, ESP32, and Raspberry Pi.",
+      "image": ""
+    },
+    {
+      "name": "Kristina Krasnolobova",
+      "bio": "Graduate CS student at Old Dominion University and part of ODU Cyber Competition Team. Currently working as Jr. Cyber Security Analyst at Sentara Healthcare. Successfully graduated from the ODU Graduate Certificate Program in Cyber Security in 2018.",
+      "image": ""
+    },
+    {
+      "name": "Kenia Valladarez",
+      "bio": "Kenia was once an accountant with a dream to not be so #basic. Now, she is a \"cloudy\" software engineer at Cloudreach and an amateur gopher.",
+      "image": ""
+    },
+    {
+      "name": "Matthew Harris",
+      "bio": "From start ups to global billion dollar enterprises I've worn every hat. I've used kubernetes in production from 1.2 and have dabbled with serverless technology. I am a polyglot mainly focused on Go, Python but have experience in Perl, Ruby, PHP, Bash. I currently work for IBM Cloud.",
+      "image": ""
+    }
+  ],
+  "schedule": [
+    { "time": "8:00 AM", "title": "Registration & Morning Coffee", "description": "Get your badge, coffee, and enjoy talking with tech enthusiasts." },
+    { "time": "9:00 AM", "title": "Hampton Roads DevFest 2018 Opening", "description": "Official start of the conference. Greetings from the organizers, sponsors and partners." },
+    { "time": "10:00 AM", "title": "Resiliency for your apps and why you should care", "description": "Joel Hulen - Adding resiliency to your apps using the Polly library." },
+    { "time": "10:30 AM", "title": "Roughing it Dev Style: Coding Without a Computer", "description": "Chazona Baum - How to remain productive armed with only an iPhone for nearly a week." },
+    { "time": "11:00 AM", "title": "Networking", "description": "Networking break." },
+    { "time": "11:30 AM", "title": "Lunch", "description": "Complimentary lunch." },
+    { "time": "1:00 PM", "title": "Accessibility isn't inaccessible!", "description": "Dylan Sheffer - Learn the essentials on how assistive technology works and how to leverage existing HTML semantics." },
+    { "time": "1:30 PM", "title": "Web Components are Coming", "description": "Hayden Braxton - Writing components using vanilla JavaScript, with the browser as your only dependency." },
+    { "time": "2:00 PM", "title": "Taking Punch Cards to the Cloud", "description": "Emily Young - Running punch cards on the cloud using computer vision and serverless cloud functions." },
+    { "time": "2:30 PM", "title": "Remote Island IoT", "description": "Matthew Sargent - Connecting a remote island in Canada to the internet for weather data and solar monitoring." },
+    { "time": "3:00 PM", "title": "Coffee Break", "description": "Afternoon coffee break." },
+    { "time": "3:30 PM", "title": "Security Tools to keep you safe", "description": "Kristina Krasnolobova - Free security tools that can help distinguish between malicious and non-malicious." },
+    { "time": "4:00 PM", "title": "Placing your order with GoRoutines", "description": "Kenia Valladarez - Learning about concurrency with GoRoutines, the Golang scheduler and channels." },
+    { "time": "4:30 PM", "title": "Microservices? When to use a monolith.", "description": "Matthew Harris - An argument for a monolith before going the microservices route." },
+    { "time": "5:00 PM", "title": "Conference closing and announcements", "description": "Closing ceremony with gifts from sponsors and partners." }
+  ],
+  "sponsors": [
+    { "name": "Google Developers", "logo": "", "url": "https://developers.google.com/", "tier": "logo" },
+    { "name": "Marathon Consulting", "logo": "", "url": "https://www.marathonus.com/", "tier": "logo" },
+    { "name": "IssueTrak", "logo": "", "url": "https://www.issuetrak.com/", "tier": "logo" },
+    { "name": "Progress Telerik", "logo": "", "url": "https://www.telerik.com/", "tier": "logo" },
+    { "name": "Cloudreach", "logo": "", "url": "https://www.cloudreach.com/", "tier": "logo" },
+    { "name": "Homes.com", "logo": "", "url": "https://www.homes.com/", "tier": "logo" },
+    { "name": "Norfolk Waterside District", "logo": "", "url": "https://watersidedistrict.com/", "tier": "logo" },
+    { "name": "RevolutionVA", "logo": "", "url": "https://revolutionva.org/", "tier": "logo" },
+    { "name": "GDG Hampton Roads", "logo": "", "url": "", "tier": "logo" }
+  ],
+  "testimonials": [],
+  "faq": [],
+  "photos": [],
+  "isArchive": true
+}

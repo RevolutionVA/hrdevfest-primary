@@ -55,14 +55,14 @@ export const themes: Record<ThemeName, ThemeConfig> = {
 export function getThemeForYear(year: number): ThemeName {
   if (year === 2024) return '2024';
   if (year === 2026) return '2026';
-  if (year >= 2016 && year <= 2023) return 'archive';
+  if (year >= 2015 && year <= 2023) return 'archive';
   return '2026';
 }
 
 export function getAllEventYears(): number[] {
-  return [2024, 2026];
+  return [2015, 2016, 2017, 2018, 2024, 2026];
 }
 
 export function getArchiveYears(): number[] {
-  return [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023];
+  return [2015, 2016, 2017, 2018];
 }

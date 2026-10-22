@@ -50,6 +50,9 @@ test.describe("Site Navigation", () => {
     
     await page.goto("/2017");
     await expect(page).toHaveTitle(/Hampton Roads DevFest 2017/);
+    
+    await page.goto("/2018");
+    await expect(page).toHaveTitle(/Hampton Roads DevFest 2018/);
   });
 
   test("past events index page loads", async ({ page }) => {
