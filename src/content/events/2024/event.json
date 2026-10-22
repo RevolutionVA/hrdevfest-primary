@@ -1,0 +1,151 @@
+{
+  "year": 2024,
+  "theme": "2024",
+  "title": "Hampton Roads DevFest 2024",
+  "date": "2024-05-31",
+  "dateFormatted": "May 31, 2024",
+  "tagline": "Event Highlights",
+  "description": "Take a look back at Hampton Roads DevFest 2024! Our 5th annual event brought together local developers, industry professionals, and tech enthusiasts for a day of learning and networking.",
+  "venue": {
+    "name": "Zeiders American Dream Theater",
+    "address": "4509 Commerce Street",
+    "city": "Virginia Beach",
+    "state": "VA",
+    "zip": "23462",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.259579003214!2d-76.13574812406885!3d36.84155839379043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba959f7490b19d%3A0x2946d6df48a4c3ba!2sZeiders%20American%20Dream%20Theater!5e0!3m2!1sen!2sus!4v1708011885150!5m2!1sen!2sus"
+  },
+  "speakers": [
+    {
+      "name": "Chazona Baum",
+      "bio": "Self-taught engineer who transitioned from veterinary, tax, and insurance work to tech. Observing frustrations in recruiting systems, she's building an improved dating-like platform for jobseekers.",
+      "image": "https://sessionize.com/image/7315-400o400o1-YpS113ikSWsdK8K3KHsw23.png",
+      "linkedin": "https://www.linkedin.com/in/chazonabaum/",
+      "role": "Founder at Tingles Labs",
+      "sessionTitle": "How love lessons can land you a great job"
+    },
+    {
+      "name": "Guillermo Fisher",
+      "bio": "Two decades of experience in driving organizational innovation and cultivating high-performing software engineering teams.",
+      "image": "https://sessionize.com/image/3919-400o400o1-YWrj9vFGi2MPTugaMZq86p.jpg",
+      "linkedin": "https://www.linkedin.com/in/guillermofisher/",
+      "role": "Fractional CTO",
+      "sessionTitle": "Managing On-Call Chaos"
+    },
+    {
+      "name": "Ken Collins",
+      "bio": "AWS Serverless Hero and AI industry analyst & researcher merging technical expertise with strategic business insights.",
+      "image": "https://sessionize.com/image/ba13-400o400o1-hMqZRiMq985nP1FZCz1Nfg.jpg",
+      "linkedin": "https://www.linkedin.com/in/metaskills/",
+      "role": "Principal Engineer & GenAI R&D at Custom Ink",
+      "sessionTitle": "The Rise of AI Copilots"
+    },
+    {
+      "name": "Michael Buckbee",
+      "bio": "Long-time Rails developer who built secure applications for the U.S. Navy and Fortune 100 companies, helping thousands recover from attacks.",
+      "image": "https://sessionize.com/image/b0c4-400o400o1-L8qnWhL2upTUZo5aZ2zsVC.jpg",
+      "linkedin": "https://www.linkedin.com/in/michaelbuckbee/",
+      "role": "Founder, Expedited Security",
+      "sessionTitle": "How to Lose an App in 60 seconds"
+    },
+    {
+      "name": "Monica Morehouse",
+      "bio": "Microsoft MVP and vExpert with nearly two decades of experience working with a wide variety of database platforms.",
+      "image": "https://sessionize.com/image/199b-400o400o1-TqwwmUiQFQoYkmoY5EEdBP.jpg",
+      "linkedin": "https://www.linkedin.com/in/yourfriendlydbagirl/",
+      "role": "Denny Cherry & Associates Consulting",
+      "sessionTitle": "You Really Should Look at the Execution Plan"
+    },
+    {
+      "name": "Omar McNeil",
+      "bio": "Staff L&D manager passionate about helping teams create collaborative environments and coaching in Agile practices.",
+      "image": "https://sessionize.com/image/3ac1-400o400o1-nY9DbMjRfaBFATZV5iZhwh.jpg",
+      "linkedin": "https://www.linkedin.com/in/omarmcneil/",
+      "role": "GitHub Learning & Development Program Manager",
+      "sessionTitle": "The Day of Learning: Amplifying L&D"
+    },
+    {
+      "name": "Travis Webb",
+      "bio": "Software engineer experienced in startups and consulting, currently focused on geospatial analytics.",
+      "image": "https://sessionize.com/image/f059-400o400o1-hYgCHhKFptLGZiNiWStnMw.png",
+      "linkedin": "https://www.linkedin.com/in/tjwebb/",
+      "role": "Solutions Architect at Google",
+      "sessionTitle": "Is Gen AI the killer app, or the final boss?"
+    },
+    {
+      "name": "Jenah Parman",
+      "bio": "Data science graduate student who developed the Sponsored Research Portal transforming grant management processes.",
+      "image": "https://sessionize.com/image/3082-400o400o1-9efyKYkaSF8jMigMMeGspV.jpg",
+      "role": "Technology Transfer Intern at Jefferson Lab",
+      "sessionTitle": "Empowering Efficiency at a National Lab through Low Code Solutions"
+    },
+    {
+      "name": "Marla Schuchman",
+      "bio": "Co-presented on empowering efficiency at a national lab through low code solutions.",
+      "image": "https://sessionize.com/image/9177-400o400o1-ECj4Z2ShFYfGoE2ByfDsLo.jpg",
+      "role": "Connector of Dots",
+      "sessionTitle": "Empowering Efficiency at a National Lab through Low Code Solutions"
+    }
+  ],
+  "schedule": [
+    {
+      "time": "9:15 AM – 10:00 AM",
+      "title": "You Really Should Look at the Execution Plan",
+      "description": "Monica Morehouse (Rathbun)",
+      "abstract": "Do you struggle to understand why a query is running slowly? Or why it runs in less than a second most of the time, and takes 10 minutes other times? Being able to review and understand query execution plans is essential to understand bottlenecks in database performance. While DBAs need to be able to understand execution plans, for proactive performance management developers need to be able to review plans as queries and procedures get developed. In this session you will learn how to gather and read execution plans, understand what query operators are and what actions they perform, understand the differences in plan types. Finally, you will learn how to improve your code and its performance by using the data revealed in these plans."
+    },
+    {
+      "time": "10:15 AM – 11:00 AM",
+      "title": "Is Gen AI the killer app, or the final boss?",
+      "description": "Travis Webb",
+      "abstract": "Many things appear to be taking over the world at the height of their power, but they often don't finish the job. Is GenAI the exception, or the rule? Can it give us a superior grasp of reality, or will it lead us down the rabbit hole? Is Nvidia experiencing an \"Intel Inside\" moment, and can it last? Will GenAI cause the Cloud market to fragment or homogenize? And why do the best features always seem to be one version away? This talk discusses these questions, and others, and tries to answer them by looking at clues in the present and in our past."
+    },
+    {
+      "time": "11:15 AM – 12:00 PM",
+      "title": "How love lessons can land you a great job",
+      "description": "Chazona Baum",
+      "abstract": "Tightened hiring budgets are shaking even experienced developers' confidence in their ability to secure their next role. But because getting hired has a lot in common with other relationships, what allows you to successfully navigate dating can also give you an edge in a competitive talent market. Communication (not AI) can be your greatest job-seeking superpower. In this lighthearted but safe-for-work talk, we'll look at the attitudes, skills and strategies that will best allow you to stand out, align fit and remain compelling regardless of your existing experience level."
+    },
+    {
+      "time": "12:45 PM – 1:30 PM",
+      "title": "How to Lose an App in 60 seconds",
+      "description": "Michael Buckbee",
+      "abstract": "Learn practical web application security survival strategies based on hundreds of real-world attacks I've personally helped stop. Come away knowing what kinds of attacks you do and don't need to worry about, how to identify them and how to prevent them in the future."
+    },
+    {
+      "time": "1:45 PM – 2:30 PM",
+      "title": "Empowering Efficiency at a National Lab through Low Code Solutions",
+      "description": "Jenah Parman & Marla Schuchman",
+      "abstract": "In this session, we'll delve into the journey of the Sponsored Research Portal (SRP), spotlighting its development as a low code/no code solution that simplified grant management and proposal development at Jefferson Lab, a U.S. Department of Energy Office of Science national laboratory. Explore how simplicity meets innovation as we discuss the potential of low code/no code solutions in addressing internal workflow challenges."
+    },
+    {
+      "time": "2:45 PM – 3:30 PM",
+      "title": "The Rise of AI Copilots",
+      "description": "Ken Collins",
+      "abstract": "Embark on a transformative journey into AI Agents and Assistants with Custom Ink's insights, empowering your engineering and product teams from the get-go. We chart the course from AI's inception to the cutting-edge of Copilots, unveiling novel semantic interfaces and cognitive architectures. Discover revolutionary mental models to revitalize your team dynamics. We'll demystify how blending traditional software architecture with AI-informed team strategies catalyzes rapid, ethical learning and cost-effective knowledge retrieval."
+    },
+    {
+      "time": "3:45 PM – 4:30 PM",
+      "title": "The Day of Learning: Amplifying L&D",
+      "description": "Omar McNeil",
+      "abstract": "As a change maker, have you ever wondered how even the smallest of roles can spark significant transformations within an organization? In today's highly disruptive and busy workplace, squeezing in self-development and learning is hard. I'm thrilled to share how we turned GitHub's Day of Learning (DoL) program from just another event into a powerhouse of employee learning and development. It transformed into a beacon of continuous learning by injecting a few agile values and principles into the program. From this talk, you'll walk away with improved insights on applying agile principles to revamp learning programs, strategies for fostering continuous improvement and personalized learning, tips on leveraging cross-functional relationships, and practical advice on managing learning programs through data-driven decision-making."
+    },
+    {
+      "time": "4:45 PM – 5:30 PM",
+      "title": "Managing On-Call Chaos",
+      "description": "Guillermo Fisher",
+      "abstract": "For many software engineers, the on-call experience can be daunting, characterized by unexpected middle-of-the-night alerts that disrupt sleep, contribute to heightened stress levels, and undermine work/life balance. This talk aims to tackle the on-call conundrum head-on, sharing effective strategies and industry innovations to transform on-call from a dreaded obligation into a manageable, and even rewarding, aspect of software engineering work. Attendees will leave equipped with actionable insights on optimizing rotation configurations, enhancing communication, refining scheduling practices, streamlining hand-offs, conducting effective post-mortems, and balancing sprint work with on-call duties."
+    }
+  ],
+  "photos": [
+    { "src": "2024-05-31 08.30.41.jpg", "caption": "Attendees arriving at the venue" },
+    { "src": "2024-05-31 09.48.48.jpg", "caption": "Morning keynote session" },
+    { "src": "2024-05-31 12.04.00.jpg", "caption": "Lunch and networking" },
+    { "src": "2024-05-31 12.11.53.jpg", "caption": "Workshop in progress" },
+    { "src": "2024-05-31 14.13.46.jpg", "caption": "Panel discussion" }
+  ],
+  "sponsors": [],
+  "testimonials": [],
+  "faq": [],
+  "isArchive": false,
+  "ogImage": "/2026/og_promo_2026.jpeg"
+}

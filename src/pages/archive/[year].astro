@@ -1,0 +1,86 @@
+---
+import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
+import { getArchiveYears } from "../../themes/config";
+
+export function getStaticPaths() {
+  const archiveYears = getArchiveYears();
+  return archiveYears.map((year) => ({
+    params: { year: String(year) },
+    props: { year },
+  }));
+}
+
+const { year } = Astro.props;
+---
+
+<YearLayout 
+  title={`Hampton Roads DevFest ${year} | Archive`}
+  description={`Archive page for Hampton Roads DevFest ${year}. Content coming soon.`}
+  year={year}
+>
+  <section class="w-full py-20 px-8 bg-white">
+    <div class="max-w-2xl mx-auto text-center">
+      <h1 class="text-4xl font-bold text-gray-900 mb-6">
+        Hampton Roads DevFest {year}
+      </h1>
+      
+      <div class="bg-gray-50 rounded-xl p-8 mb-8">
+        <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+        <h2 class="text-xl font-semibold text-gray-700 mb-2">Archive Coming Soon</h2>
+        <p class="text-gray-600">
+          We're gathering content from DevFest {year}. Check back soon for speakers, sessions, and highlights from this year's event.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a 
+          href="/" 
+          class="px-6 py-3 bg-gray-800 text-white rounded-full font-medium hover:bg-gray-700 transition-colors"
+        >
+          Back to Home
+        </a>
+        <a 
+          href="/2024" 
+          class="px-6 py-3 border-2 border-gray-800 text-gray-800 rounded-full font-medium hover:bg-gray-100 transition-colors"
+        >
+          View 2024 Archive
+        </a>
+        <a 
+          href="/2026" 
+          class="px-6 py-3 border-2 border-gray-800 text-gray-800 rounded-full font-medium hover:bg-gray-100 transition-colors"
+        >
+          View 2026 Archive
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline showing available years -->
+  <section class="w-full py-10 px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-xl font-semibold text-center text-gray-800 mb-8">DevFest Through the Years</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {[2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023].map((archiveYear) => (
+          <a 
+            href={`/archive/${archiveYear}`}
+            class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              archiveYear === year 
+                ? 'bg-gray-800 text-white' 
+                : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+            }`}
+          >
+            {archiveYear}
+          </a>
+        ))}
+        <a href="/2024" class="px-4 py-2 rounded-lg text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors">
+          2024
+        </a>
+        <a href="/2026" class="px-4 py-2 rounded-lg text-sm font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 transition-colors">
+          2026
+        </a>
+      </div>
+    </div>
+  </section>
+</YearLayout>

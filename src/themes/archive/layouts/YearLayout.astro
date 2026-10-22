@@ -1,0 +1,70 @@
+---
+import "../../../styles/global.css";
+import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
+import MobileMenu from "../../shared/MobileMenu.astro";
+import NavBar from "../../shared/NavBar.astro";
+import Footer from "../../shared/Footer.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+  year: number;
+}
+
+const { title, description, year } = Astro.props;
+
+const navLinks = [
+  { href: "/", text: "Home" },
+  { href: "/2024", text: "2024" },
+  { href: "/2026", text: "2026" },
+  { href: "/faq", text: "FAQ" },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <GoogleAnalytics />
+  </head>
+  <body class="theme-archive flex flex-col items-center min-h-screen bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
+    <div class="w-full max-w-[1920px] mx-auto bg-gray-50">
+      <MobileMenu links={navLinks} bgColor="bg-gray-800" />
+      <NavBar links={navLinks} bgColor="bg-gray-800" />
+      
+      <main class="w-full">
+        <slot />
+      </main>
+      
+      <Footer showQuickLinks={true} showSocialLinks={true} bgColor="bg-gray-800" />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  .theme-archive {
+    --color-primary: #1f2937;
+    --color-secondary: #374151;
+    --color-accent: #3b82f6;
+    --color-background: #f9fafb;
+    --color-text: #111827;
+  }
+
+  .theme-archive .card-asymmetric {
+    border-radius: 12px;
+  }
+
+  .theme-archive .card-shadow {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  }
+</style>

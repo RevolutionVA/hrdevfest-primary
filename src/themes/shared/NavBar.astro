@@ -1,0 +1,29 @@
+---
+export interface Props {
+  links: Array<{ href: string; text: string; highlight?: boolean }>;
+  bgColor?: string;
+}
+
+const { links, bgColor = 'bg-[#052831]' } = Astro.props;
+---
+
+<nav class={`w-full ${bgColor} py-4 px-8 lg:px-20`}>
+  <div class="max-w-7xl mx-auto hidden md:flex justify-center">
+    <div class="flex items-center gap-12 lg:gap-20">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class={`text-base font-bold leading-relaxed hover:opacity-80 transition-opacity ${
+            link.highlight 
+              ? 'text-[#4DB7B9] hover:text-white transition-colors' 
+              : 'text-white'
+          }`}
+        >
+          {link.text}
+        </a>
+      ))}
+    </div>
+  </div>
+  <!-- Mobile nav placeholder for hamburger positioning -->
+  <div class="md:hidden h-6"></div>
+</nav>

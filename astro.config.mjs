@@ -14,12 +14,8 @@ export default defineConfig({
   },
   redirects: {
     "/prospectus": {
-      status: 302, // Use 301 for permanent redirects
-      destination: "/2026/HRDevFest_Sponsorship Prospectus_min.pdf",
-    },
-    "/years/2025": {
       status: 302,
-      destination: "/years/2024",
+      destination: "/2026/HRDevFest_Sponsorship Prospectus_min.pdf",
     },
     "/coc": {
       status: 302,
@@ -31,11 +27,27 @@ export default defineConfig({
     },
     "/speakers": {
       status: 302,
-      destination: "/years/2026",
+      destination: "/2026",
     },
     "/schedule": {
       status: 302,
-      destination: "/years/2026",
+      destination: "/2026",
+    },
+    "/years/2024": {
+      status: 301,
+      destination: "/2024",
+    },
+    "/years/2024/schedule": {
+      status: 301,
+      destination: "/2024",
+    },
+    "/years/2025": {
+      status: 301,
+      destination: "/2024",
+    },
+    "/years/2026": {
+      status: 301,
+      destination: "/2026",
     },
   },
 });
