@@ -1,9 +1,7 @@
 ---
 import { getEntry } from 'astro:content';
 import { Image } from "astro:assets";
-import YearLayout from "../../themes/2026/layouts/YearLayout.astro";
-import headerDots from "../../assets/dots/header_dots.svg";
-import sponsorBkgd from "../../assets/sponsor_bkgd.png";
+import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
 
 import lionelSappImage from "../../assets/speakers/lionel-sapp.jpeg";
 import ryanCastilloImage from "../../assets/speakers/ryan-castillo.jpeg";
@@ -55,61 +53,62 @@ const sponsorLogos: Record<string, ImageMetadata> = {
   "yellowdog.png": yellowdogLogo,
 };
 
+function getSpeakerImage(imageName: string): ImageMetadata | null {
+  return speakerImages[imageName] || null;
+}
+
+function getSocialIcon(type: string): string {
+  const icons: Record<string, string> = {
+    twitter: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+    linkedin: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+    github: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>',
+    website: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>',
+    bluesky: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>',
+    mastodon: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.668 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg>',
+  };
+  return icons[type] || icons.website;
+}
+
 const sponsorsByTier = {
   platinum: eventData.sponsors.filter(s => s.tier === 'platinum'),
   gold: eventData.sponsors.filter(s => s.tier === 'gold'),
   silver: eventData.sponsors.filter(s => s.tier === 'silver'),
   logo: eventData.sponsors.filter(s => s.tier === 'logo'),
 };
-
-const standardSponsors = [...sponsorsByTier.silver, ...sponsorsByTier.logo];
 ---
 
-<YearLayout 
-  title={eventData.title + " | Event Highlights"} 
-  description={eventData.description}
-  ogImage={eventData.ogImage}
->
-  <!-- Header Section with Event Highlights -->
-  <section class="w-full bg-white relative overflow-hidden">
-    <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
-
-    <div class="relative z-10 flex flex-col items-center py-10 px-8 lg:px-[280px] md:px-8">
-      <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center mb-10">
-        <h1 class="text-black text-[24px] md:text-[32px] font-bold leading-8 md:leading-10">
-          {eventData.tagline}
-        </h1>
-        <p class="text-black text-base font-normal leading-relaxed">
-          {eventData.description}
+<YearLayout title={eventData.title} description={eventData.description} year={2026}>
+  <!-- Header Section -->
+  <section class="w-full bg-gray-800 text-white py-16 px-8">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">{eventData.title}</h1>
+      <p class="text-xl text-gray-300 mb-2">{eventData.dateFormatted}</p>
+      {eventData.venue && (
+        <p class="text-lg text-gray-400">
+          {eventData.venue.name} &bull; {eventData.venue.city}, {eventData.venue.state}
         </p>
-      </div>
+      )}
+      <p class="text-base text-gray-300 mt-6 max-w-2xl mx-auto">{eventData.description}</p>
     </div>
   </section>
 
-  <!-- 2026 Schedule Section -->
-  <section class="w-full py-10 px-8 bg-white relative overflow-hidden">
-    <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
-
-    <div class="max-w-4xl mx-auto flex flex-col gap-6 relative z-10">
-      <h2 class="text-[24px] md:text-[32px] font-bold text-black text-center">
-        2026 Schedule
-      </h2>
-      <p class="text-black text-base font-normal leading-relaxed text-center">
-        All sessions took place at {eventData.venue?.name} on {eventData.dateFormatted}.
-      </p>
-      <div class="flex flex-col gap-4">
+  <!-- Schedule Section (single-track) -->
+  <section class="w-full py-12 px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Schedule</h2>
+      <div class="flex flex-col gap-3">
         {eventData.schedule.map((item) => (
-          <div class="bg-[#F3F4F6] p-6 card-asymmetric flex flex-col md:flex-row gap-4">
-            <div class="text-[#D33B32] font-bold whitespace-nowrap text-center md:text-left min-w-[140px]">
+          <div class="bg-gray-50 p-4 rounded-lg flex flex-col md:flex-row gap-3">
+            <div class="text-blue-600 font-semibold whitespace-nowrap min-w-[100px]">
               {item.time}
             </div>
             <div class="flex-1">
-              <p class="font-semibold text-black">{item.title}</p>
+              <p class="font-semibold text-gray-900">{item.title}</p>
               {item.description && (
-                <p class="text-sm text-gray-600">{item.description}</p>
+                <p class="text-sm text-gray-600 mt-1">{item.description}</p>
               )}
               {item.abstract && (
-                <p class="text-sm text-gray-700 mt-2 whitespace-pre-line">{item.abstract}</p>
+                <p class="text-sm text-gray-700 mt-2">{item.abstract}</p>
               )}
             </div>
           </div>
@@ -118,164 +117,219 @@ const standardSponsors = [...sponsorsByTier.silver, ...sponsorsByTier.logo];
     </div>
   </section>
 
-  <!-- 2026 Speakers Section -->
-  <section class="w-full py-10 px-8 bg-[#F3F4F6]">
-    <div class="max-w-7xl mx-auto flex flex-col gap-10">
-      <div class="flex flex-col gap-2 text-center lg:px-[280px]">
-        <h2 class="text-black text-[24px] md:text-[32px] font-semibold md:font-bold leading-8 md:leading-10">
-          2026 Speakers
-        </h2>
-        <p class="text-black text-base font-normal leading-relaxed">
-          Meet the amazing speakers who shared their knowledge at Hampton Roads DevFest 2026.
-        </p>
-      </div>
-
-      <div class="flex flex-col lg:grid lg:grid-cols-3 gap-8">
-        {eventData.speakers.map((speaker) => (
-          <div class="bg-white p-6 md:p-8 card-asymmetric card-shadow flex flex-col md:flex-row lg:flex-col gap-4 items-center">
-            {speakerImages[speaker.image] && (
-              <Image
-                src={speakerImages[speaker.image]}
-                alt={speaker.name}
-                class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
-                width={100}
-                height={100}
-              />
-            )}
-            <div class="flex flex-col gap-4 w-full">
-              <p class="text-[24px] font-semibold text-black text-center md:text-left lg:text-center">{speaker.name}</p>
-              {speaker.sessionTitle && (
-                <p class="text-sm text-gray-600 text-center md:text-left lg:text-center italic">{speaker.sessionTitle}</p>
-              )}
-              <p class="text-base font-normal text-black leading-relaxed">
-                {speaker.bio}
-              </p>
-              <div class="flex items-center gap-4 justify-center md:justify-start lg:justify-center flex-wrap">
-                {speaker.linkedin && (
-                  <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    <span class="text-sm font-medium">LinkedIn</span>
-                  </a>
+  <!-- Speakers Section -->
+  <section class="w-full py-12 px-8 bg-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Speakers</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {eventData.speakers.map((speaker) => {
+          const speakerImg = speaker.image ? getSpeakerImage(speaker.image) : null;
+          const speakerId = speaker.name.toLowerCase().replace(/\s+/g, '-');
+          return (
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                {speakerImg ? (
+                  <Image
+                    src={speakerImg}
+                    alt={speaker.name}
+                    class="w-20 h-20 rounded-full object-cover shrink-0"
+                    width={80}
+                    height={80}
+                  />
+                ) : (
+                  <div class="w-20 h-20 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-gray-500 text-xl font-bold">
+                    {speaker.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                  </div>
                 )}
-                {speaker.twitter && (
-                  <a href={speaker.twitter} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-black hover:opacity-80">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    <span class="text-sm font-medium">X</span>
-                  </a>
-                )}
-                {speaker.bluesky && (
-                  <a href={speaker.bluesky} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0085FF] hover:opacity-80">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.038.415-.055-.265.2-.532.34-.796.531-2.32 1.673-2.788 2.927-1.706 4.649 1.082 1.723 4.883 1.08 5.67-.542.364-.75.28-1.68.28-2.722 0 1.042-.084 1.972.28 2.722.787 1.622 4.588 2.265 5.67.542 1.082-1.722.614-2.976-1.706-4.649-.264-.191-.531-.331-.796-.531.14.017.279.035.415.055 2.67.296 5.568-.628 6.383-3.364.246-.829.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
-                    </svg>
-                    <span class="text-sm font-medium">Bluesky</span>
-                  </a>
-                )}
-                {speaker.website && (
-                  <a href={speaker.website} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#4DB7B9] hover:opacity-80">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"/>
-                    </svg>
-                    <span class="text-sm font-medium">Website</span>
-                  </a>
-                )}
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-lg font-semibold text-gray-900">{speaker.name}</h3>
+                  {speaker.sessionTitle && (
+                    <p class="text-sm text-gray-500 italic mt-1">{speaker.sessionTitle}</p>
+                  )}
+                  
+                  {/* Social Links */}
+                  {(speaker.twitter || speaker.linkedin || speaker.github || speaker.website || speaker.bluesky || speaker.mastodon) && (
+                    <div class="flex gap-2 mt-2">
+                      {speaker.twitter && (
+                        <a href={speaker.twitter} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Twitter/X" set:html={getSocialIcon('twitter')} />
+                      )}
+                      {speaker.linkedin && (
+                        <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="LinkedIn" set:html={getSocialIcon('linkedin')} />
+                      )}
+                      {speaker.github && (
+                        <a href={speaker.github} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="GitHub" set:html={getSocialIcon('github')} />
+                      )}
+                      {speaker.bluesky && (
+                        <a href={speaker.bluesky} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Bluesky" set:html={getSocialIcon('bluesky')} />
+                      )}
+                      {speaker.mastodon && (
+                        <a href={speaker.mastodon} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Mastodon" set:html={getSocialIcon('mastodon')} />
+                      )}
+                      {speaker.website && (
+                        <a href={speaker.website} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Website" set:html={getSocialIcon('website')} />
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
+              
+              {/* Bio with expand/collapse */}
+              {speaker.bio && (
+                <div class="mt-4">
+                  <input type="checkbox" id={`bio-${speakerId}`} class="peer hidden" />
+                  <p class="text-sm text-gray-600 peer-checked:line-clamp-none line-clamp-3">{speaker.bio}</p>
+                  <label 
+                    for={`bio-${speakerId}`} 
+                    class="text-blue-600 text-sm cursor-pointer hover:underline mt-1 inline-block peer-checked:before:content-['Show_less'] before:content-['Read_more...']"
+                  ></label>
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
 
-  <!-- 2026 Sponsors Section -->
-  <section id="sponsors" class="w-full py-10 md:py-20 px-8 lg:px-20 relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#123F4E] to-[#052831]"></div>
-      <Image src={sponsorBkgd} alt="" class="absolute inset-0 w-full h-full object-cover" width={1920} height={800} />
-    </div>
-
-    <div class="max-w-7xl mx-auto flex flex-col gap-6 relative z-10">
-      <div class="py-6 rounded-[10px] flex flex-col items-center gap-2">
-        <div class="flex items-center gap-4">
-          <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 35.5L17.55 33.27C9.4 25.86 4 21.03 4 15.05C4 10.22 7.82 6.4 12.65 6.4C15.34 6.4 17.92 7.66 20 9.74C22.08 7.66 24.66 6.4 27.35 6.4C32.18 6.4 36 10.22 36 15.05C36 21.03 30.6 25.86 22.45 33.27L20 35.5Z" fill="#D33B32"/>
-          </svg>
-          <h2 class="text-center text-white text-[32px] font-bold leading-10">2026 Sponsors</h2>
-        </div>
-        <p class="text-center text-white text-base font-normal leading-relaxed">
-          Thank you to the sponsors who supported the Hampton Roads tech community and made the 2026 event possible.
-        </p>
-      </div>
-
-      <div class="pt-10 flex flex-col items-center gap-6 md:gap-10">
+  <!-- Sponsors Section -->
+  {eventData.sponsors && eventData.sponsors.length > 0 && (
+    <section class="w-full py-12 px-8 bg-white">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Sponsors</h2>
+        
+        {/* Platinum Sponsors */}
         {sponsorsByTier.platinum.length > 0 && (
-          <div class="w-full flex flex-wrap justify-center gap-6 md:gap-10 max-w-3xl mx-auto">
-            {sponsorsByTier.platinum.map((sponsor) => (
-              <a
-                href={sponsor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full md:w-[calc(50%-1.25rem)] p-12 md:p-14 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
-                title={sponsor.name}
-              >
-                {sponsorLogos[sponsor.logo] && (
-                  <Image
-                    src={sponsorLogos[sponsor.logo]}
-                    alt={sponsor.name}
-                    class="h-24 w-auto object-contain"
-                  />
-                )}
-              </a>
-            ))}
+          <div class="mb-10">
+            <h3 class="text-lg font-semibold text-gray-700 text-center mb-6">Platinum Sponsors</h3>
+            <div class="flex flex-wrap justify-center items-center gap-8">
+              {sponsorsByTier.platinum.map((sponsor) => (
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-50 p-8 rounded-lg hover:shadow-md transition-shadow"
+                  title={sponsor.name}
+                >
+                  {sponsorLogos[sponsor.logo] ? (
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="h-24 w-auto object-contain"
+                    />
+                  ) : (
+                    <span class="text-gray-700 font-medium text-xl">{sponsor.name}</span>
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
         )}
-
+        
+        {/* Gold Sponsors */}
         {sponsorsByTier.gold.length > 0 && (
-          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-3xl mx-auto">
-            {sponsorsByTier.gold.map((sponsor) => (
-              <a
-                href={sponsor.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="p-10 md:p-12 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
-                title={sponsor.name}
-              >
-                {sponsorLogos[sponsor.logo] && (
-                  <Image
-                    src={sponsorLogos[sponsor.logo]}
-                    alt={sponsor.name}
-                    class="h-20 w-auto object-contain"
-                  />
-                )}
-              </a>
-            ))}
+          <div class="mb-10">
+            <h3 class="text-lg font-semibold text-gray-700 text-center mb-6">Gold Sponsors</h3>
+            <div class="flex flex-wrap justify-center items-center gap-6">
+              {sponsorsByTier.gold.map((sponsor) => (
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-shadow"
+                  title={sponsor.name}
+                >
+                  {sponsorLogos[sponsor.logo] ? (
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="h-16 w-auto object-contain"
+                    />
+                  ) : (
+                    <span class="text-gray-700 font-medium">{sponsor.name}</span>
+                  )}
+                </a>
+              ))}
+            </div>
           </div>
         )}
-
-        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {standardSponsors.map((sponsor) => (
-            <a
-              href={sponsor.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="p-6 md:p-8 bg-white card-asymmetric flex justify-center items-center hover:shadow-lg transition-shadow"
-              title={sponsor.name}
-            >
-              {sponsorLogos[sponsor.logo] && (
-                <Image
-                  src={sponsorLogos[sponsor.logo]}
-                  alt={sponsor.name}
-                  class="h-12 w-auto object-contain"
-                />
-              )}
-            </a>
-          ))}
-        </div>
+        
+        {/* Silver Sponsors */}
+        {sponsorsByTier.silver.length > 0 && (
+          <div class="mb-10">
+            <h3 class="text-lg font-semibold text-gray-700 text-center mb-6">Silver Sponsors</h3>
+            <div class="flex flex-wrap justify-center items-center gap-4">
+              {sponsorsByTier.silver.map((sponsor) => (
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-50 p-4 rounded-lg hover:shadow-md transition-shadow"
+                  title={sponsor.name}
+                >
+                  {sponsorLogos[sponsor.logo] ? (
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="h-12 w-auto object-contain"
+                    />
+                  ) : (
+                    <span class="text-gray-700 font-medium text-sm">{sponsor.name}</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+        
+        {/* Logo Sponsors */}
+        {sponsorsByTier.logo.length > 0 && (
+          <div>
+            <h3 class="text-lg font-semibold text-gray-700 text-center mb-6">Community Partners</h3>
+            <div class="flex flex-wrap justify-center items-center gap-4">
+              {sponsorsByTier.logo.map((sponsor) => (
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-gray-50 px-4 py-3 rounded-lg hover:shadow-md transition-shadow"
+                  title={sponsor.name}
+                >
+                  {sponsorLogos[sponsor.logo] ? (
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.name}
+                      class="h-10 w-auto object-contain"
+                    />
+                  ) : (
+                    <span class="text-gray-700 font-medium text-sm">{sponsor.name}</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
+    </section>
+  )}
+
+  <!-- Back to Events -->
+  <section class="w-full py-8 px-8 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <a href="/events" class="text-blue-600 hover:text-blue-800 font-medium">
+        &larr; View All Past Events
+      </a>
     </div>
   </section>
 </YearLayout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .peer:checked ~ .line-clamp-3 {
+    -webkit-line-clamp: unset;
+  }
+</style>
