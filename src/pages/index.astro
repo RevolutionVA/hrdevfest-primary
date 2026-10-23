@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import logo from "../assets/logo.png";
 import logoWhite from "../assets/logo-white.png";
@@ -36,6 +37,8 @@ const testimonialImages: Record<string, any> = {
   "paul-chin-jr.jpeg": paulChinJrImage,
 };
 
+const events = await getCollection('events');
+const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
 ---
 
 <html lang="en">
@@ -212,8 +215,6 @@ const testimonialImages: Record<string, any> = {
             <a href="#about" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">About</a>
             <a href="#venue" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Venue</a>
             <a href="#testimonials" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Testimonials</a>
-            <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">2024</a>
-            <a href="/years/2026" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">2026</a>
             <a href="#faq" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">FAQ</a>
             <a href="#signup" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Sign Up</a>
           </div>
@@ -230,8 +231,6 @@ const testimonialImages: Record<string, any> = {
             <a href="#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
             <a href="#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
             <a href="#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
-            <a href="/years/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
-            <a href="/years/2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2026</a>
             <a href="#faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
             <a href="#signup" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Sign Up</a>
           </div>
@@ -323,7 +322,7 @@ const testimonialImages: Record<string, any> = {
         <p class="text-white text-base font-normal leading-relaxed">
           Hampton Roads DevFest is powered by sponsors who believe in our local tech community. 2027 sponsorship details are coming soon — sign up above to be the first to hear.
         </p>
-        <a href="/years/2026#sponsors" class="text-[#4DB7B9] text-base font-bold hover:underline">See our 2026 sponsors →</a>
+        <a href="/2026#sponsors" class="text-[#4DB7B9] text-base font-bold hover:underline">See our 2026 sponsors →</a>
       </div>
     </section>
 
@@ -511,35 +510,52 @@ const testimonialImages: Record<string, any> = {
 
     <!-- Footer -->
     <footer class="w-full bg-[#052831] py-8 px-8 lg:px-20">
-      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-        <div class="flex flex-col items-center md:items-start gap-2">
-          <p class="text-white text-base font-normal leading-relaxed text-center md:text-left">
-            Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
-          </p>
-          <div class="flex items-center gap-4">
-            <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on X" class="text-white hover:text-[#4DB7B9] transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a href="https://www.linkedin.com/events/7388613109579636736/" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on LinkedIn" class="text-white hover:text-[#4DB7B9] transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on Facebook" class="text-white hover:text-[#4DB7B9] transition-colors">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
+      <div class="max-w-7xl mx-auto flex flex-col gap-6">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div class="flex flex-col items-center md:items-start gap-2">
+            <p class="text-white text-base font-normal leading-relaxed text-center md:text-left">
+              Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+            </p>
+            <div class="flex items-center gap-4">
+              <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on X" class="text-white hover:text-[#4DB7B9] transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/events/7388613109579636736/" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on LinkedIn" class="text-white hover:text-[#4DB7B9] transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on Facebook" class="text-white hover:text-[#4DB7B9] transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col items-center md:items-end gap-2">
           <div class="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
             <a href="/faq" class="text-white hover:text-[#4DB7B9] transition-colors">FAQ</a>
             <a href="/code-of-conduct" class="text-white hover:text-[#4DB7B9] transition-colors">Code of Conduct</a>
-            <a href="/years/2024" class="text-white hover:text-[#4DB7B9] transition-colors">2024 Archive</a>
-            <a href="/years/2026" class="text-white hover:text-[#4DB7B9] transition-colors">2026 Archive</a>
+          </div>
+        </div>
+        <!-- Past Events row -->
+        <div class="border-t border-white/20 pt-4">
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 flex-wrap">
+            <a href="/events" class="text-white text-sm font-medium hover:text-[#4DB7B9] transition-colors">
+              Past Events
+            </a>
+            <span class="hidden sm:inline text-white/40">|</span>
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+              {pastYears.map((year) => (
+                <a 
+                  href={`/${year}`} 
+                  class="text-white/70 text-sm hover:text-white hover:text-[#4DB7B9] transition-colors"
+                >
+                  {year}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
