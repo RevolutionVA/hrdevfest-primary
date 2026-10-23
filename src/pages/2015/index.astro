@@ -24,6 +24,34 @@ function getSponsorImage(imagePath: string): ImageMetadata | null {
   const img = sponsorImages[fullPath];
   return img ? img.default : null;
 }
+
+function getSocialIcon(type: string): string {
+  const icons: Record<string, string> = {
+    twitter: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+    linkedin: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+    github: '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>',
+    website: '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>',
+  };
+  return icons[type] || icons.website;
+}
+
+const schedule = eventData.schedule;
+const tracks = [...new Set(schedule.map(s => s.track).filter((t): t is string => !!t && t !== 'All'))];
+const hasMultipleTracks = tracks.length > 1;
+const timeSlots = [...new Set(schedule.map(s => s.time))];
+
+function getSessionsForTimeAndTrack(time: string, track: string) {
+  return schedule.filter(s => s.time === time && s.track === track);
+}
+
+function getSessionsForTime(time: string) {
+  return schedule.filter(s => s.time === time);
+}
+
+function isAllTracksSession(time: string) {
+  const sessions = getSessionsForTime(time);
+  return sessions.length === 1 && (sessions[0].track === 'All' || !sessions[0].track);
+}
 ---
 
 <YearLayout title={eventData.title} description={eventData.description} year={2015}>
@@ -38,28 +66,99 @@ function getSponsorImage(imagePath: string): ImageMetadata | null {
         </p>
       )}
       <p class="text-base text-gray-300 mt-6 max-w-2xl mx-auto">{eventData.description}</p>
+      {hasMultipleTracks && (
+        <p class="text-sm text-blue-300 mt-4">Multi-track conference with {tracks.length} parallel sessions</p>
+      )}
     </div>
   </section>
 
   <!-- Schedule Section -->
   <section class="w-full py-12 px-8 bg-white">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Schedule</h2>
-      <div class="flex flex-col gap-3">
-        {eventData.schedule.map((item) => (
-          <div class="bg-gray-50 p-4 rounded-lg flex flex-col md:flex-row gap-3">
-            <div class="text-blue-600 font-semibold whitespace-nowrap min-w-[100px]">
-              {item.time}
-            </div>
-            <div class="flex-1">
-              <p class="font-semibold text-gray-900">{item.title}</p>
-              {item.description && (
-                <p class="text-sm text-gray-600 mt-1">{item.description}</p>
-              )}
+      
+      {hasMultipleTracks ? (
+        <div class="overflow-x-auto">
+          <!-- Desktop: Grid layout -->
+          <div class="hidden md:block">
+            <div class="grid gap-2" style={`grid-template-columns: auto repeat(${tracks.length}, 1fr)`}>
+              <!-- Header row -->
+              <div class="font-bold text-gray-700 p-3 bg-gray-100 rounded">Time</div>
+              {tracks.map(track => (
+                <div class="font-bold text-gray-700 p-3 bg-gray-100 rounded text-center">{track}</div>
+              ))}
+              
+              <!-- Time slots -->
+              {timeSlots.map(time => {
+                const isAllTracks = isAllTracksSession(time);
+                const allSession = getSessionsForTime(time)[0];
+                
+                return isAllTracks ? (
+                  <>
+                    <div class="text-blue-600 font-semibold p-3 border-b">{time}</div>
+                    <div class={`bg-blue-50 p-3 rounded border-b`} style={`grid-column: span ${tracks.length}`}>
+                      <p class="font-semibold text-gray-900">{allSession.title}</p>
+                      {allSession.description && <p class="text-sm text-gray-600 mt-1">{allSession.description}</p>}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div class="text-blue-600 font-semibold p-3 border-b">{time}</div>
+                    {tracks.map(track => {
+                      const sessions = getSessionsForTimeAndTrack(time, track);
+                      return (
+                        <div class="bg-gray-50 p-3 rounded border-b min-h-[80px]">
+                          {sessions.map(session => (
+                            <div>
+                              <p class="font-semibold text-gray-900 text-sm">{session.title}</p>
+                              {session.description && <p class="text-xs text-gray-600 mt-1">{session.description}</p>}
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })}
+                  </>
+                );
+              })}
             </div>
           </div>
-        ))}
-      </div>
+          
+          <!-- Mobile: Stacked layout -->
+          <div class="md:hidden flex flex-col gap-3">
+            {timeSlots.map(time => {
+              const sessions = getSessionsForTime(time);
+              const isAllTracks = isAllTracksSession(time);
+              
+              return (
+                <div class={`rounded-lg overflow-hidden ${isAllTracks ? 'bg-blue-50' : 'bg-gray-50'}`}>
+                  <div class="text-blue-600 font-semibold p-3 bg-white border-b">{time}</div>
+                  <div class={`p-3 ${!isAllTracks && sessions.length > 1 ? 'grid grid-cols-1 gap-3' : ''}`}>
+                    {sessions.map(session => (
+                      <div class={`${!isAllTracks && sessions.length > 1 ? 'bg-white p-3 rounded shadow-sm' : ''}`}>
+                        {!isAllTracks && session.track && <p class="text-xs text-blue-600 font-medium mb-1">{session.track}</p>}
+                        <p class="font-semibold text-gray-900">{session.title}</p>
+                        {session.description && <p class="text-sm text-gray-600 mt-1">{session.description}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div class="flex flex-col gap-3">
+          {eventData.schedule.map((item) => (
+            <div class="bg-gray-50 p-4 rounded-lg flex flex-col md:flex-row gap-3">
+              <div class="text-blue-600 font-semibold whitespace-nowrap min-w-[100px]">{item.time}</div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900">{item.title}</p>
+                {item.description && <p class="text-sm text-gray-600 mt-1">{item.description}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 
@@ -67,27 +166,57 @@ function getSponsorImage(imagePath: string): ImageMetadata | null {
   <section class="w-full py-12 px-8 bg-gray-100">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Speakers</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {eventData.speakers.map((speaker) => {
           const speakerImg = speaker.image ? getSpeakerImage(speaker.image) : null;
+          const speakerId = speaker.name.toLowerCase().replace(/\s+/g, '-');
           return (
-            <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col items-center text-center">
-              {speakerImg ? (
-                <Image
-                  src={speakerImg}
-                  alt={speaker.name}
-                  class="w-24 h-24 rounded-full object-cover mb-4"
-                  width={96}
-                  height={96}
-                />
-              ) : (
-                <div class="w-24 h-24 rounded-full bg-gray-300 mb-4 flex items-center justify-center text-gray-500 text-2xl font-bold">
-                  {speaker.name.charAt(0)}
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start gap-4">
+                {speakerImg ? (
+                  <Image
+                    src={speakerImg}
+                    alt={speaker.name}
+                    class="w-20 h-20 rounded-full object-cover shrink-0"
+                    width={80}
+                    height={80}
+                  />
+                ) : (
+                  <div class="w-20 h-20 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-gray-500 text-xl font-bold">
+                    {speaker.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                  </div>
+                )}
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-lg font-semibold text-gray-900">{speaker.name}</h3>
+                  
+                  {/* Social Links */}
+                  {speaker.links && speaker.links.length > 0 && (
+                    <div class="flex gap-2 mt-2">
+                      {speaker.links.map(link => (
+                        <a 
+                          href={link.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          class="text-gray-500 hover:text-blue-600 transition-colors"
+                          title={link.type}
+                          set:html={getSocialIcon(link.type)}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
-              <h3 class="text-lg font-semibold text-gray-900">{speaker.name}</h3>
+              </div>
+              
+              {/* Bio with expand/collapse */}
               {speaker.bio && (
-                <p class="text-sm text-gray-600 mt-2 line-clamp-4">{speaker.bio}</p>
+                <div class="mt-4">
+                  <input type="checkbox" id={`bio-${speakerId}`} class="peer hidden" />
+                  <p class="text-sm text-gray-600 peer-checked:line-clamp-none line-clamp-3">{speaker.bio}</p>
+                  <label 
+                    for={`bio-${speakerId}`} 
+                    class="text-blue-600 text-sm cursor-pointer hover:underline mt-1 inline-block peer-checked:before:content-['Show_less'] before:content-['Read_more...']"
+                  ></label>
+                </div>
               )}
             </div>
           );
@@ -133,3 +262,15 @@ function getSponsorImage(imagePath: string): ImageMetadata | null {
     </div>
   </section>
 </YearLayout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .peer:checked ~ .line-clamp-3 {
+    -webkit-line-clamp: unset;
+  }
+</style>

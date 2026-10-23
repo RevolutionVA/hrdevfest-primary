@@ -1,6 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const socialLinkSchema = z.object({
+  type: z.string(),
+  url: z.string(),
+});
+
 const speakerSchema = z.object({
   name: z.string(),
   bio: z.string(),
@@ -9,6 +14,8 @@ const speakerSchema = z.object({
   twitter: z.string().optional(),
   website: z.string().optional(),
   bluesky: z.string().optional(),
+  github: z.string().optional(),
+  links: z.array(socialLinkSchema).optional(),
   sessionTitle: z.string().optional(),
   sessionAbstract: z.string().optional(),
   role: z.string().optional(),
@@ -27,6 +34,7 @@ const scheduleItemSchema = z.object({
   description: z.string().optional(),
   abstract: z.string().optional(),
   speakerName: z.string().optional(),
+  track: z.string().optional(),
 });
 
 const testimonialSchema = z.object({

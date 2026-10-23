@@ -17,92 +17,136 @@
     {
       "name": "Erik Olson",
       "bio": "",
-      "image": "archive/2015/erik.jpg"
+      "image": "archive/2015/erik.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/erikpmp" },
+        { "type": "linkedin", "url": "https://www.linkedin.com/in/erikpmp" },
+        { "type": "website", "url": "http://8020.co" }
+      ]
     },
     {
       "name": "Kevin Griffin",
       "bio": "Kevin Griffin is an author, teacher, mentor, and consultant focusing in software development. He is the author of the Twilio Blueprint. As an independent consultant, Kevin specializes in helping businesses push their technology stacks into the 21st century. You can often find Kevin speaking at conferences and user groups across the country or blogging at kevgriffin.com.",
-      "image": "archive/2015/kevin-griffin.jpg"
+      "image": "archive/2015/kevin-griffin.jpg",
+      "links": []
     },
     {
       "name": "Frances Coronel",
       "bio": "Frances Coronel is a senior CS major interested in developing and designing for the web. She recently attended Fullstack Academy, a highly rated coding bootcamp in New York City that teaches full stack JS web development, and has had her experience featured on Course Report as one of must read blogs on coding bootcamps.",
-      "image": "archive/2015/frances.jpg"
+      "image": "archive/2015/frances.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/fvcproductions" },
+        { "type": "linkedin", "url": "https://www.linkedin.com/in/fvcproductions" },
+        { "type": "website", "url": "http://fvcproductions.com" }
+      ]
     },
     {
       "name": "Travis Stokes",
-      "bio": "Travis is a seasoned software developer with experience in a variety of industries including finance, healthcare, hospitality, academics, and decision support systems for both the for-profit and non-profit sectors. He currently works with 80|20, a software applications and consulting firm based in Norfolk, VA.",
-      "image": "archive/2015/travis-stokes.jpg"
+      "bio": "Travis is a seasoned software developer with experience in a variety of industries including finance, healthcare, hospitality, academics, and decision support systems for both the for-profit and non-profit sectors. He currently works with 80|20, a software applications and consulting firm based in Norfolk, VA. In addition to being an Old Dominion University graduate, Travis constantly strives to continue building his knowledge of the software industry via conferences, certifications and professional organizations. He holds several Microsoft credentials including MCSD and C# Specialist certifications, and is an active, PMP certified member of the Project Management Institute.",
+      "image": "archive/2015/travis-stokes.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/sysgineer" },
+        { "type": "linkedin", "url": "https://www.linkedin.com/pub/travis-stokes/38/201/4b3" }
+      ]
     },
     {
       "name": "Lee Perkins",
       "bio": "Lee Perkins is a senior software engineer for Issuetrak. He has been involved in the software field for over 30 years. His passion for IoT combined with his decades of experience with Microsoft have led him to a fascination with Windows 10 IoT on the Raspberry Pi.",
-      "image": "archive/2015/lee.jpg"
+      "image": "archive/2015/lee.jpg",
+      "links": []
     },
     {
       "name": "Kevin Hazzard",
-      "bio": "Kevin was a long-time Microsoft C# MVP who now spends his time developing solutions for his clients in Amazon AWS, Google Cloud Platform and Microsoft Azure. He uses his spare time to serve the public schools in his community as a member of his School Board.",
-      "image": "archive/2015/kevin-hazzard.jpg"
+      "bio": "Kevin was a long-time Microsoft C# MVP who now spends his time developing solutions for his clients in Amazon AWS, Google Cloud Platform and Microsoft Azure. He uses his spare time to serve the public schools in his community as a member of his School Board and as the chairman of the Maggie L. Walker Governor's School in Richmond, Virginia.",
+      "image": "archive/2015/kevin-hazzard.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/KevinHazzard" }
+      ]
     },
     {
       "name": "Karl Groves",
-      "bio": "An unstoppable force for change and thought-leader in an industry regarded for saying \"No\", Karl Groves would rather lead by example in saying \"Yes, and here's how...\". Karl seeks to offer solutions to complex problems relating to universal usability.",
-      "image": "archive/2015/karl.jpg"
+      "bio": "An unstoppable force for change and thought-leader in an industry regarded for saying \"No\", Karl Groves would rather lead by example in saying \"Yes, and here's how...\". Karl seeks to offer solutions to complex problems relating to universal usability. Karl has over a decade experience in doing IT consulting for the biggest companies in the world and biggest agencies in the US Government. Widely regarded as a pragmatic solution-finder, his work is cited in nearly a dozen books and used on curricula in Human-Computer Interaction across the globe.",
+      "image": "archive/2015/karl.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/karlgroves" }
+      ]
     },
     {
       "name": "Joel Cochran",
-      "bio": "Joel Cochran is currently serving as the GOP Technical Evangelist on the Microsoft Campaign Technology and Services team. An accomplished writer and speaker, Joel loves to teach and was a 6-time Microsoft MVP prior to joining the company.",
-      "image": "archive/2015/joel.jpg"
+      "bio": "Joel Cochran is currently serving as the GOP Technical Evangelist on the Microsoft Campaign Technology and Services team. Joel was born in Virginia, grew up in Iowa, and graduated from James Madison University in Harrisonburg, VA. After serving in the United States Army, he moved to Florida where he fell backwards into a job at a software company. Before long he was a software developer on the IBM AS/400 platform. An accomplished writer and speaker, Joel loves to teach and was a 6-time Microsoft MVP prior to joining the company.",
+      "image": "archive/2015/joel.jpg",
+      "links": []
     },
     {
       "name": "Benjamin Earley",
-      "bio": "Benjamin is an Android developer working at Outsite Networks. He is passionate about the open web where people can share, collaborate, learn and teach freely with each other.",
-      "image": "archive/2015/benjamin-earley.png"
+      "bio": "Benjamin is an Android developer working at Outsite Networks. He is passionate about the open web where people can share, collaborate, learn and teach freely with each other. His activities include games, design, hanging out with friends, and finding ways to contribute and share his skills with the community.",
+      "image": "archive/2015/benjamin-earley.png",
+      "links": []
     },
     {
       "name": "Bret Fisher",
-      "bio": "20+ years as a Sysadmin of enterprise, government, and small business. Web and JavaScript developer. Startup founder, and currently running a consulting engineering team in his Virginia Beach company, Core Enable. Bret has a passion for helping others and continually sharpening his saw.",
-      "image": "archive/2015/bret.jpg"
+      "bio": "20+ years as a Sysadmin of enterprise, government, and small business. Web and JavaScript developer. Startup founder, and currently running a consulting engineering team in his Virginia Beach company, Core Enable. Bret has a passion for helping others and continually sharpening his saw. He has over 30 certifications and a reputation for knowing what's next in tech.",
+      "image": "archive/2015/bret.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/bretfisher" },
+        { "type": "website", "url": "http://bretfisher.com" }
+      ]
     },
     {
       "name": "Daniel Burke",
-      "bio": "Daniel Burke joined ForRent Media Solutions as a Mobile Developer in 2013 with a goal to help them establish native application development. He has 4 apps published to the Apple App Store.",
-      "image": "archive/2015/daniel-burke.jpg"
+      "bio": "Daniel Burke joined ForRent Media Solutions as a Mobile Developer in 2013 with a goal to help them establish native application development and migrate away from the Appcelerator framework. Within the first year, ForRent launched two native iOS apps and one on Android. He has 4 apps published to the Apple App Store and plans to release at least two more within the next year.",
+      "image": "archive/2015/daniel-burke.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/d2burke" },
+        { "type": "linkedin", "url": "https://www.linkedin.com/in/d2burke" }
+      ]
     },
     {
       "name": "Sidney Andrews",
-      "bio": "Sidney Andrews is a Microsoft Certified Trainer and Azure consultant with a background in ASP.NET and XAML development. Sidney has driven efforts to develop and deliver Azure readiness training through channels such as the Ignite Conference, Azure University Roadshow, Microsoft Virtual Academy, and Microsoft Official Courseware.",
-      "image": "archive/2015/sidney.jpg"
+      "bio": "Sidney Andrews is a Microsoft Certified Trainer and Azure consultant with a background in ASP.NET and XAML development. Sidney has driven efforts to develop and deliver Azure readiness training through channels such as the Ignite Conference, Azure University Roadshow, Microsoft Virtual Academy, Microsoft Official Courseware, internal Microsoft training and even public whitepapers. Sidney has a series of FREE videos on YouTube if you want to learn more about Azure services from a developer perspective.",
+      "image": "archive/2015/sidney.jpg",
+      "links": [
+        { "type": "twitter", "url": "http://twitter.com/sidney_andrews" },
+        { "type": "website", "url": "http://www.seesharprun.net/" }
+      ]
     },
     {
       "name": "Greg Norman",
       "bio": "Greg is a web consultant and software developer with 17 years of experience, who successfully builds apps and sites for clients while dealing with chronic health issues. He's now sharing his story and insights he's learned to help other developers take better care of themselves and work smarter.",
-      "image": "archive/2015/greg-norman.jpg"
+      "image": "archive/2015/greg-norman.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/Raelshark" },
+        { "type": "website", "url": "http://faulttolerance.io" }
+      ]
     },
     {
       "name": "Danny Cook",
       "bio": "Danny is co-organizer for the Hampton Roads Google Developers Group and is Vice President of Software Engineering at Outsite Networks. He's passionate about teaching others to code and has been building teams and software for the last 15 years.",
-      "image": "archive/2015/danny-cook.jpg"
+      "image": "archive/2015/danny-cook.jpg",
+      "links": [
+        { "type": "twitter", "url": "https://twitter.com/npndan" },
+        { "type": "linkedin", "url": "https://www.linkedin.com/in/dannyccook" }
+      ]
     }
   ],
   "schedule": [
-    { "time": "8:30 AM", "title": "Registration & Breakfast", "description": "Registration for attendees and complimentary breakfast." },
-    { "time": "9:30 AM", "title": "Keynote - Manage Your Career", "description": "Erik Olson" },
-    { "time": "10:00 AM", "title": "Web Design", "description": "Frances Coronel" },
-    { "time": "10:00 AM", "title": "Native Mobile", "description": "Daniel Burke" },
-    { "time": "11:00 AM", "title": "Designing for Volatility", "description": "Travis Stokes" },
-    { "time": "11:00 AM", "title": "CodeLab: Android and Firebase", "description": "Benjamin Earley" },
-    { "time": "12:00 PM", "title": "Azure App Services", "description": "Sidney Andrews" },
-    { "time": "12:00 PM", "title": "CodeLab: Programming for Kids", "description": "Danny Cook" },
-    { "time": "1:00 PM", "title": "Lunch", "description": "Complimentary lunch in the main conference area." },
-    { "time": "2:00 PM", "title": "JavaScript Accessibility", "description": "Karl Groves" },
-    { "time": "2:00 PM", "title": "Scalable & Serverless APIs with AWS Lambda and API Gateway", "description": "Kevin Hazzard" },
-    { "time": "3:00 PM", "title": "Power BI", "description": "Joel Cochran" },
-    { "time": "3:00 PM", "title": "ASP.NET vNext", "description": "Kevin Griffin" },
-    { "time": "4:00 PM", "title": "Windows 10 IoT Core Development for the Raspberry Pi 2", "description": "Lee Perkins" },
-    { "time": "4:00 PM", "title": "Docker and the Container Ecosystem", "description": "Bret Fisher" },
-    { "time": "5:00 PM", "title": "Refactor Your Sleep", "description": "Greg Norman" },
-    { "time": "5:20 PM", "title": "Closing Remarks & Networking", "description": "" }
+    { "time": "8:30 AM", "title": "Registration & Breakfast", "description": "Registration for attendees and complimentary breakfast.", "track": "All" },
+    { "time": "9:30 AM", "title": "Keynote - Manage Your Career", "description": "Erik Olson", "track": "All" },
+    { "time": "10:00 AM", "title": "Web Design", "description": "Frances Coronel", "track": "Room 1" },
+    { "time": "10:00 AM", "title": "Native Mobile", "description": "Daniel Burke", "track": "Room 2" },
+    { "time": "11:00 AM", "title": "Designing for Volatility", "description": "Travis Stokes", "track": "Room 1" },
+    { "time": "11:00 AM", "title": "CodeLab: Android and Firebase", "description": "Benjamin Earley", "track": "Room 2" },
+    { "time": "12:00 PM", "title": "Azure App Services", "description": "Sidney Andrews", "track": "Room 1" },
+    { "time": "12:00 PM", "title": "CodeLab: Programming for Kids", "description": "Danny Cook", "track": "Room 2" },
+    { "time": "1:00 PM", "title": "Lunch", "description": "Complimentary lunch in the main conference area.", "track": "All" },
+    { "time": "2:00 PM", "title": "JavaScript Accessibility", "description": "Karl Groves", "track": "Room 1" },
+    { "time": "2:00 PM", "title": "Scalable & Serverless APIs with AWS Lambda and API Gateway", "description": "Kevin Hazzard", "track": "Room 2" },
+    { "time": "3:00 PM", "title": "Power BI", "description": "Joel Cochran", "track": "Room 1" },
+    { "time": "3:00 PM", "title": "ASP.NET vNext", "description": "Kevin Griffin", "track": "Room 2" },
+    { "time": "4:00 PM", "title": "Windows 10 IoT Core Development for the Raspberry Pi 2", "description": "Lee Perkins", "track": "Room 1" },
+    { "time": "4:00 PM", "title": "Docker and the Container Ecosystem", "description": "Bret Fisher", "track": "Room 2" },
+    { "time": "5:00 PM", "title": "Refactor Your Sleep", "description": "Greg Norman", "track": "All" },
+    { "time": "5:20 PM", "title": "Closing Remarks & Networking", "description": "", "track": "All" }
   ],
   "sponsors": [
     { "name": "Google Developers", "logo": "archive/2015/google-developers-logo.png", "url": "", "tier": "logo" },
