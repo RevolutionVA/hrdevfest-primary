@@ -15,6 +15,7 @@ const speakerSchema = z.object({
   website: z.string().optional(),
   bluesky: z.string().optional(),
   github: z.string().optional(),
+  mastodon: z.string().optional(),
   links: z.array(socialLinkSchema).optional(),
   sessionTitle: z.string().optional(),
   sessionAbstract: z.string().optional(),

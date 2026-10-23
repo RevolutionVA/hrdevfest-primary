@@ -18,131 +18,116 @@
       "name": "Michael Rollins",
       "bio": "I have done it all, from backend work, web services, front end JS before the great JS revolution (back in the days of ExtJS). I teethed on gov't contracting here locally, then made the jump to Silicon Valley and Flurry as a remote worker. Now, I'm a mobile engineer focusing on developer and partner relations, a rare breed of engineer that speaks to the outside world and loves every second of it.",
       "image": "archive/2016/michael-rollins.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/rollinsio" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/rollinsmichael" },
-        { "type": "website", "url": "http://rollins.io/" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/rollinsmichael",
+      "twitter": "https://x.com/rollinsio",
+      "website": "https://rollins.io/"
     },
     {
       "name": "Blaine Price",
       "bio": "Senior Developer at Langa, serial tinkerer, Ghent-dweller.",
       "image": "archive/2016/blaine-price.jpeg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/wbprice" },
-        { "type": "website", "url": "http://wbprice.com/" }
-      ]
+      "twitter": "https://x.com/wbprice",
+      "website": "https://wbprice.com/"
     },
     {
       "name": "Guillermo Fisher",
       "bio": "I am a father, husband, and software developer currently working at Dominion Enterprises. I'm also the founder of the Hampton Roads PHP User Group, and a contributor to a number of FOSS projects.",
       "image": "archive/2016/guillermo-fisher.png",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/guillermoandrae" },
-        { "type": "website", "url": "http://guillermoandraefisher.com" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/guillermoandrae",
+      "twitter": "https://x.com/guillermoandrae",
+      "website": "https://guillermoandraefisher.com"
     },
     {
       "name": "Travis Webb",
       "bio": "Travis is the CEO of Langa, a software consultancy specializing in Node.js and React.js development. Travis has given talks at numerous conference venues, including JSConf, RevolutionConf, and numerous Javascript meetups across the country.",
       "image": "archive/2016/travis-webb.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/tjwebbOnGithub" },
-        { "type": "website", "url": "http://langa.io" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/-traviswebb/",
+      "twitter": "https://x.com/tjwebbOnGithub",
+      "website": "https://langa.io"
     },
     {
       "name": "John Hadzima",
       "bio": "John Hadzima is a Senior IT Consultant at Marathon Consulting and a Microsoft Certified Solutions Developer. He has been working as a developer in Hampton Roads for over 20 years in a variety of languages. He has worked primarily with Microsoft technologies going back to Visual Basic and Visual FoxPro, then progressing to Classic ASP and has worked with .NET since version 1. He is also has extensive database experience with SQL Server, SQL Server Reporting Services, and SQL Server Integration Services and is also doing mobile development. John is one of the co-organizers of the Hampton Roads .NET Users Group and enjoys surfing, golf, and road biking in his free time.",
       "image": "archive/2016/john-hadzima.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/JohnHadzima" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/john-hadzima-b614a27" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/john-hadzima-b614a27",
+      "twitter": "https://x.com/JohnHadzima"
     },
     {
       "name": "Benjamin Earley",
       "bio": "I'm a software engineer currently developing for Android. I am particularly passionate about the open web where people can share, collaborate, learn, and teach freely with each other. Activities that interest me are games, design, hanging out with friends, and finding ways to contribute and share my skills with the community.",
       "image": "archive/2016/benjamin-earley.jpg",
-      "links": [
-        { "type": "website", "url": "http://BenjaminEarley.com" }
-      ]
+      "website": "https://BenjaminEarley.com"
     },
     {
       "name": "Sidney Andrews",
       "bio": "Sidney Andrews is a Microsoft Certified Trainer and Azure MVP with SeeSharpRun.NET. He has a background in ASP.NET web development along with extensive experience developing applications using XAML. Sidney has driven efforts to develop and deliver Azure readiness training through channels such as the Ignite Conference, Microsoft Virtual Academy, Microsoft Official Courseware, internal Microsoft training and even public whitepapers. Sidney is the author of multiple free, online courses on XAML, Cloud and Web development on edX.org. Sidney also leads efforts to open-source traditional classroom training for Azure using GitHub.",
       "image": "archive/2016/sidney.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/sidney_andrews" },
-        { "type": "website", "url": "http://www.seesharprun.net" }
-      ]
+      "twitter": "https://x.com/sidney_andrews",
+      "github": "https://github.com/seesharprun",
+      "website": "https://www.seesharprun.net/"
     },
     {
       "name": "Kristin Fitch",
       "bio": "Co-founder http://ZiggityZoom.com, and a network of Family-related web/mobile properties- focusing on Fun, Games, and Creative Learning / Web Strategy",
       "image": "archive/2016/kristin-fitch.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/kristinfitch" }
-      ]
+      "twitter": "https://x.com/kristinfitch"
     },
     {
       "name": "Troy Connor",
       "bio": "Software Engineer for ETA (Emerging Technology Advisors) and diversity advocate.",
       "image": "archive/2016/troy-connor.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/troy0820" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/troyconnor" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/troyconnor",
+      "twitter": "https://x.com/troy0820",
+      "bluesky": "https://bsky.app/profile/troy0820.dev",
+      "github": "https://github.com/troy0820"
     },
     {
       "name": "Sarah Bray",
       "bio": "Sarah Bray is a digital strategist, designer/dev, and author who spends a lot of time thinking about how our design and marketing choices affect people, including ourselves. She wrote the book Gather the People: A simple, honest approach to creating work that people love, buy, and share. She is currently team lead and strategist at yes&, where she works collaboratively to design experiences that build connection. When she's not hanging out with her team, she's probably reading a book, playing MarioKart or Pokemon Go with her favorite guy and three kids, or dreaming up the next adventure.",
       "image": "archive/2016/sarah-bray.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/sarahjbray" },
-        { "type": "website", "url": "http://sarahjbray.com" }
-      ]
+      "twitter": "https://x.com/sarahjbray",
+      "website": "https://sarahjbray.com"
     },
     {
       "name": "Austin Hodge",
       "bio": "Austin is a software developer working at 80|20. He spent two years as an engineering student at Virginia Tech, and then left to pursue a career in web development. Austin has focused his efforts on using the latest innovations in web technology to make cutting-edge user interfaces.",
       "image": "archive/2016/austin-hodge.png",
-      "links": [
-        { "type": "website", "url": "http://austinbhodge.com/" }
-      ]
+      "website": "https://austinbhodge.com/"
     },
     {
       "name": "Jen Holloway",
       "bio": "",
-      "image": "archive/2016/jen-holloway.jpg",
-      "links": []
+      "image": "archive/2016/jen-holloway.jpg"
     },
     {
       "name": "Marla Schuchman",
       "bio": "",
       "image": "archive/2016/marla-schuchman.jpg",
-      "links": []
+      "linkedin": "https://www.linkedin.com/in/marlas/"
     },
     {
       "name": "Greg Norman",
       "bio": "",
       "image": "archive/2016/greg-norman.jpg",
-      "links": []
+      "linkedin": "https://www.linkedin.com/in/gregnorman/",
+      "twitter": "https://x.com/Raelshark",
+      "bluesky": "https://bsky.app/profile/notthegolfer.com",
+      "website": "https://faulttolerance.io"
     },
     {
       "name": "Kevin Druff",
       "bio": "",
-      "image": "archive/2016/kevin-druff.jpg",
-      "links": []
+      "image": "archive/2016/kevin-druff.jpg"
     },
     {
       "name": "Paul Chin Jr.",
       "bio": "Hi, I'm Paul Chin Jr! Hampton Roads native and lover of all things technology, business, and food. I studied business, worked in finance, and went on to start a series of different companies in a wide variety of industries. I've been teaching myself JavaScript for the past year and truly appreciate all of the opportunities that software development has to offer. My current projects revolve around Nodebots and interactive art.",
       "image": "archive/2016/paul-chin.jpg",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/paulchinjr" },
-        { "type": "github", "url": "http://www.github.com/pchinjr" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/paulchinjr/",
+      "twitter": "https://x.com/paulchinjr",
+      "bluesky": "https://bsky.app/profile/paulchinjr.bsky.social",
+      "github": "https://github.com/pchinjr",
+      "website": "https://paulchinjr.com"
     }
   ],
   "schedule": [

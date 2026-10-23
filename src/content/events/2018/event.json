@@ -18,80 +18,69 @@
       "name": "Joel Hulen",
       "bio": "Joel Hulen has more than 23 years of experience in the IT field, gaining expertise in a variety of disciplines ranging from systems engineering to cloud-based computing. He has focused on software development for over 18 years, developing and architecting software solutions for many platforms. He is a lead maintainer of the popular open source resiliency library, Polly.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/Joelhulen" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/joel-hulen-ba76b73" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/joel-hulen-ba76b73",
+      "twitter": "https://x.com/Joelhulen"
     },
     {
       "name": "Chazona Baum",
       "bio": "As a Principal Technologist at MAXX Potential, Chazona tackles challenges using a variety of languages and technologies, from front end fixes to API creation and workflow automation, while coaching a growing pool of rising technologists. Chazona is a self-taught developer building on a decade of customer service experience, lending her to being passionate about self-directed education and advocating for expanded opportunities for those from non-traditional backgrounds.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/chazonacodes" },
-        { "type": "website", "url": "https://chazonabaum.com/blog/" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/chazonacodes/",
+      "twitter": "https://x.com/chazonacodes",
+      "bluesky": "https://bsky.app/profile/chazonabaum.com",
+      "github": "https://github.com/chznbaum",
+      "mastodon": "https://baum.social/@chazona",
+      "website": "https://chazonabaum.com/blog/"
     },
     {
       "name": "Dylan Sheffer",
       "bio": "Dylan Sheffer is a software developer with a passion for accessibility and user-centered design. Outside of code, he enjoys creating cocktails, playing the Irish tin whistle, and drinking Chinese tea.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/DylanSheffer" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/dylansheffer/" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/dylansheffer/",
+      "twitter": "https://x.com/DylanSheffer"
     },
     {
       "name": "Hayden Braxton",
       "bio": "Hayden is a native resident of Richmond, Virginia, currently working as a software engineer for Unboxed Technology. In his free time, you will probably find him writing code, honing his South Indian cooking skills, or helplessly trying to learn ALL THE THINGS!",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/hayden_dev" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/hayden-braxton-195331a5/" },
-        { "type": "website", "url": "https://www.unboxedtechnology.com/" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/hayden-braxton-195331a5/",
+      "twitter": "https://x.com/hayden_dev",
+      "website": "https://www.unboxedtechnology.com/"
     },
     {
       "name": "Emily Young",
       "bio": "Emily is a software engineer who loves working with automation, data, computer vision, and robots! Her experience includes things like architecting the infrastructure for major ad campaigns, creating interactive murals, and hand making small batch hardware projects.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/emilyincarnate" }
-      ]
+      "twitter": "https://x.com/emilyincarnate"
     },
     {
       "name": "Matthew Sargent",
       "bio": "Matt Sargent is a longtime Virginia native who graduated from James Madison University with a BS in Computer Science in 1985. He is a Team Lead and Senior Consultant at Marathon Consulting. Matt is a life-long electronics hobbyist who has been developing projects using Arduino, ESP32, and Raspberry Pi. He and his wife, Kathy, live in Virginia Beach and await visits from their two kids who are off conquering the world on their own.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/mcsarge" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/matthewcsargent/" },
-        { "type": "website", "url": "https://mcsarge.blogspot.com/" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/matthewcsargent/",
+      "twitter": "https://x.com/mcsarge",
+      "bluesky": "https://bsky.app/profile/mattsargent.bsky.social",
+      "website": "https://mcsarge.blogspot.com/"
     },
     {
       "name": "Kristina Krasnolobova",
       "bio": "Graduate CS student at Old Dominion University and part of ODU Cyber Competition Team. Currently working as Jr. Cyber Security Analyst at Sentara Healthcare. Successfully graduated from the ODU Graduate Certificate Program in Cyber Security in 2018. Received Cyber Security Risk Management Certificate in 2017. Believes in giving back to a community and enjoys volunteering.",
       "image": "",
-      "links": []
+      "linkedin": "https://www.linkedin.com/in/kristina-k-19ba7a132/"
     },
     {
       "name": "Kenia Valladarez",
       "bio": "Kenia was once an accountant with a dream to not be so #basic. Now, she is a \"cloudy\" software engineer at Cloudreach and an amateur gopher. Kenia pushes commits and tweets @kaxcode.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/kaxcode" }
-      ]
+      "twitter": "https://x.com/kaxcode"
     },
     {
       "name": "Matthew Harris",
       "bio": "From start ups to global billion dollar enterprises I've worn every hat. I've used kubernetes in production from 1.2 and have dabbled with serverless technology. I am a polyglot mainly focused on Go, Python but have experience in Perl, Ruby, PHP, Bash. I currently work for IBM Cloud but have worked for multiple cloud companies mainly focused on the automation of AWS and GCE resources.",
       "image": "",
-      "links": [
-        { "type": "twitter", "url": "https://twitter.com/passionatecode" },
-        { "type": "linkedin", "url": "https://www.linkedin.com/in/matthewcharris" },
-        { "type": "website", "url": "https://mattharris.org/" }
-      ]
+      "linkedin": "https://www.linkedin.com/in/matthewcharris",
+      "twitter": "https://x.com/passionatecode",
+      "website": "https://mattharris.org/"
     }
   ],
   "schedule": [
