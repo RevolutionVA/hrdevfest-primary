@@ -6,7 +6,7 @@ test.describe("Site Navigation", () => {
     await expect(page).toHaveURL(/\/2026\/?$/);
     await expect(page).toHaveTitle(/Hampton Roads DevFest 2026/);
     await expect(
-      page.getByRole("heading", { name: "2026 Speakers" })
+      page.getByRole("heading", { name: "Speakers" })
     ).toBeVisible();
   });
 
@@ -15,7 +15,7 @@ test.describe("Site Navigation", () => {
     await expect(page).toHaveURL(/\/2026\/?$/);
     await expect(page).toHaveTitle(/Hampton Roads DevFest 2026/);
     await expect(
-      page.getByRole("heading", { name: "2026 Schedule" })
+      page.getByRole("heading", { name: "Schedule" })
     ).toBeVisible();
   });
 
