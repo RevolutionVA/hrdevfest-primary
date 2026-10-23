@@ -8,8 +8,8 @@ const events = allEvents
   .map(event => event.data)
   .sort((a, b) => b.year - a.year);
 
-const upcomingEvent = events.find(e => e.year === 2026);
-const pastEvents = events.filter(e => e.year !== 2026);
+// All events are now past events
+const pastEvents = events;
 ---
 
 <YearLayout title="Past Events - Hampton Roads DevFest" description="Browse all Hampton Roads DevFest events from 2015 to present." year={2024}>
@@ -21,23 +21,21 @@ const pastEvents = events.filter(e => e.year !== 2026);
     </div>
   </section>
 
-  <!-- Upcoming Event Banner -->
-  {upcomingEvent && (
-    <section class="w-full py-8 px-8 bg-blue-600 text-white">
-      <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-          <p class="text-lg font-semibold">Coming Soon: {upcomingEvent.title}</p>
-          <p class="text-blue-100">{upcomingEvent.dateFormatted}</p>
-        </div>
-        <a 
-          href="/2026" 
-          class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-        >
-          Learn More &rarr;
-        </a>
+  <!-- Most Recent Event Banner -->
+  <section class="w-full py-8 px-8 bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        <p class="text-lg font-semibold">Most Recent: Hampton Roads DevFest 2026</p>
+        <p class="text-blue-100">February 27, 2026 at Zeiders American Dream Theater</p>
       </div>
-    </section>
-  )}
+      <a 
+        href="/2026" 
+        class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+      >
+        View Event &rarr;
+      </a>
+    </div>
+  </section>
 
   <!-- Past Events Grid -->
   <section class="w-full py-12 px-8 bg-gray-50">
@@ -114,7 +112,7 @@ const pastEvents = events.filter(e => e.year !== 2026);
               </a>
             </div>
             <div class="w-2/12 flex justify-center">
-              <div class={`w-4 h-4 rounded-full ${event.year === 2026 ? 'bg-blue-600' : 'bg-gray-400'}`}></div>
+              <div class="w-4 h-4 rounded-full bg-gray-400"></div>
             </div>
             <div class="w-5/12"></div>
           </div>

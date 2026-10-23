@@ -98,6 +98,13 @@
       "name": "John Feminella",
       "bio": "John Feminella is an avid technologist, occasional public speaker, and curiosity advocate. He serves as an advisor to Pivotal, where he works on helping enterprises transform the way they write, operate, and deploy software. He's also the cofounder of a tiny analytics monitoring and reporting startup named UpHex. John lives in Charlottesville, VA and likes meta-jokes, milkshakes, and referring to himself in the third person in speaker bios.",
       "image": "archive/2017/john-feminella.jpeg"
+    },
+    {
+      "name": "Jonah Adkins",
+      "bio": "Jonah Adkins is a Hampton Roads-based GIS specialist and OpenStreetMap contributor passionate about open data and mapping technologies.",
+      "image": "",
+      "twitter": "https://x.com/jonahadkins",
+      "github": "https://github.com/jonahadkins"
     }
   ],
   "schedule": [
