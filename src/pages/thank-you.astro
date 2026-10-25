@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import PastYearsNav from "../components/PastYearsNav.astro";
 import { Image } from "astro:assets";
 import headerDots from "../assets/dots/header_dots.svg";
 import logo from "../assets/logo.png";
@@ -62,8 +63,7 @@ import logo from "../assets/logo.png";
           <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
           <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
           <a href="/#testimonials" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Testimonials</a>
-          <a href="/years/2024" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2024</a>
-          <a href="/years/2026" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2026</a>
+          <PastYearsNav variant="desktop" />
           <a href="/faq" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">FAQ</a>
           <a href="/sponsor" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Sponsor</a>
         </div>

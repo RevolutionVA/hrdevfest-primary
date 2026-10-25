@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import PastYearsNav from "../components/PastYearsNav.astro";
 import { Image } from "astro:assets";
 import headerDots from "../assets/dots/header_dots.svg";
 import logo from "../assets/logo.png";
@@ -226,12 +227,13 @@ const commitments: Commitment[] = [
   },
 ];
 
-const navLinks = [
+// The "Past years" menu sits between these two groups
+const navLinksBeforeYears = [
   { href: "/#about", label: "About" },
   { href: "/#venue", label: "Venue" },
   { href: "/#testimonials", label: "Testimonials" },
-  { href: "/years/2024", label: "2024" },
-  { href: "/years/2026", label: "2026" },
+];
+const navLinksAfterYears = [
   { href: "/faq", label: "FAQ" },
   { href: "/sponsor", label: "Sponsor" },
 ];
@@ -321,7 +323,11 @@ const email = "kevin@revolutionva.org";
       <div class="flex flex-col h-full">
         <div class="h-[60px]"></div>
         <div class="flex flex-col gap-8 px-8 pt-4">
-          {navLinks.map((link) => (
+          {navLinksBeforeYears.map((link) => (
+            <a href={link.href} class="mobile-menu-link text-black text-base font-bold leading-relaxed">{link.label}</a>
+          ))}
+          <PastYearsNav variant="mobile" />
+          {navLinksAfterYears.map((link) => (
             <a href={link.href} class="mobile-menu-link text-black text-base font-bold leading-relaxed">{link.label}</a>
           ))}
         </div>
@@ -332,7 +338,11 @@ const email = "kevin@revolutionva.org";
     <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
       <div class="max-w-7xl mx-auto hidden md:flex justify-center">
         <div class="flex items-center gap-12 lg:gap-20">
-          {navLinks.map((link) => (
+          {navLinksBeforeYears.map((link) => (
+            <a href={link.href} class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">{link.label}</a>
+          ))}
+          <PastYearsNav variant="desktop" />
+          {navLinksAfterYears.map((link) => (
             <a
               href={link.href}
               class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity"

@@ -1,0 +1,80 @@
+---
+// Past editions that have an archive page under src/pages/years/, newest first.
+const pastYears = ["2026", "2024"];
+
+interface Props {
+  variant: "desktop" | "mobile";
+  // Classes for the desktop "Past years" toggle so it matches the page's other nav links
+  summaryClass?: string;
+}
+
+const {
+  variant,
+  summaryClass = "text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity",
+} = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
+const years = pastYears.map((year) => ({
+  year,
+  href: `/years/${year}`,
+  current: currentPath === `/years/${year}`,
+}));
+---
+
+{variant === "desktop" ? (
+  <details class="past-years-menu relative">
+    <summary class={`${summaryClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center gap-1`}>
+      Past years
+      <svg class="past-years-chevron w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </summary>
+    <ul class="absolute left-1/2 -translate-x-1/2 top-full mt-2 min-w-[8rem] bg-white rounded-lg shadow-lg py-2 z-50">
+      {years.map((y) => (
+        <li>
+          <a
+            href={y.href}
+            class="block px-4 py-2 text-black text-base font-bold leading-relaxed hover:bg-[#F3F4F6] hover:text-[#4DB7B9] transition-colors"
+            aria-current={y.current ? "page" : undefined}
+          >{y.year}</a>
+        </li>
+      ))}
+    </ul>
+  </details>
+) : (
+  <div class="flex flex-col gap-4">
+    <span id="mobile-past-years-label" class="text-black text-base font-bold leading-relaxed">Past years</span>
+    <ul class="flex flex-col gap-4 pl-6" aria-labelledby="mobile-past-years-label">
+      {years.map((y) => (
+        <li>
+          <a
+            href={y.href}
+            class="mobile-menu-link text-black text-base font-bold leading-relaxed"
+            aria-current={y.current ? "page" : undefined}
+          >{y.year}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+<style>
+  details[open] .past-years-chevron {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  // Close the desktop dropdown on Escape or when clicking outside it
+  document.querySelectorAll<HTMLDetailsElement>('.past-years-menu').forEach((menu) => {
+    document.addEventListener('click', (event) => {
+      if (menu.open && !menu.contains(event.target as Node)) menu.open = false;
+    });
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  });
+</script>
