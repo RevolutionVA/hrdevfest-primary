@@ -1,0 +1,280 @@
+{
+  "year": 2017,
+  "theme": "archive",
+  "title": "Hampton Roads DevFest 2017",
+  "date": "2017-11-10",
+  "dateFormatted": "Friday, November 10, 2017",
+  "tagline": "DevFest 2017",
+  "description": "Hampton Roads DevFest 2017 was held at the Chesapeake Conference Center, featuring sessions on cloud, mobile, security, and emerging technologies.",
+  "venue": {
+    "name": "Chesapeake Conference Center",
+    "address": "700 Conference Center Drive",
+    "city": "Chesapeake",
+    "state": "VA",
+    "zip": "23320"
+  },
+  "speakers": [
+    {
+      "name": "Kevin Curry",
+      "bio": "Kevin is a native resident of Virginia Beach and a graduate of Virginia Tech (B.A. History '92, M.S. Computer Science '99) where he studied human-computer interaction in VR. He's a co-founder and former Chief Scientist at Bridgeborn, and current a Managing Partner and Chief Technology Officer of Comparity. Kevin is also an active volunteer for Code for America, and co-organizes the local chapter Code for Hampton Roads. He'll talk about why he codes for Hampton Roads and why you should use your skills to make your cities and communities better.",
+      "image": "archive/2017/kevin-curry.png",
+      "linkedin": "https://www.linkedin.com/in/kevincurry",
+      "twitter": "https://x.com/kmcurry",
+      "website": "https://about.me/kevincurry"
+    },
+    {
+      "name": "Marla Schuchman",
+      "bio": "Marla Schuchman has spent nearly a decade assisting startups and technology companies to launch new products and services. She has worked with national and international companies including ARX (acquired by Docusign), Wix, and Virginia Beach based 7 Cups of Tea. Her consulting firm, Three Sheep, works with early-stage entrepreneurs and small business owners on everything from prototyping to pitching investors. Marla is deeply involved with regional efforts to facilitate new business growth through startup pitch competitions, accelerator and incubator programs.",
+      "image": "archive/2017/marla-schuchman.jpg",
+      "linkedin": "https://www.linkedin.com/in/marlas/"
+    },
+    {
+      "name": "Michael Rollins",
+      "bio": "I have done it all, from backend work, web services, front end JS before the great JS revolution (back in the days of ExtJS). I teethed on gov't contracting here locally, then made the jump to Silicon Valley and Flurry as a remote worker. Now, I'm a mobile engineer focusing on developer and partner relations, a rare breed of engineer that speaks to the outside world and loves every second of it.",
+      "image": "archive/2017/michael-rollins.jpg",
+      "linkedin": "https://www.linkedin.com/in/rollinsmichael",
+      "twitter": "https://x.com/rollinsio",
+      "website": "https://rollins.io/"
+    },
+    {
+      "name": "Stanley Zheng",
+      "bio": "Stanley Zheng is a Software Developer from Norfolk, VA. His two main goto languages are JavaScript and Python. Outside of code, he enjoys biking and practicing yoga. Currently, he's developer at homes.com where they're rebuilding their software stack in an exciting way!",
+      "image": "archive/2017/stanley-zheng.jpg",
+      "linkedin": "https://www.linkedin.com/in/stanley-zheng/",
+      "twitter": "https://x.com/stanzheng"
+    },
+    {
+      "name": "Robert Chrzanowski",
+      "bio": "Robert Chrzanowski is a mobile software engineer for Outsite Networks. His passion is in learning new programming paradigms, climbing out of Turing tarpits and building robots. He lives with is wife Michelle and cats Clover, Moe and Diablo.",
+      "image": "archive/2017/robert-chrzanowski.jpg",
+      "linkedin": "https://www.linkedin.com/in/robert-chrzanowski-a979a850/",
+      "twitter": "https://x.com/Robert_Chrzanow"
+    },
+    {
+      "name": "Greg Norman",
+      "bio": "Greg Norman is a web consultant and software developer with 19 years of experience, who builds awesome web apps and sites for clients while also hacking his own health in his free time. He focuses on helping clients make more money while also helping other developers figure out how to succeed in spite of adversity.",
+      "image": "archive/2017/greg-norman.jpg",
+      "linkedin": "https://www.linkedin.com/in/gregnorman/",
+      "twitter": "https://x.com/Raelshark",
+      "bluesky": "https://bsky.app/profile/notthegolfer.com",
+      "website": "https://faulttolerance.io"
+    },
+    {
+      "name": "Kevin Jones",
+      "bio": "Kevin Jones has been an Information Security developer and consultant for over 10 years. He has helped organizations build secure infrastructure, code analysis, and achieve compliance with the payment card industry, federal information processing standards, and others. He is also a Microsoft Developer MVP and has been involved in the development community with .NET, Security, and Ruby.",
+      "image": "archive/2017/kevin-jones.jpg",
+      "twitter": "https://x.com/vcsjones",
+      "github": "https://github.com/vcsjones",
+      "website": "https://vcsjones.dev"
+    },
+    {
+      "name": "Chida Sadayappan",
+      "bio": "Chida Sadayappan is a Technical Entrepreneur, currently manages an Artificial Intelligence And Machine Learning Startup, Blitzar.Io. He successfully exited couple of technology companies in the past 12+ years of his entrepreneurial career.",
+      "image": "archive/2017/chida-sadayappan.jpg",
+      "linkedin": "https://www.linkedin.com/in/schida/",
+      "twitter": "https://x.com/schida"
+    },
+    {
+      "name": "Benjamin Earley",
+      "bio": "I'm a software engineer currently developing for Android. I am particularly passionate about the open web where people can share, collaborate, learn, and teach freely with each other. Activities that interest me are games, design, hanging out with friends, and finding ways to contribute and share my skills with the community.",
+      "image": "archive/2017/benjamin-earley.jpg",
+      "website": "https://BenjaminEarley.com"
+    },
+    {
+      "name": "Daniel Worsnup",
+      "bio": "Daniel Worsnup is a software engineer at ForRent.com, a subsidiary of Dominion Enterprises in Norfolk, VA. As a core developer on the front end team, he has been integral in building ForRent's new responsive web application, which helps millions of users per month find their next home. He is passionate about developing high-performance, scalable applications for the modern web.",
+      "image": "archive/2017/daniel_worsnup.jpg",
+      "linkedin": "https://www.linkedin.com/in/worsnupd/",
+      "twitter": "https://x.com/worsnupd"
+    },
+    {
+      "name": "Jason Wilson",
+      "bio": "I am a wearer of many hats. Presently a Business Analyst for Trader Interactive, I have been building frontend and backend projects for 17 years. My career journey has taken me through small and large companies and a detour into maritime service. In my free time I craft Minecraft worlds with my two children, dabble in freelance, and try to keep pace with the amazing new technologies and techniques available to help us build better experiences and communication online.",
+      "image": "archive/2017/jason-wilson.jpg",
+      "twitter": "https://x.com/wilsonuponsea",
+      "website": "https://www.wilsons.io/"
+    },
+    {
+      "name": "John Feminella",
+      "bio": "John Feminella is an avid technologist, occasional public speaker, and curiosity advocate. He serves as an advisor to Pivotal, where he works on helping enterprises transform the way they write, operate, and deploy software. He's also the cofounder of a tiny analytics monitoring and reporting startup named UpHex. John lives in Charlottesville, VA and likes meta-jokes, milkshakes, and referring to himself in the third person in speaker bios.",
+      "image": "archive/2017/john-feminella.jpeg"
+    },
+    {
+      "name": "Jonah Adkins",
+      "bio": "Jonah Adkins is a Hampton Roads-based GIS specialist and OpenStreetMap contributor passionate about open data and mapping technologies.",
+      "image": "archive/2017/jonah-adkins.png",
+      "twitter": "https://x.com/jonahadkins",
+      "github": "https://github.com/jonahadkins"
+    }
+  ],
+  "schedule": [
+    {
+      "time": "8:00 AM",
+      "title": "Registration & Breakfast",
+      "description": "Registration for attendees and complimentary breakfast.",
+      "track": "All"
+    },
+    {
+      "time": "9:00 AM",
+      "title": "Keynote",
+      "description": "Kevin Curry - Opening remarks and keynote presentation.",
+      "track": "All"
+    },
+    {
+      "time": "10:00 AM",
+      "title": "Talk Reversi",
+      "description": "Marla Schuchman - Open forum discussion where the audience asks questions.",
+      "track": "All"
+    },
+    {
+      "time": "11:00 AM",
+      "title": "The Beauty of the Actor Pattern in Multi-threaded iOS",
+      "description": "Michael Rollins - Using the Actor pattern to tame iOS threads.",
+      "track": "Room 1"
+    },
+    {
+      "time": "11:00 AM",
+      "title": "Machine Learning APIs",
+      "description": "Chida Sadayappan - Leveraging Google Cloud APIs for ML.",
+      "track": "Room 2"
+    },
+    {
+      "time": "12:00 PM",
+      "title": "Lunch",
+      "description": "Complimentary lunch in the main conference area.",
+      "track": "All"
+    },
+    {
+      "time": "1:00 PM",
+      "title": "Leveraging Kubernetes for everyone",
+      "description": "Stanley Zheng - Container orchestration with Kubernetes.",
+      "track": "Room 1"
+    },
+    {
+      "time": "1:00 PM",
+      "title": "\"Reactive\" Robots With Android Things",
+      "description": "Benjamin Earley - Building a sumo bot with Raspberry Pi and Kotlin.",
+      "track": "Room 2"
+    },
+    {
+      "time": "2:00 PM",
+      "title": "Writing Haskell in YOUR Favorite Language",
+      "description": "Robert Chrzanowski - Pure programming patterns in Kotlin.",
+      "track": "Room 1"
+    },
+    {
+      "time": "2:00 PM",
+      "title": "Serverless Architecture - What, Why, and How?",
+      "description": "Daniel Worsnup - AWS Lambda and serverless computing.",
+      "track": "Room 2"
+    },
+    {
+      "time": "3:00 PM",
+      "title": "Building Baymax - Health Care Companion with Google Assistant",
+      "description": "Greg Norman - Leveraging Google Assistant for health.",
+      "track": "Room 1"
+    },
+    {
+      "time": "3:00 PM",
+      "title": "Living on the Grid",
+      "description": "Jason Wilson - CSS Grid for responsive layouts.",
+      "track": "Room 2"
+    },
+    {
+      "time": "4:00 PM",
+      "title": "Building a career in security",
+      "description": "Kevin Jones - Career path in information security.",
+      "track": "Room 1"
+    },
+    {
+      "time": "4:00 PM",
+      "title": "Building with Blockchains",
+      "description": "John Feminella - Distributed applications with blockchain.",
+      "track": "Room 2"
+    },
+    {
+      "time": "5:00 PM",
+      "title": "Closing remarks & Raffle",
+      "description": "Closing ceremony with sponsor gifts.",
+      "track": "All"
+    },
+    {
+      "time": "5:30 PM",
+      "title": "Happy Hour",
+      "description": "Happy Hour location TBD.",
+      "track": "All"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Google Developers",
+      "logo": "archive/2017/google-developers-logo.png",
+      "url": "http://developers.google.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Issuetrak",
+      "logo": "archive/2017/issuetrak-logo.png",
+      "url": "http://www.issuetrak.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Revolution VA",
+      "logo": "archive/2017/revolutionva-logo.png",
+      "url": "http://revolutionconf.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Dominion Enterprises",
+      "logo": "archive/2017/dominion-logo.png",
+      "url": "http://www.dominionenterprises.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Ferguson",
+      "logo": "archive/2017/ferguson-logo.jpg",
+      "url": "http://www.ferguson.com/careers",
+      "tier": "logo"
+    },
+    {
+      "name": "Cloudreach",
+      "logo": "archive/2017/cloudreach-logo.png",
+      "url": "http://www.cloudreach.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "1701",
+      "logo": "archive/2017/1701-logo.png",
+      "url": "https://1701vb.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Grow Interactive",
+      "logo": "archive/2017/grow-logo.png",
+      "url": "http://thisisgrow.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Trader Interactive",
+      "logo": "archive/2017/trader-logo.png",
+      "url": "http://www.traderinteractive.com/",
+      "tier": "logo"
+    },
+    {
+      "name": "Anthem BlueCross BlueShield",
+      "logo": "archive/2017/anthem-logo.png",
+      "url": "https://antheminc.jobs/norfolk/virginia/usa/jobs/",
+      "tier": "logo"
+    },
+    {
+      "name": "Maxx Potential",
+      "logo": "archive/2017/maxx-potential-logo.png",
+      "url": "https://maxxpotential.com/",
+      "tier": "logo"
+    }
+  ],
+  "testimonials": [],
+  "faq": [],
+  "photos": [],
+  "isArchive": true
+}

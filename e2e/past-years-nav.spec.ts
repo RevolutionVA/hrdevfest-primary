@@ -1,6 +1,14 @@
 import { test, expect } from "@playwright/test";
 
-const pastYears = ["2026", "2024"];
+const pastYears = ["2026", "2024", "2018", "2017", "2016", "2015"];
+
+// Editions rendered from src/data/archive/<year>.json by src/pages/years/[year].astro
+const archiveEditions = [
+  { year: "2018", title: "Hampton Roads DevFest 2018", venue: "Slover Library" },
+  { year: "2017", title: "Hampton Roads DevFest 2017", venue: "Chesapeake Conference Center" },
+  { year: "2016", title: "Hampton Roads DevFest 2016", venue: "Issuetrak" },
+  { year: "2015", title: "Hampton Roads DevFest 2015", venue: "Issuetrak" },
+];
 
 const pagesWithDesktopNav = [
   "/",
@@ -10,6 +18,7 @@ const pagesWithDesktopNav = [
   "/thank-you",
   "/years/2024",
   "/years/2026",
+  ...archiveEditions.map((e) => `/years/${e.year}`),
 ];
 
 // thank-you has no hamburger menu
@@ -101,5 +110,23 @@ test.describe("Past years nav menu", () => {
         .click();
       await expect(page).toHaveURL(/\/years\/2026\/?$/);
     });
+  });
+});
+
+test.describe("Archive edition pages", () => {
+  for (const edition of archiveEditions) {
+    test(`/years/${edition.year} loads with its title and venue`, async ({ page }) => {
+      const response = await page.goto(`/years/${edition.year}`);
+      expect(response?.ok()).toBe(true);
+
+      await expect(page).toHaveTitle(new RegExp(edition.title));
+      await expect(page.getByRole("heading", { level: 1 })).toHaveText(edition.title);
+      await expect(page.locator("#venue")).toContainText(edition.venue);
+    });
+  }
+
+  test("/years/2018 does not show the talk count", async ({ page }) => {
+    await page.goto("/years/2018");
+    await expect(page.locator("body")).not.toContainText("9 talks");
   });
 });
