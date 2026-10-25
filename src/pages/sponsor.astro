@@ -173,7 +173,7 @@ const reportItems: string[] = [
   "The mix of attendee roles and seniority",
   "Counts for all four opt-in ribbons: Hiring, Looking for work, Internship, and Open to contract work (counts only, never names)",
   "Counts by region, veterans, students, and tech stacks and languages (proposed)",
-  "Whether attendees are military or transitioning from the military, which we ask at registration",
+  "Whether attendees are military or transitioning from the military, which we ask at registration. The question is optional, and we only ever report it to sponsors as totals, never names",
   "Scholars who attended versus scholars funded (proposed)",
   "Newsletter and social reach",
   "Photos of your table or signage",
@@ -591,7 +591,7 @@ const email = "kevin@revolutionva.org";
               <tr class="border-b border-gray-200">
                 <th scope="row" class="py-2 pr-6 font-semibold text-black">Students, veterans, and people between jobs</th>
                 <td class="py-2 pr-6 text-black">$30</td>
-                <td class="py-2 text-black">Always $30 for students, veterans, and people between jobs. After Early Bird ends on December 31, 2026, ask us for a discount code. We give codes out on request, on the honor system.</td>
+                <td class="py-2 text-black">Always $30 for students, veterans, and people between jobs. After Early Bird ends on December 31, 2026, ask us for a discount code. We give codes out on request, on the honor system. No proof needed, and nothing on your badge or receipt shows which code you used.</td>
               </tr>
               <tr class="border-b border-gray-200">
                 <th scope="row" class="py-2 pr-6 font-semibold text-black whitespace-nowrap">Send a friend</th>
@@ -610,7 +610,10 @@ const email = "kevin@revolutionva.org";
         <p class="text-gray-700 text-sm leading-relaxed">
           Buying for a group or a team? Get 25% off when you buy 5 or more tickets on one invoice. Email Kevin at <a href={`mailto:${email}`} class="text-[#D33B32] font-bold underline hover:opacity-80">{email}</a>.
         </p>
-        <h3 class="text-black text-[20px] font-bold leading-7 mt-2">Why your employer should send you</h3>
+        <p class="text-gray-700 text-sm leading-relaxed">
+          <a href="#why-send-me" class="text-[#4DB7B9] font-bold underline hover:opacity-80">Ask your manager</a>
+        </p>
+        <h3 id="why-send-me" class="text-black text-[20px] font-bold leading-7 mt-2">Why your employer should send you</h3>
         <p class="text-black text-base leading-relaxed">
           You'll learn practical skills from local developers who live and work in Hampton Roads, and you can take those skills back to your team. You'll spend a day with the regional tech community and meet people you can keep in touch with after the event. You'll also see who is hiring and building here, which helps your employer know what's going on in our area.
         </p>
