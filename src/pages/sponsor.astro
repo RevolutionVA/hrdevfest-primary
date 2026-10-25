@@ -1,7 +1,9 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import { Image } from "astro:assets";
 import headerDots from "../assets/dots/header_dots.svg";
+import logo from "../assets/logo.png";
 
 const pageTitle = "Sponsor | Hampton Roads DevFest 2027";
 const pageDescription = "Sponsorship prospectus for Hampton Roads DevFest 2027, Friday, April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA. Presented by RevolutionVA, a 501(c)(3) nonprofit.";
@@ -297,9 +299,11 @@ const email = "kevin@revolutionva.org";
       NOT FINAL: draft prospectus, details may change.
     </div>
 
-    <!-- Save the Date Banner -->
-    <a href="/#signup" class="block w-full bg-[#D33B32] text-white text-center py-3 pl-4 pr-16 md:px-4 font-bold text-sm md:text-base hover:brightness-95 transition-all">
-      Hampton Roads DevFest returns April 23, 2027. Sign up for updates! 🎉
+    <!-- Logo Bar (the hero below carries the date and place) -->
+    <a href="/" class="block w-full bg-white py-3 pl-4 pr-16 md:px-4 hover:opacity-90 transition-opacity">
+      <div class="flex justify-center">
+        <Image src={logo} alt="Hampton Roads DevFest home" class="h-14 w-auto" width={150} height={113} />
+      </div>
     </a>
 
     <!-- Mobile hamburger button -->

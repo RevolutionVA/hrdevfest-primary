@@ -1,7 +1,9 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import { Image } from "astro:assets";
 import headerDots from "../assets/dots/header_dots.svg";
+import logo from "../assets/logo.png";
 ---
 
 <html lang="en">
@@ -95,10 +97,13 @@ import headerDots from "../assets/dots/header_dots.svg";
   </head>
   <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
     <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">
-    <!-- Save the Date Banner -->
-    <div class="w-full bg-[#D33B32] text-white text-center py-3 px-4 font-bold text-sm md:text-base">
-      Hampton Roads DevFest returns April 23, 2027 — sign up for updates! 🎉
-    </div>
+    <!-- Logo Bar -->
+    <a href="/" class="block w-full bg-white py-3 pl-4 pr-16 md:px-4 hover:opacity-90 transition-opacity">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
+        <Image src={logo} alt="Hampton Roads DevFest home" class="h-14 w-auto" width={150} height={113} />
+        <p class="text-[#052831] text-sm md:text-base font-bold">Friday, April 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
+      </div>
+    </a>
 
     <!-- Mailing List Signup -->
     <section class="w-full py-12 px-8 bg-[#F3F4F6]">

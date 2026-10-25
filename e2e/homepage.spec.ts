@@ -12,8 +12,11 @@ test.describe("Homepage", () => {
   test("hero section is visible with event details", async ({ page }) => {
     const hero = page.locator(".hero-section");
     await expect(hero).toBeVisible();
-    await expect(hero.getByText("Hampton Roads DevFest 2027")).toBeVisible();
-    await expect(hero.getByText(/April 23, 2027/)).toBeVisible();
+    await expect(
+      hero.getByRole("heading", { level: 1, name: "Hampton Roads DevFest 2027" })
+    ).toBeVisible();
+    await expect(hero.getByText(/Friday, April 23, 2027/)).toBeVisible();
+    await expect(hero.getByText(/Zeiders American Dream Theater, Virginia Beach/)).toBeVisible();
   });
 
   test("shows the confirmed 2027 venue", async ({ page }) => {
