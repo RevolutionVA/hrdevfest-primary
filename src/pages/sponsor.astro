@@ -72,7 +72,7 @@ const tiers: Tier[] = [
     available: "1 available",
     tagline: "Your name on the event: \"Hampton Roads DevFest presented by [Your Company].\"",
     benefits: [
-      "A 15-minute talk at the 9:00 opening, when the whole room is in their seats",
+      "A 15-minute talk at the 9:00 opening, when the whole room is in their seats. The talk can include a product demo, or it can be a welcome from a public-sector sponsor.",
       "Top logo placement on the website, slides, and signage",
       "A sponsor table",
       "12 tickets",
@@ -90,7 +90,7 @@ const tiers: Tier[] = [
     available: "1 available",
     tagline: "Your name on the room where every talk happens: \"The [Your Company] Main Stage.\"",
     benefits: [
-      "A 15-minute talk at 1:30, right after lunch",
+      "A 15-minute talk at 1:30, right after lunch. The talk can include a product demo.",
       "Main Stage naming on signage, slides, and the schedule",
       "A sponsor table",
       "10 tickets",
@@ -124,9 +124,9 @@ const tiers: Tier[] = [
     price: "$2,500 each",
     available: "3 of each available",
     tagline: "Your sponsorship funds scholarship seats.",
-    lead: "Every dollar of the Scholarship tier pays for DevFest seats, named for your company as a Veteran Scholarship or a Student Scholarship. Scholarships are open to veterans, students, people who have been laid off, and career changers, with no proof of need required.",
+    lead: "Every dollar of the Scholarship tier pays for DevFest seats, named for your company as a Veteran Scholarship or a Student Scholarship. Seats funded by a Veteran Scholarship go to veterans, and seats funded by a Student Scholarship go to students. Scholars never need to show proof of need.",
     benefits: [
-      "Named scholarship seats, funded by your sponsorship (number of seats: details coming soon)",
+      "10 named scholarship seats, funded by your sponsorship",
       "Meet your scholars at the Scholar Meetup (12:45, in the Studio). The meetup is optional for scholars.",
       "A sponsor table",
       "4 tickets for your team",
@@ -191,7 +191,7 @@ const commitments: Commitment[] = [
   },
   {
     title: "Attendee privacy comes first.",
-    body: "Sponsor email opt-in for attendees is off by default. When attendees opt in, RevolutionVA sends your email on your behalf, and attendee contacts are never handed to sponsors. How often sponsor emails go out: details coming soon. We never sell attendee lists, and we never scan badges.",
+    body: "Sponsor email opt-in for attendees is off by default. When attendees opt in, RevolutionVA sends your email on your behalf, and attendee contacts are never handed to sponsors. During the week after the event, we send one sponsor follow-up email a day. We never sell attendee lists, and we never scan badges.",
   },
   {
     title: "A one-page recap for Jobs Board sponsors (proposed).",
@@ -380,7 +380,7 @@ const email = "kevin@revolutionva.org";
         <h2 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Why sponsor DevFest</h2>
         <p class="text-black text-lg font-semibold">Hampton Roads talent and excellence.</p>
         <p class="text-black text-base leading-relaxed">
-          Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do. Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here.
+          Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do. Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here. DevFest 2026 was a near sell out.
         </p>
         <p class="text-black text-base font-bold">For 2027:</p>
         <ul class="flex flex-col gap-3 list-disc pl-6 text-black text-base leading-relaxed">
@@ -388,7 +388,7 @@ const email = "kevin@revolutionva.org";
           <li><strong>Showing what's built here.</strong> Talks cover a range of topics, including AI, alongside the rest of what Hampton Roads developers work on every day.</li>
           <li><strong>The Studio.</strong> An open room for hanging out and lunch, where many of the day's conversations happen.</li>
           <li><strong>Real time with attendees.</strong> Registration networking, two 30-minute breaks at the sponsor tables, and a 75-minute lunch.</li>
-          <li><strong>The next generation of local talent.</strong> Many attendees come on scholarships for veterans, students, people who have been laid off, and career changers, funded directly by sponsors. The Scholar Meetup at lunch, optional for scholars, connects them with the companies that sponsored their seats.</li>
+          <li><strong>The next generation of local talent.</strong> Many attendees come on Veteran and Student Scholarships, funded directly by sponsors. The Scholar Meetup at lunch, optional for scholars, connects them with the companies that sponsored their seats.</li>
         </ul>
       </div>
     </section>
@@ -516,11 +516,11 @@ const email = "kevin@revolutionva.org";
               <tr class="border-b border-gray-200">
                 <th scope="row" class="py-3 px-4 font-bold text-black">Pop-up Meetup host</th>
                 <td class="py-3 px-4 text-black">$500 per meetup, or $1,750 for all four 2027 Pop-ups</td>
-                <td class="py-3 px-4 text-black">Host or sponsor a 757tech Pop-up Meetup. Available to any company, with or without a DevFest sponsorship.</td>
+                <td class="py-3 px-4 text-black">Host or sponsor a 757tech Pop-up Meetup. Hosts get their name on the meetup and speaking time at the meetup. We typically see 15 to 20 people at a Pop-up. Available to any company, with or without a DevFest sponsorship.</td>
               </tr>
               <tr>
                 <th scope="row" class="py-3 px-4 font-bold text-black">Extra sponsor tickets</th>
-                <td class="py-3 px-4 text-black">About $35 each (final price: details coming soon)</td>
+                <td class="py-3 px-4 text-black">$30 each, the Early Bird rate</td>
                 <td class="py-3 px-4 text-black">Bring more of your team.</td>
               </tr>
             </tbody>
@@ -576,7 +576,7 @@ const email = "kevin@revolutionva.org";
               <tr class="border-b border-gray-200">
                 <th scope="row" class="py-2 pr-6 font-semibold text-black whitespace-nowrap">Early Bird</th>
                 <td class="py-2 pr-6 text-black">$30</td>
-                <td class="py-2 text-black">For a limited time. Dates: details coming soon.</td>
+                <td class="py-2 text-black">Ends December 31, 2026.</td>
               </tr>
               <tr class="border-b border-gray-200">
                 <th scope="row" class="py-2 pr-6 font-semibold text-black whitespace-nowrap">Regular</th>
@@ -589,9 +589,9 @@ const email = "kevin@revolutionva.org";
                 <td class="py-2 text-black">A reserved seat and a special item. Lunch is open to everyone, whatever ticket you have.</td>
               </tr>
               <tr class="border-b border-gray-200">
-                <th scope="row" class="py-2 pr-6 font-semibold text-black whitespace-nowrap">Student and Veteran</th>
+                <th scope="row" class="py-2 pr-6 font-semibold text-black">Students, veterans, and people between jobs</th>
                 <td class="py-2 pr-6 text-black">$30</td>
-                <td class="py-2 text-black">For students and veterans. Always $30, on the honor system with a discount code we give out on request.</td>
+                <td class="py-2 text-black">Always $30 for students, veterans, and people between jobs. After Early Bird ends on December 31, 2026, ask us for a discount code. We give codes out on request, on the honor system.</td>
               </tr>
               <tr class="border-b border-gray-200">
                 <th scope="row" class="py-2 pr-6 font-semibold text-black whitespace-nowrap">Send a friend</th>
@@ -608,7 +608,7 @@ const email = "kevin@revolutionva.org";
           Every paid ticket comes with a receipt from RevolutionVA.
         </p>
         <p class="text-gray-700 text-sm leading-relaxed">
-          Buying for a group or a team? We can invoice all of those tickets as one order. Email Kevin at <a href={`mailto:${email}`} class="text-[#D33B32] font-bold underline hover:opacity-80">{email}</a>.
+          Buying for a group or a team? Get 25% off when you buy 5 or more tickets on one invoice. Email Kevin at <a href={`mailto:${email}`} class="text-[#D33B32] font-bold underline hover:opacity-80">{email}</a>.
         </p>
         <h3 class="text-black text-[20px] font-bold leading-7 mt-2">Why your employer should send you</h3>
         <p class="text-black text-base leading-relaxed">
