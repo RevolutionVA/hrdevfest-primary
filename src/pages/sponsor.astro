@@ -72,7 +72,7 @@ const tiers: Tier[] = [
     available: "1 available",
     tagline: "Your name on the event: \"Hampton Roads DevFest presented by [Your Company].\"",
     benefits: [
-      "A 15-minute talk at the 9:00 opening, when the whole room is in their seats. The talk can include a product demo, or it can be a welcome from a public-sector sponsor.",
+      "A 15-minute talk at the 9:00 opening, when the whole room is in their seats. The talk can include a product demo, or it can be a welcome from a public official.",
       "Top logo placement on the website, slides, and signage",
       "A sponsor table",
       "12 tickets",
@@ -150,7 +150,7 @@ const tiers: Tier[] = [
       "Your logo on the website and slides",
       "A sponsor post on 757tech's social channels",
       "2 tickets",
-      "A one-page recap after the event: total attendance, the \"Looking for work\" ribbon count, role mix, and top tech stacks (proposed)",
+      "A one-page recap after the event: total attendance, the \"Looking for work\" ribbon count, role mix, and top tech stacks",
       "No sponsor table and no stage time. We don't collect resumes.",
     ],
   },
@@ -173,7 +173,7 @@ const reportItems: string[] = [
   "The mix of attendee roles and seniority",
   "Counts for all four opt-in ribbons: Hiring, Looking for work, Internship, and Open to contract work (counts only, never names)",
   "Counts by region, veterans, students, and tech stacks and languages (proposed)",
-  "Optional anonymous totals for attendees who hold or are eligible for a security clearance, and for attendees transitioning from the military (proposed)",
+  "Whether attendees are military or transitioning from the military, which we ask at registration",
   "Scholars who attended versus scholars funded (proposed)",
   "Newsletter and social reach",
   "Photos of your table or signage",
@@ -187,14 +187,14 @@ interface Commitment {
 const commitments: Commitment[] = [
   {
     title: "Commit by December 15, 2026. Pay in January.",
-    body: "Commit to your sponsorship by December 15, 2026 so we can include you in signage, slides, and announcements. Your invoice and payment can come in January 2027. A written intent to sponsor by December 15, 2026 counts as committed, with your purchase order or payment in January. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor (proposed).",
+    body: "Commit to your sponsorship by December 15, 2026 so we can include you in signage, slides, and announcements. Your invoice and payment can come in January 2027. A written intent to sponsor by December 15, 2026 counts as committed, with your purchase order or payment in January. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
   },
   {
     title: "Attendee privacy comes first.",
-    body: "Sponsor email opt-in for attendees is off by default. When attendees opt in, RevolutionVA sends your email on your behalf, and attendee contacts are never handed to sponsors. During the week after the event, we send one sponsor follow-up email a day. We never sell attendee lists, and we never scan badges.",
+    body: "Sponsor email opt-in for attendees is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. After the event, we send one email to attendees who opted in, covering all sponsors. We never sell attendee lists, and we never scan badges.",
   },
   {
-    title: "A one-page recap for Jobs Board sponsors (proposed).",
+    title: "A one-page recap for Jobs Board sponsors.",
     body: "After DevFest, Jobs Board sponsors get a one-page recap covering total attendance, the \"Looking for work\" ribbon count, the mix of attendee roles, and the top tech stacks attendees work with.",
   },
   {
@@ -222,8 +222,8 @@ const commitments: Commitment[] = [
     body: "Our call for speakers is open to sponsor engineers, and every talk is chosen on its own merits. Talks are never tied to sponsorship tier.",
   },
   {
-    title: "No access to officials (proposed).",
-    body: "Sponsorship buys no access to any government or military official.",
+    title: "No access to elected officials.",
+    body: "Sponsorship buys no access to elected officials.",
   },
 ];
 
@@ -398,7 +398,7 @@ const email = "kevin@revolutionva.org";
       <div class="max-w-[1040px] mx-auto p-6 bg-[#052831] text-white card-shadow card-asymmetric flex flex-col gap-2">
         <h2 class="text-xl md:text-2xl font-bold">Our privacy promise to attendees</h2>
         <p class="text-base leading-relaxed">
-          Sponsor email opt-in is off by default. When attendees opt in, RevolutionVA sends your email on your behalf, and attendee contacts are never handed to sponsors. We never sell attendee lists, and we never scan badges. <a href="#how-we-work" class="text-[#4DB7B9] font-bold underline hover:opacity-80">How we work with sponsors</a>
+          Sponsor email opt-in is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. We never sell attendee lists, and we never scan badges. <a href="#how-we-work" class="text-[#4DB7B9] font-bold underline hover:opacity-80">How we work with sponsors</a>
         </p>
       </div>
     </section>
@@ -628,7 +628,7 @@ const email = "kevin@revolutionva.org";
           <li><strong>Name your team.</strong> Assign your tickets to your attendees. Ticket assignment deadline: details coming soon.</li>
         </ol>
         <p class="text-black text-base leading-relaxed">
-          <strong>Deadline:</strong> commit by December 15, 2026. Your invoice and payment can come in January 2027. A written intent to sponsor by December 15, 2026 counts as committed, with your purchase order or payment in January. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor (proposed).
+          <strong>Deadline:</strong> commit by December 15, 2026. Your invoice and payment can come in January 2027. A written intent to sponsor by December 15, 2026 counts as committed, with your purchase order or payment in January. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.
         </p>
         <p class="text-black text-base leading-relaxed">
           <strong>Paperwork:</strong> our W-9, a certificate of insurance, and our 501(c)(3) letter are sent with the prospectus. The certificate of insurance can name your organization or agency as additional insured (proposed). Sponsorships are invoiced as sponsorships, not donations. Please consult your tax advisor on how to treat them. RevolutionVA is a 501(c)(3) nonprofit.
