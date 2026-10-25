@@ -3,6 +3,7 @@ import "../styles/global.css";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import HeaderTagline from "../components/HeaderTagline.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
 import logoWhite from "../assets/logo-white.png";
@@ -81,7 +82,8 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
     <section class="hero-section w-full relative">
       <!-- Navigation -->
       <nav class="w-full px-4 md:px-8 py-4 border-b border-[var(--bp-line)] relative z-20">
-        <div class="max-w-7xl mx-auto flex justify-end">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-6">
+          <HeaderTagline />
           <!-- Desktop/Tablet nav links -->
           <div class="hidden md:flex items-center gap-6 lg:gap-10">
             <a href="#about" class="bp-nav-link text-base font-bold leading-relaxed">About</a>
@@ -92,6 +94,8 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
             <a href="/sponsor" class="bp-nav-link text-base font-bold leading-relaxed">Sponsor</a>
             <a href="#signup" class="bp-nav-link text-base font-bold leading-relaxed">Sign Up</a>
           </div>
+          <!-- Mobile nav placeholder for hamburger positioning -->
+          <div class="md:hidden h-6"></div>
         </div>
       </nav>
 
@@ -121,7 +125,6 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
             <h1>
               <Image src={logoWhite} alt="Hampton Roads DevFest 2027" class="w-[200px] md:w-[300px] h-auto" width={300} height={225} />
             </h1>
-            <p class="bp-label -mt-4">Built in the 757</p>
             <p class="text-[18px] md:text-[22px] font-semibold leading-[1.3]">
               <span class="block md:inline">Friday, April 23, 2027 · </span>
               <span class="block md:inline">Zeiders American Dream Theater, Virginia Beach</span>
