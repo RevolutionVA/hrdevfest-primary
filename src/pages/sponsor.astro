@@ -48,8 +48,6 @@ const glance: GlanceRow[] = [
   { tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2 @HRDevFest", report: true },
   { tier: "Jobs Board", price: "$1,000", available: "Limited, details coming soon", table: "", talk: false, tickets: "2", social: "1 @HRDevFest", report: false },
   { tier: "Community", price: "$500", available: "Open", table: "", talk: false, tickets: "1", social: "Group thank-you", report: false },
-  { tier: "Supporter", price: "$250", available: "Open", table: "", talk: false, tickets: "", social: "Group thank-you", report: false },
-  { tier: "Individual", price: "$50+", available: "Open", table: "", talk: false, tickets: "", social: "Group thank-you", report: false },
 ];
 
 interface Tier {
@@ -159,26 +157,6 @@ const tiers: Tier[] = [
       "Included in a group @HRDevFest thank-you post",
     ],
     quickPath: true,
-  },
-  {
-    id: "supporter",
-    name: "Supporter",
-    price: "$250",
-    available: "open",
-    benefits: [
-      "Your logo on the website",
-      "Included in a group @HRDevFest thank-you post",
-    ],
-  },
-  {
-    id: "individual",
-    name: "Individual",
-    price: "$50+",
-    available: "open",
-    benefits: [
-      "Your name on the DevFest thank-you page",
-      "Included in a group @HRDevFest thank-you post",
-    ],
   },
 ];
 
@@ -494,7 +472,7 @@ const email = "kevin@revolutionva.org";
             </ul>
             {tier.quickPath && (
               <p class="text-black text-base font-semibold relative z-10">
-                Community or Supporter? Just <a href={`mailto:${email}`} class="text-[#D33B32] font-bold underline hover:opacity-80">email Kevin</a> and pay the invoice.
+                Community? Just <a href={`mailto:${email}`} class="text-[#D33B32] font-bold underline hover:opacity-80">email Kevin</a> and pay the invoice.
               </p>
             )}
           </div>
