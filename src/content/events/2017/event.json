@@ -102,176 +102,41 @@
     {
       "name": "Jonah Adkins",
       "bio": "Jonah Adkins is a Hampton Roads-based GIS specialist and OpenStreetMap contributor passionate about open data and mapping technologies.",
-      "image": "archive/2017/jonah-adkins.png",
+      "image": "",
       "twitter": "https://x.com/jonahadkins",
       "github": "https://github.com/jonahadkins"
     }
   ],
   "schedule": [
-    {
-      "time": "8:00 AM",
-      "title": "Registration & Breakfast",
-      "description": "Registration for attendees and complimentary breakfast.",
-      "track": "All"
-    },
-    {
-      "time": "9:00 AM",
-      "title": "Keynote",
-      "description": "Kevin Curry - Opening remarks and keynote presentation.",
-      "track": "All"
-    },
-    {
-      "time": "10:00 AM",
-      "title": "Talk Reversi",
-      "description": "Marla Schuchman - Open forum discussion where the audience asks questions.",
-      "track": "All"
-    },
-    {
-      "time": "11:00 AM",
-      "title": "The Beauty of the Actor Pattern in Multi-threaded iOS",
-      "description": "Michael Rollins - Using the Actor pattern to tame iOS threads.",
-      "track": "Room 1"
-    },
-    {
-      "time": "11:00 AM",
-      "title": "Machine Learning APIs",
-      "description": "Chida Sadayappan - Leveraging Google Cloud APIs for ML.",
-      "track": "Room 2"
-    },
-    {
-      "time": "12:00 PM",
-      "title": "Lunch",
-      "description": "Complimentary lunch in the main conference area.",
-      "track": "All"
-    },
-    {
-      "time": "1:00 PM",
-      "title": "Leveraging Kubernetes for everyone",
-      "description": "Stanley Zheng - Container orchestration with Kubernetes.",
-      "track": "Room 1"
-    },
-    {
-      "time": "1:00 PM",
-      "title": "\"Reactive\" Robots With Android Things",
-      "description": "Benjamin Earley - Building a sumo bot with Raspberry Pi and Kotlin.",
-      "track": "Room 2"
-    },
-    {
-      "time": "2:00 PM",
-      "title": "Writing Haskell in YOUR Favorite Language",
-      "description": "Robert Chrzanowski - Pure programming patterns in Kotlin.",
-      "track": "Room 1"
-    },
-    {
-      "time": "2:00 PM",
-      "title": "Serverless Architecture - What, Why, and How?",
-      "description": "Daniel Worsnup - AWS Lambda and serverless computing.",
-      "track": "Room 2"
-    },
-    {
-      "time": "3:00 PM",
-      "title": "Building Baymax - Health Care Companion with Google Assistant",
-      "description": "Greg Norman - Leveraging Google Assistant for health.",
-      "track": "Room 1"
-    },
-    {
-      "time": "3:00 PM",
-      "title": "Living on the Grid",
-      "description": "Jason Wilson - CSS Grid for responsive layouts.",
-      "track": "Room 2"
-    },
-    {
-      "time": "4:00 PM",
-      "title": "Building a career in security",
-      "description": "Kevin Jones - Career path in information security.",
-      "track": "Room 1"
-    },
-    {
-      "time": "4:00 PM",
-      "title": "Building with Blockchains",
-      "description": "John Feminella - Distributed applications with blockchain.",
-      "track": "Room 2"
-    },
-    {
-      "time": "5:00 PM",
-      "title": "Closing remarks & Raffle",
-      "description": "Closing ceremony with sponsor gifts.",
-      "track": "All"
-    },
-    {
-      "time": "5:30 PM",
-      "title": "Happy Hour",
-      "description": "Happy Hour location TBD.",
-      "track": "All"
-    }
+    { "time": "8:00 AM", "title": "Registration & Breakfast", "description": "Registration for attendees and complimentary breakfast.", "track": "All" },
+    { "time": "9:00 AM", "title": "Keynote", "description": "Kevin Curry - Opening remarks and keynote presentation.", "track": "All" },
+    { "time": "10:00 AM", "title": "Talk Reversi", "description": "Marla Schuchman - Open forum discussion where the audience asks questions.", "track": "All" },
+    { "time": "11:00 AM", "title": "The Beauty of the Actor Pattern in Multi-threaded iOS", "description": "Michael Rollins - Using the Actor pattern to tame iOS threads.", "track": "Room 1" },
+    { "time": "11:00 AM", "title": "Machine Learning APIs", "description": "Chida Sadayappan - Leveraging Google Cloud APIs for ML.", "track": "Room 2" },
+    { "time": "12:00 PM", "title": "Lunch", "description": "Complimentary lunch in the main conference area.", "track": "All" },
+    { "time": "1:00 PM", "title": "Leveraging Kubernetes for everyone", "description": "Stanley Zheng - Container orchestration with Kubernetes.", "track": "Room 1" },
+    { "time": "1:00 PM", "title": "\"Reactive\" Robots With Android Things", "description": "Benjamin Earley - Building a sumo bot with Raspberry Pi and Kotlin.", "track": "Room 2" },
+    { "time": "2:00 PM", "title": "Writing Haskell in YOUR Favorite Language", "description": "Robert Chrzanowski - Pure programming patterns in Kotlin.", "track": "Room 1" },
+    { "time": "2:00 PM", "title": "Serverless Architecture - What, Why, and How?", "description": "Daniel Worsnup - AWS Lambda and serverless computing.", "track": "Room 2" },
+    { "time": "3:00 PM", "title": "Building Baymax - Health Care Companion with Google Assistant", "description": "Greg Norman - Leveraging Google Assistant for health.", "track": "Room 1" },
+    { "time": "3:00 PM", "title": "Living on the Grid", "description": "Jason Wilson - CSS Grid for responsive layouts.", "track": "Room 2" },
+    { "time": "4:00 PM", "title": "Building a career in security", "description": "Kevin Jones - Career path in information security.", "track": "Room 1" },
+    { "time": "4:00 PM", "title": "Building with Blockchains", "description": "John Feminella - Distributed applications with blockchain.", "track": "Room 2" },
+    { "time": "5:00 PM", "title": "Closing remarks & Raffle", "description": "Closing ceremony with sponsor gifts.", "track": "All" },
+    { "time": "5:30 PM", "title": "Happy Hour", "description": "Happy Hour location TBD.", "track": "All" }
   ],
   "sponsors": [
-    {
-      "name": "Google Developers",
-      "logo": "archive/2017/google-developers-logo.png",
-      "url": "http://developers.google.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Issuetrak",
-      "logo": "archive/2017/issuetrak-logo.png",
-      "url": "http://www.issuetrak.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Revolution VA",
-      "logo": "archive/2017/revolutionva-logo.png",
-      "url": "http://revolutionconf.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Dominion Enterprises",
-      "logo": "archive/2017/dominion-logo.png",
-      "url": "http://www.dominionenterprises.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Ferguson",
-      "logo": "archive/2017/ferguson-logo.jpg",
-      "url": "http://www.ferguson.com/careers",
-      "tier": "logo"
-    },
-    {
-      "name": "Cloudreach",
-      "logo": "archive/2017/cloudreach-logo.png",
-      "url": "http://www.cloudreach.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "1701",
-      "logo": "archive/2017/1701-logo.png",
-      "url": "https://1701vb.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Grow Interactive",
-      "logo": "archive/2017/grow-logo.png",
-      "url": "http://thisisgrow.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Trader Interactive",
-      "logo": "archive/2017/trader-logo.png",
-      "url": "http://www.traderinteractive.com/",
-      "tier": "logo"
-    },
-    {
-      "name": "Anthem BlueCross BlueShield",
-      "logo": "archive/2017/anthem-logo.png",
-      "url": "https://antheminc.jobs/norfolk/virginia/usa/jobs/",
-      "tier": "logo"
-    },
-    {
-      "name": "Maxx Potential",
-      "logo": "archive/2017/maxx-potential-logo.png",
-      "url": "https://maxxpotential.com/",
-      "tier": "logo"
-    }
+    { "name": "Google Developers", "logo": "archive/2017/google-developers-logo.png", "url": "http://developers.google.com/", "tier": "logo" },
+    { "name": "Issuetrak", "logo": "archive/2017/issuetrak-logo.png", "url": "http://www.issuetrak.com/", "tier": "logo" },
+    { "name": "Revolution VA", "logo": "archive/2017/revolutionva-logo.png", "url": "http://revolutionconf.com/", "tier": "logo" },
+    { "name": "Dominion Enterprises", "logo": "archive/2017/dominion-logo.png", "url": "http://www.dominionenterprises.com/", "tier": "logo" },
+    { "name": "Ferguson", "logo": "archive/2017/ferguson-logo.jpg", "url": "http://www.ferguson.com/careers", "tier": "logo" },
+    { "name": "Cloudreach", "logo": "archive/2017/cloudreach-logo.png", "url": "http://www.cloudreach.com/", "tier": "logo" },
+    { "name": "1701", "logo": "archive/2017/1701-logo.png", "url": "https://1701vb.com/", "tier": "logo" },
+    { "name": "Grow Interactive", "logo": "archive/2017/grow-logo.png", "url": "http://thisisgrow.com/", "tier": "logo" },
+    { "name": "Trader Interactive", "logo": "archive/2017/trader-logo.png", "url": "http://www.traderinteractive.com/", "tier": "logo" },
+    { "name": "Anthem BlueCross BlueShield", "logo": "archive/2017/anthem-logo.png", "url": "https://antheminc.jobs/norfolk/virginia/usa/jobs/", "tier": "logo" },
+    { "name": "Maxx Potential", "logo": "archive/2017/maxx-potential-logo.png", "url": "https://maxxpotential.com/", "tier": "logo" }
   ],
   "testimonials": [],
   "faq": [],

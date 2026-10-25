@@ -1,5 +1,5 @@
 ---
-// Past editions that have an archive page under src/pages/years/, newest first.
+// Past editions that have a page at src/pages/<year>/, newest first.
 const pastYears = ["2026", "2024", "2018", "2017", "2016", "2015"];
 
 interface Props {
@@ -16,8 +16,8 @@ const {
 const currentPath = Astro.url.pathname.replace(/\/$/, "");
 const years = pastYears.map((year) => ({
   year,
-  href: `/years/${year}`,
-  current: currentPath === `/years/${year}`,
+  href: `/${year}`,
+  current: currentPath === `/${year}`,
 }));
 ---
 

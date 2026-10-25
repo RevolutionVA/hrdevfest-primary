@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const pastYears = ["2026", "2024", "2018", "2017", "2016", "2015"];
 
-// Editions rendered from src/data/archive/<year>.json by src/pages/years/[year].astro
+// Editions rendered from src/content/events/<year>/event.json by src/pages/<year>/index.astro
 const archiveEditions = [
   { year: "2018", title: "Hampton Roads DevFest 2018", venue: "Slover Library" },
   { year: "2017", title: "Hampton Roads DevFest 2017", venue: "Chesapeake Conference Center" },
@@ -10,15 +10,13 @@ const archiveEditions = [
   { year: "2015", title: "Hampton Roads DevFest 2015", venue: "Issuetrak" },
 ];
 
+// The per-year pages use the shared theme nav (src/themes/shared), which has no Past years menu
 const pagesWithDesktopNav = [
   "/",
   "/faq",
   "/code-of-conduct",
   "/sponsor",
   "/thank-you",
-  "/years/2024",
-  "/years/2026",
-  ...archiveEditions.map((e) => `/years/${e.year}`),
 ];
 
 // thank-you has no hamburger menu
@@ -43,7 +41,7 @@ test.describe("Past years nav menu", () => {
         for (const year of pastYears) {
           const link = nav.getByRole("link", { name: year, exact: true });
           await expect(link).toBeVisible();
-          await expect(link).toHaveAttribute("href", `/years/${year}`);
+          await expect(link).toHaveAttribute("href", `/${year}`);
         }
       });
     }
@@ -71,13 +69,7 @@ test.describe("Past years nav menu", () => {
       const nav = page.locator("nav");
       await nav.locator("summary", { hasText: "Past years" }).click();
       await nav.getByRole("link", { name: "2024", exact: true }).click();
-      await expect(page).toHaveURL(/\/years\/2024\/?$/);
-
-      // The current edition is marked in the dropdown
-      await page.locator("nav summary", { hasText: "Past years" }).click();
-      await expect(
-        page.locator("nav").getByRole("link", { name: "2024", exact: true })
-      ).toHaveAttribute("aria-current", "page");
+      await expect(page).toHaveURL(/\/2024\/?$/);
     });
   });
 
@@ -96,7 +88,7 @@ test.describe("Past years nav menu", () => {
         for (const year of pastYears) {
           const link = yearList.getByRole("link", { name: year, exact: true });
           await expect(link).toBeVisible();
-          await expect(link).toHaveAttribute("href", `/years/${year}`);
+          await expect(link).toHaveAttribute("href", `/${year}`);
         }
       });
     }
@@ -108,25 +100,25 @@ test.describe("Past years nav menu", () => {
         .locator("#mobile-menu")
         .getByRole("link", { name: "2026", exact: true })
         .click();
-      await expect(page).toHaveURL(/\/years\/2026\/?$/);
+      await expect(page).toHaveURL(/\/2026\/?$/);
     });
   });
 });
 
 test.describe("Archive edition pages", () => {
   for (const edition of archiveEditions) {
-    test(`/years/${edition.year} loads with its title and venue`, async ({ page }) => {
-      const response = await page.goto(`/years/${edition.year}`);
+    test(`/${edition.year} loads with its title and venue`, async ({ page }) => {
+      const response = await page.goto(`/${edition.year}`);
       expect(response?.ok()).toBe(true);
 
       await expect(page).toHaveTitle(new RegExp(edition.title));
       await expect(page.getByRole("heading", { level: 1 })).toHaveText(edition.title);
-      await expect(page.locator("#venue")).toContainText(edition.venue);
+      await expect(page.locator("body")).toContainText(edition.venue);
     });
   }
 
-  test("/years/2018 does not show the talk count", async ({ page }) => {
-    await page.goto("/years/2018");
+  test("/2018 does not show the talk count", async ({ page }) => {
+    await page.goto("/2018");
     await expect(page.locator("body")).not.toContainText("9 talks");
   });
 });

@@ -1,0 +1,278 @@
+{
+  "year": 2026,
+  "theme": "2026",
+  "title": "Hampton Roads DevFest 2026",
+  "date": "2026-02-27",
+  "dateFormatted": "February 27, 2026",
+  "tagline": "Event Highlights",
+  "description": "Take a look back at Hampton Roads DevFest 2026! Our 6th annual event brought together local developers, industry professionals, and tech enthusiasts for a day of learning and networking at Zeiders American Dream Theater.",
+  "venue": {
+    "name": "Zeiders American Dream Theater",
+    "address": "4509 Commerce Street",
+    "city": "Virginia Beach",
+    "state": "VA",
+    "zip": "23462",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.259579003214!2d-76.13574812406885!3d36.84155839379043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba959f7490b19d%3A0x2946d6df48a4c3ba!2sZeiders%20American%20Dream%20Theater!5e0!3m2!1sen!2sus!4v1708011885150!5m2!1sen!2sus"
+  },
+  "speakers": [
+    {
+      "name": "Lionel Sapp",
+      "bio": "Lionel Sapp is a Hampton Roads–based software engineer, community builder, and founder of The Digital Builders, a studio and mentorship network empowering others to turn their ideas into real-world products. A self-taught developer, Lionel has worked for two Techstars-backed startups, serving as CTO for one. Through Digital Builders, he leads mentorship programs and community events that teach aspiring creators how to build, launch, and grow their own tech ventures—right here in the 757.",
+      "image": "lionel-sapp.jpeg",
+      "linkedin": "https://www.linkedin.com/in/lionelthebldr/",
+      "sessionTitle": "The 1-Person DevOps Stack: How I Keep Client Apps Alive Without a Big Team",
+      "sessionAbstract": "When you're a solo builder, \"DevOps\" isn't a department — it's whatever keeps production stable at 11pm when a client pings you and real users are stuck. In this TED-style talk, I'll share the minimal, battle-tested operations stack I use to ship and maintain client apps without a big team: preview deployments for safe releases, error tracking and logging that actually matter, and a calm incident loop for when something breaks. I'll also show how AI fits in practically (not hype): using v0 for rapid UI mockups and Cursor/MCP agents to speed up implementation while keeping quality guardrails in place. The stack is modern, simple, and repeatable — Next.js + Supabase + Vercel + Resend + Stripe — but the real value is the workflow: what to monitor (and what to ignore), how to deploy with confidence, and the \"stability rituals\" that keep apps alive long after launch."
+    },
+    {
+      "name": "Ryan Castillo",
+      "bio": "Ryan is an author, developer and data-scientist with a passion for helping and teaching others. His deep expertise in large scale systems, data visualization and AI has helped Fortune 500 companies, the US Navy and startups of all sizes.",
+      "image": "ryan-castillo.jpeg",
+      "linkedin": "https://www.linkedin.com/in/rmcastil/",
+      "twitter": "https://twitter.com/rmcastil",
+      "website": "https://knowatoa.com",
+      "sessionTitle": "How to have a successful dev career in the 757*",
+      "sessionAbstract": "What if the biggest limiter on your developer career isn't your technical skill? In Hampton Roads, there are plenty of talented developers doing solid work. Yet opportunities often feel inconsistent. People get passed over for promotions. Job searches feel exhausting. Great ideas and side projects don't go anywhere. This talk explores why that happens and what actually drives opportunity. Whether you're looking for a new role, doing freelance work, or building something of your own. Through real examples, Ryan will share a practical mental model for creating more surface luck area for opportunity without pretending to be someone you're not. Midway through the talk, the real title will be revealed. Once you see it, you'll start noticing the pattern everywhere."
+    },
+    {
+      "name": "Katie Novotny",
+      "bio": "Katie Novotny, AI Apps and Agents GBB at Microsoft. Software dev background but also manager, architect, and DevOps wrangler fluent in .NET, Python, and at least 10 other languages (some human, most not). Believes the best code - and life - comes from collaboration and curiosity. Loves: Functional fitness, skiing, and books that make her forget time. Hates: green peppers and chores that don't scale (looking at you, dusting).",
+      "image": "katie-novotny.jpeg",
+      "linkedin": "https://www.linkedin.com/in/katie-novotny/",
+      "sessionTitle": "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart",
+      "sessionAbstract": "Everyone has a GenAI demo. Very few have a GenAI system. In this talk, we'll roast the most common GenAI anti-patterns - chatbots pretending to be apps, agents with no guardrails, and \"just add RAG\" architectures that collapse under real users. Then we'll rebuild them the right way. You'll learn how production GenAI actually works: tools over prompts, systems over models, and architectures that assume failure, hallucination, and chaos from day one. We'll cover when agents are useful (and when they're absolutely not), why observability matters more for AI than traditional services, and how to ship GenAI without lighting your cloud bill on fire. This is not a hype talk. This is a survival guide."
+    },
+    {
+      "name": "Tim Banks",
+      "bio": "Tim's tech career spans over 25 years through large corporate environments and in small startups, honing their skills in systems administration, automation, architecture, and operations for large cloud-based datastores. Today, Tim leverages their years in data, DevOps, and Site Reliability Engineering to advise and consult the open source and cloud computing communities on modernizing workloads, safe and efficient DevOps practices, and the effective use of AI in their current role. Tim is also a competitive Brazilian Jiu-Jitsu practitioner, having won over 10 international championships.",
+      "image": "tim-banks.jpeg",
+      "linkedin": "https://www.linkedin.com/in/timjb/",
+      "twitter": "https://x.com/elchefe",
+      "bluesky": "https://bsky.app/profile/elchefe.me",
+      "sessionTitle": "AI Can't Teach You Jiu-Jitsu: Developing Your Craft in the Age of AI",
+      "sessionAbstract": "This talk uses Brazilian Jiu-Jitsu as a lens to explore the fundamental limitations of AI in teaching complex, embodied skills, and why the same principles apply to software development. Just as BJJ practitioners must master fundamentals through physical repetition, strategic thinking, and real-world testing on the mat, software engineers must develop deep understanding through hands-on experience rather than relying on AI-generated solutions. The presentation examines how BJJ's progression system, from white belt fundamentals to black belt mastery, mirrors the journey of becoming a skilled engineer. It challenges the notion that AI can shortcut genuine learning, drawing parallels between \"Instagram BJJ\" (flashy techniques that don't work in reality) and \"vibe coding\" (AI-generated code that lacks fundamental understanding). Through the metaphor of BJJ as chess rather than checkers, the talk illustrates why rote learning and pattern matching fail when faced with novel situations that require strategic adaptation. Ultimately, this session argues that while AI has its place as a tool, dependency on something you don't control is a mistake. True expertise, whether in martial arts or software engineering, comes from learning by doing, embracing failure, seeking mentorship, engaging with community, and focusing on getting good rather than just winning. There are no shortcuts to becoming a black belt in any craft."
+    },
+    {
+      "name": "Ian Taylor",
+      "bio": "Ian Taylor is the Economics Department Chair at Virginia Peninsula Community College, where his innovative teaching has earned rave reviews from students, including: \"Awesome teacher. Y'all should let him teach all the courses. Clone him or something.\" and \"Me and all my classmates learned the lesson with pleasure.\" A serial entrepreneur, Ian founded Carry Norfolk, a bicycle courier service delivering food and beer in Norfolk, VA (2013-2015; sold to a rider), and Carry Logistics, enterprise software automating information flows for online retailers (2014-2018; sold to Saatva). He now leads Question Foundry, an edtech startup creating individualized college textbooks with thousands of practice question variations and step-by-step solutions. Each textbook is accompanied by Aita—an AI teaching assistant that aids faculty in lesson preparation and guides students through discovery-based learning. Beyond his professional pursuits, Ian is a fun-loving dad to his daughter, serving as the \"daddyman\".",
+      "image": "ian-taylor.jpeg",
+      "linkedin": "https://www.linkedin.com/in/ian-taylor-95626045/",
+      "twitter": "https://x.com/itsEcon",
+      "sessionTitle": "AI with AI with AI",
+      "sessionAbstract": "Awesome Interactions with Artificial Intelligence with An Ian 😀\n\n🎉 Have more fun!\n\nIan will showcase examples of interactions with AI like creating your own carved apple turtle the next time you're hungry or kids remind everyone it's snack time. Make a coloring book with your favorite characters or stuffed animals to print at home and enjoy. Discover what that beautiful flower or weird mushroom is that you keep seeing outside. Classify your friends and family into Lord of the Rings characters as if Tolkien came over for a dinner party.\n\n✅ Get work done!\n\nClone yourself with an AI agent digital replica 😮 Ok probably not the type of sci-fi cloning where poof another bearded Ian appears bounding about. Instead it only exists within machines and is accessible by web, phone, and text. But the training is just like how you train another human on a job, by guiding their behaviors and interactions within the workplace and among their coworkers. Ian will demonstrate how to create your own AI agent and learn more when you're in the mood.\n\n☀️Shine like the sun!\n\nRecent advances in AI bring many challenges along with its benefits. Ian will share some of the impacts from AI's creative destruction with a focus on the challenge of authenticity in academia, social media, and labor markets. Then he'll present some ideas of how these tools can help improve human relationships with an optimistic outlook."
+    },
+    {
+      "name": "Lauren Pryor",
+      "bio": "Lauren is a tech leader with roots in architectural engineering (2010–2016). As the founder of a software development company that was later acquired, she went on to become the co-owner of an MSP and cybersecurity company serving financial and legal firms nationwide. Lauren sits on several boards, mentors youth in STEM, runs a cybersecurity training program, supports startups as a freelance CTO, and is an emerging angel investor and limited partner.",
+      "image": "lauren-pryor.jpg",
+      "linkedin": "https://www.linkedin.com/in/laurenepryor/",
+      "sessionTitle": "Why \"Delete\" Doesn't Exist: Digital Forensics in a Post-Quantum World",
+      "sessionAbstract": "When you press \"delete,\" what actually happens to your data?\n\nFrom cell phones and enterprise email systems to Slack channels and even the vehicles we drive, modern technology is built on layers of storage, replication, logging, and encryption. What appears to disappear often persists in ways users rarely consider.\n\nThis keynote explores the lifecycle of digital data — post deletion — and examines where \"deleted\" information truly resides. We will uncover how digital forensics reconstructs timelines, recovers artifacts, and validates evidence across devices and platforms.\n\nFinally, we look ahead: as quantum computing advances and traditional encryption models face disruption, what happens to digital evidence? How will forensic integrity, cryptographic trust, and data preservation evolve in a post-quantum world?"
+    }
+  ],
+  "schedule": [
+    {
+      "time": "8:00 AM",
+      "title": "Registration & Breakfast",
+      "description": "8:00 – 8:45"
+    },
+    {
+      "time": "8:45 AM",
+      "title": "Welcome",
+      "description": "8:45 – 9:00"
+    },
+    {
+      "time": "9:00 AM",
+      "title": "The 1-Person DevOps Stack: How I Keep Client Apps Alive Without a Big Team",
+      "description": "Lionel Sapp",
+      "abstract": "When you're a solo builder, \"DevOps\" isn't a department — it's whatever keeps production stable at 11pm when a client pings you and real users are stuck. In this TED-style talk, I'll share the minimal, battle-tested operations stack I use to ship and maintain client apps without a big team: preview deployments for safe releases, error tracking and logging that actually matter, and a calm incident loop for when something breaks. I'll also show how AI fits in practically (not hype): using v0 for rapid UI mockups and Cursor/MCP agents to speed up implementation while keeping quality guardrails in place. The stack is modern, simple, and repeatable — Next.js + Supabase + Vercel + Resend + Stripe — but the real value is the workflow: what to monitor (and what to ignore), how to deploy with confidence, and the \"stability rituals\" that keep apps alive long after launch."
+    },
+    {
+      "time": "9:45 AM",
+      "title": "Break",
+      "description": "9:45 – 10:00"
+    },
+    {
+      "time": "10:00 AM",
+      "title": "How to have a successful dev career in the 757*",
+      "description": "Ryan Castillo",
+      "abstract": "What if the biggest limiter on your developer career isn't your technical skill? In Hampton Roads, there are plenty of talented developers doing solid work. Yet opportunities often feel inconsistent. People get passed over for promotions. Job searches feel exhausting. Great ideas and side projects don't go anywhere. This talk explores why that happens and what actually drives opportunity. Whether you're looking for a new role, doing freelance work, or building something of your own. Through real examples, Ryan will share a practical mental model for creating more surface luck area for opportunity without pretending to be someone you're not. Midway through the talk, the real title will be revealed. Once you see it, you'll start noticing the pattern everywhere."
+    },
+    {
+      "time": "10:45 AM",
+      "title": "Break",
+      "description": "10:45 – 11:00"
+    },
+    {
+      "time": "11:00 AM",
+      "title": "City of Virginia Beach AI Roadmap",
+      "description": "City of Virginia Beach",
+      "abstract": "Peter Wallace, City of Virginia Beach's CIO, and Bojan Duric, the City's Chief Data Officer, will cover the city's approach to the AI roadmap, their successes, and the decision-making tools they've implemented."
+    },
+    {
+      "time": "11:15 AM",
+      "title": "Cool Demo, Bro. Now Ship It: Why Most GenAI Apps Fall Apart",
+      "description": "Katie Novotny",
+      "abstract": "Everyone has a GenAI demo. Very few have a GenAI system. In this talk, we'll roast the most common GenAI anti-patterns - chatbots pretending to be apps, agents with no guardrails, and \"just add RAG\" architectures that collapse under real users. Then we'll rebuild them the right way. You'll learn how production GenAI actually works: tools over prompts, systems over models, and architectures that assume failure, hallucination, and chaos from day one. We'll cover when agents are useful (and when they're absolutely not), why observability matters more for AI than traditional services, and how to ship GenAI without lighting your cloud bill on fire. This is not a hype talk. This is a survival guide."
+    },
+    {
+      "time": "12:00 PM",
+      "title": "Lunch",
+      "description": "Lunch is included with your ticket."
+    },
+    {
+      "time": "1:00 PM",
+      "title": "AI with AI with AI",
+      "description": "Ian Taylor",
+      "abstract": "Awesome Interactions with Artificial Intelligence with An Ian 😀\n\n🎉 Have more fun!\n\nIan will showcase examples of interactions with AI like creating your own carved apple turtle the next time you're hungry or kids remind everyone it's snack time. Make a coloring book with your favorite characters or stuffed animals to print at home and enjoy. Discover what that beautiful flower or weird mushroom is that you keep seeing outside. Classify your friends and family into Lord of the Rings characters as if Tolkien came over for a dinner party.\n\n✅ Get work done!\n\nClone yourself with an AI agent digital replica 😮 Ok probably not the type of sci-fi cloning where poof another bearded Ian appears bounding about. Instead it only exists within machines and is accessible by web, phone, and text. But the training is just like how you train another human on a job, by guiding their behaviors and interactions within the workplace and among their coworkers. Ian will demonstrate how to create your own AI agent and learn more when you're in the mood.\n\n☀️Shine like the sun!\n\nRecent advances in AI bring many challenges along with its benefits. Ian will share some of the impacts from AI's creative destruction with a focus on the challenge of authenticity in academia, social media, and labor markets. Then he'll present some ideas of how these tools can help improve human relationships with an optimistic outlook."
+    },
+    {
+      "time": "1:45 PM",
+      "title": "Break",
+      "description": "1:45 – 2:00"
+    },
+    {
+      "time": "2:00 PM",
+      "title": "757tech.org and the Hampton Roads Tech Community",
+      "description": "Kevin Griffin, President of RevolutionVA",
+      "abstract": "We're going to talk about 757tech.org, and how to get connected with the amazing tech community we have in Hampton Roads."
+    },
+    {
+      "time": "2:15 PM",
+      "title": "AI Can't Teach You Jiu-Jitsu: Developing Your Craft in the Age of AI",
+      "description": "Tim Banks",
+      "abstract": "This talk uses Brazilian Jiu-Jitsu as a lens to explore the fundamental limitations of AI in teaching complex, embodied skills, and why the same principles apply to software development. Just as BJJ practitioners must master fundamentals through physical repetition, strategic thinking, and real-world testing on the mat, software engineers must develop deep understanding through hands-on experience rather than relying on AI-generated solutions. The presentation examines how BJJ's progression system, from white belt fundamentals to black belt mastery, mirrors the journey of becoming a skilled engineer. It challenges the notion that AI can shortcut genuine learning, drawing parallels between \"Instagram BJJ\" (flashy techniques that don't work in reality) and \"vibe coding\" (AI-generated code that lacks fundamental understanding). Through the metaphor of BJJ as chess rather than checkers, the talk illustrates why rote learning and pattern matching fail when faced with novel situations that require strategic adaptation. Ultimately, this session argues that while AI has its place as a tool, dependency on something you don't control is a mistake. True expertise, whether in martial arts or software engineering, comes from learning by doing, embracing failure, seeking mentorship, engaging with community, and focusing on getting good rather than just winning. There are no shortcuts to becoming a black belt in any craft."
+    },
+    {
+      "time": "3:00 PM",
+      "title": "Break",
+      "description": "3:00 – 3:15"
+    },
+    {
+      "time": "3:15 PM",
+      "title": "Why \"Delete\" Doesn't Exist: Digital Forensics in a Post-Quantum World",
+      "description": "Lauren Pryor",
+      "abstract": "When you press \"delete,\" what actually happens to your data?\n\nFrom cell phones and enterprise email systems to Slack channels and even the vehicles we drive, modern technology is built on layers of storage, replication, logging, and encryption. What appears to disappear often persists in ways users rarely consider.\n\nThis keynote explores the lifecycle of digital data — post deletion — and examines where \"deleted\" information truly resides. We will uncover how digital forensics reconstructs timelines, recovers artifacts, and validates evidence across devices and platforms.\n\nFinally, we look ahead: as quantum computing advances and traditional encryption models face disruption, what happens to digital evidence? How will forensic integrity, cryptographic trust, and data preservation evolve in a post-quantum world?"
+    },
+    {
+      "time": "4:00 PM",
+      "title": "Closing Session",
+      "description": "4:00 – 4:45"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "City of Virginia Beach",
+      "logo": "cvb.png",
+      "url": "https://yesvirginiabeach.com",
+      "tier": "platinum"
+    },
+    {
+      "name": "Progress",
+      "logo": "progress.png",
+      "url": "https://www.telerik.com/",
+      "tier": "gold"
+    },
+    {
+      "name": "Stigian Consulting",
+      "logo": "stigian.png",
+      "url": "https://stigian.com/",
+      "tier": "gold"
+    },
+    {
+      "name": "Decisions + ProcessMaker",
+      "logo": "decisions+processmaker.png",
+      "url": "https://decisions.com/",
+      "tier": "gold"
+    },
+    {
+      "name": "Marathon Consulting",
+      "logo": "marathon.png",
+      "url": "https://marathonus.com/",
+      "tier": "silver"
+    },
+    {
+      "name": "Issuetrak",
+      "logo": "issuetrak.png",
+      "url": "https://www.issuetrak.com/",
+      "tier": "silver"
+    },
+    {
+      "name": "Noteable",
+      "logo": "noteable.png",
+      "url": "https://mynoteable.com/",
+      "tier": "silver"
+    },
+    {
+      "name": "OpenSearch",
+      "logo": "opensearch.png",
+      "url": "https://opensearch.org/",
+      "tier": "logo"
+    },
+    {
+      "name": "Swift Kick",
+      "logo": "swiftkick.png",
+      "url": "https://consultwithgriff.com",
+      "tier": "logo"
+    },
+    {
+      "name": "Land Records",
+      "logo": "landrecords.png",
+      "url": "https://landrecords.us",
+      "tier": "logo"
+    },
+    {
+      "name": "Techead",
+      "logo": "TECHEAD.png",
+      "url": "https://www.techead.com",
+      "tier": "logo"
+    },
+    {
+      "name": "Yellow Dog Software",
+      "logo": "yellowdog.png",
+      "url": "https://yellowdogsoftware.com",
+      "tier": "logo"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Paul Chin Jr.",
+      "quote": "Hampton Roads DevFest is everything you'd want in a community event, truly local and truly impactful on your career and skills.",
+      "image": "paul-chin-jr.jpeg",
+      "linkedin": "https://www.linkedin.com/in/paulchinjr/",
+      "twitter": "https://x.com/paulchinjr",
+      "bluesky": "https://bsky.app/profile/paulchinjr.bsky.social"
+    },
+    {
+      "name": "Michael Buckbee",
+      "quote": "As soon as I heard DevFest was coming back for a sixth year I scrambled to get a ticket. I was amazed at the depth of talent and expertise the area has—every person I spoke with was working on interesting things. Great venue, amazing speakers, and 100% worth it.",
+      "image": "https://sessionize.com/image/b0c4-400o400o1-L8qnWhL2upTUZo5aZ2zsVC.jpg",
+      "linkedin": "https://www.linkedin.com/in/michaelbuckbee/"
+    },
+    {
+      "name": "Travis Webb",
+      "quote": "Hampton Roads DevFest is the center of the tech universe for this area. I've met many amazing people who I've been able to work with and partner with, and it's a great way to learn about the innovation happening in Norfolk and surrounding areas. Every company in the area with software engineers should send their teams here to bring back and implement the best ideas.",
+      "image": "https://sessionize.com/image/f059-400o400o1-hYgCHhKFptLGZiNiWStnMw.png",
+      "linkedin": "https://www.linkedin.com/in/-traviswebb/"
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is Hampton Roads DevFest?",
+      "answer": "Hampton Roads DevFest is a curated, community-driven software development conference produced by RevolutionVA. It brings together developers, technical leaders, and decision-makers from across the Hampton Roads region for a full day of high-quality technical and professional content.",
+      "category": "General"
+    },
+    {
+      "question": "Who should attend?",
+      "answer": "This event is designed for a broad technical audience—from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels.",
+      "category": "General"
+    },
+    {
+      "question": "What does my ticket include?",
+      "answer": "Your ticket includes full-day conference admission, lunch, and drink tickets (cash bar available for additional purchases).",
+      "category": "Tickets"
+    }
+  ],
+  "photos": [],
+  "isArchive": true,
+  "ogImage": "/2026/og_promo_2026.jpeg"
+}

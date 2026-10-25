@@ -1,0 +1,49 @@
+---
+import "../../../styles/global.css";
+import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
+import MobileMenu from "../../shared/MobileMenu.astro";
+import NavBar from "../../shared/NavBar.astro";
+import Footer from "../../shared/Footer.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const navLinks = [
+  { href: "/", text: "Home" },
+  { href: "/faq", text: "FAQ" },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    <GoogleAnalytics />
+  </head>
+  <body class="theme-2024 min-h-screen">
+    <!-- Mobile hamburger button sits outside the frame so it stays fixed -->
+    <MobileMenu links={navLinks} />
+
+    <div class="bp-frame">
+      <NavBar links={navLinks} />
+
+      <main class="w-full">
+        <slot />
+      </main>
+
+      <Footer showQuickLinks={true} showSocialLinks={true} />
+    </div>
+  </body>
+</html>

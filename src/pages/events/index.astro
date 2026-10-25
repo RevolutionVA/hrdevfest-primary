@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
+
+const allEvents = await getCollection('events');
+
+const events = allEvents
+  .map(event => event.data)
+  .sort((a, b) => b.year - a.year);
+
+// All events are now past events
+const pastEvents = events;
+---
+
+<YearLayout title="Past Events - Hampton Roads DevFest" description="Browse all Hampton Roads DevFest events from 2015 to present." year={2024}>
+  <!-- Header Section -->
+  <section class="w-full py-12 md:py-16 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
+      <h1 class="text-[32px] md:text-[40px] font-bold leading-tight">Hampton Roads DevFest</h1>
+      <p class="bp-label">A History of Developer Community Events</p>
+    </div>
+  </section>
+
+  <!-- Most Recent Event Banner -->
+  <section class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
+    <div class="max-w-4xl mx-auto p-6 bp-box flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div>
+        <p class="text-lg font-semibold">Most Recent: Hampton Roads DevFest 2026</p>
+        <p class="bp-muted">February 27, 2026 at Zeiders American Dream Theater</p>
+      </div>
+      <a href="/2026" class="px-6 py-2 btn-secondary text-sm">
+        View Event &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- Past Events Grid -->
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Past Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pastEvents.map((event) => (
+          <a href={`/${event.year}`} class="bp-box block group">
+            <p class="bp-mono text-4xl font-bold p-6 border-b border-[var(--bp-line)]">{event.year}</p>
+            <div class="p-6">
+              <h3 class="text-lg font-semibold underline-offset-4 group-hover:underline">
+                {event.title}
+              </h3>
+              <p class="text-sm bp-mono bp-muted mt-1">{event.dateFormatted}</p>
+              {event.venue && (
+                <p class="text-sm mt-2">
+                  {event.venue.name} &bull; {event.venue.city}, {event.venue.state}
+                </p>
+              )}
+              <div class="mt-4 flex flex-wrap gap-2">
+                {event.speakers && event.speakers.length > 0 && (
+                  <span class="bp-label px-2 py-1 border border-[var(--bp-line-faint)]">
+                    {event.speakers.length} Speakers
+                  </span>
+                )}
+                {event.sponsors && event.sponsors.length > 0 && (
+                  <span class="bp-label px-2 py-1 border border-[var(--bp-line-faint)]">
+                    {event.sponsors.length} Sponsors
+                  </span>
+                )}
+                {event.schedule && event.schedule.length > 0 && (
+                  <span class="bp-label px-2 py-1 border border-[var(--bp-line-faint)]">
+                    {event.schedule.length} Sessions
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-[24px] md:text-[32px] font-bold mb-4">About Hampton Roads DevFest</h2>
+      <p class="leading-relaxed">
+        Hampton Roads DevFest is a community-driven developer conference serving the Hampton Roads
+        region of Virginia. Since 2015, we've brought together local developers, designers, and
+        technology professionals to learn, share, and connect. Our speakers are from the local
+        community, making DevFest a unique opportunity to hear from your neighbors and colleagues.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Event Timeline</h2>
+      <div class="relative">
+        <div class="absolute left-1/2 -translate-x-1/2 w-px bg-[var(--bp-line)] h-full" aria-hidden="true"></div>
+        {events.map((event, index) => (
+          <div class={`flex items-center mb-8 ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+            <div class={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+              <a href={`/${event.year}`} class="bp-nav-link block">
+                <p class="bp-mono text-2xl font-bold">{event.year}</p>
+                <p class="text-sm bp-muted">{event.venue?.name}</p>
+              </a>
+            </div>
+            <div class="w-2/12 flex justify-center" aria-hidden="true">
+              <div class="w-3 h-3 border border-[var(--bp-line)] bg-[var(--bp-paper)] relative"></div>
+            </div>
+            <div class="w-5/12"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</YearLayout>

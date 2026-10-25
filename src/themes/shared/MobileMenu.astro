@@ -1,0 +1,68 @@
+---
+export interface Props {
+  links: Array<{ href: string; text: string; highlight?: boolean }>;
+}
+
+const { links } = Astro.props;
+---
+
+<!-- Mobile hamburger button -->
+<button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-box bg-[var(--bp-paper)]" aria-label="Toggle menu">
+  <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+  <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="square" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+  </svg>
+</button>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-50 bg-[var(--bp-paper)] hidden md:hidden">
+  <div class="flex flex-col h-full">
+    <div class="h-[60px]"></div>
+    <div class="flex flex-col gap-8 px-8 pt-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class={`mobile-menu-link ${link.highlight ? 'bp-link' : 'bp-nav-link'} text-base font-bold leading-relaxed`}
+        >
+          {link.text}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const menuLinks = document.querySelectorAll('.mobile-menu-link');
+    let isOpen = false;
+
+    function toggleMenu() {
+      isOpen = !isOpen;
+      if (isOpen) {
+        mobileMenu?.classList.remove('hidden');
+        hamburgerIcon?.classList.add('hidden');
+        closeIcon?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu?.classList.add('hidden');
+        hamburgerIcon?.classList.remove('hidden');
+        closeIcon?.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    menuBtn?.addEventListener('click', toggleMenu);
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (isOpen) toggleMenu();
+      });
+    });
+  });
+</script>
