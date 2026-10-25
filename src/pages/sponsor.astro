@@ -41,12 +41,12 @@ interface GlanceRow {
 }
 
 const glance: GlanceRow[] = [
-  { tier: "Presenting", price: "$10,000", available: "1", table: "Yes", talk: true, tickets: "12", social: "4 @HRDevFest + 2 organizer", report: true },
-  { tier: "Main Stage", price: "$5,000", available: "1", table: "Yes", talk: true, tickets: "10", social: "3 @HRDevFest + 1 organizer", report: true },
-  { tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3 @HRDevFest + 1 organizer", report: true },
-  { tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2 @HRDevFest", report: true },
-  { tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2 @HRDevFest", report: true },
-  { tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1 @HRDevFest", report: false },
+  { tier: "Presenting", price: "$10,000", available: "1", table: "Yes", talk: true, tickets: "12", social: "4, plus 2 organizer", report: true },
+  { tier: "Main Stage", price: "$5,000", available: "1", table: "Yes", talk: true, tickets: "10", social: "3, plus 1 organizer", report: true },
+  { tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3, plus 1 organizer", report: true },
+  { tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
+  { tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
+  { tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1", report: false },
   { tier: "Community", price: "$500", available: "Open", table: "", talk: false, tickets: "1", social: "Group thank-you", report: false },
 ];
 
@@ -74,7 +74,7 @@ const tiers: Tier[] = [
       "A sponsor table",
       "12 tickets",
       "A feature in the 757tech newsletter",
-      "At least 4 @HRDevFest posts about your sponsorship: an announcement, a reminder, a day-of post, and a thank-you",
+      "At least 4 sponsor posts on 757tech's social channels: an announcement, a reminder, a day-of post, and a thank-you",
       "At least 2 organizer shoutouts: posts about your sponsorship from Kevin Griffin and Linda Nichols on their own channels",
       "Year-round Pop-up Meetup naming: your company names every quarterly 757tech Pop-up Meetup for 12 months, with 2 minutes at the start of each",
       "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
@@ -93,7 +93,7 @@ const tiers: Tier[] = [
       "A sponsor table",
       "10 tickets",
       "A feature in the 757tech newsletter",
-      "At least 3 @HRDevFest posts about your sponsorship",
+      "At least 3 sponsor posts on 757tech's social channels",
       "At least 1 organizer shoutout: a post about your sponsorship from Kevin Griffin or Linda Nichols on their own channels",
       "Year-round Pop-up Meetup naming (how this is shared with the Presenting sponsor: details coming soon)",
       "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
@@ -112,7 +112,7 @@ const tiers: Tier[] = [
       "Your sponsor table inside the Studio",
       "6 tickets",
       "A mention in the 757tech newsletter",
-      "At least 3 @HRDevFest posts about your sponsorship",
+      "At least 3 sponsor posts on 757tech's social channels",
       "At least 1 organizer shoutout: a post about your sponsorship from Kevin Griffin or Linda Nichols on their own channels",
       "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
       "The post-event report",
@@ -131,7 +131,7 @@ const tiers: Tier[] = [
       "A sponsor table",
       "4 tickets for your team",
       "A mention in the 757tech newsletter",
-      "At least 2 @HRDevFest posts: an announcement and a thank-you to your company",
+      "At least 2 sponsor posts on 757tech's social channels: an announcement and a thank-you to your company",
       "Scholars are never named or labeled, in posts, on badges, or at the event",
       "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
       "The post-event report, including scholars who attended versus scholars funded",
@@ -148,7 +148,7 @@ const tiers: Tier[] = [
       "A mention in the post-event recap email",
       "One named contact from your team for attendees to reach out to",
       "Your logo on the website and slides",
-      "At least 1 @HRDevFest post about your sponsorship",
+      "A sponsor post on 757tech's social channels",
       "2 tickets",
       "A one-page recap after the event: total attendance, the \"Looking for work\" ribbon count, role mix, and top tech stacks (proposed)",
       "No sponsor table and no stage time. We don't collect resumes.",
@@ -162,7 +162,7 @@ const tiers: Tier[] = [
     benefits: [
       "Your logo on the website and slides",
       "1 ticket",
-      "Included in a group @HRDevFest thank-you post",
+      "Included in a group thank-you post on 757tech's social channels",
     ],
     quickPath: true,
   },
@@ -434,7 +434,7 @@ const email = "kevin@revolutionva.org";
                 <th scope="col" class="py-3 px-4 font-bold">Table</th>
                 <th scope="col" class="py-3 px-4 font-bold">15-min talk</th>
                 <th scope="col" class="py-3 px-4 font-bold">Tickets</th>
-                <th scope="col" class="py-3 px-4 font-bold">Social posts (at least)</th>
+                <th scope="col" class="py-3 px-4 font-bold">757tech social posts (at least)</th>
                 <th scope="col" class="py-3 px-4 font-bold">Post-event report</th>
               </tr>
             </thead>
