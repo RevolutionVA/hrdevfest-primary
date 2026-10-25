@@ -1,0 +1,24 @@
+---
+// Engineering title block signature, recreated in HTML from the 2027 blueprint art.
+// Values are written in capitals in the markup (not via CSS) so they do not
+// collide with text matches for "RevolutionVA" elsewhere in the footer.
+const rows = [
+  ["Project", "HAMPTON ROADS DEVFEST 2027"],
+  ["Location", "VIRGINIA BEACH, VA"],
+  ["Date", "04.23.2027"],
+  ["Sheet", "1 OF 1"],
+  ["Drawn by", "REVOLUTIONVA"],
+];
+---
+
+<div class="bp-titleblock">
+  <dl>
+    {rows.map(([label, value]) => (
+      <div class="bp-titleblock-row">
+        <dt>{label}:</dt>
+        <dd>{value}</dd>
+      </div>
+    ))}
+  </dl>
+  <p class="bp-titleblock-mark">REVOLUTIONVA</p>
+</div>

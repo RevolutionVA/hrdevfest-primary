@@ -10,7 +10,7 @@ interface Props {
 
 const {
   variant,
-  summaryClass = "text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity",
+  summaryClass = "bp-nav-link text-base font-bold leading-relaxed",
 } = Astro.props;
 
 const currentPath = Astro.url.pathname.replace(/\/$/, "");
@@ -25,16 +25,16 @@ const years = pastYears.map((year) => ({
   <details class="past-years-menu relative">
     <summary class={`${summaryClass} cursor-pointer list-none [&::-webkit-details-marker]:hidden flex items-center gap-1`}>
       Past years
-      <svg class="past-years-chevron w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      <svg class="past-years-chevron w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="square" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
       </svg>
     </summary>
-    <ul class="absolute left-1/2 -translate-x-1/2 top-full mt-2 min-w-[8rem] bg-white rounded-lg shadow-lg py-2 z-50">
+    <ul class="bp-box absolute left-1/2 -translate-x-1/2 top-full mt-2 min-w-[8rem] bg-[var(--bp-paper)] z-50">
       {years.map((y) => (
-        <li>
+        <li class="border-b border-[var(--bp-line-faint)] last:border-b-0">
           <a
             href={y.href}
-            class="block px-4 py-2 text-black text-base font-bold leading-relaxed hover:bg-[#F3F4F6] hover:text-[#4DB7B9] transition-colors"
+            class="bp-nav-link bp-mono block px-4 py-2 text-base"
             aria-current={y.current ? "page" : undefined}
           >{y.year}</a>
         </li>
@@ -43,13 +43,13 @@ const years = pastYears.map((year) => ({
   </details>
 ) : (
   <div class="flex flex-col gap-4">
-    <span id="mobile-past-years-label" class="text-black text-base font-bold leading-relaxed">Past years</span>
-    <ul class="flex flex-col gap-4 pl-6" aria-labelledby="mobile-past-years-label">
+    <span id="mobile-past-years-label" class="bp-label">Past years</span>
+    <ul class="flex flex-col gap-4 pl-6 border-l border-[var(--bp-line-faint)]" aria-labelledby="mobile-past-years-label">
       {years.map((y) => (
         <li>
           <a
             href={y.href}
-            class="mobile-menu-link text-black text-base font-bold leading-relaxed"
+            class="mobile-menu-link bp-nav-link bp-mono text-base"
             aria-current={y.current ? "page" : undefined}
           >{y.year}</a>
         </li>
@@ -61,6 +61,10 @@ const years = pastYears.map((year) => ({
 <style>
   details[open] .past-years-chevron {
     transform: rotate(180deg);
+  }
+  a[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 </style>
 
