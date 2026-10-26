@@ -285,14 +285,12 @@ const sections = [
   { id: "add-ons", title: "Add-ons" },
   { id: "report", title: "Post-event report" },
   { id: "how-we-work", title: "How we work with sponsors" },
-  { id: "tickets", title: "Tickets" },
   { id: "how-to-sponsor", title: "How to sponsor" },
-  { id: "schools", title: "For schools and programs" },
 ];
 const ref = (id: string) => `${sheetNo}.${sections.findIndex((s) => s.id === id) + 1}`;
 
 
-const email = "kevin@revolutionva.org";
+const email = "team@revolutionva.org";
 ---
 
 <html lang="en">
@@ -619,7 +617,7 @@ const email = "kevin@revolutionva.org";
               </ul>
               {tier.quickPath && (
                 <p class="text-base font-semibold">
-                  Community? Just <a href={`mailto:${email}`} class="bp-link font-bold">email Kevin</a> and pay the invoice.
+                  Community? Just <a href={`mailto:${email}`} class="bp-link font-bold">email us</a> and pay the invoice.
                 </p>
               )}
             </div>
@@ -701,65 +699,6 @@ const email = "kevin@revolutionva.org";
       </div>
     </section>
 
-    <!-- Tickets -->
-    <section id="tickets" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto bp-surface flex flex-col gap-4">
-        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3 mb-2">
-          <span class="bp-sheet-ref">{ref("tickets")}</span>
-          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tickets</h2>
-        </div>
-        <p class="text-base leading-relaxed">We keep tickets affordable so more of Hampton Roads can be in the room.</p>
-        <div class="overflow-x-auto">
-          <table class="bp-table text-base">
-            <thead>
-              <tr>
-                <th scope="col">Ticket</th>
-                <th scope="col">Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="whitespace-nowrap">Early Bird</th>
-                <td>Ends December 31, 2026.</td>
-              </tr>
-              <tr>
-                <th scope="row" class="whitespace-nowrap">Regular</th>
-                <td>General admission.</td>
-              </tr>
-              <tr>
-                <th scope="row" class="whitespace-nowrap">VIP</th>
-                <td>A reserved seat and a special item. Lunch is open to everyone, whatever ticket you have.</td>
-              </tr>
-              <tr>
-                <th scope="row">Students, veterans, and people between jobs</th>
-                <td>We keep a lower rate for students, veterans, and people between jobs. After Early Bird ends on December 31, 2026, ask us for a discount code. We give codes out on request, on the honor system. No proof needed, and nothing on your badge or receipt shows which code you used.</td>
-              </tr>
-              <tr>
-                <th scope="row" class="whitespace-nowrap">Send a friend</th>
-                <td>When you buy your ticket, you can add a ticket at cost, and we'll put that seat in our seat lottery.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="bp-muted text-sm leading-relaxed">
-          Ticket sale dates: details coming soon. Sponsor tickets are included with each tier, and extra sponsor tickets are listed under <a href="#add-ons" class="bp-link font-bold">Add-ons</a>.
-        </p>
-        <p class="bp-muted text-sm leading-relaxed">
-          Every paid ticket comes with a receipt from RevolutionVA.
-        </p>
-        <p class="bp-muted text-sm leading-relaxed">
-          Buying for a group or a team? We offer a group discount off the Regular price when you buy 5 or more tickets online. The group discount does not apply to Early Bird tickets. It starts after Early Bird ends on December 31, 2026. Teams of 10 or more can ask us for an invoice. Email Kevin at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>.
-        </p>
-        <p class="bp-muted text-sm leading-relaxed">
-          <a href="#why-send-me" class="bp-link font-bold">Ask your manager</a>
-        </p>
-        <h3 id="why-send-me" class="text-[20px] font-bold leading-7 mt-2 pt-4 border-t border-[var(--bp-line-faint)]">Why your employer should send you</h3>
-        <p class="text-base leading-relaxed">
-          You'll learn practical skills from local developers who live and work in Hampton Roads, and you can take those skills back to your team. You'll spend a day with the regional tech community and meet people you can keep in touch with after the event. You'll also see who is hiring and building here, which helps your employer know what's going on in our area.
-        </p>
-      </div>
-    </section>
-
     <!-- How to Sponsor -->
     <section id="how-to-sponsor" class="w-full py-10 md:py-16 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3 mb-6">
@@ -785,28 +724,12 @@ const email = "kevin@revolutionva.org";
       </div>
     </section>
 
-    <!-- Schools and Scholars -->
-    <section id="schools" class="w-full pt-10 px-4 md:px-8 lg:pt-16 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto bp-surface flex flex-col gap-3">
-        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3 mb-2">
-          <span class="bp-sheet-ref">{ref("schools")}</span>
-          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">For schools and programs</h2>
-        </div>
-        <p class="text-base leading-relaxed max-w-[72ch]">
-          We offer student cohort codes, a faculty kit, and scholarship blocks. Email Kevin Griffin at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>.
-        </p>
-        <p class="text-base leading-relaxed max-w-[72ch]">
-          <strong>Seat lottery:</strong> we give away scholarship and Send a friend seats by lottery, and anyone can enter. Seats funded for veterans are drawn from veteran entries, and seats funded for students are drawn from student entries. Entries are open until the week before the event. We draw winners the week of the event. Seats funded by our Scholarship sponsors are held for the lottery, even if we sell out. Extra seats, like Send a friend, depend on space, so buy a ticket if you can. Entry form in early 2027.
-        </p>
-      </div>
-    </section>
-
     <!-- Questions -->
     <section id="questions" class="w-full py-10 px-4 md:px-8 lg:py-16">
       <div class="max-w-3xl mx-auto flex flex-col items-center gap-3 text-center">
         <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Questions?</h2>
         <p class="text-base leading-relaxed">
-          Reach out to Kevin Griffin at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. We're happy to talk through which tier fits your team.
+          Email us at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. We're happy to talk through which tier fits your team.
         </p>
       </div>
     </section>
