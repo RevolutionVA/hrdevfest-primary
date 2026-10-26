@@ -4,9 +4,17 @@
   One paper color, one ink color, one accent. No gradients, shadows, or blobs.
 
   Contrast (WCAG 2.x) on --bp-paper #0b3d6e:
-    --bp-ink        #f4f8fc  about 10:1   body text, headings, line work, links
-    --bp-ink-muted  #c6d6e8  about 7.4:1  secondary text, labels
+    --bp-ink        #f4f8fc  about 10.3:1  body text, headings, line work, links
+    --bp-ink-muted  #c6d6e8  about 7.4:1   secondary text, labels
   Links are --bp-ink and underlined, so no extra link color is needed.
+
+  Readability: text sits on solid --bp-surface (same blue as the paper), so
+  the grid stops at the edge of a box instead of running behind the words.
+  The grid is faint enough that text left on it still clears AA: muted text
+  is about 6.6:1 on a major grid line and 6.1:1 where two lines cross.
+  Box borders use --bp-line-soft (white at 40%, about 3.1:1 against the
+  paper, so it still meets the 3:1 non-text minimum). The page frame,
+  section rules, title block, and form fields stay crisp --bp-line.
 
   Primary button decision: KEEP red #d33b32 for .btn-primary only.
     White text on #d33b32 is about 4.7:1, which passes AA even for normal
@@ -25,12 +33,20 @@
   --bp-ink: #f4f8fc;
   --bp-ink-muted: #c6d6e8;
   --bp-line: #dbe6f1;
+  --bp-surface: #0b3d6e;
+  --bp-line-soft: rgb(255 255 255 / 0.4);
   --bp-line-faint: rgb(255 255 255 / 0.35);
-  --bp-grid: rgb(255 255 255 / 0.05);
-  --bp-grid-major: rgb(255 255 255 / 0.09);
+  --bp-grid: rgb(255 255 255 / 0.025);
+  --bp-grid-major: rgb(255 255 255 / 0.045);
   --bp-red: #d33b32;
   --bp-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --bp-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Running text: 16px at 1.65 (Tailwind defaults are 1.5 and 1.625) */
+@theme {
+  --text-base--line-height: 1.65;
+  --leading-relaxed: 1.65;
 }
 
 @layer base {
@@ -39,6 +55,7 @@
   }
 
   body {
+    line-height: 1.65;
     font-family: var(--bp-sans);
     color: var(--bp-ink);
     background-color: var(--bp-paper);
@@ -76,10 +93,15 @@
     }
   }
 
-  /* Title block box: cards, tiers, panels */
+  /* Title block box: cards, tiers, panels. Solid so the grid stays out of the text. */
   .bp-box {
-    border: 1px solid var(--bp-line);
-    background-color: transparent;
+    border: 1px solid var(--bp-line-soft);
+    background-color: var(--bp-surface);
+  }
+
+  /* Borderless solid panel for text blocks that sit on the open grid */
+  .bp-surface {
+    background-color: var(--bp-surface);
   }
 
   /* Fixed mobile menu button: opaque paper so page text never shows through */
@@ -194,7 +216,8 @@
   .bp-table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid var(--bp-line);
+    border: 1px solid var(--bp-line-soft);
+    background-color: var(--bp-surface);
   }
   .bp-table th,
   .bp-table td {
@@ -210,7 +233,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--bp-ink-muted);
-    border-bottom-color: var(--bp-line);
+    border-bottom-color: var(--bp-line-soft);
   }
   /* Row headers are names (tiers, tickets), so they stay in readable sans */
   .bp-table th[scope="row"] {
@@ -227,6 +250,7 @@
     width: 100%;
     max-width: 28rem;
     border: 1px solid var(--bp-line);
+    background-color: var(--bp-surface);
     font-family: var(--bp-mono);
     font-size: 0.75rem;
     letter-spacing: 0.1em;
