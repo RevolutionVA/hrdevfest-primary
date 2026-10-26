@@ -23,12 +23,13 @@ const testimonialImages: Record<string, any> = {
 const events = await getCollection('events');
 const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
 
-// 2026 sponsors for the logo row above the signup form
+// 2026 platinum and gold sponsors for the logo row above the signup form
 const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
 const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
   Object.entries(sponsorLogoFiles).map(([path, mod]) => [path.split("/").pop()!, mod.default])
 );
-const sponsors2026 = (await getEntry('events', '2026/event'))?.data.sponsors ?? [];
+const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ?? [])
+  .filter((sponsor) => sponsor.tier === 'platinum' || sponsor.tier === 'gold');
 ---
 
 <html lang="en">
@@ -154,7 +155,7 @@ const sponsors2026 = (await getEntry('events', '2026/event'))?.data.sponsors ?? 
       {sponsors2026.length > 0 && (
         <div class="max-w-4xl mx-auto mb-10 flex flex-col items-center gap-4">
           <p class="bp-label">DevFest 2026 sponsors</p>
-          <div class="flex flex-wrap justify-center items-center gap-3">
+          <div class="flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
             {sponsors2026.filter((sponsor) => sponsorLogos[sponsor.logo]).map((sponsor) => (
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="bp-plate px-3 py-2" title={sponsor.name}>
                 <Image src={sponsorLogos[sponsor.logo]} alt={sponsor.name} class="h-8 w-auto object-contain" />
