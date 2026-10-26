@@ -50,7 +50,7 @@ interface GlanceRow {
 
 const glance: GlanceRow[] = [
   { mark: "P", detail: "presenting", tier: "Presenting", price: "$10,000", available: "1", table: "Yes", talk: true, tickets: "12", social: "4", report: true },
-  { mark: "H", detail: "happy-hour", tier: "Happy Hour", price: "$7,500", available: "1", table: "Yes", talk: false, tickets: "10", social: "3", report: true },
+  { mark: "R", detail: "reception", tier: "Post-Event Reception", price: "$7,500", available: "1", table: "Yes", talk: false, tickets: "10", social: "3", report: true },
   { mark: "M", detail: "main-stage", tier: "Main Stage", price: "$5,000", available: "1", table: "Yes", talk: true, tickets: "10", social: "3", report: true },
   { mark: "S", detail: "studio", tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3", report: true },
   { mark: "VS", detail: "scholarship", tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
@@ -92,16 +92,16 @@ const tiers: Tier[] = [
     ],
   },
   {
-    id: "happy-hour",
-    mark: "H",
-    name: "Happy Hour Sponsor",
+    id: "reception",
+    mark: "R",
+    name: "Post-Event Reception Sponsor",
     price: "$7,500",
     available: "1 available",
-    tagline: "Your name on the after-event happy hour: \"The [Your Company] Happy Hour.\"",
+    tagline: "Your name on the reception after the event: \"The [Your Company] Post-Event Reception.\"",
     benefits: [
-      "Naming rights for the happy hour after the event",
-      "Your brand on the happy hour signage and drink tickets",
-      "A few words to welcome the room at the happy hour",
+      "Naming rights for the reception after the event",
+      "Your brand on the reception signage",
+      "A few words to welcome the room at the reception",
       "Your logo on the website and in event emails",
       "A sponsor table",
       "10 tickets",
