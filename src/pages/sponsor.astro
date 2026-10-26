@@ -391,7 +391,7 @@ const email = "kevin@revolutionva.org";
         </div>
 
         <!-- Plan diagram: what each tier puts its name on -->
-        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5" aria-label="Plan of the day's spaces, keyed to sponsor naming rights. Not to scale.">
+        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5" aria-label="Plan of the day's spaces: the event, Main Stage, the Studio, and Registration. Not to scale. Sponsor naming rights are listed below.">
           <div class="flex items-baseline justify-end gap-4 border-b border-[var(--bp-line)] pb-3">
             <p class="bp-label">Not to scale</p>
           </div>
@@ -399,13 +399,11 @@ const email = "kevin@revolutionva.org";
           <div class="relative pt-5 pr-5">
             <!-- 1: the event -->
             <div class="bp-room border-solid border-[var(--bp-line)] p-3 md:p-4">
-              <span class="bp-mark" aria-hidden="true">1</span>
               <p class="bp-mono text-xs md:text-sm tracking-[0.08em] uppercase mb-3">Hampton Roads DevFest presented by [Your Company]</p>
 
               <div class="grid grid-cols-[3fr_2fr] gap-3 md:gap-4">
                 <!-- 2: Main Stage -->
                 <div class="bp-room p-3 md:p-4 min-h-[13rem] md:min-h-[15rem] flex flex-col">
-                  <span class="bp-mark" aria-hidden="true">2</span>
                   <p class="font-bold leading-tight">Main Stage</p>
                   <div class="mt-auto pt-5 flex flex-col items-center gap-1 md:gap-1.5 overflow-hidden">
                     <!-- Theater seating: back rows widest, rows bow toward the stage at the edges -->
@@ -435,12 +433,10 @@ const email = "kevin@revolutionva.org";
                 <div class="flex flex-col gap-3 md:gap-4">
                   <!-- 3: Studio -->
                   <div class="bp-room p-3 md:p-4 flex-1 flex flex-col">
-                    <span class="bp-mark" aria-hidden="true">3</span>
                     <p class="font-bold leading-tight">The Studio</p>
                   </div>
                   <!-- 4: Registration -->
                   <div class="bp-room p-3 md:p-4 flex-1 flex flex-col">
-                    <span class="bp-mark" aria-hidden="true">4</span>
                     <p class="font-bold leading-tight">Registration</p>
                   </div>
                 </div>
@@ -449,17 +445,14 @@ const email = "kevin@revolutionva.org";
           </div>
 
           <figcaption>
-            <ol class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-t border-[var(--bp-line-faint)]">
+            <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-t border-[var(--bp-line-faint)]">
               {planLegend.map((item) => (
-                <li class="grid grid-cols-[auto_1fr] gap-x-3 py-2.5 items-start">
-                  <a href={item.href} class="bp-mark" aria-label={`Go to ${item.tier}`}>{item.mark}</a>
-                  <div class="leading-snug">
-                    <p class="text-sm md:text-base">{item.label}</p>
-                    <p class="bp-mono text-xs md:text-sm bp-muted mt-0.5">{item.tier}</p>
-                  </div>
+                <li class="py-2.5 leading-snug">
+                  <p class="text-sm md:text-base">{item.label}</p>
+                  <p class="bp-mono text-xs md:text-sm bp-muted mt-0.5"><a href={item.href} class="bp-link">{item.tier}</a></p>
                 </li>
               ))}
-            </ol>
+            </ul>
           </figcaption>
         </figure>
       </div>
