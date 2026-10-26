@@ -129,14 +129,11 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
         </div>
       </div>
 
-      <!-- Landmark line art: a skyline row in the hero's bottom padding, md and up -->
-      <LandmarkLineArt />
-
       <!-- Hero Content (bottom padding leaves room for the line art row) -->
-      <div class="relative z-10 w-full px-4 md:px-8 py-16 md:pt-24 md:pb-48 lg:pb-64">
+      <div class="relative z-10 w-full px-4 md:px-8 pt-16 pb-8 md:pb-[280px] min-[90rem]:pt-8 min-[90rem]:pb-[240px]">
         <div class="max-w-7xl mx-auto">
           <!-- Logo, headline, and the event date and place -->
-          <div class="w-fit mx-auto px-6 py-8 md:px-12 md:py-10 bp-surface flex flex-col items-center gap-6 text-center">
+          <div class="w-fit mx-auto px-6 py-8 md:px-12 bp-surface flex flex-col items-center gap-6 md:gap-5 text-center">
             <h1>
               <Image src={logoWhite} alt="Hampton Roads DevFest 2027" class="w-[200px] md:w-[300px] h-auto" width={300} height={225} loading="eager" fetchpriority="high" />
             </h1>
@@ -152,6 +149,9 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
           </div>
         </div>
       </div>
+
+      <!-- Landmark line art: under the button on mobile, a skyline row in the hero's bottom padding from md -->
+      <LandmarkLineArt />
     </section>
 
     <!-- Mailing List Signup - primary CTA -->

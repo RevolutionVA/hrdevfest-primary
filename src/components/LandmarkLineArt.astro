@@ -4,11 +4,16 @@
   a skyline row along the bottom of a hero: King Neptune (Virginia Beach),
   the battleship Wisconsin (Norfolk), and an open bascule drawbridge.
 
-  Pure decoration: no text, aria-hidden, no pointer events. Hidden below md.
+  Pure decoration: no text, aria-hidden, no pointer events.
   All three share one drawing scale and sit 30 units of "below water" under
   their waterlines, so with items-end the waterlines line up across the row.
-  The parent must be position: relative and leave bottom padding for the row
-  (about 150px at md, 215px at lg) so the art never runs behind text.
+
+  Below md: just Neptune, small and centered, in flow after the hero text.
+  md: Neptune and the bridge. lg: all three. Either way the row sits in the
+  hero's bottom padding, so the parent must be position: relative and leave
+  about 280px. From 1440px the drawings grow and the row spans the full hero:
+  Neptune rises in the left gutter beside the text block while the ship and
+  bridge stay under it (leave about 240px).
 */
 interface Props {
   class?: string;
@@ -18,13 +23,13 @@ const { class: className } = Astro.props;
 ---
 
 <div
-  class:list={["lla pointer-events-none select-none absolute inset-x-0 bottom-0 hidden md:block", className]}
+  class:list={["lla pointer-events-none select-none pb-10 md:pb-0 md:absolute md:inset-x-0 md:bottom-0", className]}
   aria-hidden="true"
 >
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-end justify-between gap-6">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 min-[90rem]:max-w-none min-[90rem]:px-4 flex items-end justify-center md:justify-between gap-6">
     <!-- King Neptune on his rock, turtle and dolphin, on a pier plinth -->
     <svg
-      class="h-[146px] lg:h-[213px] w-auto shrink-0"
+      class="h-[120px] md:h-[256px] min-[90rem]:h-[373px] w-auto shrink-0"
       viewBox="0 0 160 266"
       fill="none"
       stroke="currentColor"
@@ -71,7 +76,7 @@ const { class: className } = Astro.props;
 
     <!-- USS Wisconsin, side profile, bow to the right -->
     <svg
-      class="h-[75px] lg:h-[109px] w-auto shrink-0"
+      class="hidden lg:block h-[131px] min-[90rem]:h-[191px] w-auto shrink-0"
       viewBox="0 0 440 136"
       fill="none"
       stroke="currentColor"
@@ -117,7 +122,7 @@ const { class: className } = Astro.props;
 
     <!-- Bascule drawbridge, both leaves raised, tender house on the right pier -->
     <svg
-      class="h-[88px] lg:h-[128px] w-auto shrink-0"
+      class="hidden md:block h-[154px] min-[90rem]:h-[224px] w-auto shrink-0"
       viewBox="0 0 300 160"
       fill="none"
       stroke="currentColor"
@@ -166,12 +171,12 @@ const { class: className } = Astro.props;
   .lla svg * {
     vector-effect: non-scaling-stroke;
   }
-  /* Same quiet register as the page grid, just a step up so the shapes read */
+  /* A clear step above the page grid so the shapes read, still under the text */
   .lla-main {
-    opacity: 0.4;
+    opacity: 0.6;
   }
   .lla-dim {
-    opacity: 0.25;
+    opacity: 0.35;
   }
   .lla-water {
     stroke-dasharray: 6 4;
