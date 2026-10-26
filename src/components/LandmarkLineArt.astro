@@ -1,19 +1,17 @@
 ---
+import neptune from "../assets/landmark-neptune.webp";
+import battleship from "../assets/landmark-battleship.webp";
+import bridge from "../assets/landmark-bridge.webp";
 /*
-  Decorative blueprint line drawings of three Hampton Roads landmarks, set as
-  a skyline row along the bottom of a hero: King Neptune (Virginia Beach),
-  the battleship Wisconsin (Norfolk), and an open bascule drawbridge.
+  Decorative blueprint line art of three Hampton Roads landmarks: King Neptune
+  (Virginia Beach), the battleship Wisconsin (Norfolk), and an open bascule
+  drawbridge. Traced from Kevin's samples into white-on-transparent WebP
+  (frame and background removed, hull number removed, ship mirrored).
 
-  Pure decoration: no text, aria-hidden, no pointer events.
-  All three share one drawing scale and sit 30 units of "below water" under
-  their waterlines, so with items-end the waterlines line up across the row.
-
+  Pure decoration: aria-hidden, empty alt, no pointer events.
   Below md: just Neptune, small and centered, in flow after the hero text.
-  md: Neptune and the bridge. lg: all three. Either way the row sits in the
-  hero's bottom padding, so the parent must be position: relative and leave
-  about 280px. From 1440px the drawings grow and the row spans the full hero:
-  Neptune rises in the left gutter beside the text block while the ship and
-  bridge stay under it (leave about 240px).
+  md: Neptune and the ship. lg: all three. From 1440px Neptune rises in the
+  left gutter beside the text block while the bridge and ship stay under it.
 */
 interface Props {
   class?: string;
@@ -27,161 +25,17 @@ const { class: className } = Astro.props;
   aria-hidden="true"
 >
   <div class="max-w-7xl mx-auto px-6 lg:px-10 min-[90rem]:max-w-none min-[90rem]:px-4 flex items-end justify-center md:justify-between gap-6">
-    <!-- King Neptune on his rock, turtle and dolphin, on a pier plinth -->
-    <svg
-      class="h-[120px] md:h-[256px] min-[90rem]:h-[373px] w-auto shrink-0"
-      viewBox="0 0 160 266"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <g class="lla-main">
-        <!-- trident -->
-        <path d="M52 120V12M44 30h16M44 30V16M60 30V16M52 12V6M42 20l2-6 2 6M50 10l2-6 2 6M58 20l2-6 2 6" />
-        <!-- head and beard -->
-        <circle cx="80" cy="62" r="9" />
-        <path d="M72 66q2 12 8 18q6-6 8-18M75 72q5 3 10 0" />
-        <!-- shoulders, torso, drape -->
-        <path d="M62 92q18-6 36 0M64 92l4 36h24l4-36M70 102q10 4 20 0M68 128q12 8 24 0" />
-        <!-- raised arm gripping the trident -->
-        <path d="M62 92L50 74V58M68 96L58 76L57 58M48 52h8v8h-8z" />
-        <!-- lowered arm -->
-        <path d="M98 92l8 20l-6 18M93 98l7 14l-4 14" />
-        <!-- legs -->
-        <path d="M70 130l-4 42M79 133l-1 39M82 133l4 39M92 130l4 42" />
-        <!-- rock -->
-        <path d="M40 200c2-14 12-22 24-26c8-4 26-4 36 0c12 4 20 14 22 26" />
-        <!-- turtle -->
-        <path d="M38 199a12 7 0 0 1 24 0M44 194l4 5l4-5l4 5M38 197a3 3 0 1 1-4-1" />
-        <!-- dolphin -->
-        <path d="M104 198c6-16 20-18 28-11l6-5M132 187l4 6M116 182l2-6l4 5M108 192q4-2 6 0" />
-        <!-- plinth deck, columns, bracing -->
-        <path d="M16 200h128v10H16zM20 214h120" />
-        <path d="M26 210v52M34 210v52M58 210v52M66 210v52M94 210v52M102 210v52M126 210v52M134 210v52" />
-        <path d="M34 218l24 28M58 218L34 246M102 218l24 28M126 218l-24 28" />
-      </g>
-      <g class="lla-dim">
-        <!-- waterline -->
-        <path class="lla-water" d="M0 236h160" />
-        <!-- centerline -->
-        <path class="lla-center" d="M80 40v224" />
-        <!-- overall height: trident tip to deck -->
-        <path d="M58 4h98M146 200h10M152 4v196M149 7l6-6M149 203l6-6" />
-      </g>
-    </svg>
+    <img src={neptune.src} width={neptune.width} height={neptune.height} alt="" class="lla-img h-[120px] md:h-[256px] min-[90rem]:h-[373px] w-auto shrink-0" decoding="async" loading="eager" />
 
-    <!-- USS Wisconsin, side profile, bow to the right -->
-    <svg
-      class="hidden lg:block h-[131px] min-[90rem]:h-[191px] w-auto shrink-0"
-      viewBox="0 0 440 136"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <g class="lla-main">
-        <!-- hull and sheer line -->
-        <path d="M10 88h220q100-2 204-14l-16 32H24z" />
-        <path d="M24 96h398" />
-        <!-- forward turrets: No. 1 and superfiring No. 2 on its barbette -->
-        <path d="M340 87l4-9h28l4 9M372 80l40-2M372 84l40-2" />
-        <path d="M292 87v-7h34v7M290 80l4-10h28l6 10M328 72l38-2M328 76l38-2" />
-        <!-- aft turret No. 3 -->
-        <path d="M114 88l-4-10H82l-4 10M82 80l-38-2M82 84l-38-2" />
-        <!-- deckhouses -->
-        <path d="M140 88V74h145v14M160 74V62h110v12" />
-        <!-- secondary mounts -->
-        <path d="M148 74l2-6h12l2 6M164 71h10M272 62l2-5h10l2 5M286 60h8" />
-        <!-- bridge tower and director -->
-        <path d="M244 62V40h22v22M238 46h34M248 40v-6h14v6M252 34v-4h6v4" />
-        <!-- forward mast -->
-        <path d="M236 62l4-48M244 40l-4-26M228 24h24M240 14l22 20" />
-        <!-- funnels -->
-        <path d="M210 62l2-24h18v24M209 38h23M168 62l2-20h16v20M167 42h21" />
-        <!-- aft mast -->
-        <path d="M196 62V30M188 36h16M196 42l-8 20" />
-        <!-- flagstaff and jackstaff -->
-        <path d="M14 88V72M432 74V62" />
-      </g>
-      <g class="lla-dim">
-        <!-- waterline and underwater hull -->
-        <path class="lla-water" d="M0 106h440M24 106q6 16 36 16h340q14-4 18-16" />
-        <!-- turret centerlines -->
-        <path class="lla-center" d="M358 64v32M309 58v38M96 64v32" />
-        <!-- length overall -->
-        <path d="M10 90v44M434 78v56M10 130h424M7 133l6-6M431 133l6-6" />
-      </g>
-    </svg>
+    <img src={bridge.src} width={bridge.width} height={bridge.height} alt="" class="lla-img hidden lg:block h-[131px] min-[90rem]:h-[191px] w-auto shrink-0" decoding="async" loading="lazy" />
 
-    <!-- Bascule drawbridge, both leaves raised, tender house on the right pier -->
-    <svg
-      class="hidden md:block h-[154px] min-[90rem]:h-[224px] w-auto shrink-0"
-      viewBox="0 0 300 160"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.1"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <g class="lla-main">
-        <!-- approach spans and piles -->
-        <path d="M0 100h60M0 106h60M20 106v50M40 106v50" />
-        <path d="M240 100h60M240 106h60M260 106v50M280 106v50" />
-        <!-- piers -->
-        <path d="M60 100h30v56H60zM210 100h30v56h-30z" />
-        <!-- left leaf: truss with counterweight, raised about its trunnion -->
-        <g transform="rotate(-72 90 100)">
-          <path d="M90 100h60v7H90zM74 96h16v16H74z" />
-          <path d="M90 107l10-7l10 7l10-7l10 7l10-7l10 7" />
-        </g>
-        <!-- right leaf -->
-        <g transform="rotate(72 210 100)">
-          <path d="M150 100h60v7h-60zM210 96h16v16h-16z" />
-          <path d="M150 107l10-7l10 7l10-7l10 7l10-7l10 7" />
-        </g>
-        <!-- tender house -->
-        <path d="M216 100V80h22v20M213 80l14-10l14 10M222 84h10v8h-10z" />
-      </g>
-      <g class="lla-dim">
-        <!-- waterline -->
-        <path class="lla-water" d="M0 130h300" />
-        <!-- channel centerline -->
-        <path class="lla-center" d="M150 14v142" />
-        <!-- channel width between pier faces -->
-        <path d="M90 146h120M87 149l6-6M207 149l6-6" />
-      </g>
-    </svg>
+    <img src={battleship.src} width={battleship.width} height={battleship.height} alt="" class="lla-img hidden md:block h-[154px] min-[90rem]:h-[224px] w-auto shrink-0" decoding="async" loading="lazy" />
   </div>
 </div>
 
 <style>
-  .lla {
-    color: var(--bp-line);
-  }
-  /* Keep the line weight constant at every drawing scale */
-  .lla svg * {
-    vector-effect: non-scaling-stroke;
-  }
   /* A clear step above the page grid so the shapes read, still under the text */
-  .lla-main {
+  .lla-img {
     opacity: 0.6;
-  }
-  .lla-dim {
-    opacity: 0.35;
-  }
-  .lla-water {
-    stroke-dasharray: 6 4;
-  }
-  .lla-center {
-    stroke-dasharray: 10 3 2 3;
   }
 </style>
