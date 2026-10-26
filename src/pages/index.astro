@@ -3,16 +3,22 @@ import "../styles/global.css";
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import CanonicalLink from "../components/CanonicalLink.astro";
 import HeaderTagline from "../components/HeaderTagline.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
+import { sheetFor } from "../data/titleBlock";
 import logoWhite from "../assets/logo-white.png";
 import { testimonials } from "../data/testimonials";
 import { faqItems } from "../data/faq";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
+import michaelBuckbeeImage from "../assets/testimonials/michael-buckbee.jpg";
+import travisWebbImage from "../assets/testimonials/travis-webb.png";
 
 const testimonialImages: Record<string, any> = {
   "paul-chin-jr.jpeg": paulChinJrImage,
+  "michael-buckbee.jpg": michaelBuckbeeImage,
+  "travis-webb.png": travisWebbImage,
 };
 
 const events = await getCollection('events');
@@ -36,6 +42,7 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
     <meta property="og:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
     <meta property="og:description" content="Hampton Roads DevFest 2027 is Friday, April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA." />
     <meta property="og:url" content="https://hrdevfest.org" />
+    <CanonicalLink href="https://hrdevfest.org" />
     <meta property="og:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
     <meta property="og:site_name" content="Hampton Roads DevFest" />
 
@@ -65,7 +72,7 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
   </head>
   <body class="min-h-screen">
     <!-- Mobile hamburger button - outside the frame so it stays fixed -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-box bg-[var(--bp-paper)]" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu">
       <!-- Hamburger icon -->
       <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -123,11 +130,11 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
           <!-- Logo with the event date and place -->
           <div class="flex flex-col items-center gap-6 text-center">
             <h1>
-              <Image src={logoWhite} alt="Hampton Roads DevFest 2027" class="w-[200px] md:w-[300px] h-auto" width={300} height={225} />
+              <Image src={logoWhite} alt="Hampton Roads DevFest 2027" class="w-[200px] md:w-[300px] h-auto" width={300} height={225} loading="eager" fetchpriority="high" />
             </h1>
             <p class="text-[18px] md:text-[22px] font-semibold leading-[1.3]">
-              <span class="block md:inline">Friday, April 23, 2027 · </span>
-              <span class="block md:inline">Zeiders American Dream Theater, Virginia Beach</span>
+              <span class="block sm:inline">Friday, April 23, 2027<span class="hidden sm:inline"> · </span></span>
+              <span class="block sm:inline">Zeiders American Dream Theater, Virginia Beach</span>
             </p>
             <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-base">Get 2027 Updates</a>
           </div>
@@ -143,7 +150,7 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
           <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name (optional)" class="bp-input mb-3 px-4 py-3 text-base" />
-          <input type="email" name="email" aria-label="Email address" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="bp-input mb-4 px-4 py-3 text-base" />
+          <input type="email" name="email" aria-label="Email address" placeholder="Email" required class="bp-input mb-4 px-4 py-3 text-base" />
           <button type="submit" class="px-8 py-3 btn-primary text-base">Get 2027 Updates</button>
           <p class="text-xs bp-muted mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
         </form>
@@ -290,7 +297,7 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
                       <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.038.415-.055-.265.2-.532.34-.796.531-2.32 1.673-2.788 2.927-1.706 4.649 1.082 1.723 4.883 1.08 5.67-.542.364-.75.28-1.68.28-2.722 0 1.042-.084 1.972.28 2.722.787 1.622 4.588 2.265 5.67.542 1.082-1.722.614-2.976-1.706-4.649-.264-.191-.531-.331-.796-.531.14.017.279.035.415.055 2.67.296 5.568-.628 6.383-3.364.246-.829.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
                       </svg>
-                      <span class="text-sm font-medium">Website</span>
+                      <span class="text-sm font-medium">Bluesky</span>
                     </a>
                   )}
                 </div>
@@ -386,7 +393,7 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
             ))}
           </div>
         </div>
-        <TitleBlock />
+        <TitleBlock sheet={sheetFor("/")} />
       </div>
     </footer>
 
@@ -425,6 +432,14 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
           });
+        });
+
+        // Close menu on Escape and return focus to the button
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && isOpen) {
+            toggleMenu();
+            menuBtn?.focus();
+          }
         });
       });
     </script>

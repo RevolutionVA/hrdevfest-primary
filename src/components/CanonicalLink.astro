@@ -1,0 +1,13 @@
+---
+import { normalizePath } from "../data/titleBlock";
+
+export interface Props {
+  // Pass the page's og:url when it has one so the two always match.
+  href?: string;
+}
+
+const path = normalizePath(Astro.url.pathname);
+const { href = `https://hrdevfest.org${path === "/" ? "" : path}` } = Astro.props;
+---
+
+<link rel="canonical" href={href} />

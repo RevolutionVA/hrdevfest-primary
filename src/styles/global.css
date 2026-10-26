@@ -82,6 +82,12 @@
     background-color: transparent;
   }
 
+  /* Fixed mobile menu button: opaque paper so page text never shows through */
+  .bp-menu-btn {
+    border: 1px solid var(--bp-line);
+    background-color: var(--bp-paper);
+  }
+
   /* Small uppercase drafting label */
   .bp-label {
     font-family: var(--bp-mono);

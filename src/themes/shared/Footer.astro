@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import TitleBlock from '../../components/TitleBlock.astro';
+import { normalizePath, sheetFor, titleBlockDate } from '../../data/titleBlock';
 
 export interface Props {
   showSocialLinks?: boolean;
@@ -13,6 +14,17 @@ const events = await getCollection('events');
 const pastYears = events
   .map(e => e.data.year)
   .sort((a, b) => b - a);
+
+// Year pages (/2026, /2024, ...) describe that year's event in the title block.
+const path = normalizePath(Astro.url.pathname);
+const yearEvent = events.find(e => `/${e.data.year}` === path)?.data;
+const titleBlockProps = yearEvent
+  ? {
+      project: `Hampton Roads DevFest ${yearEvent.year}`,
+      location: yearEvent.venue ? `${yearEvent.venue.city}, ${yearEvent.venue.state}` : "",
+      date: titleBlockDate(yearEvent.date) ?? "",
+    }
+  : {};
 ---
 
 <footer class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
@@ -57,6 +69,6 @@ const pastYears = events
         ))}
       </div>
     </div>
-    <TitleBlock />
+    <TitleBlock {...titleBlockProps} sheet={sheetFor(path)} />
   </div>
 </footer>

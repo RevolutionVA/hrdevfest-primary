@@ -1,6 +1,7 @@
 ---
 import "../../../styles/global.css";
 import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
+import CanonicalLink from "../../../components/CanonicalLink.astro";
 import MobileMenu from "../../shared/MobileMenu.astro";
 import NavBar from "../../shared/NavBar.astro";
 import Footer from "../../shared/Footer.astro";
@@ -28,6 +29,7 @@ const navLinks = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <CanonicalLink />
     {description && <meta name="description" content={description} />}
 
     <GoogleAnalytics />

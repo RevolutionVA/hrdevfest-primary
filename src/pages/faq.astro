@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import CanonicalLink from "../components/CanonicalLink.astro";
 import HeaderTagline from "../components/HeaderTagline.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
+import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 
@@ -48,7 +50,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "Are scholarships available?",
-        answer: "Yes. We give away scholarship and Send a friend seats by lottery, and anyone can enter. Seats funded for veterans are drawn from veteran entries, and seats funded for students are drawn from student entries. Entries are open until the week before the event. We draw winners the week of the event. Seats funded by our Scholarship sponsors are held for the lottery, even if we sell out. Extra seats, like Send a friend, depend on space, so buy a ticket if you can. Entry form coming soon."
+        answer: "Yes. We give away scholarship and Send a friend seats by lottery, and anyone can enter. Seats funded for veterans are drawn from veteran entries, and seats funded for students are drawn from student entries. Entries are open until the week before the event. We draw winners the week of the event. Seats funded by our Scholarship sponsors are held for the lottery, even if we sell out. Extra seats, like Send a friend, depend on space, so buy a ticket if you can. Entry form in early 2027."
       },
       {
         question: "Will I receive a receipt for reimbursement?",
@@ -90,7 +92,7 @@ const faqData: FAQCategory[] = [
     items: [
       {
         question: "When will the schedule be published?",
-        answer: "The full schedule will be published soon."
+        answer: "The full schedule will be published in early 2027."
       },
       {
         question: "How long are sessions?",
@@ -160,6 +162,7 @@ const faqData: FAQCategory[] = [
     <meta property="og:title" content="FAQ | Hampton Roads DevFest 2027" />
     <meta property="og:description" content="Frequently asked questions about Hampton Roads DevFest 2027. Find answers about tickets, venue, sessions, and more." />
     <meta property="og:url" content="https://hrdevfest.org/faq" />
+    <CanonicalLink href="https://hrdevfest.org/faq" />
     <meta property="og:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
     <!-- Twitter Card -->
@@ -194,7 +197,7 @@ const faqData: FAQCategory[] = [
   </head>
   <body class="min-h-screen">
     <!-- Mobile hamburger button - outside the frame so it stays fixed -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-box bg-[var(--bp-paper)]" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu">
       <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -220,7 +223,7 @@ const faqData: FAQCategory[] = [
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
           <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name (optional)" class="bp-input mb-3 px-4 py-3 text-base" />
-          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="bp-input mb-4 px-4 py-3 text-base" />
+          <input type="email" name="email" placeholder="Email" required class="bp-input mb-4 px-4 py-3 text-base" />
           <button type="submit" class="px-8 py-3 btn-primary text-base">Get 2027 Updates</button>
           <p class="text-xs bp-muted mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
         </form>
@@ -343,7 +346,7 @@ const faqData: FAQCategory[] = [
             </a>
           </div>
         </div>
-        <TitleBlock />
+        <TitleBlock sheet={sheetFor("/faq")} />
       </div>
     </footer>
 
@@ -380,6 +383,14 @@ const faqData: FAQCategory[] = [
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
           });
+        });
+
+        // Close menu on Escape and return focus to the button
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && isOpen) {
+            toggleMenu();
+            menuBtn?.focus();
+          }
         });
 
         // FAQ accordion toggle

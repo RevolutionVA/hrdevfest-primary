@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import CanonicalLink from "../components/CanonicalLink.astro";
 import HeaderTagline from "../components/HeaderTagline.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
+import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 ---
@@ -18,6 +20,7 @@ import logoWhite from "../assets/logo-white.png";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Thank You | Hampton Roads DevFest</title>
+    <CanonicalLink />
     <meta name="description" content="Thanks for signing up! We'll keep you updated on next year's Hampton Roads DevFest." />
 
     <GoogleAnalytics />
@@ -90,7 +93,7 @@ import logoWhite from "../assets/logo-white.png";
             </a>
           </div>
         </div>
-        <TitleBlock />
+        <TitleBlock sheet={sheetFor("/thank-you")} />
       </div>
     </footer>
     </div>

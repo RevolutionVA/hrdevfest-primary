@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import CanonicalLink from "../components/CanonicalLink.astro";
 import HeaderTagline from "../components/HeaderTagline.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
+import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 
@@ -260,6 +262,7 @@ const email = "kevin@revolutionva.org";
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content="https://hrdevfest.org/sponsor" />
+    <CanonicalLink href="https://hrdevfest.org/sponsor" />
     <meta property="og:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
     <!-- Twitter Card -->
@@ -273,7 +276,7 @@ const email = "kevin@revolutionva.org";
   </head>
   <body class="min-h-screen">
     <!-- Mobile hamburger button - outside the frame so it stays fixed -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-box bg-[var(--bp-paper)]" aria-label="Toggle menu">
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu">
       <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -629,7 +632,7 @@ const email = "kevin@revolutionva.org";
           We offer student cohort codes, a faculty kit, and scholarship blocks. Email Kevin Griffin at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>.
         </p>
         <p class="text-base leading-relaxed">
-          <strong>Seat lottery:</strong> we give away scholarship and Send a friend seats by lottery, and anyone can enter. Seats funded for veterans are drawn from veteran entries, and seats funded for students are drawn from student entries. Entries are open until the week before the event. We draw winners the week of the event. Seats funded by our Scholarship sponsors are held for the lottery, even if we sell out. Extra seats, like Send a friend, depend on space, so buy a ticket if you can. Entry form coming soon.
+          <strong>Seat lottery:</strong> we give away scholarship and Send a friend seats by lottery, and anyone can enter. Seats funded for veterans are drawn from veteran entries, and seats funded for students are drawn from student entries. Entries are open until the week before the event. We draw winners the week of the event. Seats funded by our Scholarship sponsors are held for the lottery, even if we sell out. Extra seats, like Send a friend, depend on space, so buy a ticket if you can. Entry form in early 2027.
         </p>
       </div>
     </section>
@@ -679,7 +682,7 @@ const email = "kevin@revolutionva.org";
             <a href="/code-of-conduct" class="bp-link">Code of Conduct</a>
           </div>
         </div>
-        <TitleBlock />
+        <TitleBlock sheet={sheetFor("/sponsor")} />
       </div>
     </footer>
     </div>
@@ -715,6 +718,14 @@ const email = "kevin@revolutionva.org";
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
           });
+        });
+
+        // Close menu on Escape and return focus to the button
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && isOpen) {
+            toggleMenu();
+            menuBtn?.focus();
+          }
         });
       });
     </script>
