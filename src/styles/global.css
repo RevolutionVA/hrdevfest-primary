@@ -245,6 +245,50 @@
     color: var(--bp-ink);
   }
 
+  /* Callout mark: the one round thing on the page, because a drawing callout is a circle.
+     Keys a detail (tier card, room on the plan) to its reference in a schedule or legend. */
+  .bp-mark {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bp-line);
+    border-radius: 9999px;
+    background-color: var(--bp-surface);
+    font-family: var(--bp-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--bp-ink);
+    text-decoration: none;
+  }
+  a.bp-mark:hover {
+    background-color: var(--bp-ink);
+    color: var(--bp-paper);
+  }
+
+  /* Sheet reference on section headings: "2.4" before "Tier details" */
+  .bp-sheet-ref {
+    font-family: var(--bp-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    color: var(--bp-ink-muted);
+  }
+
+  /* Rooms on the plan diagram: dashed, because dashed on a drawing means proposed */
+  .bp-room {
+    position: relative;
+    border: 1px dashed var(--bp-line-soft);
+    background-color: var(--bp-surface);
+  }
+  .bp-room > .bp-mark {
+    position: absolute;
+    top: -1.125rem;
+    right: -1.125rem;
+  }
+
   /* Engineering title block (footer signature) */
   .bp-titleblock {
     width: 100%;

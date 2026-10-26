@@ -14,27 +14,30 @@ const pageDescription = "Sponsorship prospectus for Hampton Roads DevFest 2027, 
 interface ScheduleItem {
   time: string;
   what: string;
+  sponsorTime?: boolean; // a moment sponsors are on, at a table, or being named
 }
 
 const schedule: ScheduleItem[] = [
-  { time: "7:30", what: "Building opens, sponsor setup" },
-  { time: "8:00", what: "Registration and networking at the sponsor tables" },
-  { time: "9:00", what: "Opening, with the Presenting sponsor's 15-minute talk" },
+  { time: "7:30", what: "Building opens, sponsor setup", sponsorTime: true },
+  { time: "8:00", what: "Registration and networking at the sponsor tables", sponsorTime: true },
+  { time: "9:00", what: "Opening, with the Presenting sponsor's 15-minute talk", sponsorTime: true },
   { time: "9:30", what: "Talk" },
   { time: "10:15", what: "Talk" },
-  { time: "11:00", what: "Networking break at the sponsor tables" },
+  { time: "11:00", what: "Networking break at the sponsor tables", sponsorTime: true },
   { time: "11:30", what: "Talk" },
-  { time: "12:15", what: "Lunch in the Studio" },
-  { time: "12:45", what: "Scholar Meetup in the Studio" },
-  { time: "1:30", what: "Main Stage sponsor's 15-minute talk" },
+  { time: "12:15", what: "Lunch in the Studio", sponsorTime: true },
+  { time: "12:45", what: "Scholar Meetup in the Studio", sponsorTime: true },
+  { time: "1:30", what: "Main Stage sponsor's 15-minute talk", sponsorTime: true },
   { time: "1:45", what: "Talk" },
-  { time: "2:30", what: "Networking break at the sponsor tables" },
+  { time: "2:30", what: "Networking break at the sponsor tables", sponsorTime: true },
   { time: "3:00", what: "Talk" },
   { time: "3:45", what: "Talk" },
-  { time: "4:30", what: "Closing, then networking and sponsor teardown (building closes at 6:00)" },
+  { time: "4:30", what: "Closing, then networking and sponsor teardown (building closes at 6:00)", sponsorTime: true },
 ];
 
 interface GlanceRow {
+  mark: string; // callout mark, keyed to the tier detail card
+  detail: string; // id of the tier detail card
   tier: string;
   price: string;
   available: string;
@@ -46,17 +49,18 @@ interface GlanceRow {
 }
 
 const glance: GlanceRow[] = [
-  { tier: "Presenting", price: "$10,000", available: "1", table: "Yes", talk: true, tickets: "12", social: "4", report: true },
-  { tier: "Main Stage", price: "$5,000", available: "1", table: "Yes", talk: true, tickets: "10", social: "3", report: true },
-  { tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3", report: true },
-  { tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
-  { tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
-  { tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1", report: false },
-  { tier: "Community", price: "$500", available: "Open", table: "", talk: false, tickets: "1", social: "Group thank-you", report: false },
+  { mark: "P", detail: "presenting", tier: "Presenting", price: "$10,000", available: "1", table: "Yes", talk: true, tickets: "12", social: "4", report: true },
+  { mark: "M", detail: "main-stage", tier: "Main Stage", price: "$5,000", available: "1", table: "Yes", talk: true, tickets: "10", social: "3", report: true },
+  { mark: "S", detail: "studio", tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3", report: true },
+  { mark: "VS", detail: "scholarship", tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
+  { mark: "SS", detail: "scholarship", tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
+  { mark: "J", detail: "jobs-board", tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1", report: false },
+  { mark: "C", detail: "community", tier: "Community", price: "$500", available: "Open", table: "", talk: false, tickets: "1", social: "Group thank-you", report: false },
 ];
 
 interface Tier {
   id: string;
+  mark: string;
   name: string;
   price: string;
   available?: string;
@@ -69,6 +73,7 @@ interface Tier {
 const tiers: Tier[] = [
   {
     id: "presenting",
+    mark: "P",
     name: "Presenting Sponsor",
     price: "$10,000",
     available: "1 available",
@@ -87,6 +92,7 @@ const tiers: Tier[] = [
   },
   {
     id: "main-stage",
+    mark: "M",
     name: "Main Stage Sponsor",
     price: "$5,000",
     available: "1 available",
@@ -105,6 +111,7 @@ const tiers: Tier[] = [
   },
   {
     id: "studio",
+    mark: "S",
     name: "Studio Sponsor",
     price: "$3,500",
     available: "1 available",
@@ -122,6 +129,7 @@ const tiers: Tier[] = [
   },
   {
     id: "scholarship",
+    mark: "VS / SS",
     name: "Veteran Scholarship and Student Scholarship Sponsors",
     price: "$2,500 each",
     available: "3 of each available",
@@ -141,6 +149,7 @@ const tiers: Tier[] = [
   },
   {
     id: "jobs-board",
+    mark: "J",
     name: "Jobs Board Sponsor",
     price: "$1,000",
     available: "open",
@@ -159,6 +168,7 @@ const tiers: Tier[] = [
   },
   {
     id: "community",
+    mark: "C",
     name: "Community Sponsor",
     price: "$500",
     available: "open",
@@ -239,6 +249,32 @@ const navLinksBeforeYears = [
 const navLinksAfterYears = [
   { href: "/faq", label: "FAQ" },
   { href: "/sponsor", label: "Sponsor" },
+];
+
+// Sheet index. The footer title block calls this page sheet N of the set,
+// so each section is numbered N.1, N.2, ... like sheets in a drawing set.
+const sheet = sheetFor("/sponsor");
+const sheetNo = sheet ? sheet.split(" ")[0] : "2";
+const sections = [
+  { id: "why-sponsor", title: "Why sponsor DevFest" },
+  { id: "the-day", title: "The day" },
+  { id: "at-a-glance", title: "Sponsorship at a glance" },
+  { id: "tiers", title: "Tier details" },
+  { id: "add-ons", title: "Add-ons" },
+  { id: "report", title: "Post-event report" },
+  { id: "how-we-work", title: "How we work with sponsors" },
+  { id: "tickets", title: "Tickets" },
+  { id: "how-to-sponsor", title: "How to sponsor" },
+  { id: "schools", title: "For schools and programs" },
+];
+const ref = (id: string) => `${sheetNo}.${sections.findIndex((s) => s.id === id) + 1}`;
+
+// Plan legend: which tier puts its name on which space
+const planLegend = [
+  { mark: "1", href: "#presenting", label: "The event itself: \u201cHampton Roads DevFest presented by [Your Company]\u201d", tier: "Presenting, $10,000" },
+  { mark: "2", href: "#main-stage", label: "The room where every talk happens: \u201cThe [Your Company] Main Stage\u201d", tier: "Main Stage, $5,000" },
+  { mark: "3", href: "#studio", label: "The lunch and hangout room: \u201cThe [Your Company] Studio\u201d", tier: "Studio, $3,500" },
+  { mark: "4", href: "#scholarship", label: "A sponsor table at registration and every break", tier: "Scholarship tier and above, from $2,500" },
 ];
 
 const email = "kevin@revolutionva.org";
@@ -333,89 +369,194 @@ const email = "kevin@revolutionva.org";
       <div class="md:hidden h-6"></div>
     </nav>
 
-    <!-- Hero -->
-    <section class="w-full">
-      <div class="max-w-4xl mx-auto py-12 px-4 md:px-8 lg:py-20 flex flex-col items-center gap-4 text-center">
-        <p class="bp-label text-sm">Sponsorship Prospectus</p>
-        <h1 class="text-[32px] md:text-[48px] font-bold leading-[1.1]">Sponsor Hampton Roads DevFest 2027</h1>
-        <p class="text-[18px] md:text-[22px] font-semibold leading-[1.3]">
-          Friday, April 23, 2027 · Zeiders American Dream Theater · Virginia Beach, VA
-        </p>
-        <p class="max-w-2xl bp-muted text-base md:text-lg leading-relaxed">
-          Presented by RevolutionVA, a 501(c)(3) nonprofit that builds the Hampton Roads tech community all year.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center gap-4 mt-2">
-          <a href="#how-to-sponsor" class="px-8 py-3 btn-primary text-base">How to Sponsor</a>
-          <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base">Compare tiers</a>
+    <!-- Hero: cover sheet. Title on the left, the plan on the right. -->
+    <section class="w-full px-4 md:px-8 py-10 lg:py-16">
+      <div class="max-w-[1120px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-10 lg:gap-14 items-center">
+        <div class="flex flex-col gap-4">
+          <p class="bp-label text-sm">Sponsorship prospectus</p>
+          <h1 class="text-[34px] md:text-[48px] font-bold leading-[1.08]">Sponsor Hampton Roads DevFest 2027</h1>
+          <p class="text-lg md:text-xl font-semibold leading-snug">
+            Friday, April 23, 2027<br />Zeiders American Dream Theater, Virginia Beach
+          </p>
+          <p class="bp-muted text-base md:text-lg leading-relaxed max-w-[42ch]">
+            One day, one track, 299 seats. Every talk is a keynote and every sponsor is in the room with the people building software in Hampton Roads.
+          </p>
+          <p class="bp-muted text-sm leading-relaxed max-w-[48ch]">
+            Presented by RevolutionVA, a 501(c)(3) nonprofit that builds the Hampton Roads tech community all year.
+          </p>
+          <div class="flex flex-col sm:flex-row items-start gap-3 mt-2">
+            <a href="#how-to-sponsor" class="px-8 py-3 btn-primary text-base">How to Sponsor</a>
+            <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base">Compare tiers</a>
+          </div>
+        </div>
+
+        <!-- Plan diagram: what each tier puts its name on -->
+        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5">
+          <div class="flex items-baseline justify-between gap-4 border-b border-[var(--bp-line)] pb-3">
+            <p class="bp-label">Plan · sponsor naming</p>
+            <p class="bp-label">Not to scale</p>
+          </div>
+
+          <div class="relative pt-5 pr-5">
+            <!-- 1: the event -->
+            <div class="bp-room border-solid border-[var(--bp-line)] p-3 md:p-4">
+              <span class="bp-mark" aria-hidden="true">1</span>
+              <p class="bp-mono text-xs md:text-sm tracking-[0.08em] uppercase mb-3">Hampton Roads DevFest presented by [Your Company]</p>
+
+              <div class="grid grid-cols-[3fr_2fr] gap-3 md:gap-4">
+                <!-- 2: Main Stage -->
+                <div class="bp-room p-3 md:p-4 min-h-[13rem] md:min-h-[15rem] flex flex-col">
+                  <span class="bp-mark" aria-hidden="true">2</span>
+                  <p class="font-bold leading-tight">Main Stage</p>
+                  <p class="bp-muted text-sm leading-snug">299 seats, single track</p>
+                  <div class="mt-auto pt-6 flex flex-col gap-1">
+                    <div class="flex gap-1.5" aria-hidden="true">
+                      {Array.from({ length: 9 }).map(() => <span class="h-1 flex-1 bg-[var(--bp-line-faint)]"></span>)}
+                    </div>
+                    <div class="flex gap-1.5" aria-hidden="true">
+                      {Array.from({ length: 9 }).map(() => <span class="h-1 flex-1 bg-[var(--bp-line-faint)]"></span>)}
+                    </div>
+                    <div class="flex gap-1.5" aria-hidden="true">
+                      {Array.from({ length: 9 }).map(() => <span class="h-1 flex-1 bg-[var(--bp-line-faint)]"></span>)}
+                    </div>
+                    <div class="mt-2 border-t border-[var(--bp-line)] pt-1">
+                      <p class="bp-label text-[0.65rem] text-center">Stage</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-3 md:gap-4">
+                  <!-- 3: Studio -->
+                  <div class="bp-room p-3 md:p-4 flex-1 flex flex-col">
+                    <span class="bp-mark" aria-hidden="true">3</span>
+                    <p class="font-bold leading-tight">The Studio</p>
+                    <p class="bp-muted text-sm leading-snug">Lunch and hangout</p>
+                  </div>
+                  <!-- 4: Registration -->
+                  <div class="bp-room p-3 md:p-4 flex-1 flex flex-col">
+                    <span class="bp-mark" aria-hidden="true">4</span>
+                    <p class="font-bold leading-tight">Registration</p>
+                    <p class="bp-muted text-sm leading-snug">Sponsor tables, Who's hiring board</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <figcaption>
+            <ol class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-t border-[var(--bp-line-faint)]">
+              {planLegend.map((item) => (
+                <li class="grid grid-cols-[auto_1fr] gap-x-3 py-2.5 items-start">
+                  <a href={item.href} class="bp-mark" aria-label={`Go to ${item.tier}`}>{item.mark}</a>
+                  <div class="leading-snug">
+                    <p class="text-sm md:text-base">{item.label}</p>
+                    <p class="bp-mono text-xs md:text-sm bp-muted mt-0.5">{item.tier}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Sheet index -->
+    <section id="index" class="w-full px-4 md:px-8 pb-10 lg:pb-16">
+      <nav class="max-w-[1120px] mx-auto bp-box" aria-label="Sections of this prospectus">
+        <p class="bp-label px-5 py-3 border-b border-[var(--bp-line)]">Sheet {sheetNo} index</p>
+        <ol class="grid grid-cols-1 md:grid-cols-2 md:[&>li:nth-child(odd)]:border-r md:[&>li]:border-[var(--bp-line-faint)]">
+          {sections.map((section) => (
+            <li class="border-b border-[var(--bp-line-faint)] md:[&:nth-last-child(-n+2)]:border-b-0 last:border-b-0">
+              <a href={`#${section.id}`} class="grid grid-cols-[4rem_1fr] items-baseline px-5 py-2.5 bp-nav-link hover:bg-[var(--bp-paper-deep)]">
+                <span class="bp-sheet-ref">{ref(section.id)}</span>
+                <span class="text-base font-semibold">{section.title}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </section>
+
+    <!-- Why Sponsor -->
+    <section id="why-sponsor" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("why-sponsor")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Why sponsor DevFest</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-8 lg:gap-12">
+          <div class="bp-surface flex flex-col gap-3 max-w-[48ch]">
+            <p class="text-lg font-semibold">Hampton Roads talent and excellence.</p>
+            <p class="text-base leading-relaxed">
+              Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do. Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here. DevFest 2026 was a near sell out.
+            </p>
+          </div>
+          <div class="bp-surface">
+            <p class="bp-label mb-3">For 2027</p>
+            <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+              <li class="py-3"><strong>Local talent on stage.</strong> DevFest is single track, with 299 seats in one room. Every speaker is a keynote, and everyone sees every talk.</li>
+              <li class="py-3"><strong>Showing what's built here.</strong> Talks cover a range of topics, including AI, alongside the rest of what Hampton Roads developers work on every day.</li>
+              <li class="py-3"><strong>The Studio.</strong> An open room for hanging out and lunch, where many of the day's conversations happen.</li>
+              <li class="py-3"><strong>Real time with attendees.</strong> Registration networking, two 30-minute breaks at the sponsor tables, and a 75-minute lunch.</li>
+              <li class="py-3"><strong>The next generation of local talent.</strong> Many attendees come on Veteran and Student Scholarships, funded directly by sponsors. The Scholar Meetup at lunch, optional for scholars, connects them with the companies that sponsored their seats.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Privacy promise: a note on the sheet, set in a dashed box like the draft banner -->
+        <div id="privacy" class="border border-dashed border-[var(--bp-line-soft)] bp-surface p-5 md:p-6 flex flex-col gap-1 scroll-mt-4">
+          <h3 class="text-base font-bold">Our privacy promise to attendees</h3>
+          <p class="text-base leading-relaxed">
+            Sponsor email opt-in is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. We never sell attendee lists, and we never scan badges. <a href="#how-we-work" class="bp-link font-bold">How we work with sponsors</a>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Why Sponsor -->
-    <section id="why-sponsor" class="w-full py-10 px-4 md:px-8 lg:py-20 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto p-8 bp-box flex flex-col gap-4">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Why sponsor DevFest</h2>
-        <p class="text-lg font-semibold">Hampton Roads talent and excellence.</p>
-        <p class="text-base leading-relaxed">
-          Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do. Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here. DevFest 2026 was a near sell out.
-        </p>
-        <p class="text-base font-bold">For 2027:</p>
-        <ul class="flex flex-col gap-3 list-disc pl-6 text-base leading-relaxed">
-          <li><strong>Local talent on stage.</strong> DevFest is single track, with 299 seats in one room. Every speaker is a keynote, and everyone sees every talk.</li>
-          <li><strong>Showing what's built here.</strong> Talks cover a range of topics, including AI, alongside the rest of what Hampton Roads developers work on every day.</li>
-          <li><strong>The Studio.</strong> An open room for hanging out and lunch, where many of the day's conversations happen.</li>
-          <li><strong>Real time with attendees.</strong> Registration networking, two 30-minute breaks at the sponsor tables, and a 75-minute lunch.</li>
-          <li><strong>The next generation of local talent.</strong> Many attendees come on Veteran and Student Scholarships, funded directly by sponsors. The Scholar Meetup at lunch, optional for scholars, connects them with the companies that sponsored their seats.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Privacy Promise -->
-    <section id="privacy" class="w-full pb-10 px-4 md:px-8 lg:pb-20 scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto p-6 bp-box flex flex-col gap-2">
-        <h2 class="text-xl md:text-2xl font-bold">Our privacy promise to attendees</h2>
-        <p class="text-base leading-relaxed">
-          Sponsor email opt-in is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. We never sell attendee lists, and we never scan badges. <a href="#how-we-work" class="bp-link font-bold">How we work with sponsors</a>
-        </p>
-      </div>
-    </section>
-
     <!-- The Day -->
-    <section id="the-day" class="w-full pb-10 px-4 md:px-8 lg:pb-20 scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto p-8 bp-box flex flex-col gap-4">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">The day</h2>
+    <section id="the-day" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("the-day")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">The day</h2>
+        </div>
         <div class="overflow-x-auto">
           <table class="bp-table text-base">
             <thead>
               <tr>
-                <th scope="col">Time</th>
+                <th scope="col" class="w-[5.5rem]">Time</th>
                 <th scope="col">What</th>
+                <th scope="col" class="w-[7.5rem] whitespace-nowrap">Sponsor time</th>
               </tr>
             </thead>
             <tbody>
               {schedule.map((item) => (
                 <tr>
                   <td class="bp-mono whitespace-nowrap">{item.time}</td>
-                  <td>{item.what}</td>
+                  <td class:list={[item.sponsorTime && "font-semibold"]}>{item.what}</td>
+                  <td class="bp-mono text-center">{item.sponsorTime ? <span aria-label="Sponsor time">■</span> : ""}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <p class="bp-muted text-sm leading-relaxed">
-          Speakers are chosen through our open call for speakers. The two 15-minute sponsor talks are separate from the speaker lineup.
+          Sponsor time is any part of the day when sponsors are speaking, at their tables, or hosting a room. Speakers are chosen through our open call for speakers. The two 15-minute sponsor talks are separate from the speaker lineup.
         </p>
       </div>
     </section>
 
     <!-- At a Glance -->
-    <section id="at-a-glance" class="w-full py-10 px-4 md:px-8 lg:py-20 border-t border-[var(--bp-line)] scroll-mt-4">
+    <section id="at-a-glance" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-7xl mx-auto flex flex-col gap-6">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center">Sponsorship at a glance</h2>
+        <div class="max-w-[1040px] w-full mx-auto flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("at-a-glance")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Sponsorship at a glance</h2>
+        </div>
         <div class="overflow-x-auto">
-          <table class="bp-table min-w-[900px] text-sm md:text-base">
+          <table class="bp-table min-w-[960px] text-sm md:text-base">
             <thead>
               <tr>
+                <th scope="col" class="w-[4.5rem]">Mark</th>
                 <th scope="col">Tier</th>
                 <th scope="col">Price</th>
                 <th scope="col">Available</th>
@@ -429,6 +570,7 @@ const email = "kevin@revolutionva.org";
             <tbody>
               {glance.map((row) => (
                 <tr>
+                  <td><a href={`#${row.detail}`} class="bp-mark" aria-label={`${row.tier} details`}>{row.mark}</a></td>
                   <th scope="row" class="font-bold">{row.tier}</th>
                   <td class="bp-mono whitespace-nowrap">{row.price}</td>
                   <td>{row.available}</td>
@@ -442,29 +584,37 @@ const email = "kevin@revolutionva.org";
             </tbody>
           </table>
         </div>
-        <p class="bp-muted text-sm leading-relaxed text-center">
-          Sponsor tables are included at the Scholarship tier ($2,500) and above, and they are limited. The total number of tables: details coming soon.
+        <p class="bp-muted text-sm leading-relaxed max-w-[1040px] w-full mx-auto">
+          Marks point to each tier's details below. Sponsor tables are included at the Scholarship tier ($2,500) and above, and they are limited. The total number of tables: details coming soon.
         </p>
       </div>
     </section>
 
     <!-- Tier Details -->
-    <section id="tiers" class="w-full py-10 px-4 md:px-8 lg:py-20 border-t border-[var(--bp-line)] scroll-mt-4">
+    <section id="tiers" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center">Tier details</h2>
-        <p class="text-base leading-relaxed text-center">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("tiers")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tier details</h2>
+        </div>
+        <p class="text-base leading-relaxed max-w-[72ch]">
           <strong>Payment options:</strong> card, purchase order plus W-9, or in-kind. In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately from cash sponsorship, and in-kind support with an agreed written value counts toward Community recognition (proposed).
         </p>
         {tiers.map((tier) => (
-          <div id={tier.id} class="bp-box flex flex-col scroll-mt-4">
-            <h3 class="p-6 md:px-8 pb-4 text-xl md:text-2xl font-bold border-b border-[var(--bp-line)]">
-              {tier.name}: <span class="bp-mono">{tier.price}</span>{tier.available && <span class="bp-label text-sm"> ({tier.available})</span>}
-            </h3>
-            <div class="p-6 md:p-8 flex flex-col gap-3">
-              {tier.tagline && <p class="text-base font-semibold">{tier.tagline}</p>}
+          <article id={tier.id} class="bp-box flex flex-col scroll-mt-4">
+            <header class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_auto] gap-x-4 gap-y-2 items-center p-5 md:px-8 border-b border-[var(--bp-line)]">
+              <span class="bp-mark" aria-hidden="true">{tier.mark}</span>
+              <div class="min-w-0">
+                <h3 class="text-xl md:text-2xl font-bold leading-tight">{tier.name}</h3>
+                {tier.available && <p class="bp-label mt-1">{tier.available}</p>}
+              </div>
+              <p class="bp-mono text-2xl md:text-[28px] font-bold leading-none col-start-2 md:col-start-3 md:text-right">{tier.price}</p>
+            </header>
+            <div class="p-5 md:p-8 flex flex-col gap-4">
+              {tier.tagline && <p class="text-base md:text-lg font-semibold leading-snug">{tier.tagline}</p>}
               {tier.lead && <p class="text-base leading-relaxed">{tier.lead}</p>}
-              <ul class="list-disc pl-6 flex flex-col gap-2 text-base leading-relaxed">
-                {tier.benefits.map((benefit) => <li>{benefit}</li>)}
+              <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+                {tier.benefits.map((benefit) => <li class="py-2.5">{benefit}</li>)}
               </ul>
               {tier.quickPath && (
                 <p class="text-base font-semibold">
@@ -472,15 +622,18 @@ const email = "kevin@revolutionva.org";
                 </p>
               )}
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
 
     <!-- Add-ons -->
-    <section id="add-ons" class="w-full py-10 px-4 md:px-8 lg:py-20 border-t border-[var(--bp-line)] scroll-mt-4">
+    <section id="add-ons" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center">Add-ons</h2>
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("add-ons")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Add-ons</h2>
+        </div>
         <div class="overflow-x-auto">
           <table class="bp-table min-w-[640px] text-base">
             <thead>
@@ -493,7 +646,7 @@ const email = "kevin@revolutionva.org";
             <tbody>
               <tr>
                 <th scope="row" class="font-bold">Pop-up Meetup host</th>
-                <td>$500 per meetup, or $1,750 for all four 2027 Pop-ups</td>
+                <td class="bp-mono">$500 per meetup, or $1,750 for all four 2027 Pop-ups</td>
                 <td>Host or sponsor a 757tech Pop-up Meetup. Hosts get their name on the meetup and speaking time at the meetup. We typically see 15 to 20 people at a Pop-up. Available to any company, with or without a DevFest sponsorship.</td>
               </tr>
               <tr>
@@ -504,42 +657,56 @@ const email = "kevin@revolutionva.org";
             </tbody>
           </table>
         </div>
-        <p class="text-base leading-relaxed">
+        <p class="text-base leading-relaxed max-w-[72ch]">
           <strong>Unused tickets aren't wasted.</strong> Any sponsor tickets you don't use go into our seat lottery, so someone else gets a seat.
         </p>
       </div>
     </section>
 
     <!-- Post-event Report -->
-    <section id="report" class="w-full py-10 px-4 md:px-8 lg:py-20 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto p-8 bp-box flex flex-col gap-4">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Post-event report</h2>
-        <p class="text-base leading-relaxed">Scholarship sponsors and above receive a post-event report after DevFest. The report is aggregate only, with no attendee names or employers. It includes:</p>
-        <ul class="list-disc pl-6 flex flex-col gap-2 text-base leading-relaxed">
-          {reportItems.map((item) => <li>{item}</li>)}
-        </ul>
-      </div>
-    </section>
-
-    <!-- How We Work With Sponsors -->
-    <section id="how-we-work" class="w-full pb-10 px-4 md:px-8 lg:pb-20 scroll-mt-4">
+    <section id="report" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center">How we work with sponsors</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {commitments.map((item) => (
-            <div class="p-6 bp-box flex flex-col gap-2">
-              <h3 class="text-base font-bold">{item.title}</h3>
-              <p class="text-base leading-relaxed">{item.body}</p>
-            </div>
-          ))}
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("report")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Post-event report</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6 lg:gap-12">
+          <p class="bp-surface text-base leading-relaxed max-w-[48ch]">Scholarship sponsors and above receive a post-event report after DevFest. The report is aggregate only, with no attendee names or employers. It includes:</p>
+          <ul class="bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+            {reportItems.map((item) => <li class="py-2.5">{item}</li>)}
+          </ul>
         </div>
       </div>
     </section>
 
+    <!-- How We Work With Sponsors: general notes -->
+    <section id="how-we-work" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <span class="bp-sheet-ref">{ref("how-we-work")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">How we work with sponsors</h2>
+        </div>
+        <ol class="bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)]">
+          {commitments.map((item, i) => (
+            <li class="grid grid-cols-[3.5rem_1fr] gap-x-2 py-4">
+              <span class="bp-sheet-ref pt-1">{String(i + 1).padStart(2, "0")}</span>
+              <div class="max-w-[72ch]">
+                <h3 class="text-base font-bold">{item.title}</h3>
+                <p class="text-base leading-relaxed mt-1">{item.body}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
     <!-- Tickets -->
-    <section id="tickets" class="w-full pb-10 px-4 md:px-8 lg:pb-20 scroll-mt-4">
-      <div class="max-w-[1040px] mx-auto p-8 bp-box flex flex-col gap-4">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tickets</h2>
+    <section id="tickets" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
+      <div class="max-w-[1040px] mx-auto bp-surface flex flex-col gap-4">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3 mb-2">
+          <span class="bp-sheet-ref">{ref("tickets")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tickets</h2>
+        </div>
         <p class="text-base leading-relaxed">We keep tickets affordable so more of Hampton Roads can be in the room.</p>
         <div class="overflow-x-auto">
           <table class="bp-table text-base">
@@ -593,9 +760,12 @@ const email = "kevin@revolutionva.org";
     </section>
 
     <!-- How to Sponsor -->
-    <section id="how-to-sponsor" class="w-full py-10 md:py-20 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-3xl mx-auto p-8 md:p-10 bp-box flex flex-col gap-5">
-        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center">How to sponsor</h2>
+    <section id="how-to-sponsor" class="w-full py-10 md:py-16 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4">
+      <div class="max-w-[1040px] mx-auto flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3 mb-6">
+        <span class="bp-sheet-ref">{ref("how-to-sponsor")}</span>
+        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">How to sponsor</h2>
+      </div>
+      <div class="max-w-3xl mx-auto p-6 md:p-10 bp-box flex flex-col gap-5">
         <ol class="list-decimal pl-6 flex flex-col gap-3 text-base leading-relaxed">
           <li><strong>Pick your tier.</strong> Email us at <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the tier you want. An online sponsor form: details coming soon.</li>
           <li><strong>Get your invoice.</strong> We'll send an invoice. Pay by card, purchase order plus W-9, or in-kind. Purchase orders are accepted, with net-30 terms. Invoices go out by January, a quote is available before the invoice if you need one for a purchase order, and public agencies can pay by purchase order (proposed).</li>
@@ -616,12 +786,15 @@ const email = "kevin@revolutionva.org";
 
     <!-- Schools and Scholars -->
     <section id="schools" class="w-full pt-10 px-4 md:px-8 lg:pt-16 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-3xl mx-auto p-6 bp-box flex flex-col gap-3">
-        <h2 class="text-xl md:text-2xl font-bold">For schools and programs</h2>
-        <p class="text-base leading-relaxed">
+      <div class="max-w-[1040px] mx-auto bp-surface flex flex-col gap-3">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3 mb-2">
+          <span class="bp-sheet-ref">{ref("schools")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">For schools and programs</h2>
+        </div>
+        <p class="text-base leading-relaxed max-w-[72ch]">
           We offer student cohort codes, a faculty kit, and scholarship blocks. Email Kevin Griffin at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>.
         </p>
-        <p class="text-base leading-relaxed">
+        <p class="text-base leading-relaxed max-w-[72ch]">
           <strong>Seat lottery:</strong> we give away scholarship and Send a friend seats by lottery, and anyone can enter. Seats funded for veterans are drawn from veteran entries, and seats funded for students are drawn from student entries. Entries are open until the week before the event. We draw winners the week of the event. Seats funded by our Scholarship sponsors are held for the lottery, even if we sell out. Extra seats, like Send a friend, depend on space, so buy a ticket if you can. Entry form in early 2027.
         </p>
       </div>
@@ -672,7 +845,7 @@ const email = "kevin@revolutionva.org";
             <a href="/code-of-conduct" class="bp-link">Code of Conduct</a>
           </div>
         </div>
-        <TitleBlock sheet={sheetFor("/sponsor")} />
+        <TitleBlock sheet={sheet} />
       </div>
     </footer>
     </div>
