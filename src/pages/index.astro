@@ -6,6 +6,7 @@ import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
+import LandmarkLineArt from "../components/LandmarkLineArt.astro";
 import { sheetFor } from "../data/titleBlock";
 import logoWhite from "../assets/logo-white.png";
 import { testimonials } from "../data/testimonials";
@@ -128,8 +129,11 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
         </div>
       </div>
 
-      <!-- Hero Content -->
-      <div class="w-full px-4 md:px-8 py-16 md:py-24">
+      <!-- Landmark line art: a skyline row in the hero's bottom padding, md and up -->
+      <LandmarkLineArt />
+
+      <!-- Hero Content (bottom padding leaves room for the line art row) -->
+      <div class="relative z-10 w-full px-4 md:px-8 py-16 md:pt-24 md:pb-48 lg:pb-64">
         <div class="max-w-7xl mx-auto">
           <!-- Logo, headline, and the event date and place -->
           <div class="w-fit mx-auto px-6 py-8 md:px-12 md:py-10 bp-surface flex flex-col items-center gap-6 text-center">
