@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
   {
     name: "Michael Buckbee",
     role: "Founder, Expedited Security",
-    quote: "As soon as I heard DevFest was coming back for a sixth year I scrambled to get a ticket. I was amazed at the depth of talent and expertise the area has—every person I spoke with was working on interesting things. Great venue, amazing speakers, and 100% worth it.",
+    quote: "As soon as I heard DevFest was coming back for a sixth year I scrambled to get a ticket. I was amazed at the depth of talent and expertise the area has, and every person I spoke with was working on interesting things. Great venue, amazing speakers, and 100% worth it.",
     image: "michael-buckbee.jpg",
     linkedin: "https://www.linkedin.com/in/michaelbuckbee/",
   },
