@@ -269,13 +269,6 @@ const sections = [
 ];
 const ref = (id: string) => `${sheetNo}.${sections.findIndex((s) => s.id === id) + 1}`;
 
-// Plan legend: which tier puts its name on which space
-const planLegend = [
-  { mark: "1", href: "#presenting", label: "The event itself: \u201cHampton Roads DevFest presented by [Your Company]\u201d", tier: "Presenting, $10,000" },
-  { mark: "2", href: "#main-stage", label: "The room where every talk happens: \u201cThe [Your Company] Main Stage\u201d", tier: "Main Stage, $5,000" },
-  { mark: "3", href: "#studio", label: "The lunch and hangout room: \u201cThe [Your Company] Studio\u201d", tier: "Studio, $3,500" },
-  { mark: "4", href: "#scholarship", label: "A sponsor table at registration and every break", tier: "Scholarship tier and above, from $2,500" },
-];
 
 const email = "kevin@revolutionva.org";
 ---
@@ -391,7 +384,7 @@ const email = "kevin@revolutionva.org";
         </div>
 
         <!-- Plan diagram: what each tier puts its name on -->
-        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5" aria-label="Plan of the day's spaces: the event, Main Stage, the Studio, and Registration. Not to scale. Sponsor naming rights are listed below.">
+        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5" aria-label="Plan of the day's spaces: the event, Main Stage, the Studio, and Registration. Not to scale.">
           <div class="flex items-baseline justify-end gap-4 border-b border-[var(--bp-line)] pb-3">
             <p class="bp-label">Not to scale</p>
           </div>
@@ -444,16 +437,6 @@ const email = "kevin@revolutionva.org";
             </div>
           </div>
 
-          <figcaption>
-            <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-t border-[var(--bp-line-faint)]">
-              {planLegend.map((item) => (
-                <li class="py-2.5 leading-snug">
-                  <p class="text-sm md:text-base">{item.label}</p>
-                  <p class="bp-mono text-xs md:text-sm bp-muted mt-0.5"><a href={item.href} class="bp-link">{item.tier}</a></p>
-                </li>
-              ))}
-            </ul>
-          </figcaption>
         </figure>
       </div>
     </section>
