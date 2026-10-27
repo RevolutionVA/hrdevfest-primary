@@ -34,6 +34,8 @@
   --bp-ink-muted: #c6d6e8;
   --bp-line: #dbe6f1;
   --bp-surface: #0b3d6e;
+  /* Alternating table rows: ~6% white into paper. Ink ~8.7:1, muted ~6.3:1 (AA). */
+  --bp-row-alt: #1a4977;
   --bp-line-soft: rgb(255 255 255 / 0.4);
   --bp-line-faint: rgb(255 255 255 / 0.35);
   --bp-grid: rgb(255 255 255 / 0.025);
@@ -218,6 +220,8 @@
     border-collapse: collapse;
     border: 1px solid var(--bp-line-soft);
     background-color: var(--bp-surface);
+    font-size: 1rem; /* 16px body, including benefits */
+    line-height: 1.5;
   }
   .bp-table th,
   .bp-table td {
@@ -225,10 +229,11 @@
     padding: 0.5rem 0.75rem;
     text-align: left;
     vertical-align: top;
+    font-size: 1rem;
   }
   .bp-table th {
     font-family: var(--bp-mono);
-    font-size: 0.75rem;
+    font-size: 0.875rem; /* 14px uppercase column headings */
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -243,6 +248,13 @@
     letter-spacing: normal;
     text-transform: none;
     color: var(--bp-ink);
+  }
+  .bp-table tbody tr:nth-child(even) {
+    background-color: var(--bp-row-alt);
+  }
+  .bp-table tbody tr:nth-child(even) th[scope="row"],
+  .bp-table tbody tr:nth-child(even) td {
+    background-color: transparent;
   }
 
   /* Callout mark: the one round thing on the page, because a drawing callout is a circle.

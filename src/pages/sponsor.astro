@@ -516,7 +516,7 @@ const email = "team@revolutionva.org";
                   <p class="bp-mono text-xl font-bold mt-1">{row.price}</p>
                 </div>
               </div>
-              <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-sm leading-relaxed">
+              <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
                 <li class="py-2"><span class="bp-label">Available</span> {row.available}</li>
                 <li class="py-2"><span class="bp-label">Standard tickets</span> {row.tickets}</li>
                 <li class="py-2"><span class="bp-label">Additional benefits</span> {row.extras}</li>
@@ -526,7 +526,7 @@ const email = "team@revolutionva.org";
         </div>
 
         <div class="hidden md:block overflow-x-auto">
-          <table class="bp-table min-w-[880px] text-sm md:text-base">
+          <table class="bp-table min-w-[880px]">
             <thead>
               <tr>
                 <th scope="col" class="w-[4.5rem]">Mark</th>
@@ -545,7 +545,7 @@ const email = "team@revolutionva.org";
                   <td class="bp-mono whitespace-nowrap">{row.price}</td>
                   <td>{row.available}</td>
                   <td>{row.tickets}</td>
-                  <td class="text-sm leading-snug">{row.extras}</td>
+                  <td class="leading-snug">{row.extras}</td>
                 </tr>
               ))}
             </tbody>
@@ -577,7 +577,7 @@ const email = "team@revolutionva.org";
                 <p class="bp-mono font-bold whitespace-nowrap">{partner.price}</p>
               </div>
               <p class="bp-label">{partner.available}</p>
-              <ul class="text-sm leading-relaxed flex flex-col gap-1">
+              <ul class="text-base leading-relaxed flex flex-col gap-1">
                 {partner.benefits.map((benefit) => (
                   <li>
                     {partner.linkLabel && partner.linkHref && benefit.includes(partner.linkLabel) ? (
@@ -610,7 +610,7 @@ const email = "team@revolutionva.org";
                   <th scope="row" class="font-bold whitespace-nowrap">{partner.name}</th>
                   <td class="bp-mono whitespace-nowrap">{partner.price}</td>
                   <td>{partner.available}</td>
-                  <td class="text-sm leading-snug">
+                  <td class="leading-snug">
                     {partner.benefits.map((benefit, i) => (
                       <span>
                         {i > 0 && "; "}
@@ -701,7 +701,7 @@ const email = "team@revolutionva.org";
             <li><strong>Name your team.</strong> Assign your tickets to your attendees.</li>
           </ol>
           <div class="flex justify-center mt-2">
-            <a href={`mailto:team@revolutionva.org?subject=${encodeURIComponent("Hampton Roads DevFest 2027 sponsorship")}`} class="px-8 py-3 btn-primary text-base">Email us to sponsor</a>
+            <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
           </div>
         </div>
       </div>
