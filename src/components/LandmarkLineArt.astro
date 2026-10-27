@@ -1,17 +1,19 @@
 ---
 import neptune from "../assets/landmark-neptune.webp";
+import cbbt from "../assets/landmark-cbbt.webp";
+import skyline from "../assets/landmark-skyline.webp";
 import battleship from "../assets/landmark-battleship.webp";
-import bridge from "../assets/landmark-bridge.webp";
 /*
-  Decorative blueprint line art of three Hampton Roads landmarks: King Neptune
-  (Virginia Beach), the battleship Wisconsin (Norfolk), and an open bascule
-  drawbridge. Traced from Kevin's samples into white-on-transparent WebP
-  (frame and background removed, hull number removed, ship mirrored).
+  Decorative blueprint line art of Hampton Roads landmarks: King Neptune
+  (Virginia Beach), the Chesapeake Bay Bridge-Tunnel, and the battleship
+  Wisconsin moored in front of the Norfolk skyline (as she is at Nauticus).
+  Traced from Kevin's v2 reference sheets into white-on-transparent WebP
+  (labels, frames, guide lines and the hull number removed).
 
   Pure decoration: aria-hidden, empty alt, no pointer events.
-  Below md: just Neptune, small and centered, in flow after the hero text.
-  md: Neptune and the ship. lg: all three. From 1440px Neptune rises in the
-  left gutter beside the text block while the bridge and ship stay under it.
+  Below md: just Neptune, centered, in flow after the hero text.
+  md: Neptune and the Norfolk group. lg: all three. From 1440px Neptune
+  rises in the left gutter beside the text block.
 */
 interface Props {
   class?: string;
@@ -27,9 +29,12 @@ const { class: className } = Astro.props;
   <div class="max-w-7xl mx-auto px-6 lg:px-10 min-[90rem]:max-w-none min-[90rem]:px-4 flex items-end justify-center md:justify-between gap-6">
     <img src={neptune.src} width={neptune.width} height={neptune.height} alt="" class="lla-img h-[180px] md:h-[384px] min-[90rem]:h-[560px] w-auto shrink-0" decoding="async" loading="eager" />
 
-    <img src={bridge.src} width={bridge.width} height={bridge.height} alt="" class="lla-img hidden lg:block h-[196px] min-[90rem]:h-[287px] w-auto shrink-0" decoding="async" loading="lazy" />
+    <img src={cbbt.src} width={cbbt.width} height={cbbt.height} alt="" class="lla-img hidden lg:block w-[355px] min-[90rem]:w-[520px] h-auto shrink-0" decoding="async" loading="lazy" />
 
-    <img src={battleship.src} width={battleship.width} height={battleship.height} alt="" class="lla-img hidden md:block h-[231px] min-[90rem]:h-[336px] w-auto shrink-0" decoding="async" loading="lazy" />
+    <div class="hidden md:flex flex-col items-end shrink-0 w-[400px] lg:w-[260px] min-[90rem]:w-[432px]">
+      <img src={skyline.src} width={skyline.width} height={skyline.height} alt="" class="lla-img lla-back w-full h-auto" decoding="async" loading="lazy" />
+      <img src={battleship.src} width={battleship.width} height={battleship.height} alt="" class="lla-img w-full h-auto -mt-[17%] relative" decoding="async" loading="lazy" />
+    </div>
   </div>
 </div>
 
@@ -37,5 +42,9 @@ const { class: className } = Astro.props;
   /* A clear step above the page grid so the shapes read, still under the text */
   .lla-img {
     opacity: 0.6;
+  }
+  /* The skyline sits behind the ship, so it steps back a little */
+  .lla-back {
+    opacity: 0.4;
   }
 </style>
