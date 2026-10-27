@@ -57,7 +57,7 @@ const glance: GlanceRow[] = [
   { mark: "S", detail: "studio", tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3", report: true },
   { mark: "VS", detail: "scholarship", tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
   { mark: "SS", detail: "scholarship", tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
-  { mark: "J", detail: "jobs-board", tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1", report: false },
+  { mark: "J", detail: "jobs-board", tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1", report: true },
   { mark: "C", detail: "community", tier: "Community", price: "$500", available: "Open", table: "", talk: false, tickets: "1", social: "Group thank-you", report: false },
 ];
 
@@ -186,7 +186,7 @@ const tiers: Tier[] = [
       "Your logo on the website and slides",
       "A sponsor post on 757tech's social channels",
       "2 tickets",
-      "A one-page recap after the event: total attendance, the \"Looking for work\" ribbon count, role mix, and top tech stacks",
+      "The post-event report: total attendance, the \"Looking for work\" ribbon count, role mix, and top tech stacks",
       "No sponsor table and no stage time. We don't collect resumes.",
     ],
   },
@@ -223,16 +223,16 @@ interface Commitment {
 
 const commitments: Commitment[] = [
   {
-    title: "Commit by December 15, 2026. Pay in January.",
-    body: "Commit to your sponsorship by December 15, 2026 so we can include you in signage, slides, and announcements. Your invoice and payment can come in January 2027. A written intent to sponsor by December 15, 2026 counts as committed, with your purchase order or payment in January. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
+    title: "Commit in 2026. Pay in 2027.",
+    body: "Commit to your sponsorship in 2026 so we can include you in signage, slides, and announcements. Your invoice and payment can come in 2027. A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027. Sign and logo files are due by April 1, 2027. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
   },
   {
     title: "Attendee privacy comes first.",
     body: "Sponsor email opt-in for attendees is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. After the event, we send one email to attendees who opted in, covering all sponsors. We never sell attendee lists, and we never scan badges.",
   },
   {
-    title: "A one-page recap for Jobs Board sponsors.",
-    body: "After DevFest, Jobs Board sponsors get a one-page recap covering total attendance, the \"Looking for work\" ribbon count, the mix of attendee roles, and the top tech stacks attendees work with.",
+    title: "A post-event recap for Jobs Board sponsors and above.",
+    body: "After DevFest, Jobs Board sponsors and every tier above get a post-event recap covering total attendance, the \"Looking for work\" ribbon count, the mix of attendee roles, and the top tech stacks attendees work with.",
   },
   {
     title: "A Who's hiring board for sponsor roles.",
@@ -243,12 +243,12 @@ const commitments: Commitment[] = [
     body: "Attendees can choose to wear Hiring, Looking for work, Internship, or Open to contract work ribbons. The post-event report includes counts for each ribbon, never names.",
   },
   {
-    title: "A vendor packet sent with the prospectus.",
-    body: "Our W-9, a certificate of insurance, and our 501(c)(3) letter are sent with the prospectus.",
+    title: "W-9, insurance, and 501(c)(3) letter on request.",
+    body: "Our W-9, certificate of insurance, and 501(c)(3) letter are available on request.",
   },
   {
-    title: "Simple payment (proposed).",
-    body: "Invoices go out by January. If you need a quote before the invoice for a purchase order, we'll send one. Public agencies can pay by purchase order.",
+    title: "Simple payment.",
+    body: "We prefer payment by check or ACH. Credit card or invoice payment is available, with a 4% processing charge added. We only use supplier portals for sponsorships of $5,000 or more.",
   },
   {
     title: "In-kind support is itemized separately (proposed).",
@@ -259,8 +259,8 @@ const commitments: Commitment[] = [
     body: "Our call for speakers is open to sponsor engineers, and every talk is chosen on its own merits. Talks are never tied to sponsorship tier.",
   },
   {
-    title: "No access to elected officials.",
-    body: "Sponsorship buys no access to elected officials.",
+    title: "No access to elected or city officials.",
+    body: "We don't promise access to elected or city officials, even if they attend the event.",
   },
 ];
 
@@ -541,6 +541,9 @@ const email = "team@revolutionva.org";
           </table>
         </div>
         <p class="bp-muted text-sm leading-relaxed">
+          This schedule is subject to change.
+        </p>
+        <p class="bp-muted text-sm leading-relaxed">
           Sponsor time is any part of the day when sponsors are speaking, at their tables, or hosting a room. Speakers are chosen through our open call for speakers. The two 15-minute sponsor talks are separate from the speaker lineup.
         </p>
       </div>
@@ -599,7 +602,7 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tier details</h2>
         </div>
         <p class="text-base leading-relaxed max-w-[72ch]">
-          <strong>Payment options:</strong> card, purchase order plus W-9, or in-kind. In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately from cash sponsorship, and in-kind support with an agreed written value counts toward Community recognition (proposed).
+          <strong>Payment options:</strong> we prefer check or ACH. Credit card or invoice payment is available, with a 4% processing charge added. We only use supplier portals for sponsorships of $5,000 or more. In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately from cash sponsorship, and in-kind support with an agreed written value counts toward Community recognition (proposed).
         </p>
         {tiers.map((tier) => (
           <article id={tier.id} class="bp-box flex flex-col scroll-mt-4">
@@ -672,7 +675,7 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Post-event report</h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6 lg:gap-12">
-          <p class="bp-surface text-base leading-relaxed max-w-[48ch]">Scholarship sponsors and above receive a post-event report after DevFest. The report is aggregate only, with no attendee names or employers. It includes:</p>
+          <p class="bp-surface text-base leading-relaxed max-w-[48ch]">Jobs Board sponsors and above receive a post-event report after DevFest. The report is aggregate only, with no attendee names or employers. It includes:</p>
           <ul class="bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
             {reportItems.map((item) => <li class="py-2.5">{item}</li>)}
           </ul>
@@ -710,15 +713,15 @@ const email = "team@revolutionva.org";
       <div class="max-w-3xl mx-auto p-6 md:p-10 bp-box flex flex-col gap-5">
         <ol class="list-decimal pl-6 flex flex-col gap-3 text-base leading-relaxed">
           <li><strong>Pick your tier.</strong> Email us at <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the tier you want. An online sponsor form: details coming soon.</li>
-          <li><strong>Get your invoice.</strong> We'll send an invoice. Pay by card, purchase order plus W-9, or in-kind. Purchase orders are accepted, with net-30 terms. Invoices go out by January, a quote is available before the invoice if you need one for a purchase order, and public agencies can pay by purchase order (proposed).</li>
-          <li><strong>Send your logo and details.</strong> Logo format and deadline: details coming soon.</li>
+          <li><strong>Get your invoice.</strong> We'll send an invoice. We prefer payment by check or ACH. Credit card or invoice payment is available, with a 4% processing charge added. We only use supplier portals for sponsorships of $5,000 or more. Purchase orders are accepted, with net-30 terms. A quote is available before the invoice if you need one for a purchase order.</li>
+          <li><strong>Send your logo and details.</strong> Sign and logo files are due by April 1, 2027. Logo format: details coming soon.</li>
           <li><strong>Name your team.</strong> Assign your tickets to your attendees. Ticket assignment deadline: details coming soon.</li>
         </ol>
         <p class="text-base leading-relaxed">
-          <strong>Deadline:</strong> commit by December 15, 2026. Your invoice and payment can come in January 2027. A written intent to sponsor by December 15, 2026 counts as committed, with your purchase order or payment in January. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.
+          <strong>Deadline:</strong> commit in 2026. Your invoice and payment can come in 2027. A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027. Sign and logo files are due by April 1, 2027. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.
         </p>
         <p class="text-base leading-relaxed">
-          <strong>Paperwork:</strong> our W-9, a certificate of insurance, and our 501(c)(3) letter are sent with the prospectus. Sponsorships are invoiced as sponsorships, not donations. Please consult your tax advisor on how to treat them. RevolutionVA is a 501(c)(3) nonprofit.
+          <strong>Paperwork:</strong> our W-9, certificate of insurance, and 501(c)(3) letter are available on request. Sponsorships are invoiced as sponsorships, not donations. Please consult your tax advisor on how to treat them. RevolutionVA is a 501(c)(3) nonprofit.
         </p>
         <div class="flex justify-center mt-2">
           <a href={`mailto:team@revolutionva.org?subject=${encodeURIComponent("Hampton Roads DevFest 2027 sponsorship")}`} class="px-8 py-3 btn-primary text-base">Email us to sponsor</a>
