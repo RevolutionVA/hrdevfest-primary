@@ -94,6 +94,7 @@ interface Partnership {
   name: string;
   price: string;
   available: string;
+  tickets: string;
   benefits: string[];
   linkLabel?: string;
   linkHref?: string;
@@ -106,6 +107,7 @@ const partnerships: Partnership[] = [
     name: "Post-Event Reception Partner",
     price: "$5,000",
     available: "1 exclusive",
+    tickets: "4",
     benefits: [
       'Exclusive naming: "DevFest Reception presented by [Company]"',
       "Reception signage",
@@ -120,6 +122,7 @@ const partnerships: Partnership[] = [
     name: "Scholarship Partner",
     price: "$1,000",
     available: "1 exclusive",
+    tickets: "1",
     benefits: [
       "Underwrites 20 standard admissions for students and veterans",
       "Recognition as the scholarship program's supporter",
@@ -131,6 +134,7 @@ const partnerships: Partnership[] = [
     name: "Pop-up Series Partner",
     price: "$1,000",
     available: "1 exclusive",
+    tickets: "1",
     benefits: [
       "Series partner recognition across all four 2027 Pop-up Meetups",
     ],
@@ -143,6 +147,7 @@ const partnerships: Partnership[] = [
     name: "Coffee Partner",
     price: "$1,000",
     available: "1 exclusive",
+    tickets: "1",
     benefits: [
       "Coffee station branding",
       "A thank-you during opening remarks",
@@ -154,6 +159,7 @@ const partnerships: Partnership[] = [
     name: "Lunch Partner",
     price: "$2,000",
     available: "1 exclusive",
+    tickets: "2",
     benefits: [
       "Lunch area branding",
       "A thank-you before lunch",
@@ -165,6 +171,7 @@ const partnerships: Partnership[] = [
     name: "Lanyard Partner",
     price: "$1,000",
     available: "1 exclusive",
+    tickets: "1",
     benefits: [
       "Company logo alongside DevFest branding on attendee lanyards",
     ],
@@ -199,8 +206,8 @@ const faqItems: FaqItem[] = [
   {
     title: "Purchasing rules",
     bullets: [
-      "Shared partnership purchasing rules are under Event & Community Partnerships.",
-      "You can add any available partnership to a core package.",
+      "Shared partnership purchasing rules, including ticket counts, are under Event & Community Partnerships.",
+      "You can add any available partnership to a core package. Partners who also buy a core package get that package's tickets.",
       "Naming rights belong to the package or partnership purchased. Meetup naming stays with the Pop-up Series Partner.",
     ],
   },
@@ -581,7 +588,8 @@ const email = "team@revolutionva.org";
         </div>
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
           <li class="py-2.5">Available on their own or alongside a core sponsorship. One exclusive partner for each offering.</li>
-          <li class="py-2.5">Standalone partnerships include website and slide recognition and one standard conference ticket, plus the listed benefits. Sponsor tables are included with core sponsorship packages starting at $1,500.</li>
+          <li class="py-2.5">Standalone partnerships include website and slide recognition and the tickets listed, plus the listed benefits. Sponsor tables are included with core sponsorship packages starting at $1,500.</li>
+          <li class="py-2.5">Partners who also buy a core package get that package's tickets.</li>
         </ul>
 
         <div class="md:hidden flex flex-col gap-3">
@@ -592,6 +600,7 @@ const email = "team@revolutionva.org";
                 <p class="bp-mono font-bold whitespace-nowrap">{partner.price}</p>
               </div>
               <p class="bp-label">{partner.available}</p>
+              <p class="text-base leading-relaxed"><span class="bp-label">Tickets</span> {partner.tickets}</p>
               <ul class="text-base leading-relaxed flex flex-col gap-1">
                 {partner.benefits.map((benefit) => (
                   <li>
@@ -616,6 +625,7 @@ const email = "team@revolutionva.org";
                 <th scope="col">Partnership</th>
                 <th scope="col">Price</th>
                 <th scope="col">Available</th>
+                <th scope="col">Tickets</th>
                 <th scope="col">Includes</th>
               </tr>
             </thead>
@@ -625,6 +635,7 @@ const email = "team@revolutionva.org";
                   <th scope="row" class="font-bold whitespace-nowrap">{partner.name}</th>
                   <td class="bp-mono whitespace-nowrap">{partner.price}</td>
                   <td>{partner.available}</td>
+                  <td class="bp-mono whitespace-nowrap">{partner.tickets}</td>
                   <td class="leading-snug">
                     {partner.benefits.map((benefit, i) => (
                       <span>
