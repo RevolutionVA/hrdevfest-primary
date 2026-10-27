@@ -33,6 +33,7 @@ const schedule: ScheduleItem[] = [
   { time: "3:00", what: "Talk" },
   { time: "3:45", what: "Talk" },
   { time: "4:30", what: "Closing, then networking and sponsor teardown (building closes at 6:00)", sponsorTime: true },
+  { time: "After conference closing", what: "Official DevFest Reception: venue and exact timing to be announced", sponsorTime: true },
 ];
 
 interface GlanceRow {
@@ -99,6 +100,20 @@ interface Partnership {
 }
 
 const partnerships: Partnership[] = [
+  {
+    id: "reception-partner",
+    mark: "RP",
+    name: "Post-Event Reception Partner",
+    price: "$5,000",
+    available: "1 exclusive",
+    benefits: [
+      'Exclusive naming: "DevFest Reception presented by [Company]"',
+      "Reception signage",
+      "Recognition in reception announcements",
+      "A thank-you during conference closing",
+      "A sponsor welcome of up to two minutes at the reception",
+    ],
+  },
   {
     id: "scholarship-partner",
     mark: "SP",
@@ -184,8 +199,7 @@ const faqItems: FaqItem[] = [
   {
     title: "Purchasing rules",
     bullets: [
-      "Standalone partnerships include website and slide recognition and one standard ticket, plus the listed benefit.",
-      "Sponsor tables come with Exhibitor ($1,500) and up. A standalone partnership doesn't include a table.",
+      "Shared partnership purchasing rules are under Event & Community Partnerships.",
       "You can add any available partnership to a core package.",
       "Naming rights belong to the package or partnership purchased. Meetup naming stays with the Pop-up Series Partner.",
     ],
@@ -228,7 +242,8 @@ const faqItems: FaqItem[] = [
     bullets: [
       "Speakers are invited, based on recommendations from the community. There's no open call.",
       "Sponsorship doesn't buy a spot in the speaker lineup.",
-      "Presenting and Main Stage include a separate 15-minute sponsor talk.",
+      "Presenting and Main Stage each include a separate 15-minute sponsor talk during the conference.",
+      "The Post-Event Reception Partner includes a sponsor welcome of up to two minutes at the reception. That welcome is separate from the conference talks.",
       "Sponsor presentations are clearly identified separately from independently selected conference sessions.",
     ],
   },
@@ -565,8 +580,8 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Event &amp; Community Partnerships</h2>
         </div>
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
-          <li class="py-2.5">Available on their own or alongside a core sponsorship. One exclusive partner for each.</li>
-          <li class="py-2.5">Standalone partnerships include website and slide recognition and one standard ticket, plus the listed benefit. No sponsor table.</li>
+          <li class="py-2.5">Available on their own or alongside a core sponsorship. One exclusive partner for each offering.</li>
+          <li class="py-2.5">Standalone partnerships include website and slide recognition and one standard conference ticket, plus the listed benefits. Sponsor tables are included with core sponsorship packages starting at $1,500.</li>
         </ul>
 
         <div class="md:hidden flex flex-col gap-3">
@@ -629,8 +644,14 @@ const email = "team@revolutionva.org";
             </tbody>
           </table>
         </div>
+        <div class="bp-surface max-w-[72ch]">
+          <p class="bp-label mb-2">The official DevFest reception</p>
+          <p class="text-base leading-relaxed">
+            Keep the conversations going after the conference. All registered DevFest attendees are invited to join us for the official post-event reception. Venue and timing will be announced.
+          </p>
+        </div>
         <p class="text-base leading-relaxed max-w-[72ch]">
-          Unused sponsor tickets go into our seat lottery. Purchasing rules are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
+          Unused sponsor tickets go into our seat lottery. Payment and commit rules are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
@@ -667,7 +688,7 @@ const email = "team@revolutionva.org";
         </div>
         <p class="bp-muted text-sm leading-relaxed">This schedule is subject to change.</p>
         <p class="bp-muted text-sm leading-relaxed">
-          Sponsor time is any part of the day when sponsors are speaking, at their tables, or hosting a room. Speakers are invited, based on recommendations from the community; there's no open call. Presenting and Main Stage each include a separate 15-minute sponsor talk outside the speaker lineup.
+          Sponsor time is any part of the day when sponsors are speaking, at their tables, or hosting a room. Speakers are invited, based on recommendations from the community; there's no open call. Presenting and Main Stage each include a separate 15-minute sponsor talk during the conference. The Post-Event Reception Partner's welcome of up to two minutes happens at the reception, not during those conference talks.
         </p>
       </div>
     </section>
