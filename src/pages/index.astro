@@ -7,6 +7,8 @@ import CanonicalLink from "../components/CanonicalLink.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
 import LandmarkLineArt from "../components/LandmarkLineArt.astro";
+import FooterBridge from "../components/FooterBridge.astro";
+import NorfolkLineArt from "../components/NorfolkLineArt.astro";
 import { sheetFor } from "../data/titleBlock";
 import logoWhite from "../assets/logo-white.png";
 import { testimonials } from "../data/testimonials";
@@ -193,6 +195,7 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
           <br/><br/>
           We can't wait to bring the community back together to network, learn from top industry professionals, and recognize the extraordinary tech talent that thrives in Hampton Roads. Sign up above for 2027 event updates.
         </p>
+        <NorfolkLineArt class="mt-6 w-full max-w-[880px] mx-auto" />
       </div>
     </section>
 
@@ -383,6 +386,7 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
 
     <!-- Footer -->
     <footer class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <FooterBridge />
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
         <div class="flex flex-col items-center md:items-start gap-4">
           <p class="text-base font-normal leading-relaxed text-center md:text-left">

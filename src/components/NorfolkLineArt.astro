@@ -1,0 +1,19 @@
+---
+import skyline from "../assets/landmark-skyline.webp";
+import battleship from "../assets/landmark-battleship.webp";
+/*
+  Decorative blueprint line art: the battleship Wisconsin moored in front of
+  the Norfolk skyline, as she is at Nauticus. Traced from Kevin's v2
+  reference sheets. Pure decoration: aria-hidden, empty alt.
+*/
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["pointer-events-none select-none flex flex-col", className]} aria-hidden="true">
+  <img src={skyline.src} width={skyline.width} height={skyline.height} alt="" class="w-full h-auto opacity-40" decoding="async" loading="lazy" />
+  <img src={battleship.src} width={battleship.width} height={battleship.height} alt="" class="relative w-full h-auto -mt-[20%] opacity-85" decoding="async" loading="lazy" />
+</div>

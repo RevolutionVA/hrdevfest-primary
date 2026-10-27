@@ -7,6 +7,7 @@ import TitleBlock from "../components/TitleBlock.astro";
 import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
+import FooterBridge from "../components/FooterBridge.astro";
 ---
 
 <html lang="en">
@@ -231,6 +232,7 @@ import logoWhite from "../assets/logo-white.png";
 
     <!-- Footer -->
     <footer class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <FooterBridge />
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
         <div class="flex flex-col items-center md:items-start gap-4">
           <!-- Branding -->
