@@ -107,7 +107,7 @@ const tiers: Tier[] = [
       "10 tickets",
       "A feature in the 757tech newsletter",
       "At least 3 sponsor posts on 757tech's social channels",
-      "Year-round Pop-up Meetup naming (how this is shared with the Presenting sponsor: details coming soon)",
+      "Year-round Pop-up Meetup naming. How this is shared with the Presenting sponsor depends on who commits; we'll confirm with you.",
       "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
       "The post-event report",
     ],
@@ -153,13 +153,16 @@ const tiers: Tier[] = [
   },
   {
     id: "scholarship",
-    mark: "VS / SS",
+    mark: "Sc",
     name: "Veteran Scholarship and Student Scholarship Sponsors",
     price: "$2,500 each",
     available: "3 of each available",
     tagline: "Your sponsorship funds scholarship seats.",
-    lead: "Every dollar of the Scholarship tier funds lottery seats, named for your company as a Veteran Scholarship or a Student Scholarship. Your 10 seats are held for the lottery, even if we sell out, and we hand them out the week of the event. Veteran Scholarship seats are drawn from veteran entries, and Student Scholarship seats are drawn from student entries. Scholars never need to show proof of need.",
+    lead: "Every dollar of the Scholarship tier funds lottery seats, named for your company as a Veteran Scholarship or a Student Scholarship.",
     benefits: [
+      "Your 10 seats are held for the lottery, even if we sell out, and we hand them out the week of the event",
+      "Veteran Scholarship seats are drawn from veteran entries; Student Scholarship seats from student entries",
+      "Scholars never need to show proof of need",
       "Funds 10 named scholarship seats, held for our lottery even if we sell out and handed out the week of the event",
       "Meet your scholars at the Scholar Meetup (12:45, in the Studio). The meetup is optional for scholars.",
       "A sponsor table",
@@ -181,12 +184,12 @@ const tiers: Tier[] = [
       "Your logo, 2 to 3 open role titles, and a QR code to your careers page on the printed Who's hiring board near registration",
       "A listing in the Who's hiring section of the DevFest site, live from when you sign until about 30 days after the event",
       "You write your own listings, for example clearance required, remote, or internship. Every role you list must include an expected salary range.",
-      "A mention in the post-event recap email",
+      "A mention in the post-event report email",
       "One named contact from your team for attendees to reach out to",
       "Your logo on the website and slides",
       "A sponsor post on 757tech's social channels",
       "2 tickets",
-      "The post-event report: total attendance, the \"Looking for work\" ribbon count, role mix, and top tech stacks",
+      "The post-event report",
       "No sponsor table and no stage time. We don't collect resumes.",
     ],
   },
@@ -218,25 +221,59 @@ const reportItems: string[] = [
 
 interface Commitment {
   title: string;
-  body: string;
+  body?: string;
+  bullets?: string[];
+  bodyHref?: string;
+  bodyHrefLabel?: string;
 }
 
 const commitments: Commitment[] = [
   {
     title: "Commit in 2026. Pay in 2027.",
-    body: "Commit to your sponsorship in 2026 so we can include you in signage, slides, and announcements. Your invoice and payment can come in 2027. A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027. Sign and logo files are due by April 1, 2027. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
+    bullets: [
+      "Commit to your sponsorship in 2026 so we can include you in signage, slides, and announcements.",
+      "Your invoice and payment can come in 2027.",
+      "A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027.",
+      "Sign and logo files are due by April 1, 2027.",
+      "Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
+    ],
   },
   {
     title: "Attendee privacy comes first.",
-    body: "Sponsor email opt-in for attendees is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. After the event, we send one email to attendees who opted in, covering all sponsors. We never sell attendee lists, and we never scan badges.",
+    bullets: [
+      "Sponsor email opt-in for attendees is off by default.",
+      "When attendees opt in, we include your message in our one post-event sponsor email.",
+      "Attendee contacts are never handed to sponsors.",
+      "After the event, we send one email to attendees who opted in, covering all sponsors.",
+      "We never sell attendee lists, and we never scan badges.",
+    ],
   },
   {
-    title: "A post-event recap for Jobs Board sponsors and above.",
-    body: "After DevFest, Jobs Board sponsors and every tier above get a post-event recap covering total attendance, the \"Looking for work\" ribbon count, the mix of attendee roles, and the top tech stacks attendees work with.",
+    title: "A post-event report for Jobs Board sponsors and above.",
+    bullets: [
+      "After DevFest, Jobs Board sponsors and every tier above ($1,000 and up) get the full post-event report.",
+      "The report is aggregate only, with no attendee names or employers.",
+      "Attendance and check-ins",
+      "The mix of attendee roles and seniority",
+      "Counts for all four opt-in ribbons: Hiring, Looking for work, Internship, and Open to contract work (counts only, never names)",
+      "Counts by region, veterans, students, and tech stacks and languages (proposed)",
+      "Whether attendees are military or transitioning from the military, which we ask at registration. The question is optional, and we only ever report it to sponsors as totals, never names",
+      "Scholars who attended versus scholars funded (proposed)",
+      "Newsletter and social reach",
+      "Photos of your table or signage",
+    ],
   },
   {
     title: "A Who's hiring board for sponsor roles.",
-    body: "Jobs Board sponsors get a listing on the Who's hiring board, and Scholarship tier sponsors and up can opt in for free. The board is printed near registration and posted on the DevFest site. Full-time, internship, apprenticeship, contract, and freelance roles are all welcome. Sponsors write their own listings, for example clearance required, remote, or internship, and every role listed must include an expected salary range. Roles from recruiting agencies are clearly labeled as agency roles. We don't collect resumes.",
+    bullets: [
+      "Jobs Board sponsors get a listing on the Who's hiring board, and Scholarship tier sponsors and up can opt in for free.",
+      "The board is printed near registration and posted on the DevFest site.",
+      "Full-time, internship, apprenticeship, contract, and freelance roles are all welcome.",
+      "Sponsors write their own listings, for example clearance required, remote, or internship.",
+      "Every role listed must include an expected salary range.",
+      "Roles from recruiting agencies are clearly labeled as agency roles.",
+      "We don't collect resumes.",
+    ],
   },
   {
     title: "Opt-in ribbons.",
@@ -248,11 +285,15 @@ const commitments: Commitment[] = [
   },
   {
     title: "Simple payment.",
-    body: "We prefer check or ACH. Invoices paid by check or ACH have no fee. Credit card payments carry a 4% processing charge, which we'll show on the invoice. We work with supplier portals for sponsorships of $5,000 or more.",
+    body: "Payment options are listed under Tier details.",
+    bodyHref: "#payment-options",
+    bodyHrefLabel: "Payment options",
   },
   {
-    title: "In-kind support is itemized separately (proposed).",
-    body: "In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately from cash sponsorship. In-kind support with an agreed written value counts toward Community recognition.",
+    title: "In-kind support is itemized separately.",
+    body: "See Payment options under Tier details.",
+    bodyHref: "#payment-options",
+    bodyHrefLabel: "Payment options",
   },
   {
     title: "Talks are never tied to sponsorship.",
@@ -488,9 +529,11 @@ const email = "team@revolutionva.org";
         <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-8 lg:gap-12">
           <div class="bp-surface flex flex-col gap-3 max-w-[48ch]">
             <p class="text-lg font-semibold">Hampton Roads talent and excellence.</p>
-            <p class="text-base leading-relaxed">
-              Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do. Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here. DevFest 2026 was a near sell out.
-            </p>
+            <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+              <li class="py-2.5">Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do.</li>
+              <li class="py-2.5">Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here.</li>
+              <li class="py-2.5">DevFest 2026 was a near sell out.</li>
+            </ul>
           </div>
           <div class="bp-surface">
             <p class="bp-label mb-3">For 2027</p>
@@ -506,9 +549,13 @@ const email = "team@revolutionva.org";
         <!-- Privacy promise: a note on the sheet, set in a dashed box like the draft banner -->
         <div id="privacy" class="border border-dashed border-[var(--bp-line-soft)] bp-surface p-5 md:p-6 flex flex-col gap-1 scroll-mt-4">
           <h3 class="text-base font-bold">Our privacy promise to attendees</h3>
-          <p class="text-base leading-relaxed">
-            Sponsor email opt-in is off by default. When attendees opt in, we include your message in our one post-event sponsor email, and attendee contacts are never handed to sponsors. We never sell attendee lists, and we never scan badges. <a href="#how-we-work" class="bp-link font-bold">How we work with sponsors</a>
-          </p>
+          <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+            <li class="py-2.5">Sponsor email opt-in is off by default.</li>
+            <li class="py-2.5">When attendees opt in, we include your message in our one post-event sponsor email.</li>
+            <li class="py-2.5">Attendee contacts are never handed to sponsors.</li>
+            <li class="py-2.5">We never sell attendee lists, and we never scan badges.</li>
+          </ul>
+          <p class="text-base leading-relaxed mt-2"><a href="#how-we-work" class="bp-link font-bold">How we work with sponsors</a></p>
         </div>
       </div>
     </section>
@@ -601,9 +648,15 @@ const email = "team@revolutionva.org";
           <span class="bp-sheet-ref">{ref("tiers")}</span>
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tier details</h2>
         </div>
-        <p class="text-base leading-relaxed max-w-[72ch]">
-          <strong>Payment options:</strong> we prefer check or ACH. Invoices paid by check or ACH have no fee. Credit card payments carry a 4% processing charge, which we'll show on the invoice. We work with supplier portals for sponsorships of $5,000 or more. In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately from cash sponsorship, and in-kind support with an agreed written value counts toward Community recognition (proposed).
-        </p>
+        <div id="payment-options" class="flex flex-col gap-2 max-w-[72ch] scroll-mt-4">
+          <p class="text-base font-bold">Payment options</p>
+          <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+            <li class="py-2.5">We prefer check or ACH, with no fee.</li>
+            <li class="py-2.5">Credit card payments carry a 4% processing charge, shown on the invoice.</li>
+            <li class="py-2.5">Supplier portals are for sponsorships of $5,000 or more.</li>
+            <li class="py-2.5">In-kind support, such as venue or <a href="https://revolutionva.org/programs/pop-up-meetups/" class="bp-link font-bold">Pop-up Meetup</a> hosting, is itemized separately and counts toward Community recognition once we agree on a written value.</li>
+          </ul>
+        </div>
         {tiers.map((tier) => (
           <article id={tier.id} class="bp-box flex flex-col scroll-mt-4">
             <header class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_auto] gap-x-4 gap-y-2 items-center p-5 md:px-8 border-b border-[var(--bp-line)]">
@@ -649,9 +702,16 @@ const email = "team@revolutionva.org";
             </thead>
             <tbody>
               <tr>
-                <th scope="row" class="font-bold">Pop-up Meetup host</th>
+                <th scope="row" class="font-bold"><a href="https://revolutionva.org/programs/pop-up-meetups/" class="bp-link">Pop-up Meetup</a> host</th>
                 <td class="bp-mono">$500 per meetup, or $1,750 for all four 2027 Pop-ups</td>
-                <td>Host or sponsor a 757tech Pop-up Meetup. Hosts get their name on the meetup and speaking time at the meetup. We typically see 15 to 20 people at a Pop-up. Available to any company, with or without a DevFest sponsorship.</td>
+                <td>
+                  <ul class="flex flex-col gap-1.5">
+                    <li>Host or sponsor a 757tech <a href="https://revolutionva.org/programs/pop-up-meetups/" class="bp-link">Pop-up Meetup</a>.</li>
+                    <li>Hosts get their name on the meetup and speaking time at the meetup.</li>
+                    <li>We typically see 15 to 20 people at a Pop-up.</li>
+                    <li>Available to any company, with or without a DevFest sponsorship.</li>
+                  </ul>
+                </td>
               </tr>
               <tr>
                 <th scope="row" class="font-bold">Extra sponsor tickets</th>
@@ -696,7 +756,22 @@ const email = "team@revolutionva.org";
               <span class="bp-sheet-ref pt-1">{String(i + 1).padStart(2, "0")}</span>
               <div class="max-w-[72ch]">
                 <h3 class="text-base font-bold">{item.title}</h3>
-                <p class="text-base leading-relaxed mt-1">{item.body}</p>
+                {item.body && (
+                  <p class="text-base leading-relaxed mt-1">
+                    {item.bodyHref && item.bodyHrefLabel && item.body.includes(item.bodyHrefLabel) ? (
+                      <>
+                        {item.body.split(item.bodyHrefLabel)[0]}
+                        <a href={item.bodyHref} class="bp-link font-bold">{item.bodyHrefLabel}</a>
+                        {item.body.split(item.bodyHrefLabel)[1]}
+                      </>
+                    ) : item.body}
+                  </p>
+                )}
+                {item.bullets && (
+                  <ul class="mt-2 flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+                    {item.bullets.map((b) => <li class="py-2">{b}</li>)}
+                  </ul>
+                )}
               </div>
             </li>
           ))}
@@ -712,17 +787,38 @@ const email = "team@revolutionva.org";
       </div>
       <div class="max-w-3xl mx-auto p-6 md:p-10 bp-box flex flex-col gap-5">
         <ol class="list-decimal pl-6 flex flex-col gap-3 text-base leading-relaxed">
-          <li><strong>Pick your tier.</strong> Email us at <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the tier you want. An online sponsor form: details coming soon.</li>
-          <li><strong>Get your invoice.</strong> We'll send an invoice. We prefer check or ACH. Invoices paid by check or ACH have no fee. Credit card payments carry a 4% processing charge, which we'll show on the invoice. We work with supplier portals for sponsorships of $5,000 or more. Purchase orders are accepted, with net-30 terms. A quote is available before the invoice if you need one for a purchase order.</li>
-          <li><strong>Send your logo and details.</strong> Sign and logo files are due by April 1, 2027. Logo format: details coming soon.</li>
-          <li><strong>Name your team.</strong> Assign your tickets to your attendees. Ticket assignment deadline: details coming soon.</li>
+          <li><strong>Pick your tier.</strong> Email us at <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the tier you want.</li>
+          <li><strong>Get your invoice.</strong> We'll send an invoice. <a href="#payment-options" class="bp-link font-bold">Payment options</a> are listed under Tier details. Purchase orders are accepted, with net-30 terms. A quote is available before the invoice if you need one for a purchase order.</li>
+          <li>
+            <strong>Send your logo and details.</strong>
+            <ul class="mt-2 flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)]">
+              <li class="py-2">SVG (or EPS or PDF) preferred, since we use it for print signs too.</li>
+              <li class="py-2">If you only have a PNG, send it with a transparent background, at least 1,000 px wide.</li>
+              <li class="py-2">Send a version for light backgrounds and one for dark backgrounds, such as all-white.</li>
+              <li class="py-2">A horizontal logo works best. We'll resize it for the site.</li>
+              <li class="py-2">Send files to <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> by April 1, 2027.</li>
+            </ul>
+          </li>
+          <li><strong>Name your team.</strong> Assign your tickets to your attendees.</li>
         </ol>
-        <p class="text-base leading-relaxed">
-          <strong>Deadline:</strong> commit in 2026. Your invoice and payment can come in 2027. A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027. Sign and logo files are due by April 1, 2027. Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.
-        </p>
-        <p class="text-base leading-relaxed">
-          <strong>Paperwork:</strong> our W-9, certificate of insurance, and 501(c)(3) letter are available on request. Sponsorships are invoiced as sponsorships, not donations. Please consult your tax advisor on how to treat them. RevolutionVA is a 501(c)(3) nonprofit.
-        </p>
+        <div class="flex flex-col gap-2">
+          <p class="text-base font-bold">Deadline</p>
+          <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+            <li class="py-2.5">Commit in 2026. Your invoice and payment can come in 2027.</li>
+            <li class="py-2.5">A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027.</li>
+            <li class="py-2.5">Sign and logo files are due by April 1, 2027.</li>
+            <li class="py-2.5">Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.</li>
+          </ul>
+        </div>
+        <div class="flex flex-col gap-2">
+          <p class="text-base font-bold">Paperwork</p>
+          <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+            <li class="py-2.5">Our W-9, certificate of insurance, and 501(c)(3) letter are available on request.</li>
+            <li class="py-2.5">Sponsorships are invoiced as sponsorships, not donations.</li>
+            <li class="py-2.5">Please consult your tax advisor on how to treat them.</li>
+            <li class="py-2.5">RevolutionVA is a 501(c)(3) nonprofit.</li>
+          </ul>
+        </div>
         <div class="flex justify-center mt-2">
           <a href={`mailto:team@revolutionva.org?subject=${encodeURIComponent("Hampton Roads DevFest 2027 sponsorship")}`} class="px-8 py-3 btn-primary text-base">Email us to sponsor</a>
         </div>
