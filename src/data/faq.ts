@@ -14,6 +14,6 @@ export const faqItems: FaqItem[] = [
   },
   {
     question: "What does my ticket include?",
-    answer: "Your ticket includes full-day conference admission, lunch, and drink tickets (cash bar available for additional purchases).",
+    answer: "Your ticket includes full-day conference admission and lunch.",
   },
 ];
