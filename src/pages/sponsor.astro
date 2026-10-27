@@ -21,44 +21,76 @@ interface ScheduleItem {
 const schedule: ScheduleItem[] = [
   { time: "7:30", what: "Building opens, sponsor setup", sponsorTime: true },
   { time: "8:00", what: "Registration and networking at the sponsor tables", sponsorTime: true },
-  { time: "9:00", what: "Opening, with the Presenting sponsor's 15-minute talk", sponsorTime: true },
+  { time: "9:00", what: "Opening, with the Presenting sponsor's 15-minute presentation", sponsorTime: true },
   { time: "9:30", what: "Talk" },
   { time: "10:15", what: "Talk" },
   { time: "11:00", what: "Networking break at the sponsor tables", sponsorTime: true },
   { time: "11:30", what: "Talk" },
   { time: "12:15", what: "Lunch in the Studio", sponsorTime: true },
-  { time: "12:45", what: "Scholar Meetup in the Studio", sponsorTime: true },
-  { time: "1:30", what: "Main Stage sponsor's 15-minute talk", sponsorTime: true },
+  { time: "1:30", what: "Main Stage sponsor's 15-minute presentation", sponsorTime: true },
   { time: "1:45", what: "Talk" },
   { time: "2:30", what: "Networking break at the sponsor tables", sponsorTime: true },
   { time: "3:00", what: "Talk" },
   { time: "3:45", what: "Talk" },
   { time: "4:30", what: "Closing, then networking and sponsor teardown (building closes at 6:00)", sponsorTime: true },
-  { time: "TBD", what: "Post-Event Reception, place TBD", sponsorTime: true },
 ];
 
 interface GlanceRow {
-  mark: string; // callout mark, keyed to the tier detail card
-  detail: string; // id of the tier detail card
-  tier: string;
+  mark: string;
+  detail: string;
+  package: string;
   price: string;
   available: string;
-  table: string;
-  talk: boolean;
   tickets: string;
-  social: string;
-  report: boolean;
+  extras: string;
 }
 
 const glance: GlanceRow[] = [
-  { mark: "P", detail: "presenting", tier: "Presenting", price: "$10,000", available: "1", table: "Yes", talk: true, tickets: "12", social: "4", report: true },
-  { mark: "M", detail: "main-stage", tier: "Main Stage", price: "$5,000", available: "1", table: "Yes", talk: true, tickets: "10", social: "3", report: true },
-  { mark: "R", detail: "reception", tier: "Post-Event Reception", price: "$5,000", available: "1", table: "Yes", talk: false, tickets: "10", social: "3", report: true },
-  { mark: "S", detail: "studio", tier: "Studio", price: "$3,500", available: "1", table: "Yes (in the Studio)", talk: false, tickets: "6", social: "3", report: true },
-  { mark: "VS", detail: "scholarship", tier: "Veteran Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
-  { mark: "SS", detail: "scholarship", tier: "Student Scholarship", price: "$2,500", available: "3", table: "Yes", talk: false, tickets: "4", social: "2", report: true },
-  { mark: "J", detail: "jobs-board", tier: "Jobs Board", price: "$1,000", available: "Open", table: "", talk: false, tickets: "2", social: "1", report: true },
-  { mark: "C", detail: "community", tier: "Community", price: "$500", available: "Open", table: "", talk: false, tickets: "1", social: "Group thank-you", report: false },
+  {
+    mark: "P",
+    detail: "presenting",
+    package: "Presenting Sponsor",
+    price: "$10,000",
+    available: "1",
+    tickets: "12",
+    extras: '"DevFest presented by [Company]"; highest branding prominence across website, event emails and signage; 15-minute opening sponsor presentation; newsletter feature; 4 dedicated social posts.',
+  },
+  {
+    mark: "M",
+    detail: "main-stage",
+    package: "Main Stage Sponsor",
+    price: "$5,000",
+    available: "1",
+    tickets: "10",
+    extras: '"[Company] Main Stage" naming on signage and schedule; 15-minute afternoon sponsor presentation; newsletter feature; 3 dedicated social posts.',
+  },
+  {
+    mark: "F",
+    detail: "featured",
+    package: "Featured Sponsor",
+    price: "$2,500",
+    available: "5",
+    tickets: "4",
+    extras: "Larger logo placement; newsletter mention; 2 dedicated social posts.",
+  },
+  {
+    mark: "E",
+    detail: "exhibitor",
+    package: "Exhibitor Sponsor",
+    price: "$1,500",
+    available: "5",
+    tickets: "2",
+    extras: "Standard logo placement; 1 dedicated social post.",
+  },
+  {
+    mark: "C",
+    detail: "community",
+    package: "Community Sponsor",
+    price: "$500",
+    available: "Unlimited",
+    tickets: "1",
+    extras: "Shared logo placement and group recognition.",
+  },
 ];
 
 interface Tier {
@@ -68,10 +100,20 @@ interface Tier {
   price: string;
   available?: string;
   tagline?: string;
-  lead?: string;
   benefits: string[];
   quickPath?: boolean;
 }
+
+const sharedCoreBenefits = [
+  "Website and slide recognition",
+  "A group thank-you",
+  "The post-event report",
+];
+
+const tableAndHiring = [
+  "One sponsor table",
+  "A hiring-board listing",
+];
 
 const tiers: Tier[] = [
   {
@@ -80,17 +122,15 @@ const tiers: Tier[] = [
     name: "Presenting Sponsor",
     price: "$10,000",
     available: "1 available",
-    tagline: "Your name on the event: \"Hampton Roads DevFest presented by [Your Company].\"",
+    tagline: '"DevFest presented by [Company]"',
     benefits: [
-      "A 15-minute talk at the 9:00 opening, when the whole room is in their seats. This talk is your opportunity to address the DevFest audience directly as a welcome, product demo, etc.",
-      "Top logo placement on the website, slides, and signage",
-      "A sponsor table",
-      "12 tickets",
-      "A feature in the 757tech newsletter",
-      "At least 4 sponsor posts on 757tech's social channels: an announcement, a reminder, a day-of post, and a thank-you",
-      "Year-round Pop-up Meetup naming: your company names every quarterly 757tech Pop-up Meetup for 12 months, with 2 minutes at the start of each",
-      "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
-      "The post-event report",
+      ...sharedCoreBenefits,
+      ...tableAndHiring,
+      "12 standard tickets",
+      "Highest branding prominence across website, event emails and signage",
+      "15-minute opening sponsor presentation",
+      "Newsletter feature",
+      "4 dedicated social posts",
     ],
   },
   {
@@ -99,98 +139,43 @@ const tiers: Tier[] = [
     name: "Main Stage Sponsor",
     price: "$5,000",
     available: "1 available",
-    tagline: "Your name on the room where every talk happens: \"The [Your Company] Main Stage.\"",
+    tagline: '"[Company] Main Stage" naming on signage and schedule',
     benefits: [
-      "A 15-minute talk at 1:30, right after lunch. This talk is your opportunity to address the DevFest audience directly as a welcome, product demo, etc.",
-      "Main Stage naming on signage, slides, and the schedule",
-      "A sponsor table",
-      "10 tickets",
-      "A feature in the 757tech newsletter",
-      "At least 3 sponsor posts on 757tech's social channels",
-      "Year-round Pop-up Meetup naming. How this is shared with the Presenting sponsor depends on who commits; we'll confirm with you.",
-      "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
-      "The post-event report",
+      ...sharedCoreBenefits,
+      ...tableAndHiring,
+      "10 standard tickets",
+      "15-minute afternoon sponsor presentation",
+      "Newsletter feature",
+      "3 dedicated social posts",
     ],
   },
   {
-    id: "reception",
-    mark: "R",
-    name: "Post-Event Reception Sponsor",
-    price: "$5,000",
-    available: "1 available",
-    tagline: "Your name on the reception after the event: \"The [Your Company] Post-Event Reception.\"",
+    id: "featured",
+    mark: "F",
+    name: "Featured Sponsor",
+    price: "$2,500",
+    available: "5 available",
     benefits: [
-      "Naming rights for the reception after the event",
-      "Your brand on the reception signage",
-      "A few words to welcome the room at the reception",
-      "Since we invite high school students and other minors, the reception is alcohol-free. We serve only nonalcoholic drinks.",
-      "Your logo on the website and in event emails",
-      "A sponsor table",
-      "10 tickets",
-      "A feature in the 757tech newsletter",
-      "At least 3 sponsor posts on 757tech's social channels",
-      "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
-      "The post-event report",
+      ...sharedCoreBenefits,
+      ...tableAndHiring,
+      "4 standard tickets",
+      "Larger logo placement",
+      "Newsletter mention",
+      "2 dedicated social posts",
     ],
   },
   {
-    id: "studio",
-    mark: "S",
-    name: "Studio Sponsor",
-    price: "$3,500",
-    available: "1 available",
-    tagline: "The room where everyone eats, hangs out, and talks: \"The [Your Company] Studio.\"",
+    id: "exhibitor",
+    mark: "E",
+    name: "Exhibitor Sponsor",
+    price: "$1,500",
+    available: "5 available",
     benefits: [
-      "Naming of the Studio, the lunch and hangout room",
-      "Signage in the Studio",
-      "Your sponsor table inside the Studio",
-      "6 tickets",
-      "A mention in the 757tech newsletter",
-      "At least 3 sponsor posts on 757tech's social channels",
-      "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
-      "The post-event report",
-    ],
-  },
-  {
-    id: "scholarship",
-    mark: "Sc",
-    name: "Veteran Scholarship and Student Scholarship Sponsors",
-    price: "$2,500 each",
-    available: "3 of each available",
-    tagline: "Your sponsorship funds scholarship seats.",
-    lead: "Every dollar of the Scholarship tier funds lottery seats, named for your company as a Veteran Scholarship or a Student Scholarship.",
-    benefits: [
-      "Your 10 seats are held for the lottery, even if we sell out, and we hand them out the week of the event",
-      "Veteran Scholarship seats are drawn from veteran entries; Student Scholarship seats from student entries",
-      "Scholars never need to show proof of need",
-      "Funds 10 named scholarship seats, held for our lottery even if we sell out and handed out the week of the event",
-      "Meet your scholars at the Scholar Meetup (12:45, in the Studio). The meetup is optional for scholars.",
-      "A sponsor table",
-      "4 tickets for your team",
-      "A mention in the 757tech newsletter",
-      "At least 2 sponsor posts on 757tech's social channels: an announcement and a thank-you to your company",
-      "Scholars are never named or labeled, in posts, on badges, or at the event",
-      "Optional spot on the Who's hiring board, free if you want it, in print at the event and on the DevFest site",
-      "The post-event report, including scholars who attended versus scholars funded",
-    ],
-  },
-  {
-    id: "jobs-board",
-    mark: "J",
-    name: "Jobs Board Sponsor",
-    price: "$1,000",
-    available: "open",
-    benefits: [
-      "Your logo, 2 to 3 open role titles, and a QR code to your careers page on the printed Who's hiring board near registration",
-      "A listing in the Who's hiring section of the DevFest site, live from when you sign until about 30 days after the event",
-      "You write your own listings, for example clearance required, remote, or internship. Every role you list must include an expected salary range.",
-      "A mention in the post-event report email",
-      "One named contact from your team for attendees to reach out to",
-      "Your logo on the website and slides",
-      "A sponsor post on 757tech's social channels",
-      "2 tickets",
-      "The post-event report",
-      "No sponsor table and no stage time. We don't collect resumes.",
+      ...sharedCoreBenefits,
+      ...tableAndHiring,
+      "2 standard tickets",
+      "Standard logo placement",
+      "1 dedicated social post",
     ],
   },
   {
@@ -198,13 +183,82 @@ const tiers: Tier[] = [
     mark: "C",
     name: "Community Sponsor",
     price: "$500",
-    available: "open",
+    available: "Unlimited",
     benefits: [
-      "Your logo on the website and slides",
-      "1 ticket",
-      "Included in a group thank-you post on 757tech's social channels",
+      ...sharedCoreBenefits,
+      "1 standard ticket",
+      "Shared logo placement and group recognition",
     ],
     quickPath: true,
+  },
+];
+
+interface Partnership {
+  id: string;
+  mark: string;
+  name: string;
+  price: string;
+  available: string;
+  benefits: string[];
+  linkLabel?: string;
+  linkHref?: string;
+}
+
+const partnerships: Partnership[] = [
+  {
+    id: "scholarship-partner",
+    mark: "SP",
+    name: "Scholarship Partner",
+    price: "$1,000",
+    available: "1 exclusive",
+    benefits: [
+      "Underwrites 20 standard admissions for students and veterans",
+      "Recognition as the scholarship program's supporter",
+    ],
+  },
+  {
+    id: "popup-series-partner",
+    mark: "PP",
+    name: "Pop-up Series Partner",
+    price: "$1,000",
+    available: "1 exclusive",
+    benefits: [
+      "Series partner recognition across all four 2027 Pop-up Meetups",
+    ],
+    linkLabel: "Pop-up Meetups",
+    linkHref: "https://revolutionva.org/programs/pop-up-meetups/",
+  },
+  {
+    id: "coffee-partner",
+    mark: "CP",
+    name: "Coffee Partner",
+    price: "$1,000",
+    available: "1 exclusive",
+    benefits: [
+      "Coffee station branding",
+      "A thank-you during opening remarks",
+    ],
+  },
+  {
+    id: "lunch-partner",
+    mark: "LP",
+    name: "Lunch Partner",
+    price: "$2,000",
+    available: "1 exclusive",
+    benefits: [
+      "Lunch area branding",
+      "A thank-you before lunch",
+    ],
+  },
+  {
+    id: "lanyard-partner",
+    mark: "YP",
+    name: "Lanyard Partner",
+    price: "$1,000",
+    available: "1 exclusive",
+    benefits: [
+      "Company logo alongside DevFest branding on attendee lanyards",
+    ],
   },
 ];
 
@@ -235,7 +289,7 @@ const commitments: Commitment[] = [
       "Your invoice and payment can come in 2027.",
       "A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027.",
       "Sign and logo files are due by April 1, 2027.",
-      "Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
+      "Exclusive packages and partnerships are assigned in order of written intent and held for 30 days from your written intent to sponsor.",
     ],
   },
   {
@@ -249,9 +303,9 @@ const commitments: Commitment[] = [
     ],
   },
   {
-    title: "A post-event report for Jobs Board sponsors and above.",
+    title: "A post-event report with every core package.",
     bullets: [
-      "After DevFest, Jobs Board sponsors and every tier above ($1,000 and up) get the full post-event report.",
+      "Every core sponsorship package includes the full post-event report.",
       "The report is aggregate only, with no attendee names or employers.",
       "Attendance and check-ins",
       "The mix of attendee roles and seniority",
@@ -264,9 +318,9 @@ const commitments: Commitment[] = [
     ],
   },
   {
-    title: "A Who's hiring board for sponsor roles.",
+    title: "A hiring board for Exhibitor and above.",
     bullets: [
-      "Jobs Board sponsors get a listing on the Who's hiring board, and Scholarship tier sponsors and up can opt in for free.",
+      "Every package at $1,500 and above includes a hiring-board listing.",
       "The board is printed near registration and posted on the DevFest site.",
       "Full-time, internship, apprenticeship, contract, and freelance roles are all welcome.",
       "Sponsors write their own listings, for example clearance required, remote, or internship.",
@@ -285,13 +339,13 @@ const commitments: Commitment[] = [
   },
   {
     title: "Simple payment.",
-    body: "Payment options are listed under Tier details.",
+    body: "Payment options are listed under Package details.",
     bodyHref: "#payment-options",
     bodyHrefLabel: "Payment options",
   },
   {
     title: "In-kind support is itemized separately.",
-    body: "See Payment options under Tier details.",
+    body: "See Payment options under Package details.",
     bodyHref: "#payment-options",
     bodyHrefLabel: "Payment options",
   },
@@ -301,6 +355,16 @@ const commitments: Commitment[] = [
       "Speakers are invited, based on recommendations from the community. There's no open call.",
       "Sponsorship doesn't buy a spot in the speaker lineup.",
       "Presenting and Main Stage include a separate 15-minute sponsor talk.",
+      "Sponsor presentations are clearly identified separately from independently selected conference sessions.",
+    ],
+  },
+  {
+    title: "Purchasing rules.",
+    bullets: [
+      "Standalone partnerships include website and slide recognition and one standard ticket, plus the listed benefit.",
+      "Sponsor tables come with Exhibitor ($1,500) and up. A standalone partnership doesn't include a table.",
+      "You can add any available partnership to a core package.",
+      "Naming rights belong to the package or partnership purchased. Meetup naming stays with the Pop-up Series Partner.",
     ],
   },
   {
@@ -327,9 +391,9 @@ const sheetNo = sheet ? sheet.split(" ")[0] : "2";
 const sections = [
   { id: "why-sponsor", title: "Why sponsor DevFest" },
   { id: "the-day", title: "The day" },
-  { id: "at-a-glance", title: "Sponsorship at a glance" },
-  { id: "tiers", title: "Tier details" },
-  { id: "add-ons", title: "Add-ons" },
+  { id: "at-a-glance", title: "Core packages" },
+  { id: "tiers", title: "Package details" },
+  { id: "partnerships", title: "Event & Community Partnerships" },
   { id: "report", title: "Post-event report" },
   { id: "how-we-work", title: "How we work with sponsors" },
   { id: "how-to-sponsor", title: "How to sponsor" },
@@ -446,7 +510,7 @@ const email = "team@revolutionva.org";
           </p>
           <div class="flex flex-wrap items-start gap-3 mt-2">
             <a href="#how-to-sponsor" class="px-8 py-3 btn-primary text-base whitespace-nowrap">How to Sponsor</a>
-            <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base whitespace-nowrap">Compare tiers</a>
+            <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base whitespace-nowrap">Compare packages</a>
           </div>
         </div>
 
@@ -547,7 +611,7 @@ const email = "team@revolutionva.org";
               <li class="py-3"><strong>Showing what's built here.</strong> Talks cover a range of topics, including AI, alongside the rest of what Hampton Roads developers work on every day.</li>
               <li class="py-3"><strong>The Studio.</strong> An open room for hanging out and lunch, where many of the day's conversations happen.</li>
               <li class="py-3"><strong>Real time with attendees.</strong> Registration networking, two 30-minute breaks at the sponsor tables, and a 75-minute lunch.</li>
-              <li class="py-3"><strong>The next generation of local talent.</strong> Many attendees come on Veteran and Student Scholarships, funded directly by sponsors. The Scholar Meetup at lunch, optional for scholars, connects them with the companies that sponsored their seats.</li>
+              <li class="py-3"><strong>The next generation of local talent.</strong> Scholarship seats for students and veterans are underwritten by our Scholarship Partner.</li>
             </ul>
           </div>
         </div>
@@ -601,57 +665,77 @@ const email = "team@revolutionva.org";
       </div>
     </section>
 
-    <!-- At a Glance -->
+    <!-- Core packages at a glance -->
     <section id="at-a-glance" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-7xl mx-auto flex flex-col gap-6">
         <div class="max-w-[1040px] w-full mx-auto flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
           <span class="bp-sheet-ref">{ref("at-a-glance")}</span>
-          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Sponsorship at a glance</h2>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Core sponsorship packages</h2>
         </div>
-        <div class="overflow-x-auto">
-          <table class="bp-table min-w-[960px] text-sm md:text-base">
+        <ul class="max-w-[1040px] w-full mx-auto flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+          <li class="py-2.5">Every package includes website and slide recognition, a group thank-you, and the post-event report.</li>
+          <li class="py-2.5">Every package at $1,500 and above also includes one sponsor table and a hiring-board listing.</li>
+        </ul>
+
+        <!-- Mobile: stacked cards -->
+        <div class="md:hidden flex flex-col gap-4 max-w-[1040px] w-full mx-auto">
+          {glance.map((row) => (
+            <article class="bp-box p-5 flex flex-col gap-3">
+              <div class="flex items-center gap-3">
+                <a href={`#${row.detail}`} class="bp-mark" aria-label={`${row.package} details`}>{row.mark}</a>
+                <div class="min-w-0 flex-1">
+                  <h3 class="text-lg font-bold leading-tight">{row.package}</h3>
+                  <p class="bp-mono text-xl font-bold mt-1">{row.price}</p>
+                </div>
+              </div>
+              <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-sm leading-relaxed">
+                <li class="py-2"><span class="bp-label">Available</span> {row.available}</li>
+                <li class="py-2"><span class="bp-label">Standard tickets</span> {row.tickets}</li>
+                <li class="py-2"><span class="bp-label">Additional benefits</span> {row.extras}</li>
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <!-- Desktop table -->
+        <div class="hidden md:block overflow-x-auto">
+          <table class="bp-table min-w-[880px] text-sm md:text-base">
             <thead>
               <tr>
                 <th scope="col" class="w-[4.5rem]">Mark</th>
-                <th scope="col">Tier</th>
+                <th scope="col">Package</th>
                 <th scope="col">Price</th>
                 <th scope="col">Available</th>
-                <th scope="col">Table</th>
-                <th scope="col">15-min talk</th>
-                <th scope="col">Tickets</th>
-                <th scope="col">757tech social posts (at least)</th>
-                <th scope="col">Post-event report</th>
+                <th scope="col">Standard tickets</th>
+                <th scope="col">Additional benefits</th>
               </tr>
             </thead>
             <tbody>
               {glance.map((row) => (
                 <tr>
-                  <td><a href={`#${row.detail}`} class="bp-mark" aria-label={`${row.tier} details`}>{row.mark}</a></td>
-                  <th scope="row" class="font-bold">{row.tier}</th>
+                  <td><a href={`#${row.detail}`} class="bp-mark" aria-label={`${row.package} details`}>{row.mark}</a></td>
+                  <th scope="row" class="font-bold whitespace-nowrap">{row.package}</th>
                   <td class="bp-mono whitespace-nowrap">{row.price}</td>
                   <td>{row.available}</td>
-                  <td>{row.table}</td>
-                  <td>{row.talk ? "Yes" : ""}</td>
                   <td>{row.tickets}</td>
-                  <td>{row.social}</td>
-                  <td>{row.report ? "Yes" : ""}</td>
+                  <td class="text-sm leading-snug">{row.extras}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <p class="bp-muted text-sm leading-relaxed max-w-[1040px] w-full mx-auto">
-          Marks point to each tier's details below. Sponsor tables are included at the Scholarship tier ($2,500) and above, and they are limited.
+          Sponsor presentations are clearly identified separately from independently selected conference sessions. Sponsor tables come with Exhibitor ($1,500) and up.
         </p>
       </div>
     </section>
 
-    <!-- Tier Details -->
+    <!-- Package Details -->
     <section id="tiers" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
           <span class="bp-sheet-ref">{ref("tiers")}</span>
-          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Tier details</h2>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Package details</h2>
         </div>
         <div id="payment-options" class="flex flex-col gap-2 max-w-[72ch] scroll-mt-4">
           <p class="text-base font-bold">Payment options</p>
@@ -674,7 +758,6 @@ const email = "team@revolutionva.org";
             </header>
             <div class="p-5 md:p-8 flex flex-col gap-4">
               {tier.tagline && <p class="text-base md:text-lg font-semibold leading-snug">{tier.tagline}</p>}
-              {tier.lead && <p class="text-base leading-relaxed">{tier.lead}</p>}
               <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
                 {tier.benefits.map((benefit) => <li class="py-2.5">{benefit}</li>)}
               </ul>
@@ -689,43 +772,46 @@ const email = "team@revolutionva.org";
       </div>
     </section>
 
-    <!-- Add-ons -->
-    <section id="add-ons" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
+    <!-- Event & Community Partnerships -->
+    <section id="partnerships" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <span class="bp-sheet-ref">{ref("add-ons")}</span>
-          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Add-ons</h2>
+          <span class="bp-sheet-ref">{ref("partnerships")}</span>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Event &amp; Community Partnerships</h2>
         </div>
-        <div class="overflow-x-auto">
-          <table class="bp-table min-w-[640px] text-base">
-            <thead>
-              <tr>
-                <th scope="col">Add-on</th>
-                <th scope="col">Price</th>
-                <th scope="col">Details</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" class="font-bold"><a href="https://revolutionva.org/programs/pop-up-meetups/" class="bp-link">Pop-up Meetup</a> host</th>
-                <td class="bp-mono">$500 per meetup, or $1,750 for all four 2027 Pop-ups</td>
-                <td>
-                  <ul class="flex flex-col gap-1.5">
-                    <li>Host or sponsor a 757tech <a href="https://revolutionva.org/programs/pop-up-meetups/" class="bp-link">Pop-up Meetup</a>.</li>
-                    <li>Hosts get their name on the meetup and speaking time at the meetup.</li>
-                    <li>We typically see 15 to 20 people at a Pop-up.</li>
-                    <li>Available to any company, with or without a DevFest sponsorship.</li>
-                  </ul>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row" class="font-bold">Extra sponsor tickets</th>
-                <td>Ask us</td>
-                <td>Bring more of your team.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
+          <li class="py-2.5">Available on their own or alongside a core sponsorship.</li>
+          <li class="py-2.5">One exclusive partner for each.</li>
+          <li class="py-2.5">Standalone partnerships include website and slide recognition and one standard ticket, plus the listed benefit.</li>
+          <li class="py-2.5">A standalone partnership doesn't include a sponsor table.</li>
+        </ul>
+        {partnerships.map((partner) => (
+          <article id={partner.id} class="bp-box flex flex-col scroll-mt-4">
+            <header class="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_auto] gap-x-4 gap-y-2 items-center p-5 md:px-8 border-b border-[var(--bp-line)]">
+              <span class="bp-mark" aria-hidden="true">{partner.mark}</span>
+              <div class="min-w-0">
+                <h3 class="text-xl md:text-2xl font-bold leading-tight">{partner.name}</h3>
+                <p class="bp-label mt-1">{partner.available}</p>
+              </div>
+              <p class="bp-mono text-2xl md:text-[28px] font-bold leading-none col-start-2 md:col-start-3 md:text-right">{partner.price}</p>
+            </header>
+            <div class="p-5 md:p-8 flex flex-col gap-4">
+              <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+                {partner.benefits.map((benefit) => (
+                  <li class="py-2.5">
+                    {partner.linkLabel && partner.linkHref && benefit.includes(partner.linkLabel) ? (
+                      <>
+                        {benefit.split(partner.linkLabel)[0]}
+                        <a href={partner.linkHref} class="bp-link font-bold">{partner.linkLabel}</a>
+                        {benefit.split(partner.linkLabel)[1]}
+                      </>
+                    ) : benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
         <p class="text-base leading-relaxed max-w-[72ch]">
           <strong>Unused tickets aren't wasted.</strong> Any sponsor tickets you don't use go into our seat lottery, so someone else gets a seat.
         </p>
@@ -740,7 +826,7 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Post-event report</h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6 lg:gap-12">
-          <p class="bp-surface text-base leading-relaxed max-w-[48ch]">Jobs Board sponsors and above receive a post-event report after DevFest. The report is aggregate only, with no attendee names or employers. It includes:</p>
+          <p class="bp-surface text-base leading-relaxed max-w-[48ch]">Every core sponsorship package includes a post-event report after DevFest. The report is aggregate only, with no attendee names or employers. It includes:</p>
           <ul class="bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
             {reportItems.map((item) => <li class="py-2.5">{item}</li>)}
           </ul>
@@ -792,8 +878,8 @@ const email = "team@revolutionva.org";
       </div>
       <div class="max-w-3xl mx-auto p-6 md:p-10 bp-box flex flex-col gap-5">
         <ol class="list-decimal pl-6 flex flex-col gap-3 text-base leading-relaxed">
-          <li><strong>Pick your tier.</strong> Email us at <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the tier you want.</li>
-          <li><strong>Get your invoice.</strong> We'll send an invoice. <a href="#payment-options" class="bp-link font-bold">Payment options</a> are listed under Tier details. Purchase orders are accepted, with net-30 terms. A quote is available before the invoice if you need one for a purchase order.</li>
+          <li><strong>Pick your package.</strong> Email us at <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the package or partnership you want.</li>
+          <li><strong>Get your invoice.</strong> We'll send an invoice. <a href="#payment-options" class="bp-link font-bold">Payment options</a> are listed under Package details. Purchase orders are accepted, with net-30 terms. A quote is available before the invoice if you need one for a purchase order.</li>
           <li>
             <strong>Send your logo and details.</strong>
             <ul class="mt-2 flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)]">
@@ -812,7 +898,7 @@ const email = "team@revolutionva.org";
             <li class="py-2.5">Commit in 2026. Your invoice and payment can come in 2027.</li>
             <li class="py-2.5">A written intent to sponsor in 2026 counts as committed, with your purchase order or payment in 2027.</li>
             <li class="py-2.5">Sign and logo files are due by April 1, 2027.</li>
-            <li class="py-2.5">Scholarship tiers are assigned in order of written intent and held for 30 days from your written intent to sponsor.</li>
+            <li class="py-2.5">Exclusive packages and partnerships are assigned in order of written intent and held for 30 days from your written intent to sponsor.</li>
           </ul>
         </div>
         <div class="flex flex-col gap-2">
@@ -835,7 +921,7 @@ const email = "team@revolutionva.org";
       <div class="max-w-3xl mx-auto flex flex-col items-center gap-3 text-center">
         <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Questions?</h2>
         <p class="text-base leading-relaxed">
-          Email us at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. We're happy to talk through which tier fits your team.
+          Email us at <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. We're happy to talk through which package fits your team.
         </p>
       </div>
     </section>
