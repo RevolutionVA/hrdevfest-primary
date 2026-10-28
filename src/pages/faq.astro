@@ -222,8 +222,11 @@ const faqData: FAQCategory[] = [
         <p class="bp-muted mb-6">Sign up for updates on Hampton Roads DevFest 2027</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
-          <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name (optional)" class="bp-input mb-3 px-4 py-3 text-base" />
-          <input type="email" name="email" placeholder="Email" required class="bp-input mb-4 px-4 py-3 text-base" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <input type="text" name="fields_first_name" aria-label="First name" placeholder="First name (optional)" autocomplete="given-name" class="bp-input px-4 py-3 text-base" />
+            <input type="text" name="fields_last_name" aria-label="Last name" placeholder="Last name (optional)" autocomplete="family-name" class="bp-input px-4 py-3 text-base" />
+          </div>
+          <input type="email" name="email" aria-label="Email address" placeholder="Email" required autocomplete="email" class="bp-input mb-4 px-4 py-3 text-base" />
           <button type="submit" class="px-8 py-3 btn-primary text-base">Join the list</button>
           <p class="text-xs bp-muted mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
         </form>
