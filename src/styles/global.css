@@ -232,12 +232,16 @@
     outline: 1px solid #ffffff;
     outline-offset: 4px;
     padding: 1.5rem; /* 24px on mobile */
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
   }
   .bp-callout__copy {
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
     min-width: 0;
+    max-width: 100%;
   }
   .bp-callout__title {
     color: var(--bp-paper);
@@ -264,15 +268,32 @@
   .bp-callout__actions {
     display: flex;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
   }
+  /* Full-width, border-box, wrapping label. Long uppercase + letter-spacing
+     was nearly flush with the content edges on ~320–375px and looked cut off. */
   .bp-callout__btn {
+    box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
     min-height: 48px;
-    padding: 0.875rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.875rem 1rem;
+    font-size: 0.9375rem;
     font-weight: 700;
+    letter-spacing: 0.04em;
     white-space: normal;
+    overflow-wrap: anywhere;
     text-align: center;
+    line-height: 1.3;
+  }
+  .bp-callout__btn-label--full {
+    display: none;
+  }
+  .bp-callout__btn-label--short {
+    display: inline;
   }
   /* On the light panel, invert .btn-filled to dark blue / near-white (~10:1) */
   .bp-callout .btn-filled {
@@ -315,12 +336,24 @@
     .bp-callout__actions {
       width: auto;
       flex-shrink: 0;
+      max-width: none;
     }
     .bp-callout__btn {
       width: auto;
+      max-width: none;
       min-height: 0;
+      height: auto;
       padding: 0.75rem 2rem;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
       white-space: nowrap;
+      overflow-wrap: normal;
+    }
+    .bp-callout__btn-label--full {
+      display: inline;
+    }
+    .bp-callout__btn-label--short {
+      display: none;
     }
   }
 

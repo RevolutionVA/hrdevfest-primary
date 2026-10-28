@@ -170,8 +170,11 @@ import Callout from "../components/Callout.astro";
   bullets={["Website and slide recognition", "A group thank-you"]}
   afterBullets="Pay in one click by card or bank."
   buttonLabel="Sponsor at Community ($500)"
+  buttonLabelShort="Community ($500)"
   buttonHref="https://buy.stripe.com/..."
 />
+
+On narrow screens the short label is shown so the CTA does not look cut off; desktop keeps the full label.
 ```
 
 `Become a Sponsor` stays the only red (`.btn-primary`) button. Callout CTAs use `.btn-filled`, never red.

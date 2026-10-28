@@ -7,10 +7,16 @@
  * Styles: .bp-callout, .bp-callout__title, .bp-callout__body,
  * .bp-callout__actions, and .btn-filled (inverted to dark fill on the
  * light panel). Optional variant="panel" is the default look.
+ *
+ * Button labels: prefer a short mobile label. Long uppercase labels with
+ * letter-spacing were nearly flush with the button edges on ~320–375px
+ * screens and read as cut off.
  */
 interface Props {
   heading: string;
   buttonLabel: string;
+  /** Shorter label for narrow screens. Falls back to buttonLabel. */
+  buttonLabelShort?: string;
   buttonHref: string;
   /** Optional list of short benefit lines; prefer over a long paragraph on mobile. */
   bullets?: string[];
@@ -28,6 +34,7 @@ interface Props {
 const {
   heading,
   buttonLabel,
+  buttonLabelShort,
   buttonHref,
   bullets,
   afterBullets,
@@ -37,6 +44,7 @@ const {
   class: className = "",
 } = Astro.props;
 
+const shortLabel = buttonLabelShort ?? buttonLabel;
 const linkAttrs = external
   ? { target: "_blank", rel: "noopener noreferrer" }
   : {};
@@ -65,6 +73,9 @@ const linkAttrs = external
       href={buttonHref}
       class="btn-filled bp-callout__btn"
       {...linkAttrs}
-    >{buttonLabel}</a>
+    >
+      <span class="bp-callout__btn-label bp-callout__btn-label--full">{buttonLabel}</span>
+      <span class="bp-callout__btn-label bp-callout__btn-label--short">{shortLabel}</span>
+    </a>
   </div>
 </div>

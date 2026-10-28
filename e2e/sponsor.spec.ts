@@ -11,8 +11,9 @@ test.describe("Sponsor Page", () => {
     await expect(
       page.getByRole("heading", { name: "Small team? Sponsor for $500." }).first()
     ).toBeVisible();
+    // Full label on desktop, short label on narrow viewports
     await expect(
-      page.getByRole("link", { name: "Sponsor at Community ($500)" }).first()
+      page.getByRole("link", { name: /Community \(\$500\)/ }).first()
     ).toBeVisible();
   });
 });
