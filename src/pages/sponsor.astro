@@ -43,6 +43,7 @@ interface GlanceRow {
   available: string;
   tickets: string;
   extras: string;
+  checkoutHref?: string;
 }
 
 const glance: GlanceRow[] = [
@@ -85,6 +86,7 @@ const glance: GlanceRow[] = [
     available: "Unlimited",
     tickets: "1",
     extras: "Shared logo placement and group recognition.",
+    checkoutHref: "https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06",
   },
 ];
 
@@ -187,6 +189,7 @@ const faqItems: FaqItem[] = [
   {
     title: "Commit in 2026. Pay in 2027.",
     bullets: [
+      "This applies to packages of $1,500 and above, and to Event & Community Partnerships. Community Sponsor ($500) is paid now at checkout.",
       "Email a written commitment to team@revolutionva.org to confirm your booking.",
       "We invoice in 2027. Payment can wait until then.",
       "An unconfirmed hold is released after 30 days.",
@@ -196,6 +199,7 @@ const faqItems: FaqItem[] = [
   {
     title: "Payment",
     bullets: [
+      "Community Sponsor ($500) is paid now by card or bank transfer through the checkout button on this page. Checkout asks for your company name, contact emails, and a logo link (or we follow up).",
       "Check or ACH invoices skip the 3% card fee.",
       "Credit card works too; the 3% card fee is shown on the invoice.",
       "Supplier portals are for sponsorships of $5,000 or more.",
@@ -543,6 +547,19 @@ const email = "team@revolutionva.org";
                 <li class="py-2"><span class="bp-label">Standard tickets</span> {row.tickets}</li>
                 <li class="py-2"><span class="bp-label">Additional benefits</span> {row.extras}</li>
               </ul>
+              {row.checkoutHref && (
+                <div class="flex flex-col gap-3 pt-1">
+                  <p class="text-sm leading-relaxed">
+                    Community is paid now by card or bank transfer. Checkout asks for your company name, contact emails, and a logo link (or we follow up).
+                  </p>
+                  <a
+                    href={row.checkoutHref}
+                    class="px-6 py-3 btn-secondary text-sm whitespace-nowrap self-start"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Sponsor at Community ($500)</a>
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -572,6 +589,17 @@ const email = "team@revolutionva.org";
               ))}
             </tbody>
           </table>
+        </div>
+        <div class="hidden md:flex bp-surface max-w-[1040px] w-full mx-auto flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-base leading-relaxed max-w-[60ch]">
+            Community Sponsor ($500) is paid now by card or bank transfer. Checkout asks for your company name, contact emails, and a logo link (or we follow up).
+          </p>
+          <a
+            href="https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06"
+            class="px-6 py-3 btn-secondary text-sm whitespace-nowrap shrink-0"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Sponsor at Community ($500)</a>
         </div>
         <p class="bp-muted text-sm leading-relaxed max-w-[1040px] w-full mx-auto">
           Sponsor presentations are clearly identified separately from independently selected conference sessions. Sponsor tables come with Exhibitor ($1,500) and up. See the <a href="#sponsor-faq" class="bp-link">Sponsor FAQ</a> for payment, deadlines and the post-event report.
@@ -727,8 +755,8 @@ const email = "team@revolutionva.org";
         <div class="max-w-3xl mx-auto w-full p-6 md:p-8 bp-box flex flex-col gap-4">
           <p class="text-base font-bold">How to sponsor</p>
           <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed">
-            <li><strong>Pick your package.</strong> Email <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the package or partnership you want.</li>
-            <li><strong>Confirm in writing.</strong> A written commitment by email holds your spot. We invoice in 2027.</li>
+            <li><strong>Pick your package.</strong> Email <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the package or partnership you want. For Community ($500), use the checkout button above.</li>
+            <li><strong>Confirm in writing.</strong> For packages of $1,500 and above, and for partnerships, a written commitment by email holds your spot. We invoice those in 2027. Community is paid at checkout.</li>
             <li><strong>Send logo files</strong> by April 1, 2027 (specs above).</li>
             <li><strong>Name your team.</strong> Assign your tickets to your attendees.</li>
           </ol>
