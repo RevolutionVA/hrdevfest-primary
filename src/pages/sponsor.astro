@@ -39,6 +39,7 @@ const schedule: ScheduleItem[] = [
 ];
 
 const PROSPECTUS_PDF_HREF = "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-28.pdf";
+const PROSPECTUS_PRINT_PDF_HREF = "/sponsor/hrdevfest-2027-sponsor-sheet-print-2026-10-28.pdf";
 
 const COMMUNITY_CHECKOUT_HREF = "https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06";
 const COMMUNITY_CALLOUT_BULLETS = [
@@ -440,6 +441,13 @@ const email = "team@revolutionva.org";
               rel="noopener noreferrer"
               class="px-8 py-3 btn-secondary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center"
             >Download the Prospectus</a>
+            <a
+              href={PROSPECTUS_PRINT_PDF_HREF}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-3 text-sm bp-link underline underline-offset-2 whitespace-nowrap w-full sm:w-auto min-h-12 inline-flex items-center justify-center"
+            >Printer-friendly version</a>
           </div>
         </div>
 
