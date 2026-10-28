@@ -50,8 +50,8 @@ const { class: className } = Astro.props;
     height: auto;
     opacity: 0.9;
     /* Soften the keel below the waterline */
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0,0,0,0.35) 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0,0,0,0.35) 78%, transparent 100%);
   }
 
   /* Waterline crosses the hull so the ship clearly floats. */
@@ -60,7 +60,7 @@ const { class: className } = Astro.props;
     left: -2%;
     right: -2%;
     width: 104%;
-    top: 70%;
+    top: 54%;
     height: 2.5rem;
     color: var(--bp-ink);
     opacity: 0.8;
@@ -69,7 +69,7 @@ const { class: className } = Astro.props;
 
   @media (max-width: 767px) {
     .nla-water {
-      top: 68%;
+      top: 52%;
       height: 2rem;
     }
   }
