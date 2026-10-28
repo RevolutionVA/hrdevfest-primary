@@ -48,6 +48,8 @@ interface GlanceRow {
   checkoutHref?: string;
 }
 
+const PROSPECTUS_PDF_HREF = "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-28.pdf";
+
 const COMMUNITY_CHECKOUT_HREF = "https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06";
 const COMMUNITY_CALLOUT_BULLETS = [
   "Website and slide recognition",
@@ -423,6 +425,13 @@ const email = "team@revolutionva.org";
           <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-start gap-3 mt-2">
             <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Become a Sponsor</a>
             <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Compare packages</a>
+            <a
+              href={PROSPECTUS_PDF_HREF}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-8 py-3 btn-secondary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center"
+            >Download the Prospectus</a>
           </div>
         </div>
 
