@@ -1,6 +1,7 @@
 ---
 import "../../../styles/global.css";
 import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
+import BentoTracking from "../../../components/BentoTracking.astro";
 import CanonicalLink from "../../../components/CanonicalLink.astro";
 import MobileMenu from "../../shared/MobileMenu.astro";
 import NavBar from "../../shared/NavBar.astro";
@@ -34,6 +35,7 @@ const navLinks = [
     {description && <meta name="description" content={description} />}
 
     <GoogleAnalytics />
+    <BentoTracking />
   </head>
   <body class="theme-archive min-h-screen">
     <!-- Mobile hamburger button sits outside the frame so it stays fixed -->
