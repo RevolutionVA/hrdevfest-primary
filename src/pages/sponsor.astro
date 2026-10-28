@@ -70,7 +70,7 @@ const glance: GlanceRow[] = [
       "15-minute opening sponsor presentation",
       "Newsletter feature",
       "4 dedicated social posts",
-      "One email to opted-in attendees, sent by DevFest",
+      "One post-event email to opted-in attendees, sent by DevFest",
     ],
   },
   {
@@ -83,7 +83,7 @@ const glance: GlanceRow[] = [
       "15-minute afternoon sponsor presentation",
       "Newsletter feature",
       "3 dedicated social posts",
-      "One email to opted-in attendees, sent by DevFest",
+      "One post-event email to opted-in attendees, sent by DevFest",
     ],
   },
   {
@@ -144,8 +144,7 @@ const partnerships: Partnership[] = [
       "Recognition in reception announcements",
       "A thank-you during conference closing",
       "A sponsor welcome of up to two minutes at the reception",
-      "One email to opted-in attendees, sent by DevFest",
-      "The post-event report",
+      "One post-event email to opted-in attendees, sent by DevFest",
     ],
   },
   {
@@ -157,7 +156,6 @@ const partnerships: Partnership[] = [
     benefits: [
       "Lunch area branding",
       "A thank-you before lunch",
-      "The post-event report",
     ],
   },
   {
@@ -169,7 +167,6 @@ const partnerships: Partnership[] = [
     benefits: [
       "Funds 20 conference tickets for students and veterans",
       "Recognition as the scholarship program's supporter",
-      "The post-event report",
     ],
   },
   {
@@ -181,7 +178,6 @@ const partnerships: Partnership[] = [
     benefits: [
       "Series partner recognition across all four 2027 Pop-up Meetups",
       'Naming on all four Pop-up Meetups ("Pop-up Meetup presented by [Company]")',
-      "The post-event report",
     ],
     linkLabel: "Pop-up Meetups",
     linkHref: "https://revolutionva.org/programs/pop-up-meetups/",
@@ -195,7 +191,6 @@ const partnerships: Partnership[] = [
     benefits: [
       "Coffee station branding",
       "A thank-you during opening remarks",
-      "The post-event report",
     ],
   },
   {
@@ -206,7 +201,6 @@ const partnerships: Partnership[] = [
     tickets: "1",
     benefits: [
       "Company logo alongside DevFest branding on attendee lanyards",
-      "The post-event report",
     ],
   },
 ];
@@ -234,7 +228,7 @@ const faqItems: FaqItem[] = [
       "For invoiced sponsorships, check or ACH skips the 3% card fee. The 3% card fee applies to invoiced sponsorships paid by card and is shown on the invoice.",
       "Supplier portals are for Presenting, Main Stage, and Reception.",
       "In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately and counts toward Community recognition once we agree on a written value.",
-      "Purchase orders are accepted, with net-30 terms. A quote is available before the invoice if you need one for a purchase order.",
+      "Purchase orders accepted. Quotes are available on request.",
     ],
   },
   {
@@ -274,9 +268,7 @@ const faqItems: FaqItem[] = [
   {
     title: "Speakers and sponsor talks",
     bullets: [
-      "Speakers are invited, based on recommendations from the community. There's no open call.",
-      "Sponsorship doesn't buy a spot in the speaker lineup.",
-      "Conference sessions are selected independently of sponsorship.",
+      "Conference sessions are selected independently of sponsorship. Speakers are invited from community recommendations; there's no open call.",
       "Presenting and Main Stage each include a separate 15-minute sponsor talk during the conference. Those talks are clearly identified as sponsor presentations.",
       "The Post-Event Reception Partner includes a sponsor welcome of up to two minutes at the reception, separate from conference talks.",
     ],
@@ -672,8 +664,8 @@ const email = "team@revolutionva.org";
         </div>
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
           <li class="py-2.5">Buy separately or add to a sponsorship package. One partner per offering.</li>
-          <li class="py-2.5">Each partnership includes website and slide recognition, the listed benefits, and the stated number of conference tickets.</li>
-          <li class="py-2.5">Partnership tickets are added to any tickets included in your core sponsorship package.</li>
+          <li class="py-2.5">Every partnership includes website and slide recognition, the post-event report, and the tickets shown.</li>
+          <li class="py-2.5">Partnership tickets are added to your core package tickets.</li>
           <li class="py-2.5">Sponsor tables come with Exhibitor, Featured, Main Stage and Presenting. Standalone partnerships do not include a table.</li>
           <li class="py-2.5">Naming rights belong to the package or partnership purchased. Meetup naming stays with the Pop-up Series Partner.</li>
         </ul>
@@ -814,10 +806,10 @@ const email = "team@revolutionva.org";
         <div class="max-w-3xl mx-auto w-full p-6 md:p-8 bp-box flex flex-col gap-5 md:gap-4">
           <p class="text-base font-bold">How to sponsor</p>
           <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed">
-            <li><strong>Commit now. Pay in 2027 if needed.</strong> Email <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> to reserve your sponsorship. If you need to use your 2027 budget, let us know when you book. We'll confirm your payment date with your reservation. Community ($500) is paid at checkout.</li>
-            <li><strong>Payment.</strong> Payment is due within 30 days of invoicing unless we agree on a 2027 payment date when you book.</li>
+            <li><strong>Choose your package or partnership.</strong></li>
+            <li><strong>Email to reserve and confirm your payment date.</strong> Write <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a>. For Community ($500), use the checkout button above.</li>
             <li><strong>Send logo files</strong> by April 1, 2027 (specs above).</li>
-            <li><strong>Name your team.</strong> Assign your tickets to your attendees.</li>
+            <li><strong>Assign your team's tickets.</strong></li>
           </ol>
           <div class="flex justify-center mt-2">
             <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
