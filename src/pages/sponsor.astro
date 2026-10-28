@@ -8,6 +8,7 @@ import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
+import Callout from "../components/Callout.astro";
 
 const pageTitle = "Sponsor | Hampton Roads DevFest 2027";
 const pageDescription = "Sponsorship prospectus for Hampton Roads DevFest 2027, Friday, April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA. Presented by RevolutionVA, a 501(c)(3) nonprofit.";
@@ -45,6 +46,14 @@ interface GlanceRow {
   extras: string;
   checkoutHref?: string;
 }
+
+const COMMUNITY_CHECKOUT_HREF = "https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06";
+const COMMUNITY_CALLOUT_BULLETS = [
+  "Website and slide recognition",
+  "A group thank-you",
+  "The post-event report",
+  "Shared logo placement and group recognition",
+];
 
 const glance: GlanceRow[] = [
   {
@@ -86,7 +95,7 @@ const glance: GlanceRow[] = [
     available: "Unlimited",
     tickets: "1",
     extras: "Shared logo placement and group recognition.",
-    checkoutHref: "https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06",
+    checkoutHref: COMMUNITY_CHECKOUT_HREF,
   },
 ];
 
@@ -348,10 +357,6 @@ const email = "team@revolutionva.org";
     </button>
 
     <div class="bp-frame">
-    <!-- Draft Banner -->
-    <div id="draft-banner" role="note" class="w-full text-center py-4 pl-4 pr-16 md:px-4 border-b border-[var(--bp-line)]">
-      <span class="inline-block border border-dashed border-[var(--bp-line)] px-4 py-2 bp-mono font-bold uppercase tracking-[0.12em] text-sm md:text-base">NOT FINAL: draft prospectus, details may change.</span>
-    </div>
 
     <!-- Logo Bar (the hero below carries the date and place) -->
     <a href="/" class="block w-full py-4 pl-4 pr-16 md:px-4 border-b border-[var(--bp-line)]">
@@ -411,9 +416,9 @@ const email = "team@revolutionva.org";
           <p class="bp-muted text-sm leading-relaxed max-w-[48ch]">
             Presented by RevolutionVA, a 501(c)(3) nonprofit that builds the Hampton Roads tech community all year.
           </p>
-          <div class="flex flex-wrap items-start gap-3 mt-2">
-            <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
-            <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base whitespace-nowrap">Compare packages</a>
+          <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-start gap-3 mt-2">
+            <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Become a Sponsor</a>
+            <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Compare packages</a>
           </div>
         </div>
 
@@ -521,24 +526,18 @@ const email = "team@revolutionva.org";
     </section>
 
     <!-- Community $500: early callout -->
-    <section class="w-full px-4 md:px-8 py-8 border-t border-[var(--bp-line)]" aria-label="Community Sponsor for $500">
+    <section class="w-full px-4 md:px-8 py-10 md:py-8 border-t border-[var(--bp-line)]" aria-label="Community Sponsor for $500">
       <div class="max-w-[1040px] mx-auto">
-        <div class="bp-community-band flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
-          <div class="flex flex-col gap-2 min-w-0">
-            <h3 class="text-xl md:text-2xl font-bold leading-tight">Small team? Sponsor for $500.</h3>
-            <p class="text-base leading-relaxed max-w-[62ch]">
-              Community sponsors get website and slide recognition, a group thank-you, and the post-event report, plus shared logo placement and group recognition. Pay in one click by card or bank.
-            </p>
-          </div>
-          <a
-            href="https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06"
-            class="px-8 py-3 btn-filled text-base font-bold w-full md:w-auto whitespace-nowrap shrink-0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Sponsor at Community ($500)</a>
-        </div>
+        <Callout
+          heading="Small team? Sponsor for $500."
+          bullets={COMMUNITY_CALLOUT_BULLETS}
+          afterBullets="Pay in one click by card or bank."
+          buttonLabel="Sponsor at Community ($500)"
+          buttonHref={COMMUNITY_CHECKOUT_HREF}
+        />
       </div>
     </section>
+
 
     <!-- Core packages -->
     <section id="at-a-glance" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
@@ -548,8 +547,8 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Core sponsorship packages</h2>
         </div>
         <ul class="max-w-[1040px] w-full mx-auto flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-          <li class="py-2.5">Every package includes website and slide recognition, a group thank-you, and the post-event report.</li>
-          <li class="py-2.5">Every package at $1,500 and above also includes one sponsor table and a hiring-board listing.</li>
+          <li class="py-3 md:py-2.5">Every package includes website and slide recognition, a group thank-you, and the post-event report.</li>
+          <li class="py-3 md:py-2.5">Every package at $1,500 and above also includes one sponsor table and a hiring-board listing.</li>
         </ul>
 
         <div class="md:hidden flex flex-col gap-4 max-w-[1040px] w-full mx-auto">
@@ -563,18 +562,18 @@ const email = "team@revolutionva.org";
                 </div>
               </div>
               <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-                <li class="py-2"><span class="bp-label">Available</span> {row.available}</li>
-                <li class="py-2"><span class="bp-label">Standard tickets</span> {row.tickets}</li>
-                <li class="py-2"><span class="bp-label">Additional benefits</span> {row.extras}</li>
+                <li class="py-2.5"><span class="bp-label">Available</span> {row.available}</li>
+                <li class="py-2.5"><span class="bp-label">Standard tickets</span> {row.tickets}</li>
+                <li class="py-2.5"><span class="bp-label">Additional benefits</span> {row.extras}</li>
               </ul>
               {row.checkoutHref && (
-                <div class="flex flex-col gap-3 pt-1">
+                <div class="flex flex-col gap-4 pt-2">
                   <p class="text-sm leading-relaxed">
                     Community is paid now by card or bank transfer. Checkout asks for your company name, contact emails, and a logo link (or we follow up).
                   </p>
                   <a
                     href={row.checkoutHref}
-                    class="px-8 py-3 btn-filled text-base font-bold w-full md:w-auto whitespace-nowrap"
+                    class="px-8 py-3 btn-filled text-base font-bold w-full min-h-12 whitespace-normal text-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >Sponsor at Community ($500)</a>
@@ -610,22 +609,15 @@ const email = "team@revolutionva.org";
             </tbody>
           </table>
         </div>
-                <div class="max-w-[1040px] w-full mx-auto">
-        <div class="bp-community-band flex flex-col gap-4 md:flex-row md:items-center md:justify-between md:gap-8">
-          <div class="flex flex-col gap-2 min-w-0">
-            <h3 class="text-xl md:text-2xl font-bold leading-tight">Small team? Sponsor for $500.</h3>
-            <p class="text-base leading-relaxed max-w-[62ch]">
-              Community sponsors get website and slide recognition, a group thank-you, and the post-event report, plus shared logo placement and group recognition. Pay in one click by card or bank.
-            </p>
-          </div>
-          <a
-            href="https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06"
-            class="px-8 py-3 btn-filled text-base font-bold w-full md:w-auto whitespace-nowrap shrink-0"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Sponsor at Community ($500)</a>
-        </div>
-          <p class="bp-muted text-sm leading-relaxed mt-3">
+                <div class="max-w-[1040px] w-full mx-auto mt-2 md:mt-0">
+          <Callout
+            heading="Small team? Sponsor for $500."
+            bullets={COMMUNITY_CALLOUT_BULLETS}
+            afterBullets="Pay in one click by card or bank."
+            buttonLabel="Sponsor at Community ($500)"
+            buttonHref={COMMUNITY_CHECKOUT_HREF}
+          />
+          <p class="bp-muted text-sm leading-relaxed mt-4 md:mt-3">
             Checkout asks for your company name, contact emails, and a logo link (or we follow up).
           </p>
         </div>
@@ -648,9 +640,9 @@ const email = "team@revolutionva.org";
           <li class="py-2.5">Partnership tickets are added to any tickets included in your core sponsorship package. Sponsor tables are included with core sponsorship packages starting at $1,500.</li>
         </ul>
 
-        <div class="md:hidden flex flex-col gap-3">
+        <div class="md:hidden flex flex-col gap-4">
           {partnerships.map((partner) => (
-            <article class="bp-box p-4 flex flex-col gap-2">
+            <article class="bp-box p-5 flex flex-col gap-3">
               <div class="flex items-baseline justify-between gap-3">
                 <h3 class="text-base font-bold leading-tight">{partner.name}</h3>
                 <p class="bp-mono font-bold whitespace-nowrap">{partner.price}</p>
@@ -780,7 +772,7 @@ const email = "team@revolutionva.org";
             </li>
           ))}
         </ol>
-        <div class="max-w-3xl mx-auto w-full p-6 md:p-8 bp-box flex flex-col gap-4">
+        <div class="max-w-3xl mx-auto w-full p-6 md:p-8 bp-box flex flex-col gap-5 md:gap-4">
           <p class="text-base font-bold">How to sponsor</p>
           <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed">
             <li><strong>Pick your package.</strong> Email <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a> with the package or partnership you want. For Community ($500), use the checkout button above.</li>

@@ -219,41 +219,109 @@
     outline-offset: 3px;
   }
 
-  /* Community Sponsor callout: light panel on blue paper so $500 is obvious */
-  .bp-community-band {
+  /* Reusable light callout panel (.bp-callout / Callout.astro).
+     White panel on blue paper. Mobile is roomier; desktop matches the
+     prior compact Community band. Button on the panel uses dark fill. */
+  .bp-callout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
     background-color: #ffffff;
     color: var(--bp-paper);
     border: 2px solid var(--bp-line);
     outline: 1px solid #ffffff;
     outline-offset: 4px;
-    padding: 1.25rem 1.25rem;
+    padding: 1.5rem; /* 24px on mobile */
   }
-  @media (min-width: 768px) {
-    .bp-community-band {
-      padding: 1.5rem 1.75rem;
-    }
+  .bp-callout__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    min-width: 0;
   }
-  .bp-community-band h3 {
+  .bp-callout__title {
     color: var(--bp-paper);
     font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.35;
   }
-  .bp-community-band p {
+  .bp-callout__body,
+  .bp-callout__after {
     color: var(--bp-paper);
+    font-size: 1rem;
+    line-height: 1.7;
   }
-  /* On the light band, invert .btn-filled to dark blue fill / near-white text (~10:1) */
-  .bp-community-band .btn-filled {
+  .bp-callout__bullets {
+    color: var(--bp-paper);
+    font-size: 1rem;
+    line-height: 1.7;
+    list-style: disc;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .bp-callout__actions {
+    display: flex;
+    width: 100%;
+  }
+  .bp-callout__btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    white-space: normal;
+    text-align: center;
+  }
+  /* On the light panel, invert .btn-filled to dark blue / near-white (~10:1) */
+  .bp-callout .btn-filled {
     background-color: var(--bp-paper);
     color: var(--bp-ink);
     border-color: var(--bp-paper);
   }
-  .bp-community-band .btn-filled:hover {
+  .bp-callout .btn-filled:hover {
     background-color: var(--bp-paper-deep);
     color: #ffffff;
     border-color: var(--bp-paper-deep);
   }
-  .bp-community-band .btn-filled:focus-visible {
+  .bp-callout .btn-filled:focus-visible {
     outline: 2px solid var(--bp-paper);
     outline-offset: 3px;
+  }
+  @media (min-width: 768px) {
+    .bp-callout {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1.5rem 1.75rem;
+    }
+    .bp-callout__copy {
+      gap: 0.5rem;
+    }
+    .bp-callout__title {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+    .bp-callout__body,
+    .bp-callout__after {
+      line-height: 1.65;
+    }
+    .bp-callout__bullets {
+      gap: 0.25rem;
+      line-height: 1.65;
+    }
+    .bp-callout__actions {
+      width: auto;
+      flex-shrink: 0;
+    }
+    .bp-callout__btn {
+      width: auto;
+      min-height: 0;
+      padding: 0.75rem 2rem;
+      white-space: nowrap;
+    }
   }
 
   /* Form fields */
