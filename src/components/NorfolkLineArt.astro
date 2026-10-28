@@ -1,10 +1,9 @@
 ---
-import battleship from "../assets/landmark-battleship.webp";
+import skyline from "../assets/landmark-skyline.webp";
 /*
-  Decorative blueprint line art: the battleship Wisconsin on a simple
-  waterline. The Norfolk skyline was dropped because stacking it with the
-  ship read as overlapping and out of scale. Pure decoration: aria-hidden,
-  empty alt.
+  Decorative blueprint line art of the Norfolk skyline, traced from Kevin's
+  v2 reference sheets. Ship and waves were removed so the skyline stands
+  alone. Pure decoration: aria-hidden, empty alt.
 */
 interface Props {
   class?: string;
@@ -14,22 +13,15 @@ const { class: className } = Astro.props;
 ---
 
 <div class:list={["nla pointer-events-none select-none", className]} aria-hidden="true">
-  <div class="nla-harbor">
-    <img
-      src={battleship.src}
-      width={battleship.width}
-      height={battleship.height}
-      alt=""
-      class="nla-ship"
-      decoding="async"
-      loading="lazy"
-    />
-    <svg class="nla-water" viewBox="0 0 880 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 14 C 55 6, 110 22, 165 14 S 275 6, 330 14 S 440 22, 495 14 S 605 6, 660 14 S 770 22, 825 14 S 880 6, 880 14" fill="none" stroke="currentColor" stroke-width="1.35" />
-      <path d="M0 22 C 70 16, 140 28, 210 22 S 350 16, 420 22 S 560 28, 630 22 S 770 16, 840 22 S 880 26, 880 22" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.75" />
-      <path d="M0 30 C 90 26, 180 34, 270 30 S 450 26, 540 30 S 720 34, 810 30 S 880 28, 880 30" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.5" />
-    </svg>
-  </div>
+  <img
+    src={skyline.src}
+    width={skyline.width}
+    height={skyline.height}
+    alt=""
+    class="nla-skyline"
+    decoding="async"
+    loading="lazy"
+  />
 </div>
 
 <style>
@@ -38,39 +30,18 @@ const { class: className } = Astro.props;
     justify-content: center;
   }
 
-  .nla-harbor {
-    position: relative;
-    width: 100%;
-    max-width: 820px;
-  }
-
-  .nla-ship {
+  .nla-skyline {
     display: block;
     width: 100%;
+    max-width: 720px;
     height: auto;
-    opacity: 0.9;
-    /* Soften the keel below the waterline */
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0,0,0,0.35) 78%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 58%, rgba(0,0,0,0.35) 78%, transparent 100%);
+    opacity: 0.55;
   }
 
-  /* Waterline crosses the hull so the ship clearly floats. */
-  .nla-water {
-    position: absolute;
-    left: -2%;
-    right: -2%;
-    width: 104%;
-    top: 54%;
-    height: 2.5rem;
-    color: var(--bp-ink);
-    opacity: 0.8;
-    pointer-events: none;
-  }
-
-  @media (max-width: 767px) {
-    .nla-water {
-      top: 52%;
-      height: 2rem;
+  @media (min-width: 768px) {
+    .nla-skyline {
+      max-width: 800px;
+      opacity: 0.5;
     }
   }
 </style>
