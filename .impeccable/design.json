@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T14:11:53Z",
+  "title": "Design System: Hampton Roads DevFest 2027",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Blueprint Paper", "canonical": "#0b3d6e", "tonalRamp": ["#041a30", "#08305a", "#0b3d6e", "#1a4977", "#3a6593", "#6a8db3", "#a3bdd6", "#dbe6f1"] },
+      "ink": { "role": "neutral", "displayName": "Drafting Ink", "canonical": "#f4f8fc", "tonalRamp": ["#2b3640", "#4a5866", "#6c7c8c", "#8fa0b2", "#b0c2d4", "#c6d6e8", "#dbe6f1", "#f4f8fc"] },
+      "ink-muted": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#c6d6e8" },
+      "line": { "role": "neutral", "displayName": "Hard Line", "canonical": "#dbe6f1" },
+      "row-alt": { "role": "neutral", "displayName": "Schedule Stripe", "canonical": "#1a4977" },
+      "redline": { "role": "primary", "displayName": "Redline Red", "canonical": "#d33b32", "tonalRamp": ["#3d0f0c", "#651914", "#8f241d", "#b52e27", "#d33b32", "#e0675f", "#ec9b95", "#f7d0cd"] },
+      "plate": { "role": "neutral", "displayName": "White Plate", "canonical": "#ffffff" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero tagline only." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings, after a sheet ref." },
+      "label": { "displayName": "Drafting Label", "purpose": "Mono uppercase annotations and column headings." },
+      "button": { "displayName": "Button", "purpose": "Mono uppercase button labels." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "state-fast", "value": "0.15s ease", "purpose": "Button background/color/border transitions." },
+      { "name": "accordion", "value": "max-height 0.3s ease-out", "purpose": "FAQ answer reveal." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "hero-wide", "value": "90rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (redline)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single primary action on a view.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Join the list</a>",
+      "css": ".ds-btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 32px; border:1px solid #dbe6f1; border-radius:0; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:background-color .15s ease,color .15s ease; } .ds-btn-primary { background:#d33b32; color:#fff; } .ds-btn-primary:hover { background:transparent; color:#f4f8fc; } .ds-btn:focus-visible { outline:2px solid #f4f8fc; outline-offset:2px; }"
+    },
+    {
+      "name": "Secondary Button (outline)",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Supporting actions.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">Download the prospectus</a>",
+      "css": ".ds-btn2 { display:inline-flex; padding:12px 32px; border:1px solid #dbe6f1; border-radius:0; background:transparent; color:#f4f8fc; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:background-color .15s ease,color .15s ease; } .ds-btn2:hover { background:#f4f8fc; color:#0b3d6e; } .ds-btn2:focus-visible { outline:2px solid #f4f8fc; outline-offset:2px; }"
+    },
+    {
+      "name": "Filled Button (white)",
+      "kind": "button",
+      "refersTo": "button-filled",
+      "description": "Strong action that must not be red.",
+      "html": "<a class=\"ds-btn3\" href=\"#\">Become a sponsor</a>",
+      "css": ".ds-btn3 { display:inline-flex; padding:12px 32px; border:1px solid #fff; border-radius:0; background:#fff; color:#0b3d6e; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; transition:background-color .15s ease,color .15s ease; } .ds-btn3:hover { background:#08305a; color:#f4f8fc; border-color:#f4f8fc; } .ds-btn3:focus-visible { outline:2px solid #f4f8fc; outline-offset:3px; }"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Square transparent field with hard line.",
+      "html": "<input class=\"ds-input\" placeholder=\"Email\" />",
+      "css": ".ds-input { width:100%; padding:10px 12px; background:transparent; border:1px solid #dbe6f1; border-radius:0; color:#f4f8fc; font:inherit; } .ds-input::placeholder { color:#c6d6e8; opacity:1; } .ds-input:focus-visible { outline:2px solid #f4f8fc; outline-offset:2px; }"
+    },
+    {
+      "name": "Box",
+      "kind": "card",
+      "refersTo": "box",
+      "description": "Solid paper panel with soft line; tiers and cards.",
+      "html": "<div class=\"ds-box\"><p class=\"ds-label\">Tier</p><p>Main Stage</p></div>",
+      "css": ".ds-box { padding:24px; background:#0b3d6e; border:1px solid rgb(255 255 255 / .4); color:#f4f8fc; } .ds-label { font-family:ui-monospace,Menlo,monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#c6d6e8; margin:0 0 8px; }"
+    },
+    {
+      "name": "Callout Mark",
+      "kind": "custom",
+      "refersTo": "mark",
+      "description": "The one round shape; keys a detail to a schedule.",
+      "html": "<a class=\"ds-mark\" href=\"#\">A1</a>",
+      "css": ".ds-mark { display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center; border:1px solid #dbe6f1; border-radius:9999px; background:#0b3d6e; color:#f4f8fc; font-family:ui-monospace,Menlo,monospace; font-size:13px; font-weight:700; text-decoration:none; } .ds-mark:hover { background:#f4f8fc; color:#0b3d6e; }"
+    },
+    {
+      "name": "Callout Panel",
+      "kind": "card",
+      "refersTo": "callout",
+      "description": "Inverted white panel for one focused ask.",
+      "html": "<div class=\"ds-callout\"><p class=\"ds-callout-t\">Community Sponsor, $500</p><a class=\"ds-callout-b\" href=\"#\">Sponsor now</a></div>",
+      "css": ".ds-callout { display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; padding:24px; background:#fff; color:#0b3d6e; border:2px solid #dbe6f1; outline:1px solid #fff; outline-offset:4px; } .ds-callout-t { font-weight:700; font-size:20px; margin:0; } .ds-callout-b { padding:12px 32px; background:#0b3d6e; color:#f4f8fc; font-family:ui-monospace,Menlo,monospace; font-weight:700; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; } .ds-callout-b:hover { background:#08305a; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Construction Set",
+    "overview": "The 2027 theme is \"Built in the 757,\" and the site reads as the drawing set for building it. Every page is a sheet in a permit set: blue paper with a faint drafting grid, near-white ink line work, a double-ruled frame, sheet references on section headings, schedules (tables) ruled like drawing schedules, round callout marks that key a detail to its schedule, dashed \"proposed\" rooms on plan diagrams, and an engineering title block that signs every sheet in the footer. Norfolk and Hampton Roads landmarks appear as line art, drawn in the same ink. The governing rule is \"less is more\": one paper, one ink, one accent. Depth, color, and decoration come from line weight and drafting conventions, not from fills or effects.",
+    "keyCharacteristics": [
+      "Blue paper, faint two-scale drafting grid (24px minor, 120px major).",
+      "Near-white ink for all text and line work, with a muted ink for labels.",
+      "Square corners everywhere. The only round shape is the callout mark.",
+      "Monospace uppercase for drafting labels, sheet refs, buttons, and the title block. System sans for reading.",
+      "Every convention means something: dashed means proposed, a circle is a callout, redline means act."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Red appears only as the fill of the primary action. No red text, icons, borders, or highlights. If a second action competes, it becomes .btn-secondary (outline) or .btn-filled (white).", "section": "colors" },
+      { "name": "The Less Is More Rule", "body": "One paper, one ink, one accent. No gradients (beyond the grid itself), shadows, glows, or blobs. This is a strong default: justified exceptions exist (white plates for sponsor logos, the white callout panel), but each one needs a stated reason.", "section": "colors" },
+      { "name": "The Annotation Rule", "body": "Mono uppercase annotates and sans communicates. Names people read (tiers, tickets, row headers) stay in sans even inside schedules.", "section": "typography" },
+      { "name": "The Line Weight Rule", "body": "To raise importance, use a harder line or a double rule, never a shadow or a fill color.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep text on solid surface panels so the grid stops at the box edge.",
+      "Do use drafting conventions with their real meanings: sheet refs on headings, callout marks keying to schedules, dashed for proposed.",
+      "Do put full-color art (sponsor logos) on white plates with a hard-line border.",
+      "Do keep contrast at AA or better. The ratios are documented in src/styles/global.css.",
+      "Do draw local landmarks in ink line work, not photos or illustration styles."
+    ],
+    "donts": [
+      "Don't use rounded corners on anything except the callout mark.",
+      "Don't add shadows, gradients, glows, or decorative blobs.",
+      "Don't use red for anything except the primary button fill, or put two red buttons in one view.",
+      "Don't introduce webfonts or a third type family.",
+      "Don't use dashed borders except for proposed rooms."
+    ]
+  }
+}
