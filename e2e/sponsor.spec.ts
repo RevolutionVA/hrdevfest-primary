@@ -84,6 +84,16 @@ test.describe("Sponsor Page", () => {
     ]);
   });
 
+  test("the $1,500 Exhibitor package is gone and tables start at $2,500", async ({ page }) => {
+    await page.goto("/sponsor");
+    await expect(page.locator("body")).not.toContainText("Exhibitor");
+    await expect(page.locator("body")).not.toContainText("$1,500");
+    await expect(page.locator("#at-a-glance")).toContainText("A sponsor table starts at $2,500.");
+    const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
+    expect(options).toContain("Featured Sponsor ($2,500)");
+    expect(options.some((o) => o.includes("1,500") || o.includes("Exhibitor"))).toBe(false);
+  });
+
   test("reservation form has no budget-year or PO fields", async ({ page }) => {
     await page.goto("/sponsor");
     const form = page.locator("#reserve form");
