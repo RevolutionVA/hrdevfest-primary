@@ -52,6 +52,36 @@ test.describe("Sponsor Page", () => {
     }
     expect(posted!.body).toContain(`${origin}/sponsor/thank-you`);
     expect(posted!.body).not.toContain('name="website"');
+    expect(posted!.body.match(/name="fields_newsletter_opt_in"\r\n\r\n(\w+)/g)).toEqual([
+      'name="fields_newsletter_opt_in"\r\n\r\nno',
+    ]);
+  });
+
+  test("newsletter opt-in is unchecked by default and sends yes when checked", async ({ page }) => {
+    let body = "";
+    await page.route("**/track.bentonow.com/forms/**", (route) => {
+      body = route.request().postData() ?? "";
+      return route.abort();
+    });
+    await page.goto("/sponsor#reserve");
+    const form = page.locator("#reserve form");
+    const optIn = form.getByRole("checkbox", { name: "Add me to the 757tech newsletter" });
+    await expect(optIn).not.toBeChecked();
+    const link = form.getByRole("link", { name: "757tech" });
+    await expect(link).toHaveAttribute("href", "https://757tech.org");
+    await expect(link).toHaveAttribute("target", "_blank");
+    await expect(link).toHaveAttribute("rel", /noopener/);
+    await form.locator('[name="fields_first_name"]').fill("Test");
+    await form.locator('[name="fields_last_name"]').fill("Person");
+    await form.locator('[name="email"]').fill("test@example.com");
+    await form.locator('[name="fields_company"]').fill("Example");
+    await form.locator('[name="fields_package"]').selectOption({ index: 1 });
+    await optIn.check();
+    await page.getByRole("button", { name: "Hold my package" }).click();
+    await expect.poll(() => body).not.toBe("");
+    expect(body.match(/name="fields_newsletter_opt_in"\r\n\r\n(\w+)/g)).toEqual([
+      'name="fields_newsletter_opt_in"\r\n\r\nyes',
+    ]);
   });
 
   test("reservation form has no budget-year or PO fields", async ({ page }) => {

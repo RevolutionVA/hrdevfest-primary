@@ -928,6 +928,12 @@ const email = "team@revolutionva.org";
                 {packageOptions.map((option) => <option value={option}>{option}</option>)}
               </select>
             </label>
+            <!-- Newsletter opt-in: the hidden "no" is dropped on submit when the box is checked -->
+            <input type="hidden" name="fields_newsletter_opt_in" value="no" data-newsletter-default />
+            <label class="inline-flex items-center gap-2 min-h-11 text-base">
+              <input type="checkbox" name="fields_newsletter_opt_in" value="yes" class="bp-check" data-newsletter-opt-in />
+              <span>Add me to the <a href="https://757tech.org" target="_blank" rel="noopener" class="bp-link font-bold">757tech</a> newsletter</span>
+            </label>
             <!-- Honeypot: hidden from people; if a bot fills it, the script skips Bento -->
             <div class="sr-only" aria-hidden="true">
               <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" data-honeypot /></label>
@@ -1100,6 +1106,11 @@ const email = "team@revolutionva.org";
             return;
           }
           trap.disabled = true;
+
+          // Send exactly one newsletter value: "yes" if checked, otherwise "no"
+          const optIn = holdForm.querySelector<HTMLInputElement>('[data-newsletter-opt-in]');
+          const optInDefault = holdForm.querySelector<HTMLInputElement>('[data-newsletter-default]');
+          if (optIn && optInDefault) optInDefault.disabled = optIn.checked;
         });
 
         // Close menu on Escape and return focus to the button
