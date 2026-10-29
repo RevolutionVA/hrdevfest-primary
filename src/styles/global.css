@@ -370,6 +370,38 @@
     opacity: 1;
   }
 
+  /* Select: square, ink chevron drawn as two lines */
+  .bp-select {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--bp-ink) 50%),
+      linear-gradient(135deg, var(--bp-ink) 50%, transparent 50%);
+    background-position: calc(100% - 1.25rem) 50%, calc(100% - 0.9rem) 50%;
+    background-size: 0.35rem 0.35rem;
+    background-repeat: no-repeat;
+  }
+  .bp-select option {
+    color: var(--bp-paper);
+    background-color: #ffffff;
+  }
+
+  /* Radio and checkbox: native control in ink */
+  .bp-check {
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--bp-ink);
+  }
+
+  /* FAQ disclosure: hide the native marker; the +/- sits in the summary */
+  .bp-faq > summary::-webkit-details-marker {
+    display: none;
+  }
+  .bp-faq > summary:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
   /* Tables: ruled like a drawing schedule */
   .bp-table {
     width: 100%;

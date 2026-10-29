@@ -1,0 +1,68 @@
+---
+import "../../styles/global.css";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+import BentoTracking from "../../components/BentoTracking.astro";
+import CanonicalLink from "../../components/CanonicalLink.astro";
+import TitleBlock from "../../components/TitleBlock.astro";
+import { Image } from "astro:assets";
+import logoWhite from "../../assets/logo-white.png";
+import FooterBridge from "../../components/FooterBridge.astro";
+
+const email = "team@revolutionva.org";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex" />
+    <title>Package Held | Hampton Roads DevFest 2027</title>
+    <CanonicalLink href="https://hrdevfest.org/sponsor/thank-you" />
+    <meta name="description" content="Thanks for reserving a Hampton Roads DevFest 2027 sponsorship." />
+
+    <GoogleAnalytics />
+    <BentoTracking />
+  </head>
+  <body class="min-h-screen">
+    <div class="bp-frame">
+    <a href="/" class="block w-full py-4 px-4 border-b border-[var(--bp-line)]">
+      <div class="flex justify-center">
+        <Image src={logoWhite} alt="Hampton Roads DevFest home" class="h-24 md:h-28 w-auto" width={300} height={225} />
+      </div>
+    </a>
+
+    <section class="w-full py-16 lg:py-20 px-4 md:px-8">
+      <div class="max-w-2xl mx-auto bp-box p-6 md:p-12 flex flex-col gap-6">
+        <h1 class="text-[32px] md:text-[48px] font-bold leading-[1.08]">Thanks. We have your request.</h1>
+        <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+          <li class="py-2.5">We'll email you to confirm your package and payment date.</li>
+          <li class="py-2.5">We hold your package for 30 days. Need longer for approvals? Ask and we'll extend it.</li>
+          <li class="py-2.5">Sign and logo files are due by Apr 1, 2027.</li>
+        </ul>
+        <p class="text-base leading-relaxed">
+          Questions? Email <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/sponsor" class="px-8 py-3 btn-secondary text-base min-h-12">Back to Sponsor</a>
+          <a href="/" class="px-8 py-3 btn-secondary text-base min-h-12">DevFest home</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="relative isolate overflow-hidden w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <FooterBridge />
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
+        <p class="text-base font-normal leading-relaxed text-center md:text-left">
+          Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
+        </p>
+        <TitleBlock sheet="" />
+      </div>
+    </footer>
+    </div>
+  </body>
+</html>

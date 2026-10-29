@@ -9,6 +9,25 @@ import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
 import Callout from "../components/Callout.astro";
+import { getEntry } from "astro:content";
+import { testimonials } from "../data/testimonials";
+import travisWebbImage from "../assets/testimonials/travis-webb.png";
+
+// 2026 platinum and gold sponsors, shown on white plates next to the 2026 attendee list
+const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
+const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
+  Object.entries(sponsorLogoFiles).map(([path, mod]) => [path.split("/").pop()!, mod.default])
+);
+const sponsors2026 = ((await getEntry("events", "2026/event"))?.data.sponsors ?? [])
+  .filter((sponsor) => (sponsor.tier === "platinum" || sponsor.tier === "gold") && sponsorLogos[sponsor.logo]);
+
+// The quote that speaks to companies sending their teams
+const sponsorTestimonial = testimonials.find((t) => t.name === "Travis Webb");
+
+// "Hold my package" form, posted to Bento as its own event (not the attendee signup event)
+const BENTO_SPONSOR_FORM_ACTION =
+  "https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$sponsorHoldHRDevFest?hardened=true";
+const SPONSOR_THANK_YOU_URL = "https://hrdevfest.org/sponsor/thank-you";
 
 const pageTitle = "Sponsor | Hampton Roads DevFest 2027";
 const pageDescription = "Sponsorship prospectus for Hampton Roads DevFest 2027, Friday, April 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA. Presented by RevolutionVA, a 501(c)(3) nonprofit.";
@@ -203,14 +222,19 @@ const partnerships: Partnership[] = [
   },
 ];
 
+// A bullet can carry a nested list (for example, what the report covers)
+type FaqBullet = string | { text: string; items: string[] };
+
 interface FaqItem {
   title: string;
-  bullets: string[];
+  bullets: FaqBullet[];
+  open?: boolean;
 }
 
 const faqItems: FaqItem[] = [
   {
     title: "Commit now. Pay in 2027 if needed.",
+    open: true,
     bullets: [
       "Email team@revolutionva.org to reserve your sponsorship. If you need to use your 2027 budget, let us know when you book. We'll confirm your payment date with your reservation.",
       "Payment is due within 30 days of invoicing unless we agree on a 2027 payment date when you book.",
@@ -236,6 +260,7 @@ const faqItems: FaqItem[] = [
   },
   {
     title: "Attendee privacy",
+    open: true,
     bullets: [
       "Sponsor email opt-in is off by default.",
       "Presenting, Main Stage and Reception each include one post-event email, sent by DevFest to attendees who opt in. One email per qualifying offering.",
@@ -248,14 +273,18 @@ const faqItems: FaqItem[] = [
     bullets: [
       "Every sponsor receives the post-event report.",
       "The report lists companies present, when attendees provide them.",
-      "The report includes aggregate audience data and photos of sponsor tables or signage. It does not include attendee names or contact details.",
-      "Attendance and check-ins",
-      "Roles and seniority",
-      "Hiring, looking for work, internship, and open-to-contract ribbons",
-      "Regions, students, veterans, and tech stacks",
-      "Military or transitioning from the military (optional at registration)",
-      "Scholars who attended versus scholars funded",
-      "Newsletter and social reach",
+      {
+        text: "The report includes aggregate audience data and photos of sponsor tables or signage. It does not include attendee names or contact details.",
+        items: [
+          "Attendance and check-ins",
+          "Roles and seniority",
+          "Hiring, looking for work, internship, and open-to-contract ribbons",
+          "Regions, students, veterans, and tech stacks",
+          "Military or transitioning from the military (optional at registration)",
+          "Scholars who attended versus scholars funded",
+          "Newsletter and social reach",
+        ],
+      },
     ],
   },
   {
@@ -315,7 +344,15 @@ const sections = [
   { id: "at-a-glance", title: "Core sponsorship packages" },
   { id: "partnerships", title: "Event & Community Partnerships" },
   { id: "the-day", title: "The day" },
+  { id: "reserve", title: "Reserve your sponsorship" },
   { id: "sponsor-faq", title: "Sponsor FAQ" },
+];
+
+// Options for the "Hold my package" form
+const packageOptions = [
+  ...glance.filter((row) => !row.checkoutHref).map((row) => `${row.package} (${row.price})`),
+  ...partnerships.map((partner) => `${partner.name} (${partner.price})`),
+  "Not sure yet",
 ];
 
 
@@ -380,11 +417,11 @@ const email = "team@revolutionva.org";
   </head>
   <body class="min-h-screen">
     <!-- Mobile hamburger button - outside the frame so it stays fixed -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="mobile-menu-btn" class="md:hidden p-2.5 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="square" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
@@ -439,7 +476,7 @@ const email = "team@revolutionva.org";
       <div class="max-w-[1120px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-10 lg:gap-14 items-center">
         <div class="flex flex-col gap-4">
           <p class="bp-label text-sm">Sponsorship prospectus</p>
-          <h1 class="text-[34px] md:text-[48px] font-bold leading-[1.08]">Sponsor Hampton Roads DevFest 2027</h1>
+          <h1 class="text-[32px] md:text-[48px] font-bold leading-[1.08]">Sponsor Hampton Roads DevFest 2027</h1>
           <p class="text-lg md:text-xl font-semibold leading-snug">
             Friday, April 23, 2027<br />Zeiders American Dream Theater, Virginia Beach
           </p>
@@ -450,7 +487,7 @@ const email = "team@revolutionva.org";
             Presented by RevolutionVA, a 501(c)(3) nonprofit that builds the Hampton Roads tech community all year.
           </p>
           <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-start gap-3 mt-2">
-            <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Become a Sponsor</a>
+            <a href="#reserve" class="px-8 py-3 btn-primary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Become a Sponsor</a>
             <a href="#at-a-glance" class="px-8 py-3 btn-secondary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Compare packages</a>
             <a
               href={PROSPECTUS_PDF_HREF}
@@ -459,14 +496,16 @@ const email = "team@revolutionva.org";
               rel="noopener noreferrer"
               class="px-8 py-3 btn-secondary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center"
             >Download the Prospectus</a>
+          </div>
+          <p class="text-sm text-center sm:text-left">
             <a
               href={PROSPECTUS_PRINT_PDF_HREF}
               download
               target="_blank"
               rel="noopener noreferrer"
-              class="px-4 py-3 text-sm bp-link underline underline-offset-2 whitespace-nowrap w-full sm:w-auto min-h-12 inline-flex items-center justify-center"
+              class="bp-link inline-flex items-center min-h-11"
             >Printer-friendly version</a>
-          </div>
+          </p>
         </div>
 
         <!-- Plan diagram: what each tier puts its name on -->
@@ -490,7 +529,7 @@ const email = "team@revolutionva.org";
                           {Array.from({ length: seats }).map((_, i) => (
                             <span
                               class:list={[
-                                "w-1.5 h-1.5 md:w-2 md:h-2 rounded-[2px] bg-[var(--bp-line-faint)]",
+                                "w-1.5 h-1.5 md:w-2 md:h-2 bg-[var(--bp-line-faint)]",
                                 (i < 2 || i >= seats - 2) && "hidden sm:block",
                               ]}
                               style={`transform: translateY(${(((i - mid) / mid) ** 2 * 3).toFixed(1)}px)`}
@@ -500,7 +539,7 @@ const email = "team@revolutionva.org";
                       );
                     })}
                     <div class="mt-3 w-[70%] h-8 border border-[var(--bp-line)] flex items-center justify-center">
-                      <p class="bp-label text-[0.65rem]">Stage</p>
+                      <p class="bp-label">Stage</p>
                     </div>
                   </div>
                 </div>
@@ -550,7 +589,7 @@ const email = "team@revolutionva.org";
           <li class="py-2.5">Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do.</li>
           <li class="py-2.5">Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here.</li>
         </ul>
-        <div class="bp-surface">
+        <div class="bp-surface max-w-[72ch]">
           <p class="bp-label mb-3">For 2027</p>
           <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
             <li class="py-3"><strong>Local talent on stage.</strong> DevFest is single track, in one room. Everyone sees every talk.</li>
@@ -566,50 +605,71 @@ const email = "team@revolutionva.org";
     </section>
 
     <!-- Who was at DevFest 2026 -->
-    <section id="who-was-at-devfest-2026" class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4" aria-label="Who was at DevFest 2026">
-      <div class="max-w-[1040px] mx-auto flex flex-col gap-3">
-        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-2">
-          <h2 class="text-[20px] lg:text-[24px] font-bold leading-7 lg:leading-8">Who was at DevFest 2026?</h2>
+    <section id="who-was-at-devfest-2026" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4" aria-label="Who was at DevFest 2026">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Who was at DevFest 2026?</h2>
         </div>
-        <p class="text-base leading-relaxed text-[var(--bp-muted)]">Attendees came from teams at:</p>
-        <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1.5 text-[15px] leading-snug">
-          {devfest2026Employers.map((name) => (
-            <li class="min-w-0">{name}</li>
-          ))}
-          <li class="min-w-0 italic">And more&hellip;</li>
-        </ul>
+        <div class="flex flex-col gap-3">
+          <p class="text-base leading-relaxed bp-muted">Attendees came from teams at:</p>
+          <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1.5 text-base leading-snug">
+            {devfest2026Employers.map((name) => (
+              <li class="min-w-0">{name}</li>
+            ))}
+            <li class="min-w-0 italic">And more&hellip;</li>
+          </ul>
+        </div>
+        {sponsors2026.length > 0 && (
+          <div class="flex flex-col gap-3">
+            <p class="text-base leading-relaxed bp-muted">Our 2026 sponsors included:</p>
+            <ul class="flex flex-wrap items-center gap-3">
+              {sponsors2026.map((sponsor) => (
+                <li>
+                  <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="bp-plate px-3 py-2 flex items-center min-h-11">
+                    <Image src={sponsorLogos[sponsor.logo]} alt={sponsor.name} class={sponsor.tier === "platinum" ? "h-12 w-auto object-contain" : "h-8 w-auto object-contain"} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {sponsorTestimonial && (
+          <figure class="bp-box p-5 md:p-6 flex flex-col sm:flex-row gap-4 sm:items-start max-w-[72ch]">
+            <Image src={travisWebbImage} alt="" class="bp-photo w-16 h-16 object-cover shrink-0" width={64} height={64} />
+            <div class="flex flex-col gap-3">
+              <blockquote class="text-base leading-relaxed">
+                <p>&ldquo;{sponsorTestimonial.quote}&rdquo;</p>
+              </blockquote>
+              <figcaption class="text-base">
+                <span class="font-bold">{sponsorTestimonial.name}</span><span class="bp-muted">, {sponsorTestimonial.role}</span>
+              </figcaption>
+            </div>
+          </figure>
+        )}
       </div>
     </section>
 
-    <!-- Community $500: early callout -->
-    <section class="w-full px-4 md:px-8 py-10 md:py-8 border-t border-[var(--bp-line)]" aria-label="Community Sponsor for $500">
-      <div class="max-w-[1040px] mx-auto">
-        <Callout
-          heading="Small team? Sponsor for $500."
-          bullets={COMMUNITY_CALLOUT_BULLETS}
-          afterBullets="Pay online by card or bank transfer."
-          buttonLabel="Sponsor at Community ($500)"
-          buttonLabelShort="Community ($500)"
-          buttonHref={COMMUNITY_CHECKOUT_HREF}
-        />
-      </div>
+    <!-- Community $500: one-line pointer; the full callout follows the core packages -->
+    <section class="w-full px-4 md:px-8 py-6 border-t border-[var(--bp-line)]" aria-label="Community Sponsor for $500">
+      <p class="max-w-[1040px] mx-auto text-base leading-relaxed">
+        <strong>Small team?</strong> Community sponsorship is $500, paid online. <a href="#community" class="bp-link font-bold inline-flex min-h-11 items-center">See Community</a>
+      </p>
     </section>
-
 
 
     <!-- Core packages -->
     <section id="at-a-glance" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
-      <div class="max-w-7xl mx-auto flex flex-col gap-6">
-        <div class="max-w-[1040px] w-full mx-auto flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Core sponsorship packages</h2>
         </div>
-        <ul class="max-w-[1040px] w-full mx-auto flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+        <ul class="max-w-[72ch] flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
           <li class="py-3 md:py-2.5">Every package includes website and slide recognition and a group thank-you.</li>
           <li class="py-3 md:py-2.5">Every sponsor receives the post-event report.</li>
           <li class="py-3 md:py-2.5">Exhibitor, Featured, Main Stage and Presenting also include one sponsor table and a hiring-board listing.</li>
         </ul>
 
-        <div class="md:hidden flex flex-col gap-4 max-w-[1040px] w-full mx-auto">
+        <div class="md:hidden flex flex-col gap-4">
           {glance.map((row) => (
             <article class="bp-box p-5 flex flex-col gap-3">
               <div class="min-w-0">
@@ -629,17 +689,9 @@ const email = "team@revolutionva.org";
                 </li>
               </ul>
               {row.checkoutHref && (
-                <div class="flex flex-col gap-4 pt-2">
-                  <p class="text-sm leading-relaxed">
-                    Community ($500) is paid at checkout by card or bank transfer. Checkout asks for your company name, contact emails, and a logo link (or we follow up).
-                  </p>
-                  <a
-                    href={row.checkoutHref}
-                    class="px-6 py-3 btn-filled text-base font-bold w-full min-h-12 max-w-full box-border whitespace-normal text-center leading-snug tracking-wide"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >Community ($500)</a>
-                </div>
+                <p class="text-base leading-relaxed">
+                  Paid online at checkout. <a href="#community" class="bp-link font-bold inline-flex min-h-11 items-center">See Community</a>
+                </p>
               )}
             </article>
           ))}
@@ -675,21 +727,32 @@ const email = "team@revolutionva.org";
             </tbody>
           </table>
         </div>
-        <div class="max-w-[1040px] w-full mx-auto mt-2 md:mt-0">
+        <!-- Community $500: the one full callout -->
+        <div id="community" class="mt-2 md:mt-0 mx-[5px] scroll-mt-6">
           <Callout
-            heading="Community Sponsor ($500)"
+            heading="Small team? Sponsor for $500."
+            bullets={COMMUNITY_CALLOUT_BULLETS}
             afterBullets="Pay online by card or bank transfer."
             buttonLabel="Sponsor at Community ($500)"
             buttonLabelShort="Community ($500)"
             buttonHref={COMMUNITY_CHECKOUT_HREF}
           />
-          <p class="bp-muted text-sm leading-relaxed mt-4 md:mt-3">
-            Checkout asks for your company name, contact emails, and a logo link (or we follow up).
-          </p>
+          <ul class="bp-muted text-sm leading-relaxed mt-4 flex flex-col gap-1 max-w-[72ch]">
+            <li>Checkout is handled by Stripe and opens in a new tab.</li>
+            <li>Checkout asks for your company name, contact emails, and a logo link (or we follow up).</li>
+          </ul>
         </div>
-        <p class="bp-muted text-sm leading-relaxed max-w-[1040px] w-full mx-auto">
-          See the <a href="#sponsor-faq" class="bp-link">Sponsor FAQ</a> for payment, deadlines and the post-event report.
-        </p>
+
+        <!-- How to sponsor: right after the packages, so the next step is next -->
+        <div class="bp-box p-6 md:p-8 flex flex-col gap-4">
+          <h3 class="text-[20px] lg:text-[24px] font-bold leading-7 lg:leading-8">How to sponsor</h3>
+          <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed max-w-[72ch]">
+            <li><strong>Choose your package or partnership.</strong> Partnerships are listed below.</li>
+            <li><strong>Reserve it and confirm your payment date.</strong> Use the <a href="#reserve" class="bp-link font-bold">reservation form</a> or email <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. For Community ($500), use the checkout button above.</li>
+            <li><strong>Send logo files</strong> by Apr 1, 2027. Specs are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.</li>
+            <li><strong>Assign your team's tickets.</strong></li>
+          </ol>
+        </div>
       </div>
     </section>
 
@@ -750,7 +813,7 @@ const email = "team@revolutionva.org";
                   <th scope="row" class="font-bold whitespace-nowrap">{partner.name}</th>
                   <td class="bp-mono whitespace-nowrap">{partner.price}</td>
                   <td>{partner.available}</td>
-                  <td class="bp-mono whitespace-nowrap">{partner.tickets}</td>
+                  <td>{partner.tickets}</td>
                   <td class="leading-snug">
                     <ul class="flex flex-col gap-1 list-none m-0 p-0">
                       {partner.benefits.map((benefit) => (
@@ -772,7 +835,7 @@ const email = "team@revolutionva.org";
           </table>
         </div>
         <div class="bp-surface max-w-[72ch]">
-          <p class="bp-label mb-2">The official DevFest reception</p>
+          <p class="bp-label mb-2">Who the Reception Partner hosts</p>
           <p class="text-base leading-relaxed">
             Keep the conversations going after the conference. All registered DevFest attendees are invited to join us for the official post-event reception. Venue and timing will be announced.
           </p>
@@ -781,7 +844,7 @@ const email = "team@revolutionva.org";
           Payment and commit rules are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
         </p>
         <div class="flex flex-wrap gap-3">
-          <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
+          <a href="#reserve" class="px-8 py-3 btn-primary text-base whitespace-nowrap min-h-12">Become a Sponsor</a>
         </div>
       </div>
     </section>
@@ -792,11 +855,23 @@ const email = "team@revolutionva.org";
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">The day</h2>
         </div>
-        <div class="overflow-x-auto">
+        <!-- Mobile: one ruled row per slot, so the sponsor-time flag never scrolls off-screen -->
+        <ol class="md:hidden bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border border-[var(--bp-line-soft)]">
+          {schedule.map((item) => (
+            <li class="grid grid-cols-[4.5rem_1fr] gap-x-3 gap-y-1 px-3 py-2.5">
+              <span class:list={["bp-mono text-base leading-snug", item.time.length > 5 && "col-span-2"]}>{item.time}</span>
+              <div class:list={["min-w-0 flex flex-col gap-1", item.time.length > 5 && "col-start-2"]}>
+                <span class:list={["text-base leading-snug", item.sponsorTime && "font-semibold"]}>{item.what}</span>
+                {item.sponsorTime && <span class="bp-label"><span aria-hidden="true">■ </span>Sponsor time</span>}
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div class="hidden md:block overflow-x-auto">
           <table class="bp-table text-base">
             <thead>
               <tr>
-                <th scope="col" class="w-[5.5rem]">Time</th>
+                <th scope="col" class="w-[7rem]">Time</th>
                 <th scope="col">What</th>
                 <th scope="col" class="w-[7.5rem] whitespace-nowrap">Sponsor time</th>
               </tr>
@@ -804,9 +879,9 @@ const email = "team@revolutionva.org";
             <tbody>
               {schedule.map((item) => (
                 <tr>
-                  <td class="bp-mono whitespace-nowrap">{item.time}</td>
+                  <td class="bp-mono">{item.time}</td>
                   <td class:list={[item.sponsorTime && "font-semibold"]}>{item.what}</td>
-                  <td class="bp-mono text-center">{item.sponsorTime ? <span aria-label="Sponsor time">■</span> : ""}</td>
+                  <td class="bp-mono text-center">{item.sponsorTime ? <><span aria-hidden="true">■</span><span class="sr-only">Sponsor time</span></> : ""}</td>
                 </tr>
               ))}
             </tbody>
@@ -819,6 +894,82 @@ const email = "team@revolutionva.org";
       </div>
     </section>
 
+    <!-- Reserve: "Hold my package" form, posted to Bento -->
+    <section id="reserve" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Reserve your sponsorship</h2>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-12 items-start">
+          <form action={BENTO_SPONSOR_FORM_ACTION} method="POST" enctype="multipart/form-data" class="bp-box p-5 md:p-8 flex flex-col gap-4">
+            <input type="hidden" name="redirect" value={SPONSOR_THANK_YOU_URL} />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label class="flex flex-col gap-1.5">
+                <span class="bp-label">First name</span>
+                <input type="text" name="fields_first_name" required autocomplete="given-name" class="bp-input px-4 py-3 text-base" />
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="bp-label">Last name</span>
+                <input type="text" name="fields_last_name" required autocomplete="family-name" class="bp-input px-4 py-3 text-base" />
+              </label>
+            </div>
+            <label class="flex flex-col gap-1.5">
+              <span class="bp-label">Work email</span>
+              <input type="email" name="email" required autocomplete="email" class="bp-input px-4 py-3 text-base" />
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="bp-label">Company</span>
+              <input type="text" name="fields_company" required autocomplete="organization" class="bp-input px-4 py-3 text-base" />
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="bp-label">Package or partnership</span>
+              <select name="fields_package" required class="bp-input bp-select px-4 py-3 text-base">
+                <option value="" disabled selected>Choose one</option>
+                {packageOptions.map((option) => <option value={option}>{option}</option>)}
+              </select>
+            </label>
+            <fieldset class="flex flex-col gap-2">
+              <legend class="bp-label mb-1.5">Which budget pays for it?</legend>
+              <div class="flex flex-wrap gap-x-6 gap-y-1">
+                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_pay_year" value="2026" required class="bp-check" /> 2026</label>
+                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_pay_year" value="2027" class="bp-check" /> 2027</label>
+              </div>
+            </fieldset>
+            <fieldset class="flex flex-col gap-2">
+              <legend class="bp-label mb-1.5">Do you need a purchase order or supplier portal?</legend>
+              <div class="flex flex-wrap gap-x-6 gap-y-1">
+                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_po_required" value="Yes" required class="bp-check" /> Yes</label>
+                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_po_required" value="No" class="bp-check" /> No</label>
+              </div>
+            </fieldset>
+            <div class="flex flex-col gap-3 pt-2">
+              <button type="submit" class="px-8 py-3 btn-primary text-base min-h-12 w-full sm:w-auto sm:self-start">Hold my package</button>
+              <p class="text-xs bp-muted">By submitting, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
+            </div>
+          </form>
+          <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-2">
+              <p class="bp-label">What happens next</p>
+              <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+                <li class="py-2.5">We email you to confirm your package and payment date.</li>
+                <li class="py-2.5">We hold your package for 30 days. Need longer for approvals? Ask and we'll extend it.</li>
+                <li class="py-2.5">Nothing is charged when you submit this form.</li>
+              </ul>
+            </div>
+            <div class="flex flex-col gap-2">
+              <p class="bp-label">Prefer email?</p>
+              <p class="text-base leading-relaxed">
+                Write <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="bp-link font-bold select-all">{email}</a>.
+              </p>
+            </div>
+            <p class="text-base leading-relaxed">
+              Community ($500) is paid online. <a href="#community" class="bp-link font-bold inline-flex min-h-11 items-center">See Community</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Sponsor FAQ -->
     <section id="sponsor-faq" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
@@ -827,29 +978,31 @@ const email = "team@revolutionva.org";
         </div>
         <ol id="payment-options" class="bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] scroll-mt-4">
           {faqItems.map((item, i) => (
-            <li class="grid grid-cols-[3.5rem_1fr] gap-x-2 py-4">
-              <span class="bp-sheet-ref pt-1">{String(i + 1).padStart(2, "0")}</span>
-              <div class="max-w-[72ch]">
-                <h3 class="text-base font-bold">{item.title}</h3>
-                <ul class="mt-2 flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-                  {item.bullets.map((b) => <li class="py-2">{b}</li>)}
-                </ul>
-              </div>
+            <li>
+              <details class="bp-faq group" open={item.open}>
+                <summary class="grid grid-cols-[3.5rem_1fr_auto] gap-x-2 items-baseline py-4 min-h-11 cursor-pointer list-none">
+                  <span class="bp-sheet-ref">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 class="text-base font-bold">{item.title}</h3>
+                  <span class="bp-mono text-base bp-muted" aria-hidden="true"><span class="group-open:hidden">+</span><span class="hidden group-open:inline">&minus;</span></span>
+                </summary>
+                <div class="grid grid-cols-[3.5rem_1fr] gap-x-2 pb-4">
+                  <ul class="col-start-2 max-w-[72ch] flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
+                    {item.bullets.map((b) => typeof b === "string" ? (
+                      <li class="py-2">{b}</li>
+                    ) : (
+                      <li class="py-2">
+                        {b.text}
+                        <ul class="mt-2 pl-5 list-disc flex flex-col gap-1">
+                          {b.items.map((sub) => <li>{sub}</li>)}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
             </li>
           ))}
         </ol>
-        <div class="max-w-3xl mx-auto w-full p-6 md:p-8 bp-box flex flex-col gap-5 md:gap-4">
-          <p class="text-base font-bold">How to sponsor</p>
-          <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed">
-            <li><strong>Choose your package or partnership.</strong></li>
-            <li><strong>Email to reserve and confirm your payment date.</strong> Write <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a>. For Community ($500), use the checkout button above.</li>
-            <li><strong>Send logo files</strong> by Apr 1, 2027 (specs above).</li>
-            <li><strong>Assign your team's tickets.</strong></li>
-          </ol>
-          <div class="flex justify-center mt-2">
-            <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -874,18 +1027,18 @@ const email = "team@revolutionva.org";
           </p>
 
           <!-- Social Links -->
-          <div class="flex gap-4">
-            <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" class="bp-nav-link" aria-label="Follow us on X/Twitter">
+          <div class="flex gap-9">
+            <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" class="bp-nav-link p-2.5 -m-2.5 inline-flex" aria-label="Follow us on X/Twitter">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.750H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/company/revolutionva/" target="_blank" rel="noopener noreferrer" class="bp-nav-link" aria-label="Follow us on LinkedIn">
+            <a href="https://www.linkedin.com/company/revolutionva/" target="_blank" rel="noopener noreferrer" class="bp-nav-link p-2.5 -m-2.5 inline-flex" aria-label="Follow us on LinkedIn">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" class="bp-nav-link" aria-label="Follow us on Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" class="bp-nav-link p-2.5 -m-2.5 inline-flex" aria-label="Follow us on Facebook">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.830c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
@@ -893,10 +1046,10 @@ const email = "team@revolutionva.org";
           </div>
 
           <!-- Quick Links -->
-          <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm">
-            <a href="/faq" class="bp-link">FAQ</a>
-            <a href="/sponsor" class="bp-link">Sponsor</a>
-            <a href="/code-of-conduct" class="bp-link">Code of Conduct</a>
+          <div class="flex flex-wrap justify-center md:justify-start gap-x-5 text-sm">
+            <a href="/faq" class="bp-link inline-flex items-center min-h-11">FAQ</a>
+            <a href="/sponsor" class="bp-link inline-flex items-center min-h-11">Sponsor</a>
+            <a href="/code-of-conduct" class="bp-link inline-flex items-center min-h-11">Code of Conduct</a>
           </div>
         </div>
         <TitleBlock sheet="" />
