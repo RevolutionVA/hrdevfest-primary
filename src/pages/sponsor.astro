@@ -84,7 +84,7 @@ const glance: GlanceRow[] = [
     tickets: "12",
     benefits: [
       '"DevFest presented by [Company]"',
-      "Highest branding prominence across website, event emails and signage",
+      "Most prominent branding on the website, event emails and signage",
       "15 minutes of Sponsor Stage Time at opening",
       "Newsletter feature",
       "4 dedicated social posts",
@@ -236,26 +236,29 @@ const faqItems: FaqItem[] = [
     title: "Commit now. Pay in 2027 if needed.",
     open: true,
     bullets: [
-      "Email team@revolutionva.org to reserve your sponsorship. If you need to use your 2027 budget, let us know when you book. We'll confirm your payment date with your reservation.",
+      "Reserve with the form above or email team@revolutionva.org.",
+      "Using your 2027 budget? Tell us when you book.",
+      "We confirm your payment date with your reservation.",
       "Payment is due within 30 days of invoicing unless we agree on a 2027 payment date when you book.",
       "Community ($500) is paid at checkout.",
-      "We hold your package for 30 days after you email us. Need longer for approvals? Ask and we'll extend it.",
+      "We hold your package for 30 days after you reserve. Need longer for approvals? Ask and we'll extend it.",
       "Sign and logo files are due by Apr 1, 2027.",
     ],
   },
   {
     title: "Payment",
     bullets: [
-      "Community ($500) checkout is a flat $500 by card or bank transfer. Checkout asks for your company name, contact emails, and a logo link (or we follow up).",
+      "Community checkout is a flat $500 by card or bank transfer.",
+      "Checkout asks for your company name, contact emails and a logo link (or we follow up).",
       "Paying an invoice by card adds 3%. Check and ACH have no fee.",
-      "In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately and counts toward Community recognition once we agree on a written value.",
-      "Purchase orders accepted. Quotes are available on request.",
+      "In-kind support, such as venue or Pop-up Meetup hosting, counts toward Community recognition once we agree on a written value. It's itemized separately.",
+      "We accept purchase orders and can send a quote.",
     ],
   },
   {
     title: "Do you work with supplier portals?",
     bullets: [
-      "Yes. We're happy to register in your supplier portal for Presenting, Main Stage, and Reception sponsorships.",
+      "Yes, for Presenting, Main Stage and Reception sponsorships.",
     ],
   },
   {
@@ -263,8 +266,9 @@ const faqItems: FaqItem[] = [
     open: true,
     bullets: [
       "Sponsor email opt-in is off by default.",
-      "Presenting, Main Stage and Reception each include one post-event email, sent by DevFest to attendees who opt in. One email per qualifying offering.",
-      "Attendee contacts are never handed to sponsors.",
+      "Presenting, Main Stage and Reception each include one post-event email. DevFest sends it to attendees who opt in.",
+      "One email per qualifying offering.",
+      "We never share attendee contacts with sponsors.",
       "We never sell attendee lists, and we never scan badges.",
     ],
   },
@@ -274,7 +278,7 @@ const faqItems: FaqItem[] = [
       "Every sponsor receives the post-event report.",
       "The report lists companies present, when attendees provide them.",
       {
-        text: "The report includes aggregate audience data and photos of sponsor tables or signage. It does not include attendee names or contact details.",
+        text: "It includes photos of sponsor tables or signage, plus aggregate audience data:",
         items: [
           "Attendance and check-ins",
           "Roles and seniority",
@@ -285,6 +289,7 @@ const faqItems: FaqItem[] = [
           "Newsletter and social reach",
         ],
       },
+      "It never includes attendee names or contact details.",
     ],
   },
   {
@@ -301,17 +306,17 @@ const faqItems: FaqItem[] = [
     title: "Speakers and Sponsor Stage Time",
     bullets: [
       "We invite speakers from community recommendations. There's no open call.",
-      "Anyone can be recommended, including sponsor staff, and that is separate from sponsorship.",
-      "Presenting and Main Stage each include 15 minutes of Sponsor Stage Time during the conference. Those talks are clearly identified as sponsor presentations.",
-      "The Post-Event Reception Partner includes a sponsor welcome of up to two minutes at the reception, separate from conference talks.",
+      "Anyone can be recommended, including sponsor staff. That's separate from sponsorship.",
+      "Presenting and Main Stage each include 15 minutes of Sponsor Stage Time, clearly labeled as sponsor presentations.",
+      "The Reception Partner gives a welcome of up to two minutes at the reception, separate from conference talks.",
     ],
   },
   {
     title: "Logo files",
     bullets: [
-      "SVG (or EPS or PDF) preferred, since we use it for print signs too.",
-      "If you only have a PNG, send it with a transparent background, at least 1,000 px wide.",
-      "Send a version for light backgrounds and one for dark backgrounds, such as all-white.",
+      "SVG, EPS or PDF preferred. We print signs from it.",
+      "PNG only? Use a transparent background, at least 1,000 px wide.",
+      "Send one version for light backgrounds and one for dark, such as all-white.",
       "A horizontal logo works best. We'll resize it for the site.",
       "Send files to team@revolutionva.org by Apr 1, 2027.",
     ],
@@ -322,7 +327,7 @@ const faqItems: FaqItem[] = [
       "Our W-9 and 501(c)(3) letter are available on request.",
       "Sponsorships are invoiced as sponsorships, not donations.",
       "Please consult your tax advisor on how to treat them.",
-      "Sponsorship does not include access to officials. This includes elected, government, and military officials who attend.",
+      "Sponsorship doesn't include access to officials, including elected, government and military officials who attend.",
     ],
   },
 ];
@@ -484,7 +489,7 @@ const email = "team@revolutionva.org";
             One day. One track. Meet developers and technology teams from across Hampton&nbsp;Roads.
           </p>
           <p class="bp-muted text-sm leading-relaxed max-w-[48ch]">
-            Presented by RevolutionVA, a 501(c)(3) nonprofit that builds the Hampton Roads tech community all year.
+            Presented by RevolutionVA, a 501(c)(3) nonprofit.
           </p>
           <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-start gap-3 mt-2">
             <a href="#reserve" class="px-8 py-3 btn-primary text-base whitespace-nowrap w-full sm:w-auto min-h-12 justify-center">Become a Sponsor</a>
@@ -585,21 +590,21 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Why sponsor DevFest</h2>
         </div>
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
-          <li class="py-2.5">Your sponsorship funds Hampton Roads DevFest and RevolutionVA's 2027 workshops and meetups.</li>
-          <li class="py-2.5">Hampton Roads DevFest is the region's one-day developer conference, built to show what Hampton Roads developers can do.</li>
-          <li class="py-2.5">Local developers, engineers, veterans, and students come together to learn from each other, connect, and meet the companies building technology here.</li>
+          <li class="py-2.5">Your sponsorship funds DevFest and our 2027 workshops and meetups.</li>
+          <li class="py-2.5">DevFest is the region's one-day developer conference. It shows what local developers can do.</li>
+          <li class="py-2.5">Developers, engineers, veterans and students come to learn, connect and meet local tech companies.</li>
         </ul>
         <div class="bp-surface max-w-[72ch]">
           <p class="bp-label mb-3">For 2027</p>
           <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-            <li class="py-3"><strong>Local talent on stage.</strong> DevFest is single track, in one room. Everyone sees every talk.</li>
-            <li class="py-3"><strong>The Studio.</strong> An open room for hanging out and lunch, where many of the day's conversations happen.</li>
+            <li class="py-3"><strong>Local talent on stage.</strong> One track in one room, so everyone sees every talk.</li>
+            <li class="py-3"><strong>The Studio.</strong> An open room for lunch and conversation.</li>
             <li class="py-3"><strong>Real time with attendees.</strong> Registration networking, two 30-minute breaks at the sponsor tables, and a 75-minute lunch.</li>
-            <li class="py-3"><strong>The next generation of local talent.</strong> Scholarship seats for students and veterans are underwritten by our Scholarship Partner.</li>
+            <li class="py-3"><strong>Scholarship seats.</strong> Our Scholarship Partner funds seats for students and veterans.</li>
           </ul>
         </div>
         <p class="text-base leading-relaxed">
-          Privacy, payment, deadlines and the post-event report are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
+          Payment, privacy and deadlines: see the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
         </p>
       </div>
     </section>
@@ -664,9 +669,8 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Core sponsorship packages</h2>
         </div>
         <ul class="max-w-[72ch] flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-          <li class="py-3 md:py-2.5">Every package includes website and slide recognition and a group thank-you.</li>
-          <li class="py-3 md:py-2.5">Every sponsor receives the post-event report.</li>
-          <li class="py-3 md:py-2.5">Exhibitor, Featured, Main Stage and Presenting also include one sponsor table and a hiring-board listing.</li>
+          <li class="py-3 md:py-2.5">Every package includes website and slide recognition, a group thank-you and the post-event report.</li>
+          <li class="py-3 md:py-2.5">Exhibitor, Featured, Main Stage and Presenting also include a sponsor table and a hiring-board listing.</li>
         </ul>
 
         <div class="md:hidden flex flex-col gap-4">
@@ -737,18 +741,15 @@ const email = "team@revolutionva.org";
             buttonLabelShort="Community ($500)"
             buttonHref={COMMUNITY_CHECKOUT_HREF}
           />
-          <ul class="bp-muted text-sm leading-relaxed mt-4 flex flex-col gap-1 max-w-[72ch]">
-            <li>Checkout is handled by Stripe and opens in a new tab.</li>
-            <li>Checkout asks for your company name, contact emails, and a logo link (or we follow up).</li>
-          </ul>
+          <p class="bp-muted text-sm leading-relaxed mt-4 max-w-[72ch]">Checkout opens Stripe in a new tab.</p>
         </div>
 
         <!-- How to sponsor: right after the packages, so the next step is next -->
         <div class="bp-box p-6 md:p-8 flex flex-col gap-4">
           <h3 class="text-[20px] lg:text-[24px] font-bold leading-7 lg:leading-8">How to sponsor</h3>
           <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed max-w-[72ch]">
-            <li><strong>Choose your package or partnership.</strong> Partnerships are listed below.</li>
-            <li><strong>Reserve it and confirm your payment date.</strong> Use the <a href="#reserve" class="bp-link font-bold">reservation form</a> or email <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. For Community ($500), use the checkout button above.</li>
+            <li><strong>Choose a package or partnership.</strong> Partnerships are below.</li>
+            <li><strong>Reserve it.</strong> Use the <a href="#reserve" class="bp-link font-bold">reservation form</a> or email <a href={`mailto:${email}`} class="bp-link font-bold">{email}</a>. We confirm your payment date. Community ($500) uses the checkout button above.</li>
             <li><strong>Send logo files</strong> by Apr 1, 2027. Specs are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.</li>
             <li><strong>Assign your team's tickets.</strong></li>
           </ol>
@@ -765,8 +766,8 @@ const email = "team@revolutionva.org";
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
           <li class="py-2.5">Buy separately or add to a sponsorship package. One partner per offering.</li>
           <li class="py-2.5">Every partnership includes website and slide recognition, the post-event report, and the tickets shown.</li>
-          <li class="py-2.5">Partnership tickets are added to your core package tickets.</li>
-          <li class="py-2.5">Standalone partnerships do not include a table.</li>
+          <li class="py-2.5">Partnership tickets add to any core package tickets.</li>
+          <li class="py-2.5">Standalone partnerships don't include a table.</li>
           <li class="py-2.5">Only the Pop-up Series Partner names the Pop-up Meetups. Hosts are thanked at the meetup they host.</li>
         </ul>
 
@@ -837,12 +838,9 @@ const email = "team@revolutionva.org";
         <div class="bp-surface max-w-[72ch]">
           <p class="bp-label mb-2">Who the Reception Partner hosts</p>
           <p class="text-base leading-relaxed">
-            Keep the conversations going after the conference. All registered DevFest attendees are invited to join us for the official post-event reception. Venue and timing will be announced.
+            All registered attendees are invited to the official post-event reception. Venue and timing will be announced.
           </p>
         </div>
-        <p class="text-base leading-relaxed max-w-[72ch]">
-          Payment and commit rules are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
-        </p>
         <div class="flex flex-wrap gap-3">
           <a href="#reserve" class="px-8 py-3 btn-primary text-base whitespace-nowrap min-h-12">Become a Sponsor</a>
         </div>
@@ -887,9 +885,8 @@ const email = "team@revolutionva.org";
             </tbody>
           </table>
         </div>
-        <p class="bp-muted text-sm leading-relaxed">This schedule is subject to change.</p>
         <p class="bp-muted text-sm leading-relaxed">
-          Sponsor time is any part of the day when sponsors are speaking, at their tables, or hosting a room.
+          Sponsor time means sponsors are speaking, at their tables, or hosting a room. Schedule subject to change.
         </p>
       </div>
     </section>
