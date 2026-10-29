@@ -901,7 +901,7 @@ const email = "team@revolutionva.org";
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Reserve your sponsorship</h2>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-12 items-start">
-          <form action={BENTO_SPONSOR_FORM_ACTION} method="POST" enctype="multipart/form-data" class="bp-box p-5 md:p-8 flex flex-col gap-4">
+          <form id="sponsor-hold-form" action={BENTO_SPONSOR_FORM_ACTION} method="POST" enctype="multipart/form-data" class="bp-box p-5 md:p-8 flex flex-col gap-4">
             <input type="hidden" name="redirect" value={SPONSOR_THANK_YOU_URL} />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <label class="flex flex-col gap-1.5">
@@ -928,23 +928,13 @@ const email = "team@revolutionva.org";
                 {packageOptions.map((option) => <option value={option}>{option}</option>)}
               </select>
             </label>
-            <fieldset class="flex flex-col gap-2">
-              <legend class="bp-label mb-1.5">Which budget pays for it?</legend>
-              <div class="flex flex-wrap gap-x-6 gap-y-1">
-                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_pay_year" value="2026" required class="bp-check" /> 2026</label>
-                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_pay_year" value="2027" class="bp-check" /> 2027</label>
-              </div>
-            </fieldset>
-            <fieldset class="flex flex-col gap-2">
-              <legend class="bp-label mb-1.5">Do you need a purchase order or supplier portal?</legend>
-              <div class="flex flex-wrap gap-x-6 gap-y-1">
-                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_po_required" value="Yes" required class="bp-check" /> Yes</label>
-                <label class="inline-flex items-center gap-2 min-h-11 text-base"><input type="radio" name="fields_po_required" value="No" class="bp-check" /> No</label>
-              </div>
-            </fieldset>
+            <!-- Honeypot: hidden from people; if a bot fills it, the script skips Bento -->
+            <div class="sr-only" aria-hidden="true">
+              <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" data-honeypot /></label>
+            </div>
             <div class="flex flex-col gap-3 pt-2">
               <button type="submit" class="px-8 py-3 btn-primary text-base min-h-12 w-full sm:w-auto sm:self-start">Hold my package</button>
-              <p class="text-xs bp-muted">By submitting, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
+              <p class="text-xs bp-muted">By submitting, you agree to our <a href="https://revolutionva.org/privacy/" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
             </div>
           </form>
           <div class="flex flex-col gap-5">
@@ -1090,6 +1080,19 @@ const email = "team@revolutionva.org";
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
           });
+        });
+
+        // Honeypot: a filled trap skips Bento; an empty one is left out of the post
+        const holdForm = document.getElementById('sponsor-hold-form') as HTMLFormElement | null;
+        holdForm?.addEventListener('submit', (event) => {
+          const trap = holdForm.querySelector<HTMLInputElement>('[data-honeypot]');
+          if (!trap) return;
+          if (trap.value.trim() !== '') {
+            event.preventDefault();
+            window.location.href = '/sponsor/thank-you';
+            return;
+          }
+          trap.disabled = true;
         });
 
         // Close menu on Escape and return focus to the button
