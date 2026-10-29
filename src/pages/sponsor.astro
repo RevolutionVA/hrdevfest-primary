@@ -5,7 +5,6 @@ import BentoTracking from "../components/BentoTracking.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
-import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
@@ -23,13 +22,13 @@ interface ScheduleItem {
 const schedule: ScheduleItem[] = [
   { time: "7:30", what: "Building opens, sponsor setup", sponsorTime: true },
   { time: "8:00", what: "Registration and networking at the sponsor tables", sponsorTime: true },
-  { time: "9:00", what: "Opening, with the Presenting sponsor's 15-minute presentation", sponsorTime: true },
+  { time: "9:00", what: "Opening, with the Presenting sponsor's 15 minutes of Sponsor Stage Time", sponsorTime: true },
   { time: "9:30", what: "Talk" },
   { time: "10:15", what: "Talk" },
   { time: "11:00", what: "Networking break at the sponsor tables", sponsorTime: true },
   { time: "11:30", what: "Talk" },
   { time: "12:15", what: "Lunch in the Studio", sponsorTime: true },
-  { time: "1:30", what: "Main Stage sponsor's 15-minute presentation", sponsorTime: true },
+  { time: "1:30", what: "Main Stage sponsor's 15 minutes of Sponsor Stage Time", sponsorTime: true },
   { time: "1:45", what: "Talk" },
   { time: "2:30", what: "Networking break at the sponsor tables", sponsorTime: true },
   { time: "3:00", what: "Talk" },
@@ -67,7 +66,7 @@ const glance: GlanceRow[] = [
     benefits: [
       '"DevFest presented by [Company]"',
       "Highest branding prominence across website, event emails and signage",
-      "15-minute opening sponsor presentation",
+      "15 minutes of Sponsor Stage Time at opening",
       "Newsletter feature",
       "4 dedicated social posts",
       "One post-event email to opted-in attendees, sent by DevFest",
@@ -80,7 +79,7 @@ const glance: GlanceRow[] = [
     tickets: "10",
     benefits: [
       '"[Company] Main Stage" naming on signage and schedule',
-      "15-minute afternoon sponsor presentation",
+      "15 minutes of Sponsor Stage Time in the afternoon",
       "Newsletter feature",
       "3 dedicated social posts",
       "One post-event email to opted-in attendees, sent by DevFest",
@@ -176,7 +175,6 @@ const partnerships: Partnership[] = [
     available: "1 exclusive",
     tickets: "1",
     benefits: [
-      "Series partner recognition across all four 2027 Pop-up Meetups",
       'Naming on all four Pop-up Meetups ("Pop-up Meetup presented by [Company]")',
     ],
     linkLabel: "Pop-up Meetups",
@@ -217,18 +215,23 @@ const faqItems: FaqItem[] = [
       "Email team@revolutionva.org to reserve your sponsorship. If you need to use your 2027 budget, let us know when you book. We'll confirm your payment date with your reservation.",
       "Payment is due within 30 days of invoicing unless we agree on a 2027 payment date when you book.",
       "Community ($500) is paid at checkout.",
-      "An unconfirmed hold is released after 30 days.",
-      "Sign and logo files are due by April 1, 2027.",
+      "We hold your package for 30 days after you email us. Need longer for approvals? Ask and we'll extend it.",
+      "Sign and logo files are due by Apr 1, 2027.",
     ],
   },
   {
     title: "Payment",
     bullets: [
       "Community ($500) checkout is a flat $500 by card or bank transfer. Checkout asks for your company name, contact emails, and a logo link (or we follow up).",
-      "For invoiced sponsorships, check or ACH skips the 3% card fee. The 3% card fee applies to invoiced sponsorships paid by card and is shown on the invoice.",
-      "Supplier portals are for Presenting, Main Stage, and Reception.",
+      "Paying an invoice by card adds 3%. Check and ACH have no fee.",
       "In-kind support, such as venue or Pop-up Meetup hosting, is itemized separately and counts toward Community recognition once we agree on a written value.",
       "Purchase orders accepted. Quotes are available on request.",
+    ],
+  },
+  {
+    title: "Do you work with supplier portals?",
+    bullets: [
+      "Yes. We're happy to register in your supplier portal for Presenting, Main Stage, and Reception sponsorships.",
     ],
   },
   {
@@ -244,14 +247,14 @@ const faqItems: FaqItem[] = [
     title: "Post-event report",
     bullets: [
       "Every sponsor receives the post-event report.",
-      "The report includes aggregate audience data, company names attendees choose to share, and photos of sponsor tables or signage. It does not include attendee names or contact details.",
+      "The report lists companies present, when attendees provide them.",
+      "The report includes aggregate audience data and photos of sponsor tables or signage. It does not include attendee names or contact details.",
       "Attendance and check-ins",
       "Roles and seniority",
       "Hiring, looking for work, internship, and open-to-contract ribbons",
       "Regions, students, veterans, and tech stacks",
       "Military or transitioning from the military (optional at registration)",
       "Scholars who attended versus scholars funded",
-      "Employers attendees choose to share (company names only)",
       "Newsletter and social reach",
     ],
   },
@@ -266,10 +269,11 @@ const faqItems: FaqItem[] = [
     ],
   },
   {
-    title: "Speakers and sponsor talks",
+    title: "Speakers and Sponsor Stage Time",
     bullets: [
-      "Conference sessions are selected independently of sponsorship. Speakers are invited from community recommendations; there's no open call.",
-      "Presenting and Main Stage each include a separate 15-minute sponsor talk during the conference. Those talks are clearly identified as sponsor presentations.",
+      "We invite speakers from community recommendations. There's no open call.",
+      "Anyone can be recommended, including sponsor staff, and that is separate from sponsorship.",
+      "Presenting and Main Stage each include 15 minutes of Sponsor Stage Time during the conference. Those talks are clearly identified as sponsor presentations.",
       "The Post-Event Reception Partner includes a sponsor welcome of up to two minutes at the reception, separate from conference talks.",
     ],
   },
@@ -280,7 +284,7 @@ const faqItems: FaqItem[] = [
       "If you only have a PNG, send it with a transparent background, at least 1,000 px wide.",
       "Send a version for light backgrounds and one for dark backgrounds, such as all-white.",
       "A horizontal logo works best. We'll resize it for the site.",
-      "Send files to team@revolutionva.org by April 1, 2027.",
+      "Send files to team@revolutionva.org by Apr 1, 2027.",
     ],
   },
   {
@@ -289,7 +293,7 @@ const faqItems: FaqItem[] = [
       "Our W-9 and 501(c)(3) letter are available on request.",
       "Sponsorships are invoiced as sponsorships, not donations.",
       "Please consult your tax advisor on how to treat them.",
-      "We don't promise access to elected or city officials, even if they attend the event.",
+      "Sponsorship does not include access to officials. This includes elected, government, and military officials who attend.",
     ],
   },
 ];
@@ -305,10 +309,6 @@ const navLinksAfterYears = [
   { href: "/sponsor", label: "Sponsor" },
 ];
 
-// Sheet index. The footer title block calls this page sheet N of the set,
-// so each section is numbered N.1, N.2, ... like sheets in a drawing set.
-const sheet = sheetFor("/sponsor");
-const sheetNo = sheet ? sheet.split(" ")[0] : "2";
 const sections = [
   { id: "why-sponsor", title: "Why sponsor DevFest" },
   { id: "at-a-glance", title: "Core sponsorship packages" },
@@ -316,7 +316,6 @@ const sections = [
   { id: "the-day", title: "The day" },
   { id: "sponsor-faq", title: "Sponsor FAQ" },
 ];
-const ref = (id: string) => `${sheetNo}.${sections.findIndex((s) => s.id === id) + 1}`;
 
 
 const email = "team@revolutionva.org";
@@ -444,9 +443,7 @@ const email = "team@revolutionva.org";
         </div>
 
         <!-- Plan diagram: what each tier puts its name on -->
-        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5" aria-label="Plan of the day's spaces: the event, Main Stage, the Studio, and Registration. Not to scale.">
-          <p class="bp-label self-end">Not to scale</p>
-
+        <figure class="bp-box p-5 md:p-6 flex flex-col gap-5" aria-label="Plan of the day's spaces: the event, Main Stage, the Studio, and Registration.">
           <div class="relative pt-5 pr-5">
             <!-- 1: the event -->
             <div class="bp-room border-solid border-[var(--bp-line)] p-3 md:p-4">
@@ -502,12 +499,11 @@ const email = "team@revolutionva.org";
     <!-- Sheet index -->
     <section id="index" class="w-full px-4 md:px-8 pb-10 lg:pb-16">
       <nav class="max-w-[1120px] mx-auto bp-box" aria-label="Sections of this prospectus">
-        <p class="bp-label px-5 py-3 border-b border-[var(--bp-line)]">Sheet {sheetNo} index</p>
+        <p class="bp-label px-5 py-3 border-b border-[var(--bp-line)]">On this page</p>
         <ol class="grid grid-cols-1 md:grid-cols-2 md:[&>li:nth-child(odd)]:border-r md:[&>li]:border-[var(--bp-line-faint)]">
           {sections.map((section) => (
             <li class="border-b border-[var(--bp-line-faint)] md:[&:nth-last-child(-n+2)]:border-b-0 last:border-b-0">
-              <a href={`#${section.id}`} class="grid grid-cols-[4rem_1fr] items-baseline px-5 py-2.5 bp-nav-link hover:bg-[var(--bp-paper-deep)]">
-                <span class="bp-sheet-ref">{ref(section.id)}</span>
+              <a href={`#${section.id}`} class="block px-5 py-2.5 bp-nav-link hover:bg-[var(--bp-paper-deep)]">
                 <span class="text-base font-semibold">{section.title}</span>
               </a>
             </li>
@@ -520,7 +516,6 @@ const email = "team@revolutionva.org";
     <section id="why-sponsor" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <span class="bp-sheet-ref">{ref("why-sponsor")}</span>
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Why sponsor DevFest</h2>
         </div>
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
@@ -562,7 +557,6 @@ const email = "team@revolutionva.org";
     <section id="at-a-glance" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-7xl mx-auto flex flex-col gap-6">
         <div class="max-w-[1040px] w-full mx-auto flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <span class="bp-sheet-ref">{ref("at-a-glance")}</span>
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Core sponsorship packages</h2>
         </div>
         <ul class="max-w-[1040px] w-full mx-auto flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
@@ -650,7 +644,7 @@ const email = "team@revolutionva.org";
           </p>
         </div>
         <p class="bp-muted text-sm leading-relaxed max-w-[1040px] w-full mx-auto">
-          Sponsor tables come with Exhibitor, Featured, Main Stage and Presenting. See the <a href="#sponsor-faq" class="bp-link">Sponsor FAQ</a> for payment, deadlines and the post-event report.
+          See the <a href="#sponsor-faq" class="bp-link">Sponsor FAQ</a> for payment, deadlines and the post-event report.
         </p>
       </div>
     </section>
@@ -659,15 +653,14 @@ const email = "team@revolutionva.org";
     <section id="partnerships" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <span class="bp-sheet-ref">{ref("partnerships")}</span>
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Event &amp; Community Partnerships</h2>
         </div>
         <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
           <li class="py-2.5">Buy separately or add to a sponsorship package. One partner per offering.</li>
           <li class="py-2.5">Every partnership includes website and slide recognition, the post-event report, and the tickets shown.</li>
           <li class="py-2.5">Partnership tickets are added to your core package tickets.</li>
-          <li class="py-2.5">Sponsor tables come with Exhibitor, Featured, Main Stage and Presenting. Standalone partnerships do not include a table.</li>
-          <li class="py-2.5">Naming rights belong to the package or partnership purchased. Meetup naming stays with the Pop-up Series Partner.</li>
+          <li class="py-2.5">Standalone partnerships do not include a table.</li>
+          <li class="py-2.5">Only the Pop-up Series Partner names the Pop-up Meetups. Hosts are thanked at the meetup they host.</li>
         </ul>
 
         <div class="md:hidden flex flex-col gap-4">
@@ -741,7 +734,7 @@ const email = "team@revolutionva.org";
           </p>
         </div>
         <p class="text-base leading-relaxed max-w-[72ch]">
-          Unused sponsor tickets go into our seat lottery. Payment and commit rules are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
+          Payment and commit rules are in the <a href="#sponsor-faq" class="bp-link font-bold">Sponsor FAQ</a>.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="mailto:team@revolutionva.org?subject=DevFest%202027%20Sponsorship" class="px-8 py-3 btn-primary text-base whitespace-nowrap">Become a Sponsor</a>
@@ -753,7 +746,6 @@ const email = "team@revolutionva.org";
     <section id="the-day" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <span class="bp-sheet-ref">{ref("the-day")}</span>
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">The day</h2>
         </div>
         <div class="overflow-x-auto">
@@ -787,7 +779,6 @@ const email = "team@revolutionva.org";
     <section id="sponsor-faq" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <span class="bp-sheet-ref">{ref("sponsor-faq")}</span>
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Sponsor FAQ</h2>
         </div>
         <ol id="payment-options" class="bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] scroll-mt-4">
@@ -808,7 +799,7 @@ const email = "team@revolutionva.org";
           <ol class="list-decimal pl-6 flex flex-col gap-2 text-base leading-relaxed">
             <li><strong>Choose your package or partnership.</strong></li>
             <li><strong>Email to reserve and confirm your payment date.</strong> Write <a href="mailto:team@revolutionva.org" class="bp-link font-bold">team@revolutionva.org</a>. For Community ($500), use the checkout button above.</li>
-            <li><strong>Send logo files</strong> by April 1, 2027 (specs above).</li>
+            <li><strong>Send logo files</strong> by Apr 1, 2027 (specs above).</li>
             <li><strong>Assign your team's tickets.</strong></li>
           </ol>
           <div class="flex justify-center mt-2">
@@ -835,7 +826,7 @@ const email = "team@revolutionva.org";
         <div class="flex flex-col items-center md:items-start gap-4">
           <!-- Branding -->
           <p class="text-base font-normal leading-relaxed text-center md:text-left">
-            Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+            Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
           </p>
 
           <!-- Social Links -->
@@ -864,7 +855,7 @@ const email = "team@revolutionva.org";
             <a href="/code-of-conduct" class="bp-link">Code of Conduct</a>
           </div>
         </div>
-        <TitleBlock sheet={sheet} />
+        <TitleBlock sheet="" />
       </div>
     </footer>
     </div>
