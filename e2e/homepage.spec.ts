@@ -15,7 +15,7 @@ test.describe("Homepage", () => {
     await expect(
       hero.getByRole("heading", { level: 1, name: "Hampton Roads DevFest 2027" })
     ).toBeVisible();
-    await expect(hero.getByText(/Friday, April 23, 2027/)).toBeVisible();
+    await expect(hero.getByText(/Apr 23, 2027/)).toBeVisible();
     await expect(hero.getByText(/Zeiders American Dream Theater, Virginia Beach/)).toBeVisible();
   });
 

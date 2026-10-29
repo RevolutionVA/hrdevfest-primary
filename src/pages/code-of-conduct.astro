@@ -5,7 +5,6 @@ import BentoTracking from "../components/BentoTracking.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
-import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
@@ -88,7 +87,7 @@ import FooterBridge from "../components/FooterBridge.astro";
     <a href="/" class="block w-full py-3 pl-4 pr-16 md:px-4 border-b border-[var(--bp-line)]">
       <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
         <Image src={logoWhite} alt="Hampton Roads DevFest home" class="h-24 md:h-28 w-auto" width={300} height={225} />
-        <p class="text-sm md:text-base font-bold">Friday, April 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
+        <p class="text-sm md:text-base font-bold">Apr 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
       </div>
     </a>
 
@@ -96,7 +95,7 @@ import FooterBridge from "../components/FooterBridge.astro";
     <section class="w-full py-12 px-4 md:px-8">
       <div class="max-w-xl mx-auto p-8 bp-box text-center">
         <h2 class="text-2xl font-bold mb-2">Be first to know</h2>
-        <p class="bp-muted mb-6">Sign up for updates on Hampton Roads DevFest 2027</p>
+        <p class="bp-muted mb-6">Sign up for Hampton Roads DevFest 2027 updates.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
@@ -157,33 +156,47 @@ import FooterBridge from "../components/FooterBridge.astro";
         <div class="bp-box p-8 md:p-12">
           <div class="coc-content bp-prose">
             <p>
-              All attendees, speakers, sponsors and volunteers at Hampton Roads DevFest are required to agree with the following code of conduct. Organizers will enforce this code throughout the event. We are expecting cooperation from all participants to help ensuring a safe environment for everybody.
+              Everyone at Hampton Roads DevFest, including attendees, speakers, sponsors and volunteers, must agree to this code of conduct. We enforce it throughout the event. Help us keep DevFest safe for everyone.
             </p>
 
             <h2>Need Help?</h2>
             <p>
-              If you need to report an incident or have any concerns, please contact the organizing team at <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. You can also speak directly with any staff member during the event.
+              To report an incident or concern, email <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> or talk to any staff member at the event.
             </p>
 
             <h2>The Quick Version</h2>
             <p>
-              Hampton Roads DevFest is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), socioeconomic status, immigration or citizenship status, pregnancy, veteran status, neurodiversity, or technology choices. We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks, workshops, parties, social media (including Twitter/X, Discord, Slack), and other online media. Conference participants violating these rules may be sanctioned or expelled from the conference <em>without a refund</em> at the discretion of the conference organizers.
+              Hampton Roads DevFest is a harassment-free conference for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), socioeconomic status, immigration or citizenship status, pregnancy, veteran status, neurodiversity, or technology choices.
             </p>
+            <ul>
+              <li>We don't tolerate harassment of participants in any form.</li>
+              <li>Sexual language and imagery aren't appropriate anywhere at the conference, including talks, workshops, parties, social media (including Twitter/X, Discord, Slack) and other online media.</li>
+              <li>Organizers may sanction or expel anyone who breaks these rules, <em>without a refund</em>.</li>
+            </ul>
 
             <h2>The Less Quick Version</h2>
+            <p>Harassment includes:</p>
+            <ul>
+              <li>Offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion or technology choices</li>
+              <li>Sexual images in public spaces</li>
+              <li>Deliberate intimidation, stalking or following</li>
+              <li>Harassing photography or recording</li>
+              <li>Sustained disruption of talks or other events</li>
+              <li>Inappropriate physical contact or unwelcome sexual attention</li>
+              <li>Doxing or sharing private information without consent</li>
+              <li>Deliberate misgendering or deadnaming</li>
+              <li>Threats of violence</li>
+            </ul>
             <p>
-              Harassment includes offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, unwelcome sexual attention, doxing or sharing of private information without consent, deliberate misgendering or deadnaming, and threats of violence.
+              If you're asked to stop harassing behavior, stop immediately.
             </p>
             <p>
-              Participants asked to stop any harassing behavior are expected to comply immediately.
-            </p>
-            <p>
-              Sponsors are also subject to the anti-harassment policy. In particular, sponsors should not use sexualized images, activities, or other material. Booth staff (including volunteers) should not use sexualized clothing/uniforms/costumes, or otherwise create a sexualized environment.
+              This policy applies to sponsors too. Sponsors shouldn't use sexualized images, activities or other material. Booth staff, including volunteers, shouldn't wear sexualized clothing, uniforms or costumes, or otherwise create a sexualized environment.
             </p>
 
             <h2>Consequences</h2>
             <p>
-              If a participant engages in harassing behavior, the conference organizers may take action including but not limited to:
+              If someone harasses others, organizers may take action, including but not limited to:
             </p>
             <ol>
               <li>A verbal warning and request to stop the behavior</li>
@@ -192,39 +205,39 @@ import FooterBridge from "../components/FooterBridge.astro";
               <li>Referral to venue security or local law enforcement</li>
             </ol>
             <p>
-              The severity of the response will be determined by the organizers based on the nature and context of the behavior.
+              Organizers decide the response based on the nature and context of the behavior.
             </p>
 
             <h2>Reporting Process</h2>
             <p>
-              If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of the staff immediately. Hampton Roads DevFest staff can be identified by their designated staff t-shirts and badges.
+              If you're being harassed, see someone else being harassed, or have other concerns, tell a staff member right away. Staff wear designated staff t-shirts and badges.
             </p>
             <p>
-              You can also report incidents by emailing <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. When you make a report, here is what you can expect:
+              You can also email <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. Here's what to expect:
             </p>
             <ul>
-              <li><strong>Acknowledgment:</strong> Your report will be acknowledged promptly.</li>
-              <li><strong>Confidentiality:</strong> All reports will be handled with discretion. Details will only be shared as needed to investigate and resolve the situation.</li>
-              <li><strong>Investigation:</strong> The organizers will review the report and speak with involved parties as appropriate.</li>
-              <li><strong>Outcome:</strong> You will be informed of the resolution. Actions taken will follow the consequences outlined above.</li>
+              <li><strong>Acknowledgment:</strong> We confirm we got your report promptly.</li>
+              <li><strong>Confidentiality:</strong> We handle every report with discretion and share details only as needed to resolve it.</li>
+              <li><strong>Investigation:</strong> Organizers review the report and talk with the people involved as needed.</li>
+              <li><strong>Outcome:</strong> We tell you the resolution. Actions follow the consequences above.</li>
             </ul>
             <p>
-              Hampton Roads DevFest staff will be happy to help participants contact venue/event staff or local law enforcement, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
+              Staff can help you contact venue staff or local law enforcement, or otherwise help you feel safe for the rest of the conference. We value your attendance.
             </p>
 
             <h2>Photography and Recording</h2>
             <p>
-              We want everyone to feel comfortable at Hampton Roads DevFest. Please ask for consent before photographing or recording other attendees. If someone asks you not to photograph or record them, please respect their wishes. Official event photographers will be clearly identified; if you prefer not to be photographed, please let them know.
+              Ask before photographing or recording other attendees. If someone says no, respect it. Official photographers are clearly identified. Tell them if you prefer not to be photographed.
             </p>
 
             <h2>Applicability</h2>
             <p>
-              We expect participants to follow these rules at all Hampton Roads DevFest venues, conference-related social events, and event-specific online platforms (such as Discord, Slack, or other community channels). This code of conduct also applies to interactions between participants after the event if they stem from conduct that occurred during the conference. Continued harassment outside the event will be treated with the same seriousness.
+              These rules apply at all DevFest venues, conference social events and event online spaces, such as Discord, Slack or other community channels. They also cover interactions after the event that stem from conduct during the conference. We treat continued harassment outside the event just as seriously.
             </p>
 
             <h2>Accessibility</h2>
             <p>
-              Hampton Roads DevFest is committed to providing an accessible and inclusive environment for all participants. If you need accommodations to fully participate in the event, please contact us at <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> and we will do our best to meet your needs.
+              We want everyone to be able to take part. If you need accommodations, email <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> and we'll do our best to help.
             </p>
 
             <p class="text-sm bp-muted mt-8">
@@ -242,7 +255,7 @@ import FooterBridge from "../components/FooterBridge.astro";
         <div class="flex flex-col items-center md:items-start gap-4">
           <!-- Branding -->
           <p class="text-base font-normal leading-relaxed text-center md:text-left">
-            Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+            Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
           </p>
 
           <!-- Quick Links -->
@@ -270,7 +283,7 @@ import FooterBridge from "../components/FooterBridge.astro";
             </a>
           </div>
         </div>
-        <TitleBlock sheet={sheetFor("/code-of-conduct")} />
+        <TitleBlock />
       </div>
     </footer>
 

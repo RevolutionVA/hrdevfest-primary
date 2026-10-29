@@ -5,7 +5,6 @@ import BentoTracking from "../components/BentoTracking.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
-import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
@@ -33,7 +32,7 @@ import FooterBridge from "../components/FooterBridge.astro";
     <a href="/" class="block w-full py-3 px-4 border-b border-[var(--bp-line)]">
       <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
         <Image src={logoWhite} alt="Hampton Roads DevFest home" class="h-24 md:h-28 w-auto" width={300} height={225} />
-        <p class="text-sm md:text-base font-bold">Friday, April 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
+        <p class="text-sm md:text-base font-bold">Apr 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
       </div>
     </a>
 
@@ -69,7 +68,7 @@ import FooterBridge from "../components/FooterBridge.astro";
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
         <div class="flex flex-col items-center md:items-start gap-4">
           <p class="text-base font-normal leading-relaxed text-center md:text-left">
-            Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+            Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
           </p>
           <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm">
             <a href="/faq" class="bp-link">FAQ</a>
@@ -93,7 +92,7 @@ import FooterBridge from "../components/FooterBridge.astro";
             </a>
           </div>
         </div>
-        <TitleBlock sheet={sheetFor("/thank-you")} />
+        <TitleBlock />
       </div>
     </footer>
     </div>

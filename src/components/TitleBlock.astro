@@ -6,21 +6,18 @@ export interface Props {
   project?: string;
   location?: string;
   date?: string;
-  sheet?: string;
 }
 
 const {
   project = "Hampton Roads DevFest 2027",
   location = "Virginia Beach, VA",
   date = "04.23.2027",
-  sheet = "1 of 1",
 } = Astro.props;
 
 const rows = [
   ["Project", project.toUpperCase()],
   ["Location", location.toUpperCase()],
   ["Date", date],
-  ["Sheet", sheet.toUpperCase()],
   ["Drawn by", "REVOLUTIONVA"],
   ["Tagline", "Built in the 757"],
 ].filter(([, value]) => value); // pass "" to omit a row with no data

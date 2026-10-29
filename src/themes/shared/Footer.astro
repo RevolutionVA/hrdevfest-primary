@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import FooterBridge from '../../components/FooterBridge.astro';
 import TitleBlock from '../../components/TitleBlock.astro';
-import { normalizePath, sheetFor, titleBlockDate } from '../../data/titleBlock';
+import { normalizePath, titleBlockDate } from '../../data/titleBlock';
 
 export interface Props {
   showSocialLinks?: boolean;
@@ -33,7 +33,7 @@ const titleBlockProps = yearEvent
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
     <div class="flex flex-col items-center md:items-start gap-4">
       <p class="text-base font-normal leading-relaxed text-center md:text-left">
-        Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+        Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
       </p>
 
       {showSocialLinks && (
@@ -71,6 +71,6 @@ const titleBlockProps = yearEvent
         ))}
       </div>
     </div>
-    <TitleBlock {...titleBlockProps} sheet={sheetFor(path)} />
+    <TitleBlock {...titleBlockProps} />
   </div>
 </footer>

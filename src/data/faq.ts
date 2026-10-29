@@ -6,11 +6,11 @@ export interface FaqItem {
 export const faqItems: FaqItem[] = [
   {
     question: "What is Hampton Roads DevFest?",
-    answer: "Hampton Roads DevFest is a curated, community-driven software development conference produced by RevolutionVA. It brings together developers, technical leaders, and decision-makers from across the Hampton Roads region for a full day of high-quality technical and professional content.",
+    answer: "A curated, community-driven developer conference run by RevolutionVA. Developers, tech leads and decision-makers from across Hampton Roads spend a full day on technical and career talks.",
   },
   {
     question: "Who should attend?",
-    answer: "This event is designed for a broad technical audience—from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels.",
+    answer: "Anyone in tech, from junior developers to senior engineers, directors and C-level leaders. Talks are practical and work at every experience level.",
   },
   {
     question: "What does my ticket include?",

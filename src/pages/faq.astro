@@ -5,7 +5,6 @@ import BentoTracking from "../components/BentoTracking.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
 import PastYearsNav from "../components/PastYearsNav.astro";
 import TitleBlock from "../components/TitleBlock.astro";
-import { sheetFor } from "../data/titleBlock";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
@@ -26,11 +25,11 @@ const faqData: FAQCategory[] = [
     items: [
       {
         question: "What is Hampton Roads DevFest?",
-        answer: "Hampton Roads DevFest is a curated, community-driven software development conference produced by RevolutionVA. It brings together developers, technical leaders, and decision-makers from across the Hampton Roads region for a full day of high-quality technical and professional content."
+        answer: "A curated, community-driven developer conference run by RevolutionVA. Developers, tech leads and decision-makers from across Hampton Roads spend a full day on technical and career talks."
       },
       {
         question: "Who should attend?",
-        answer: "This event is designed for a broad technical audience—from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels."
+        answer: "Anyone in tech, from junior developers to senior engineers, directors and C-level leaders. Talks are practical and work at every experience level."
       }
     ]
   },
@@ -43,19 +42,19 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "Are tickets refundable or transferable?",
-        answer: "Tickets are not refundable, but they are transferable. If you can no longer attend, you may transfer your ticket to another person."
+        answer: "Tickets aren't refundable, but you can transfer yours to someone else."
       },
       {
         question: "Can my employer pay by invoice?",
-        answer: "Yes. Employer invoice payments are available for purchases of 10 or more tickets, upon request. Please contact the conference team for details."
+        answer: "Yes, for 10 or more tickets. Email team@revolutionva.org to set it up."
       },
       {
         question: "Are scholarships available?",
-        answer: "Yes. We're seeking a Scholarship Partner to underwrite 20 standard admissions for students and veterans. We also give away Send a friend seats by lottery when space allows. Entries are open until the week before the event, and we draw winners the week of the event. Extra seats depend on space, so buy a ticket if you can. Entry form in early 2027."
+        answer: "Yes. We're seeking a Scholarship Partner to fund 20 seats for students and veterans. We also give away Send a friend seats by lottery when space allows. The entry form opens in early 2027 and closes the week before the event. We draw winners the week of the event. Seats depend on space, so buy a ticket if you can."
       },
       {
         question: "Will I receive a receipt for reimbursement?",
-        answer: "Yes. Receipts are automatically provided via Humanitix, our ticketing and payment processor."
+        answer: "Yes. Humanitix, our ticketing provider, sends one automatically."
       }
     ]
   },
@@ -72,7 +71,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "Can I bring a laptop or backpack?",
-        answer: "Yes. You are welcome to bring a laptop or backpack. Please note that power outlets are limited, so plan accordingly."
+        answer: "Yes. Power outlets are limited, so charge up before you come."
       },
       {
         question: "Is Wi-Fi available?",
@@ -80,11 +79,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "Is the venue accessible?",
-        answer: "Yes. The venue is fully accessible. If you have accessibility needs, please indicate them during registration so we can accommodate you."
+        answer: "Yes, the venue is fully accessible. Note any accessibility needs when you register so we can help."
       },
       {
         question: "Is lunch provided, and can dietary restrictions be accommodated?",
-        answer: "Lunch is included with your ticket. We do accommodate dietary restrictions—please note your needs during registration."
+        answer: "Yes, lunch is included. Note any dietary restrictions when you register."
       }
     ]
   },
@@ -93,27 +92,27 @@ const faqData: FAQCategory[] = [
     items: [
       {
         question: "When will the schedule be published?",
-        answer: "The full schedule will be published in early 2027."
+        answer: "We'll publish the full schedule in early 2027."
       },
       {
         question: "How long are sessions?",
-        answer: "Session lengths will be shared with the schedule in early 2027."
+        answer: "We'll share session lengths with the schedule."
       },
       {
         question: "What types of topics will be covered?",
-        answer: "Sessions are selected to appeal across roles and seniority levels, with content relevant to individual contributors, technical leads, engineering managers, directors, and executives."
+        answer: "Topics for every role and level, from individual contributors and tech leads to engineering managers, directors and executives."
       },
       {
         question: "Will sessions be recorded?",
-        answer: "No. Sessions will not be recorded."
+        answer: "No. Sessions aren't recorded."
       },
       {
         question: "How are speakers selected?",
-        answer: "Speakers are invited by RevolutionVA, based on recommendations from the community. There's no open call and no Call for Proposals (CFP). Speakers are local to Hampton Roads or alumni of the regional tech community."
+        answer: "We invite speakers based on community recommendations. There's no open call or Call for Proposals (CFP). Speakers are local to Hampton Roads or alumni of the regional tech community."
       },
       {
         question: "Are there opportunities for local user groups?",
-        answer: "Yes. We offer an exhibition program for local user groups. If your group is interested in participating, please contact the team for more information."
+        answer: "Yes. We have an exhibition program for local user groups. Email team@revolutionva.org to take part."
       }
     ]
   },
@@ -126,11 +125,11 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "How far is the venue from the airport?",
-        answer: "Norfolk International Airport is approximately 10–12 miles from the venue, which is typically a 15–20 minute drive, depending on traffic."
+        answer: "About 10 to 12 miles, typically a 15 to 20 minute drive depending on traffic."
       },
       {
         question: "Where do I park?",
-        answer: "There are several parking garages and surface lots in the Town Center area near the venue. View our <a href='/parking' class='bp-link'>Town Center Parking Guide</a> for details."
+        answer: "Town Center has several garages and surface lots near the venue. See our <a href='/parking' class='bp-link'>Town Center Parking Guide</a>."
       }
     ]
   },
@@ -139,7 +138,7 @@ const faqData: FAQCategory[] = [
     items: [
       {
         question: "Who should I contact with questions?",
-        answer: "Please contact team@revolutionva.org with any questions."
+        answer: "Email <a href='mailto:team@revolutionva.org' class='bp-link'>team@revolutionva.org</a>."
       }
     ]
   }
@@ -173,27 +172,6 @@ const faqData: FAQCategory[] = [
     <meta name="twitter:description" content="Frequently asked questions about Hampton Roads DevFest 2027. Find answers about tickets, venue, sessions, and more." />
     <meta name="twitter:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
-    <style>
-      .faq-item[data-expanded="true"] .chevron-right {
-        display: none;
-      }
-      .faq-item[data-expanded="true"] .chevron-down {
-        display: block;
-      }
-      .faq-item[data-expanded="true"] .chevron-right {
-        display: block;
-      }
-      .faq-item[data-expanded="true"] .chevron-down {
-        display: none;
-      }
-      .faq-item[data-expanded="true"] .faq-answer {
-        display: none;
-      }
-      .faq-item[data-expanded="true"] .faq-answer {
-        display: block;
-      }
-    </style>
-
     <GoogleAnalytics />
     <BentoTracking />
   </head>
@@ -213,7 +191,7 @@ const faqData: FAQCategory[] = [
     <a href="/" class="block w-full py-3 pl-4 pr-16 md:px-4 border-b border-[var(--bp-line)]">
       <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
         <Image src={logoWhite} alt="Hampton Roads DevFest home" class="h-24 md:h-28 w-auto" width={300} height={225} />
-        <p class="text-sm md:text-base font-bold">Friday, April 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
+        <p class="text-sm md:text-base font-bold">Apr 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
       </div>
     </a>
 
@@ -221,7 +199,7 @@ const faqData: FAQCategory[] = [
     <section class="w-full py-12 px-4 md:px-8">
       <div class="max-w-xl mx-auto p-8 bp-box text-center">
         <h2 class="text-2xl font-bold mb-2">Be first to know</h2>
-        <p class="bp-muted mb-6">Sign up for updates on Hampton Roads DevFest 2027</p>
+        <p class="bp-muted mb-6">Sign up for Hampton Roads DevFest 2027 updates.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
@@ -282,33 +260,14 @@ const faqData: FAQCategory[] = [
         {faqData.map((category) => (
           <div class="flex flex-col gap-4">
             <h2 class="text-xl font-bold pb-2 border-b border-[var(--bp-line)]">{category.title}</h2>
-            <div class="flex flex-col gap-4">
+            <dl class="flex flex-col divide-y divide-[var(--bp-line-faint)]">
               {category.items.map((item) => (
-                <div
-                  class="faq-item bp-box p-6 md:p-8 cursor-pointer"
-                  data-expanded="true"
-                >
-                  <div class="flex items-start gap-4">
-                    <div class="flex-1">
-                      <div class="flex items-center gap-4">
-                        <!-- Chevron Right (collapsed) -->
-                        <svg class="chevron-right w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path stroke-linecap="square" stroke-width="1.5" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                        <!-- Chevron Down (expanded) -->
-                        <svg class="chevron-down w-5 h-5 shrink-0 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path stroke-linecap="square" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                        <p class="text-base font-bold">{item.question}</p>
-                      </div>
-                      <div class="faq-answer mt-4 pl-9 bp-prose">
-                        <p class="text-base font-normal leading-relaxed" set:html={item.answer} />
-                      </div>
-                    </div>
-                  </div>
+                <div class="py-4 flex flex-col gap-1.5">
+                  <dt class="text-base font-bold">{item.question}</dt>
+                  <dd class="text-base font-normal leading-relaxed bp-prose max-w-[72ch]" set:html={item.answer} />
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         ))}
       </div>
@@ -321,7 +280,7 @@ const faqData: FAQCategory[] = [
         <div class="flex flex-col items-center md:items-start gap-4">
           <!-- Branding -->
           <p class="text-base font-normal leading-relaxed text-center md:text-left">
-            Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
+            Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
           </p>
 
           <!-- Quick Links -->
@@ -349,7 +308,7 @@ const faqData: FAQCategory[] = [
             </a>
           </div>
         </div>
-        <TitleBlock sheet={sheetFor("/faq")} />
+        <TitleBlock />
       </div>
     </footer>
 
@@ -398,14 +357,6 @@ const faqData: FAQCategory[] = [
           }
         });
 
-        // FAQ accordion toggle
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-          item.addEventListener('click', () => {
-            const isExpanded = item.getAttribute('data-expanded') === 'true';
-            item.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
-          });
-        });
       });
     </script>
   </body>
