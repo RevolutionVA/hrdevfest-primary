@@ -311,12 +311,39 @@ const navLinksAfterYears = [
 
 const sections = [
   { id: "why-sponsor", title: "Why sponsor DevFest" },
+  { id: "who-was-at-devfest-2026", title: "Who was at DevFest 2026?" },
   { id: "at-a-glance", title: "Core sponsorship packages" },
   { id: "partnerships", title: "Event & Community Partnerships" },
   { id: "the-day", title: "The day" },
   { id: "sponsor-faq", title: "Sponsor FAQ" },
 ];
 
+
+const devfest2026Employers = [
+  'AI Collective',
+  'City of Chesapeake',
+  'City of Virginia Beach',
+  'Cognizant',
+  'Decisions',
+  'ECPI University',
+  'HII (Newport News Shipbuilding)',
+  'ICMicro',
+  'Issuetrak',
+  'LifeNet Health',
+  'Marathon Consulting',
+  'MI Technical Solutions',
+  'Norfolk State University',
+  'Noteable',
+  'Old Dominion University',
+  'Port Solution Integrators',
+  'Rowan Source',
+  'Stigian Consulting',
+  'STIHL',
+  'TECHEAD',
+  'The GBS Group',
+  'Tidewater Community College',
+  'Virginia Community College System',
+];
 
 const email = "team@revolutionva.org";
 ---
@@ -538,6 +565,21 @@ const email = "team@revolutionva.org";
       </div>
     </section>
 
+    <!-- Who was at DevFest 2026 -->
+    <section id="who-was-at-devfest-2026" class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4" aria-label="Who was at DevFest 2026">
+      <div class="max-w-[1040px] mx-auto flex flex-col gap-3">
+        <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-2">
+          <h2 class="text-[20px] lg:text-[24px] font-bold leading-7 lg:leading-8">Who was at DevFest 2026?</h2>
+        </div>
+        <p class="text-base leading-relaxed text-[var(--bp-muted)]">Attendees came from teams at:</p>
+        <ul class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1.5 text-[15px] leading-snug">
+          {devfest2026Employers.map((name) => (
+            <li class="min-w-0">{name}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
     <!-- Community $500: early callout -->
     <section class="w-full px-4 md:px-8 py-10 md:py-8 border-t border-[var(--bp-line)]" aria-label="Community Sponsor for $500">
       <div class="max-w-[1040px] mx-auto">
@@ -551,6 +593,7 @@ const email = "team@revolutionva.org";
         />
       </div>
     </section>
+
 
 
     <!-- Core packages -->
