@@ -23,8 +23,35 @@ test.describe("Sponsor Page", () => {
     await expect(page).toHaveURL(/#reserve$/);
     const form = page.locator("#reserve form");
     await expect(form).toHaveAttribute("action", /track\.bentonow\.com\/forms\/.+\/\$sponsorHoldHRDevFest/);
-    await expect(form.locator('input[name="redirect"]')).toHaveValue("https://hrdevfest.org/sponsor/thank-you");
+    const origin = new URL(page.url()).origin;
+    await expect(form.locator('input[name="redirect"]')).toHaveValue(`${origin}/sponsor/thank-you`);
     await expect(page.getByRole("button", { name: "Hold my package" })).toBeVisible();
+  });
+
+  test("a real submit posts the form fields to Bento with a same-host redirect", async ({ page }) => {
+    let posted: { url: string; method: string; body: string } | undefined;
+    await page.route("**/track.bentonow.com/forms/**", (route) => {
+      const request = route.request();
+      posted = { url: request.url(), method: request.method(), body: request.postData() ?? "" };
+      return route.abort();
+    });
+    await page.goto("/sponsor#reserve");
+    const origin = new URL(page.url()).origin;
+    const form = page.locator("#reserve form");
+    await form.locator('[name="fields_first_name"]').fill("Test");
+    await form.locator('[name="fields_last_name"]').fill("Person");
+    await form.locator('[name="email"]').fill("test@example.com");
+    await form.locator('[name="fields_company"]').fill("Example");
+    await form.locator('[name="fields_package"]').selectOption({ index: 1 });
+    await page.getByRole("button", { name: "Hold my package" }).click();
+    await expect.poll(() => posted).toBeDefined();
+    expect(posted!.method).toBe("POST");
+    expect(posted!.url).toContain("/forms/57d9b8196b2b704a30da5ac245bf2cfe/$sponsorHoldHRDevFest?hardened=true");
+    for (const field of ["email", "fields_first_name", "fields_last_name", "fields_company", "fields_package", "redirect"]) {
+      expect(posted!.body).toContain(`name="${field}"`);
+    }
+    expect(posted!.body).toContain(`${origin}/sponsor/thank-you`);
+    expect(posted!.body).not.toContain('name="website"');
   });
 
   test("reservation form has no budget-year or PO fields", async ({ page }) => {

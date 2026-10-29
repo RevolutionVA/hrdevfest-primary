@@ -902,7 +902,7 @@ const email = "team@revolutionva.org";
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-8 lg:gap-12 items-start">
           <form id="sponsor-hold-form" action={BENTO_SPONSOR_FORM_ACTION} method="POST" enctype="multipart/form-data" class="bp-box p-5 md:p-8 flex flex-col gap-4">
-            <input type="hidden" name="redirect" value={SPONSOR_THANK_YOU_URL} />
+            <input type="hidden" name="redirect" value={SPONSOR_THANK_YOU_URL} data-redirect-path="/sponsor/thank-you" />
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <label class="flex flex-col gap-1.5">
                 <span class="bp-label">First name</span>
@@ -1084,6 +1084,13 @@ const email = "team@revolutionva.org";
 
         // Honeypot: a filled trap skips Bento; an empty one is left out of the post
         const holdForm = document.getElementById('sponsor-hold-form') as HTMLFormElement | null;
+
+        // Bento needs an absolute redirect; point it at this host so previews stay on the preview
+        const redirectInput = holdForm?.querySelector<HTMLInputElement>('[data-redirect-path]');
+        if (redirectInput?.dataset.redirectPath) {
+          redirectInput.value = new URL(redirectInput.dataset.redirectPath, window.location.origin).href;
+        }
+
         holdForm?.addEventListener('submit', (event) => {
           const trap = holdForm.querySelector<HTMLInputElement>('[data-honeypot]');
           if (!trap) return;
