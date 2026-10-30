@@ -42,7 +42,7 @@ const updated = new Date().toLocaleDateString("en-US", {
 
 const corePackages = glance.filter((row) => !row.checkoutHref);
 // The site is the full FAQ; the sheet carries only what approvers ask first
-const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy"];
+const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy", "What is the Who's hiring board?"];
 const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.title));
 ---
 

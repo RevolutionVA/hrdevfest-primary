@@ -207,6 +207,14 @@ test.describe("Sponsor Page", () => {
     }
   });
 
+  test("the FAQ explains the Who's hiring board in one paragraph", async ({ page }) => {
+    await page.goto("/sponsor");
+    const entry = page.locator("#sponsor-faq details").filter({ hasText: "What is the Who's hiring board?" });
+    await expect(entry.locator("p")).toHaveCount(1);
+    await expect(entry).toContainText("Every package at $2,500 and up includes a listing");
+    await expect(entry).toContainText("every role must include an expected salary range");
+  });
+
   test("reservation form has no budget-year or PO fields", async ({ page }) => {
     await page.goto("/sponsor");
     const form = page.locator("#reserve form");

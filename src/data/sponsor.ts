@@ -222,11 +222,15 @@ export const faqItems: FaqItem[] = [
     ],
   },
   {
-    title: "Hiring board and ribbons",
+    title: "What is the Who's hiring board?",
     paragraphs: [
-      "Featured, Main Stage and Presenting include a hiring-board listing near registration and on the DevFest site. Standalone partnerships do not include a hiring-board listing.",
-      "Sponsors write their own listings. Every role must include an expected salary range. We don't collect resumes.",
-      "Attendees can wear Hiring, Looking for work, Internship or Open to contract work ribbons.",
+      "The Who's hiring board is where sponsors list open roles. We put it up at DevFest, near registration, and on the DevFest site. Every package at $2,500 and up includes a listing; standalone partnerships don't. Write your listings however you want, for example noting that a clearance is required, but every role must include an expected salary range.",
+    ],
+  },
+  {
+    title: "Ribbons and resumes",
+    paragraphs: [
+      "Attendees can wear Hiring, Looking for work, Internship or Open to contract work ribbons. We don't collect resumes.",
     ],
   },
   {
