@@ -201,7 +201,7 @@ test.describe("Sponsor Page", () => {
       const faq = path === "/sponsor" ? page.locator("#sponsor-faq") : page.locator(".faq");
       await expect(faq.locator("li li, details li, .box li")).toHaveCount(0);
       await expect(faq).toContainText(
-        "All sponsors can pay by credit card, check, or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full."
+        "All sponsors can pay by credit card, check or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full."
       );
       await expect(faq).not.toContainText("Community checkout is a flat $500");
       await expect(faq).not.toContainText("In-kind support");
@@ -212,7 +212,7 @@ test.describe("Sponsor Page", () => {
     await page.goto("/sponsor");
     const entry = page.locator("#sponsor-faq details").filter({ hasText: "What is the Who's hiring board?" });
     await expect(entry.locator("p")).toHaveCount(1);
-    await expect(entry).toContainText("Every package at $2,500 and up includes a listing");
+    await expect(entry).toContainText("Featured, Main Stage and Presenting include a listing. Partnerships, including the Reception Partner, don't.");
     await expect(entry).toContainText("every role must include an expected salary range");
   });
 
@@ -223,6 +223,33 @@ test.describe("Sponsor Page", () => {
       await expect(photos, path).toHaveCount(1);
       await expect(photos, path).toHaveAttribute("alt", "Kristina Krasnolobova");
     }
+  });
+
+  test("council pass: consistent payment, scholarship, ribbons, report and Pop-up wording", async ({ page }) => {
+    for (const path of ["/sponsor", "/sponsor/print"]) {
+      await page.goto(path);
+      const body = page.locator("body");
+      await expect(body, path).not.toContainText("bank transfer");
+      await expect(body, path).not.toContainText("Main Stage Stage");
+      await expect(body, path).not.toContainText("hiring-board");
+      await expect(body, path).toContainText("Pay online by credit card or ACH.");
+      await expect(body, path).toContainText("students, veterans and people between jobs");
+    }
+    await page.goto("/sponsor");
+    const faq = page.locator("#sponsor-faq");
+    await expect(faq).toContainText("Ribbons are optional.");
+    await expect(faq).toContainText("as totals only");
+    await expect(faq).toContainText("scholar counts, funded and attended");
+    await expect(faq).toContainText("How do I host a Pop-up Meetup?");
+    await expect(page.getByText("Small team?")).toHaveCount(1);
+    const prices = await page.locator("#partnerships tr").filter({ hasText: "$1,000" }).locator("th").allTextContents();
+    expect(prices.map((t) => t.trim())).toEqual(["Scholarship Partner", "Coffee Partner", "Lanyard Partner"]);
+  });
+
+  test("print sheet writes the URL under each QR code", async ({ page }) => {
+    await page.goto("/sponsor/print");
+    const urls = await page.locator(".qr-url").allTextContents();
+    expect(urls).toEqual(["buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06", "hrdevfest.org/sponsor"]);
   });
 
   test("reservation form has no budget-year or PO fields", async ({ page }) => {
