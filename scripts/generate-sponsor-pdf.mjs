@@ -1,5 +1,5 @@
 // Renders /sponsor/print from the built site (dist/) to the sponsor sheet PDF linked on /sponsor.
-// Run with `yarn sponsor-pdf` (builds first). The output path comes from SPONSOR_SHEET_PDF_HREF.
+// Run with `yarn generate:sponsor-pdf` (builds first). The output path comes from SPONSOR_SHEET_PDF_HREF.
 import { createServer } from "node:http";
 import { readFile, readdir, unlink } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
