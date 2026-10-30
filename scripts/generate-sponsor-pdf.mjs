@@ -3,6 +3,7 @@
 import { createServer } from "node:http";
 import { readFile, readdir, unlink, writeFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
+import { createHash } from "node:crypto";
 import { chromium } from "@playwright/test";
 
 const DIST = "dist";
@@ -10,6 +11,7 @@ const source = await readFile("src/data/sponsor.ts", "utf8");
 const href = source.match(/SPONSOR_SHEET_PDF_HREF = "([^"]+)"/)?.[1];
 if (!href) throw new Error("SPONSOR_SHEET_PDF_HREF not found in src/data/sponsor.ts");
 const out = join("public", href);
+const SOURCE_HASH = "e2e/sponsor-sheet.hash";
 
 const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".webp": "image/webp", ".svg": "image/svg+xml", ".jpg": "image/jpeg" };
 const server = createServer(async (req, res) => {
@@ -28,15 +30,16 @@ const browser = await chromium.launch();
 try {
   const page = await browser.newPage();
   await page.goto(`http://localhost:${port}/sponsor/print`, { waitUntil: "networkidle" });
-  const footerTemplate = await page.$eval("#pdf-footer", (el) => el.innerHTML);
+  await page.evaluate(() => document.fonts.ready);
+  // e2e/sponsor.spec.ts compares this hash with the live print page to catch a stale PDF.
+  // The footer is left out: its "Updated" date changes daily.
+  const text = await page.evaluate(() => document.querySelector("table.layout").textContent.replace(/\s+/g, " ").trim());
+  await writeFile(SOURCE_HASH, createHash("sha256").update(text).digest("hex") + "\n");
   await page.pdf({
     path: out,
     format: "Letter",
     printBackground: true,
     preferCSSPageSize: true,
-    displayHeaderFooter: true,
-    headerTemplate: "<span></span>",
-    footerTemplate,
   });
 } finally {
   await browser.close();

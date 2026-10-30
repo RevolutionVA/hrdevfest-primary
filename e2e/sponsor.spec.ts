@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 
 test.describe("Sponsor Page", () => {
   test("sponsor page loads with the heading and Community callout", async ({ page }) => {
@@ -151,6 +153,16 @@ test.describe("Sponsor Page", () => {
       const route = config.routes.find((r: { route: string }) => r.route === old);
       expect(route).toMatchObject({ redirect: href, statusCode: 302 });
     }
+  });
+
+  test("the sponsor PDF is up to date with the printable sheet page", async ({ page }) => {
+    await page.goto("/sponsor/print");
+    const text = await page.evaluate(() => document.querySelector("table.layout")!.textContent!.replace(/\s+/g, " ").trim());
+    const expected = readFileSync("e2e/sponsor-sheet.hash", "utf8").trim();
+    expect(
+      createHash("sha256").update(text).digest("hex"),
+      "Sponsor copy changed: run `yarn generate:sponsor-pdf` and commit the new PDF"
+    ).toBe(expected);
   });
 
   test("printable sheet page matches the site copy and stays out of search", async ({ page }) => {

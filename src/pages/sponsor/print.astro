@@ -3,6 +3,9 @@
 // the PDF linked from /sponsor. It reads the same data as /sponsor, so the copy stays in sync.
 import { Image } from "astro:assets";
 import QRCode from "qrcode";
+// Bundled fonts so the PDF looks the same on any machine that generates it
+import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
 import logo from "../../assets/logo.png";
 import {
   schedule,
@@ -38,8 +41,10 @@ const updated = new Date().toLocaleDateString("en-US", {
 });
 
 const corePackages = glance.filter((row) => !row.checkoutHref);
-// The web FAQ points at the form "above"; on paper, point at the page instead
-const faqForPrint = faqItems.map((item) => ({
+// The site is the full FAQ; the sheet carries only what approvers ask first.
+// The web FAQ points at the form "above"; on paper, point at the page instead.
+const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy"];
+const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.title)).map((item) => ({
   ...item,
   bullets: item.bullets.map((b) =>
     typeof b === "string" ? b.replace("the form above", "the form at hrdevfest.org/sponsor") : b
@@ -53,15 +58,15 @@ const faqForPrint = faqItems.map((item) => ({
     <meta name="robots" content="noindex" />
     <title>Sponsor Hampton Roads DevFest 2027</title>
     <style is:global>
-      @page { size: Letter; margin: 0.5in 0.5in 0.85in; }
+      @page { size: Letter; margin: 0.5in 0.5in 0.4in; }
       :root {
         --ink: #0b3d6e;
         --text: #1b2430;
         --muted: #4a5868;
         --line: #9fb3c8;
         --row: #eef3f8;
-        --sans: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
-        --mono: "Cascadia Mono", ui-monospace, Consolas, Menlo, monospace;
+        --sans: "Inter Variable", sans-serif;
+        --mono: "JetBrains Mono Variable", monospace;
       }
       * { box-sizing: border-box; }
       html, body { margin: 0; background: #fff; color: var(--text); font-family: var(--sans); font-size: 10pt; line-height: 1.45; }
@@ -87,9 +92,9 @@ const faqForPrint = faqItems.map((item) => ({
       .employers { columns: 4; column-gap: 12pt; list-style: none; padding: 0; font-size: 8.5pt; }
       .employers li { margin: 0 0 1pt; break-inside: avoid; }
       table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); }
-      th, td { text-align: left; vertical-align: top; padding: 5pt 7pt; border-top: 1px solid var(--line); }
+      table:not(.layout) th, table:not(.layout) td { text-align: left; vertical-align: top; padding: 5pt 7pt; border-top: 1px solid var(--line); }
       thead th { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
-      tbody tr:nth-child(odd) { background: var(--row); }
+      table:not(.layout) > tbody > tr:nth-child(odd) { background: var(--row); }
       tr { break-inside: avoid; }
       .name { font-weight: 700; color: var(--ink); white-space: nowrap; }
       .avail { display: block; font-family: var(--mono); font-size: 7.5pt; color: var(--muted); font-weight: 400; }
@@ -109,10 +114,16 @@ const faqForPrint = faqItems.map((item) => ({
       .faq h3 { margin-bottom: 3pt; }
       .ready { border: 2px solid var(--ink); padding: 10pt 12pt; display: flex; justify-content: space-between; align-items: center; break-inside: avoid; }
       .page-break { break-before: page; }
-      #pdf-footer { display: none; }
+      .sheet-footer { position: fixed; left: 0; right: 0; bottom: 0; padding-top: 5pt; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 6.5pt; letter-spacing: 0.02em; color: var(--muted); white-space: nowrap; gap: 8pt; }
+      .sheet-footer b { color: var(--ink); margin-left: 3pt; }
+      @media screen { .sheet-footer { position: static; margin-top: 24pt; } }
+      /* The empty tfoot repeats on every page and keeps text clear of the fixed footer */
+      table.layout, table.layout > * > tr > td { border: 0; padding: 0; background: none; }
+      table.layout .footer-space { height: 0.45in; }
     </style>
   </head>
   <body>
+    <table class="layout"><tfoot><tr><td><div class="footer-space"></div></td></tr></tfoot><tbody><tr><td>
     <header class="header">
       <Image src={logo} alt="Hampton Roads DevFest" width={240} />
       <div>
@@ -239,7 +250,7 @@ const faqForPrint = faqItems.map((item) => ({
     </section>
 
     <section>
-      <h2><span class="num">06</span> Sponsor FAQ</h2>
+      <h2><span class="num">06</span> Before you commit</h2>
       <div class="faq">
         {faqForPrint.map((item) => (
           <div class="box">
@@ -260,22 +271,22 @@ const faqForPrint = faqItems.map((item) => ({
       <div class="ready">
         <div>
           <h3 style="font-size: 13pt;">Ready to sponsor?</h3>
-          <p>Packages, details and the reservation form: <a href={SPONSOR_URL}><strong>hrdevfest.org/sponsor</strong></a></p>
+          <p>Packages, the full FAQ and the reservation form: <a href={SPONSOR_URL}><strong>hrdevfest.org/sponsor</strong></a></p>
           <p>Questions: <a href={`mailto:${email}`}><strong>{email}</strong></a></p>
         </div>
         <a href={SPONSOR_URL} class="qr" set:html={sponsorQr} aria-label="hrdevfest.org/sponsor" />
       </div>
     </section>
 
-    <!-- Copied into every PDF page's footer by scripts/generate-sponsor-pdf.mjs (inline styles only) -->
-    <template id="pdf-footer">
-      <div style="width: 100%; margin: 0 0.5in; padding-top: 6px; border-top: 1px solid #9fb3c8; display: flex; justify-content: space-between; font-family: 'Cascadia Mono', Consolas, monospace; font-size: 7px; color: #4a5868; letter-spacing: 0.06em;">
-        <span>PROJECT&nbsp; <b style="color: #0b3d6e;">Hampton Roads DevFest 2027</b></span>
-        <span>DATE&nbsp; <b style="color: #0b3d6e;">Apr 23, 2027</b></span>
-        <span>CONTACT&nbsp; <b style="color: #0b3d6e;">{email}</b></span>
-        <span>UPDATED&nbsp; <b style="color: #0b3d6e;">{updated}</b></span>
-        <span>REVOLUTIONVA · 501(C)(3) NONPROFIT · PAGE <span class="pageNumber"></span>/<span class="totalPages"></span></span>
-      </div>
-    </template>
+    </td></tr></tbody></table>
+
+    <!-- Repeats at the bottom of every printed page (position: fixed) -->
+    <footer class="sheet-footer">
+      <span>Project <b>Hampton Roads DevFest 2027</b></span>
+      <span>Date <b>Apr 23, 2027</b></span>
+      <span>Contact <b>{email}</b></span>
+      <span>Updated <b>{updated}</b></span>
+      <span><b>RevolutionVA</b></span>
+    </footer>
   </body>
 </html>
