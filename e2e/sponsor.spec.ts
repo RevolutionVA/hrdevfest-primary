@@ -88,10 +88,43 @@ test.describe("Sponsor Page", () => {
     await page.goto("/sponsor");
     await expect(page.locator("body")).not.toContainText("Exhibitor");
     await expect(page.locator("body")).not.toContainText("$1,500");
-    await expect(page.locator("#at-a-glance")).toContainText("A sponsor table starts at $2,500.");
+    const tableGroup = page.locator("#at-a-glance div").filter({
+      has: page.getByRole("heading", { name: "Featured, Main Stage and Presenting also include:" }),
+    }).last();
+    await expect(tableGroup.locator("li").filter({ hasText: /^A sponsor table$/ })).toHaveCount(1);
     const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
     expect(options).toContain("Featured Sponsor ($2,500)");
     expect(options.some((o) => o.includes("1,500") || o.includes("Exhibitor"))).toBe(false);
+  });
+
+  test("additional benefits are a bulleted list, one benefit per bullet", async ({ page }) => {
+    await page.goto("/sponsor");
+    const lists = page.locator("#at-a-glance ul.list-disc:visible").filter({ hasText: "Newsletter feature" });
+    const list = lists.first();
+    await expect(list).toHaveCSS("list-style-type", "disc");
+    await expect(list.locator("> li").filter({ hasText: /^Newsletter feature$/ })).toHaveCount(1);
+    await expect(list.locator("> li").filter({ hasText: /^4 dedicated social posts$/ })).toHaveCount(1);
+  });
+
+  test("package and partnership notes are bulleted lists under their tables", async ({ page }) => {
+    await page.goto("/sponsor");
+    for (const [section, heading, item] of [
+      ["#at-a-glance", "Every package includes:", "The post-event report"],
+      ["#partnerships", "Every partnership includes:", "The tickets shown"],
+    ]) {
+      const h = page.locator(section).getByRole("heading", { name: heading });
+      await expect(h).toBeVisible();
+      const list = h.locator("xpath=following-sibling::ul[1]");
+      await expect(list).toHaveCSS("list-style-type", "disc");
+      await expect(list.locator("li").filter({ hasText: new RegExp(`^${item}$`) })).toHaveCount(1);
+      // notes sit below the table, not above it
+      const table = page.locator(`${section} table`);
+      const tableBox = await table.boundingBox();
+      const hBox = await h.boundingBox();
+      if (tableBox) expect(hBox!.y).toBeGreaterThan(tableBox.y);
+    }
+    const partnerList = page.locator("#partnerships ul:visible").filter({ hasText: "Reception signage" }).first();
+    await expect(partnerList).toHaveCSS("list-style-type", "disc");
   });
 
   test("reservation form has no budget-year or PO fields", async ({ page }) => {

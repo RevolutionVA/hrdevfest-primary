@@ -83,12 +83,12 @@ const glance: GlanceRow[] = [
     available: "1",
     tickets: "12",
     benefits: [
-      '"DevFest presented by [Company]"',
-      "Most prominent branding on the website, event emails and signage",
-      "15 minutes of Sponsor Stage Time at opening",
+      '"DevFest presented by [Company]" naming',
+      "Top branding on the website, event emails and signage",
+      "15 min of Sponsor Stage Time at opening",
       "Newsletter feature",
       "4 dedicated social posts",
-      "One post-event email to opted-in attendees, sent by DevFest",
+      "1 post-event email to opted-in attendees",
     ],
   },
   {
@@ -98,10 +98,10 @@ const glance: GlanceRow[] = [
     tickets: "10",
     benefits: [
       '"[Company] Main Stage" naming on signage and schedule',
-      "15 minutes of Sponsor Stage Time in the afternoon",
+      "15 min of Sponsor Stage Time in the afternoon",
       "Newsletter feature",
       "3 dedicated social posts",
-      "One post-event email to opted-in attendees, sent by DevFest",
+      "1 post-event email to opted-in attendees",
     ],
   },
   {
@@ -110,7 +110,7 @@ const glance: GlanceRow[] = [
     available: "5",
     tickets: "4",
     benefits: [
-      "Larger logo placement",
+      "Larger logo",
       "Newsletter mention",
       "2 dedicated social posts",
     ],
@@ -121,8 +121,8 @@ const glance: GlanceRow[] = [
     available: "Unlimited",
     tickets: "1",
     benefits: [
-      "Your logo on the website and event slides",
-      "A group thank-you",
+      "Logo on the website and event slides",
+      "Group thank-you",
     ],
     checkoutHref: COMMUNITY_CHECKOUT_HREF,
   },
@@ -147,12 +147,12 @@ const partnerships: Partnership[] = [
     available: "1 exclusive",
     tickets: "10",
     benefits: [
-      'Exclusive naming: "DevFest Reception presented by [Company]"',
+      '"DevFest Reception presented by [Company]" naming',
       "Reception signage",
       "Recognition in reception announcements",
-      "A thank-you during conference closing",
-      "A sponsor welcome of up to two minutes at the reception",
-      "One post-event email to opted-in attendees, sent by DevFest",
+      "Thank-you at conference closing",
+      "Welcome of up to 2 min at the reception",
+      "1 post-event email to opted-in attendees",
     ],
   },
   {
@@ -163,7 +163,7 @@ const partnerships: Partnership[] = [
     tickets: "2",
     benefits: [
       "Lunch area branding",
-      "A thank-you before lunch",
+      "Thank-you before lunch",
     ],
   },
   {
@@ -173,8 +173,8 @@ const partnerships: Partnership[] = [
     available: "1 exclusive",
     tickets: "1",
     benefits: [
-      "Funds 20 conference tickets for students and veterans",
-      "Recognition as the scholarship program's supporter",
+      "Funds 20 tickets for students and veterans",
+      "Recognition as scholarship supporter",
     ],
   },
   {
@@ -184,7 +184,8 @@ const partnerships: Partnership[] = [
     available: "1 exclusive",
     tickets: "1",
     benefits: [
-      'Naming on all four Pop-up Meetups ("Pop-up Meetup presented by [Company]")',
+      '"Pop-up Meetup presented by [Company]" naming',
+      "On all 4 Pop-up Meetups",
     ],
     linkLabel: "Pop-up Meetups",
     linkHref: "https://revolutionva.org/programs/pop-up-meetups/",
@@ -197,7 +198,7 @@ const partnerships: Partnership[] = [
     tickets: "1",
     benefits: [
       "Coffee station branding",
-      "A thank-you during opening remarks",
+      "Thank-you during opening remarks",
     ],
   },
   {
@@ -207,7 +208,7 @@ const partnerships: Partnership[] = [
     available: "1 exclusive",
     tickets: "1",
     benefits: [
-      "Company logo alongside DevFest branding on attendee lanyards",
+      "Your logo on attendee lanyards, with DevFest branding",
     ],
   },
 ];
@@ -658,11 +659,6 @@ const email = "team@revolutionva.org";
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Core sponsorship packages</h2>
         </div>
-        <ul class="max-w-[72ch] flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-          <li class="py-3 md:py-2.5">Every package includes website and slide recognition, a group thank-you and the post-event report.</li>
-          <li class="py-3 md:py-2.5">A sponsor table starts at $2,500. Featured, Main Stage and Presenting include a table and a hiring-board listing.</li>
-        </ul>
-
         <div class="md:hidden flex flex-col gap-4">
           {glance.map((row) => (
             <article class="bp-box p-5 flex flex-col gap-3">
@@ -675,7 +671,7 @@ const email = "team@revolutionva.org";
                 <li class="py-2.5"><span class="bp-label">Tickets for your team</span> {row.tickets}</li>
                 <li class="py-2.5">
                   <span class="bp-label">Additional benefits</span>
-                  <ul class="mt-1.5 flex flex-col gap-1">
+                  <ul class="mt-1.5 pl-5 list-disc flex flex-col gap-1">
                     {row.benefits.map((benefit) => (
                       <li>{benefit}</li>
                     ))}
@@ -710,7 +706,7 @@ const email = "team@revolutionva.org";
                   <td>{row.available}</td>
                   <td>{row.tickets}</td>
                   <td class="leading-snug">
-                    <ul class="flex flex-col gap-1 list-none m-0 p-0">
+                    <ul class="flex flex-col gap-1 list-disc m-0 pl-5">
                       {row.benefits.map((benefit) => (
                         <li>{benefit}</li>
                       ))}
@@ -720,6 +716,24 @@ const email = "team@revolutionva.org";
               ))}
             </tbody>
           </table>
+        </div>
+        <!-- What every package includes: short lists, under the table -->
+        <div class="grid gap-6 md:grid-cols-2 max-w-[880px]">
+          <div>
+            <h3 class="text-base font-bold leading-snug">Every package includes:</h3>
+            <ul class="mt-2 pl-5 list-disc flex flex-col gap-1.5 text-base leading-relaxed">
+              <li>Website and slide recognition</li>
+              <li>A group thank-you</li>
+              <li>The post-event report</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-base font-bold leading-snug">Featured, Main Stage and Presenting also include:</h3>
+            <ul class="mt-2 pl-5 list-disc flex flex-col gap-1.5 text-base leading-relaxed">
+              <li>A sponsor table</li>
+              <li>A hiring-board listing</li>
+            </ul>
+          </div>
         </div>
         <!-- Community $500: the one full callout -->
         <div id="community" class="mt-2 md:mt-0 mx-[5px] scroll-mt-6">
@@ -731,7 +745,6 @@ const email = "team@revolutionva.org";
             buttonLabelShort="Community ($500)"
             buttonHref={COMMUNITY_CHECKOUT_HREF}
           />
-          <p class="bp-muted text-sm leading-relaxed mt-4 max-w-[72ch]">Checkout opens Stripe in a new tab.</p>
         </div>
 
         <!-- How to sponsor: right after the packages, so the next step is next -->
@@ -753,14 +766,6 @@ const email = "team@revolutionva.org";
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
           <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">Event &amp; Community Partnerships</h2>
         </div>
-        <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed max-w-[72ch]">
-          <li class="py-2.5">Buy separately or add to a sponsorship package. One partner per offering.</li>
-          <li class="py-2.5">Every partnership includes website and slide recognition, the post-event report, and the tickets shown.</li>
-          <li class="py-2.5">Partnership tickets add to any core package tickets.</li>
-          <li class="py-2.5">Standalone partnerships don't include a table.</li>
-          <li class="py-2.5">Only the Pop-up Series Partner names the Pop-up Meetups. Hosts are thanked at the meetup they host.</li>
-        </ul>
-
         <div class="md:hidden flex flex-col gap-4">
           {partnerships.map((partner) => (
             <article class="bp-box p-5 flex flex-col gap-3">
@@ -770,7 +775,7 @@ const email = "team@revolutionva.org";
               </div>
               <p class="bp-label">{partner.available}</p>
               <p class="text-base leading-relaxed"><span class="bp-label">Tickets for your team</span> {partner.tickets}</p>
-              <ul class="text-base leading-relaxed flex flex-col gap-1">
+              <ul class="pl-5 list-disc text-base leading-relaxed flex flex-col gap-1">
                 {partner.benefits.map((benefit) => (
                   <li>
                     {partner.linkLabel && partner.linkHref && benefit.includes(partner.linkLabel) ? (
@@ -806,7 +811,7 @@ const email = "team@revolutionva.org";
                   <td>{partner.available}</td>
                   <td>{partner.tickets}</td>
                   <td class="leading-snug">
-                    <ul class="flex flex-col gap-1 list-none m-0 p-0">
+                    <ul class="flex flex-col gap-1 list-disc m-0 pl-5">
                       {partner.benefits.map((benefit) => (
                         <li>
                           {partner.linkLabel && partner.linkHref && benefit.includes(partner.linkLabel) ? (
@@ -825,11 +830,27 @@ const email = "team@revolutionva.org";
             </tbody>
           </table>
         </div>
-        <div class="bp-surface max-w-[72ch]">
-          <p class="bp-label mb-2">Who the Reception Partner hosts</p>
-          <p class="text-base leading-relaxed">
-            All registered attendees are invited to the official post-event reception. Venue and timing will be announced.
-          </p>
+        <!-- How partnerships work: short lists, under the table -->
+        <div class="grid gap-6 md:grid-cols-2 max-w-[880px]">
+          <div>
+            <h3 class="text-base font-bold leading-snug">Every partnership includes:</h3>
+            <ul class="mt-2 pl-5 list-disc flex flex-col gap-1.5 text-base leading-relaxed">
+              <li>Website and slide recognition</li>
+              <li>The post-event report</li>
+              <li>The tickets shown</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-base font-bold leading-snug">Good to know:</h3>
+            <ul class="mt-2 pl-5 list-disc flex flex-col gap-1.5 text-base leading-relaxed">
+              <li>Buy alone or add to a package</li>
+              <li>One partner per offering</li>
+              <li>Tickets add to any package tickets</li>
+              <li>Standalone partnerships don't include a table</li>
+              <li>Only the Pop-up Series Partner names the Pop-up Meetups</li>
+              <li>Hosts are thanked at the meetup they host</li>
+            </ul>
+          </div>
         </div>
         <div class="flex flex-wrap gap-3">
           <a href="#reserve" class="px-8 py-3 btn-primary text-base whitespace-nowrap min-h-12">Become a Sponsor</a>
@@ -841,7 +862,7 @@ const email = "team@revolutionva.org";
     <section id="the-day" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
-          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">The day</h2>
+          <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">The day (tentative schedule)</h2>
         </div>
         <!-- Mobile: one ruled row per slot, so the sponsor-time flag never scrolls off-screen -->
         <ol class="md:hidden bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border border-[var(--bp-line-soft)]">
