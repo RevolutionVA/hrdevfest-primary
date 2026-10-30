@@ -180,12 +180,10 @@ export const partnerships: Partnership[] = [
   },
 ];
 
-// A bullet can carry a nested list (for example, what the report covers)
-export type FaqBullet = string | { text: string; items: string[] };
-
+// Sponsor FAQ: every answer is plain paragraphs, no bullets (Kevin)
 export interface FaqItem {
   title: string;
-  bullets: FaqBullet[];
+  paragraphs: string[];
   open?: boolean;
 }
 
@@ -193,166 +191,66 @@ export const faqItems: FaqItem[] = [
   {
     title: "Commit now. Pay in 2027 if needed.",
     open: true,
-    bullets: [
-      "Reserve with the form above or email team@revolutionva.org.",
-      "Using your 2027 budget? Tell us when you book.",
-      "We confirm your payment date with your reservation.",
-      "Payment is due within 30 days of invoicing unless we agree on a 2027 payment date when you book.",
-      "Community ($500) is paid at checkout.",
-      "We hold your package for 30 days after you reserve. Need longer for approvals? Ask and we'll extend it.",
-      "Sign and logo files are due by Apr 1, 2027.",
+    paragraphs: [
+      "All sponsors can pay by credit card, check, or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full.",
     ],
   },
   {
     title: "Payment",
-    bullets: [
-      {
-        text: "Checkout asks for:",
-        items: [
-          "Your company name",
-          "Contact emails",
-          "A logo link (or we follow up)",
-        ],
-      },
-      {
-        text: "Paying an invoice by card adds 3%. No fee for:",
-        items: [
-          "Check",
-          "ACH",
-        ],
-      },
+    paragraphs: [
+      "Checkout asks for your company name, contact emails and a logo link (or we follow up). Paying an invoice by card adds 3%. Check and ACH have no fee. We accept purchase orders and can send a quote.",
       "In-kind support, such as venue or Pop-up Meetup hosting, counts toward Community recognition once we agree on a written value. It's itemized separately.",
-      "We accept purchase orders and can send a quote.",
     ],
   },
   {
     title: "Do you work with supplier portals?",
-    bullets: [
-      {
-        text: "Yes, for:",
-        items: [
-          "Presenting",
-          "Main Stage",
-          "Reception",
-        ],
-      },
-    ],
+    paragraphs: ["Yes, for Presenting, Main Stage and Reception sponsorships."],
   },
   {
     title: "Attendee privacy",
     open: true,
-    bullets: [
-      "Sponsor email opt-in is off by default.",
-      {
-        text: "These sponsorships each include one post-event email, sent by DevFest to attendees who opt in:",
-        items: [
-          "Presenting",
-          "Main Stage",
-          "Reception",
-        ],
-      },
-      "One email per qualifying offering.",
-      "We never share attendee contacts with sponsors.",
-      "We never sell attendee lists, and we never scan badges.",
+    paragraphs: [
+      "Sponsor email opt-in is off by default. Presenting, Main Stage and Reception each include one post-event email, sent by DevFest to attendees who opt in. That's one email per qualifying offering.",
+      "We never share attendee contacts with sponsors. We never sell attendee lists, and we never scan badges.",
     ],
   },
   {
     title: "Post-event report",
-    bullets: [
-      "Every sponsor receives the post-event report.",
-      "The report lists companies present, when attendees provide them.",
-      {
-        text: "It includes photos of sponsor tables or signage, plus aggregate audience data:",
-        items: [
-          "Attendance and check-ins",
-          "Roles and seniority",
-          "Hiring, looking for work, internship, and open-to-contract ribbons",
-          "Regions, students, veterans, and tech stacks",
-          "Military or transitioning from the military (optional at registration)",
-          "Scholars who attended versus scholars funded",
-          "Newsletter and social reach",
-        ],
-      },
+    paragraphs: [
+      "Every sponsor receives the post-event report. It lists companies present, when attendees provide them, and includes photos of sponsor tables or signage.",
+      "It also shares aggregate audience data: attendance and check-ins; roles and seniority; hiring, looking for work, internship and open-to-contract ribbons; regions, students, veterans and tech stacks; military or transitioning from the military (optional at registration); scholars who attended versus scholars funded; and newsletter and social reach.",
       "It never includes attendee names or contact details.",
     ],
   },
   {
     title: "Hiring board and ribbons",
-    bullets: [
-      {
-        text: "These sponsorships include a hiring-board listing near registration and on the DevFest site:",
-        items: [
-          "Featured",
-          "Main Stage",
-          "Presenting",
-        ],
-      },
-      "Standalone partnerships do not include a hiring-board listing.",
-      "Sponsors write their own listings. Every role must include an expected salary range.",
-      "We don't collect resumes.",
-      {
-        text: "Attendees can wear ribbons:",
-        items: [
-          "Hiring",
-          "Looking for work",
-          "Internship",
-          "Open to contract work",
-        ],
-      },
+    paragraphs: [
+      "Featured, Main Stage and Presenting include a hiring-board listing near registration and on the DevFest site. Standalone partnerships do not include a hiring-board listing.",
+      "Sponsors write their own listings. Every role must include an expected salary range. We don't collect resumes.",
+      "Attendees can wear Hiring, Looking for work, Internship or Open to contract work ribbons.",
     ],
   },
   {
     title: "Speakers and Sponsor Stage Time",
-    bullets: [
-      "We invite speakers from community recommendations. There's no open call.",
-      "Anyone can be recommended, including sponsor staff. That's separate from sponsorship.",
-      {
-        text: "These sponsorships each include 15 minutes of Sponsor Stage Time, clearly labeled as sponsor presentations:",
-        items: [
-          "Presenting",
-          "Main Stage",
-        ],
-      },
-      "The Reception Partner gives a welcome of up to two minutes at the reception, separate from conference talks.",
+    paragraphs: [
+      "We invite speakers from community recommendations. There's no open call. Anyone can be recommended, including sponsor staff. That's separate from sponsorship.",
+      "Presenting and Main Stage each include 15 minutes of Sponsor Stage Time, clearly labeled as sponsor presentations. The Reception Partner gives a welcome of up to two minutes at the reception, separate from conference talks.",
     ],
   },
   {
     title: "Logo files",
-    bullets: [
-      {
-        text: "Preferred formats (we print signs from these):",
-        items: [
-          "SVG",
-          "EPS",
-          "PDF",
-        ],
-      },
-      "PNG only? Use a transparent background, at least 1,000 px wide.",
-      {
-        text: "Send two versions:",
-        items: [
-          "One for light backgrounds",
-          "One for dark backgrounds (such as all-white)",
-        ],
-      },
-      "A horizontal logo works best. We'll resize it for the site.",
+    paragraphs: [
+      "SVG, EPS or PDF preferred. We print signs from it. PNG only? Use a transparent background, at least 1,000 px wide.",
+      "Send one version for light backgrounds and one for dark, such as all-white. A horizontal logo works best. We'll resize it for the site.",
       "Send files to team@revolutionva.org by Apr 1, 2027.",
     ],
   },
   {
     title: "Paperwork",
-    bullets: [
+    paragraphs: [
       "Our W-9 and 501(c)(3) letter are available on request.",
-      "Sponsorships are invoiced as sponsorships, not donations.",
-      "Please consult your tax advisor on how to treat them.",
-      {
-        text: "Sponsorship doesn't include access to officials who attend, including:",
-        items: [
-          "Elected officials",
-          "Government officials",
-          "Military officials",
-        ],
-      },
+      "Sponsorships are invoiced as sponsorships, not donations. Please consult your tax advisor on how to treat them.",
+      "Sponsorship doesn't include access to officials who attend, including elected, government and military officials.",
     ],
   },
 ];

@@ -41,15 +41,9 @@ const updated = new Date().toLocaleDateString("en-US", {
 });
 
 const corePackages = glance.filter((row) => !row.checkoutHref);
-// The site is the full FAQ; the sheet carries only what approvers ask first.
-// The web FAQ points at the form "above"; on paper, point at the page instead.
+// The site is the full FAQ; the sheet carries only what approvers ask first
 const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy"];
-const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.title)).map((item) => ({
-  ...item,
-  bullets: item.bullets.map((b) =>
-    typeof b === "string" ? b.replace("the form above", "the form at hrdevfest.org/sponsor") : b
-  ),
-}));
+const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.title));
 ---
 
 <html lang="en">
@@ -112,6 +106,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       .faq { columns: 2; column-gap: 18pt; }
       .faq .box { margin-bottom: 8pt; }
       .faq h3 { margin-bottom: 3pt; }
+      .faq-p + .faq-p { margin-top: 4pt; }
       .ready { border: 2px solid var(--ink); padding: 10pt 12pt; display: flex; justify-content: space-between; align-items: center; break-inside: avoid; }
       .page-break { break-before: page; }
       .sheet-footer { position: fixed; left: 0; right: 0; bottom: 0; padding-top: 5pt; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 6.5pt; letter-spacing: 0.02em; color: var(--muted); white-space: nowrap; gap: 8pt; }
@@ -255,13 +250,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
         {faqForPrint.map((item) => (
           <div class="box">
             <h3>{item.title}</h3>
-            <ul>
-              {item.bullets.map((b) =>
-                typeof b === "string" ? <li>{b}</li> : (
-                  <li>{b.text}<ul>{b.items.map((i) => <li>{i}</li>)}</ul></li>
-                )
-              )}
-            </ul>
+            {item.paragraphs.map((text) => <p class="faq-p">{text}</p>)}
           </div>
         ))}
       </div>

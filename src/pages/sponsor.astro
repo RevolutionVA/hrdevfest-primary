@@ -677,18 +677,9 @@ const packageOptions = [
                   <span class="bp-mono text-base bp-muted" aria-hidden="true"><span class="group-open:hidden">+</span><span class="hidden group-open:inline">&minus;</span></span>
                 </summary>
                 <div class="grid grid-cols-[3.5rem_1fr] gap-x-2 pb-4">
-                  <ul class="col-start-2 max-w-[72ch] flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-                    {item.bullets.map((b) => typeof b === "string" ? (
-                      <li class="py-2">{b}</li>
-                    ) : (
-                      <li class="py-2">
-                        {b.text}
-                        <ul class="mt-2 pl-5 list-disc flex flex-col gap-1">
-                          {b.items.map((sub) => <li>{sub}</li>)}
-                        </ul>
-                      </li>
-                    ))}
-                  </ul>
+                  <div class="col-start-2 max-w-[72ch] flex flex-col gap-3 text-base leading-relaxed">
+                    {item.paragraphs.map((text) => <p>{text}</p>)}
+                  </div>
                 </div>
               </details>
             </li>

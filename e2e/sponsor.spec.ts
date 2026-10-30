@@ -185,6 +185,18 @@ test.describe("Sponsor Page", () => {
     );
   });
 
+  test("sponsor FAQ answers are plain paragraphs with Kevin's payment answer", async ({ page }) => {
+    for (const path of ["/sponsor", "/sponsor/print"]) {
+      await page.goto(path);
+      const faq = path === "/sponsor" ? page.locator("#sponsor-faq") : page.locator(".faq");
+      await expect(faq.locator("li li, details li, .box li")).toHaveCount(0);
+      await expect(faq).toContainText(
+        "All sponsors can pay by credit card, check, or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full."
+      );
+      await expect(faq).not.toContainText("Community checkout is a flat $500");
+    }
+  });
+
   test("reservation form has no budget-year or PO fields", async ({ page }) => {
     await page.goto("/sponsor");
     const form = page.locator("#reserve form");
