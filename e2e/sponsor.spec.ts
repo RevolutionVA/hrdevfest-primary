@@ -89,14 +89,24 @@ test.describe("Sponsor Page", () => {
   test("the $1,500 Exhibitor package is gone and tables start at $2,500", async ({ page }) => {
     await page.goto("/sponsor");
     await expect(page.locator("body")).not.toContainText("Exhibitor");
-    await expect(page.locator("body")).not.toContainText("$1,500");
     const tableGroup = page.locator("#at-a-glance div").filter({
       has: page.getByRole("heading", { name: "Featured, Main Stage and Presenting also include:" }),
     }).last();
     await expect(tableGroup.locator("li").filter({ hasText: /^A sponsor table$/ })).toHaveCount(1);
     const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
     expect(options).toContain("Featured Sponsor ($2,500)");
-    expect(options.some((o) => o.includes("1,500") || o.includes("Exhibitor"))).toBe(false);
+    expect(options.some((o) => o.includes("Exhibitor"))).toBe(false);
+  });
+
+  test("the Pop-up Series Partner is $1,500 on the page, the form and the print sheet", async ({ page }) => {
+    await page.goto("/sponsor");
+    const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
+    expect(options).toContain("Pop-up Series Partner ($1,500)");
+    expect(options.filter((o) => o.includes("1,500"))).toEqual(["Pop-up Series Partner ($1,500)"]);
+    const row = page.locator("#partnerships tr").filter({ hasText: "Pop-up Series Partner" });
+    await expect(row).toContainText("$1,500");
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table:not(.layout) tr").filter({ hasText: "Pop-up Series" })).toContainText("$1,500");
   });
 
   test("additional benefits are a bulleted list, one benefit per bullet", async ({ page }) => {
@@ -173,7 +183,6 @@ test.describe("Sponsor Page", () => {
     await expect(body).toContainText("The day (tentative schedule)");
     await expect(body).toContainText("Every package includes:");
     await expect(body).not.toContainText("Exhibitor");
-    await expect(body).not.toContainText("$1,500");
     await expect(body).not.toContainText("Stripe");
     await expect(body).not.toContainText("Who the Reception Partner hosts");
   });
@@ -194,6 +203,7 @@ test.describe("Sponsor Page", () => {
         "All sponsors can pay by credit card, check, or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full."
       );
       await expect(faq).not.toContainText("Community checkout is a flat $500");
+      await expect(faq).not.toContainText("In-kind support");
     }
   });
 

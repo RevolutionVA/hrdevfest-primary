@@ -147,7 +147,7 @@ export const partnerships: Partnership[] = [
   {
     id: "popup-series-partner",
     name: "Pop-up Series Partner",
-    price: "$1,000",
+    price: "$1,500",
     available: "1 exclusive",
     tickets: "1",
     benefits: [
@@ -199,7 +199,6 @@ export const faqItems: FaqItem[] = [
     title: "Payment",
     paragraphs: [
       "Checkout asks for your company name, contact emails and a logo link (or we follow up). Paying an invoice by card adds 3%. Check and ACH have no fee. We accept purchase orders and can send a quote.",
-      "In-kind support, such as venue or Pop-up Meetup hosting, counts toward Community recognition once we agree on a written value. It's itemized separately.",
     ],
   },
   {
