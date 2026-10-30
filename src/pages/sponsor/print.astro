@@ -140,7 +140,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       </div>
       {volunteerTestimonial && (
         <div class="box" style="margin-top: 8pt; display: flex; gap: 10pt; align-items: flex-start;">
-          <Image src={kristinaKrasnolobovaImage} alt="" width={120} height={120} style="width: 0.5in; height: 0.5in; border-radius: 50%; flex: none;" />
+          <Image src={kristinaKrasnolobovaImage} alt={volunteerTestimonial.name} width={120} height={120} style="width: 0.5in; height: 0.5in; border-radius: 50%; flex: none;" />
           <div>
             <blockquote style="margin: 0; font-style: italic;">
               &ldquo;{volunteerTestimonial.quote}&rdquo;

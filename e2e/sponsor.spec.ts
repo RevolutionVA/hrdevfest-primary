@@ -216,6 +216,15 @@ test.describe("Sponsor Page", () => {
     await expect(entry).toContainText("every role must include an expected salary range");
   });
 
+  test("Kristina Krasnolobova's photo has her name as alt text everywhere", async ({ page }) => {
+    for (const path of ["/", "/sponsor", "/sponsor/print"]) {
+      await page.goto(path);
+      const photos = page.locator('img[src*="kristina-krasnolobova"]');
+      await expect(photos, path).toHaveCount(1);
+      await expect(photos, path).toHaveAttribute("alt", "Kristina Krasnolobova");
+    }
+  });
+
   test("reservation form has no budget-year or PO fields", async ({ page }) => {
     await page.goto("/sponsor");
     const form = page.locator("#reserve form");
