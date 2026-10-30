@@ -12,6 +12,7 @@ import Callout from "../components/Callout.astro";
 import { getEntry } from "astro:content";
 import { testimonials } from "../data/testimonials";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
+import kristinaKrasnolobovaImage from "../assets/testimonials/kristina-krasnolobova.webp";
 import {
   SPONSOR_SHEET_PDF_HREF,
   schedule,
@@ -330,13 +331,16 @@ const packageOptions = [
           </figure>
         )}
         {volunteerTestimonial && (
-          <figure class="bp-box p-5 md:p-6 flex flex-col gap-3 max-w-[72ch]">
-            <blockquote class="text-base leading-relaxed">
-              <p>&ldquo;{volunteerTestimonial.quote}&rdquo;</p>
-            </blockquote>
-            <figcaption class="text-base">
-              <span class="font-bold">{volunteerTestimonial.name}</span><span class="bp-muted">, {volunteerTestimonial.role}</span>
-            </figcaption>
+          <figure class="bp-box p-5 md:p-6 flex flex-col sm:flex-row gap-4 sm:items-start max-w-[72ch]">
+            <Image src={kristinaKrasnolobovaImage} alt="" class="bp-photo w-16 h-16 object-cover shrink-0" width={64} height={64} />
+            <div class="flex flex-col gap-3">
+              <blockquote class="text-base leading-relaxed">
+                <p>&ldquo;{volunteerTestimonial.quote}&rdquo;</p>
+              </blockquote>
+              <figcaption class="text-base">
+                <span class="font-bold">{volunteerTestimonial.name}</span><span class="bp-muted">, {volunteerTestimonial.role}</span>
+              </figcaption>
+            </div>
           </figure>
         )}
       </div>

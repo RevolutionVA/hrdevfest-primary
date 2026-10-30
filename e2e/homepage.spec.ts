@@ -46,5 +46,12 @@ test.describe("Homepage", () => {
     await expect(footer.getByText(/RevolutionVA/)).toBeVisible();
     await expect(footer.locator("a[href*='x.com/hrdevfest']")).toBeVisible();
   });
-});
 
+  test("testimonials show Paul, Kristina, Michael, then Travis, each with a photo", async ({ page }) => {
+    await page.goto("/");
+    const names = await page.locator("#testimonials .bp-label").allTextContents();
+    expect(names).toEqual(["Paul Chin Jr.", "Kristina Krasnolobova", "Michael Buckbee", "Travis Webb"]);
+    await expect(page.locator("#testimonials img")).toHaveCount(4);
+    await expect(page.locator('#testimonials img[alt="Kristina Krasnolobova"]')).toBeVisible();
+  });
+});
