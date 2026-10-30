@@ -20,6 +20,9 @@ import {
   partnershipIncludes,
   scheduleNote,
 } from "../../data/sponsor";
+import { testimonials } from "../../data/testimonials";
+
+const volunteerTestimonial = testimonials.find((t) => t.name === "Kristina Krasnolobova");
 
 const SPONSOR_URL = "https://hrdevfest.org/sponsor";
 const qr = (url: string) => QRCode.toString(url, { type: "svg", margin: 0, errorCorrectionLevel: "M" });
@@ -128,6 +131,14 @@ const faqForPrint = faqItems.map((item) => ({
         <p class="label">For 2027</p>
         <ul>{for2027.map((item) => <li><strong>{item.label}</strong> {item.text}</li>)}</ul>
       </div>
+      {volunteerTestimonial && (
+        <div class="box" style="margin-top: 8pt;">
+          <blockquote style="margin: 0; font-style: italic;">
+            &ldquo;{volunteerTestimonial.quote}&rdquo;
+          </blockquote>
+          <p style="margin-top: 6pt; font-weight: 700; color: var(--ink);">{volunteerTestimonial.name}, {volunteerTestimonial.role}</p>
+        </div>
+      )}
     </section>
 
     <section>

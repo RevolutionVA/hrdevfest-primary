@@ -40,6 +40,7 @@ const sponsors2026 = ((await getEntry("events", "2026/event"))?.data.sponsors ??
 
 // The quote that speaks to companies sending their teams
 const sponsorTestimonial = testimonials.find((t) => t.name === "Travis Webb");
+const volunteerTestimonial = testimonials.find((t) => t.name === "Kristina Krasnolobova");
 
 // "Hold my package" form, posted to Bento as its own event (not the attendee signup event)
 const BENTO_SPONSOR_FORM_ACTION =
@@ -326,6 +327,16 @@ const packageOptions = [
                 <span class="font-bold">{sponsorTestimonial.name}</span><span class="bp-muted">, {sponsorTestimonial.role}</span>
               </figcaption>
             </div>
+          </figure>
+        )}
+        {volunteerTestimonial && (
+          <figure class="bp-box p-5 md:p-6 flex flex-col gap-3 max-w-[72ch]">
+            <blockquote class="text-base leading-relaxed">
+              <p>&ldquo;{volunteerTestimonial.quote}&rdquo;</p>
+            </blockquote>
+            <figcaption class="text-base">
+              <span class="font-bold">{volunteerTestimonial.name}</span><span class="bp-muted">, {volunteerTestimonial.role}</span>
+            </figcaption>
           </figure>
         )}
       </div>

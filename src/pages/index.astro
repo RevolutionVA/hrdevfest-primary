@@ -275,11 +275,11 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
 
         <!-- Cards: Mobile/Tablet stacked, Desktop row -->
         <div class="flex flex-col lg:flex-row gap-8">
-          {testimonials.map((testimonial) => (
+          {testimonials.filter((t) => t.image).map((testimonial) => (
             <div class="w-full lg:flex-1 p-6 bp-box flex flex-col md:flex-row lg:flex-col items-center gap-4">
-              {testimonial.image.startsWith('http') ? (
+              {testimonial.image!.startsWith('http') ? (
                 <img
-                  src={testimonial.image}
+                  src={testimonial.image!}
                   alt={testimonial.name}
                   class="bp-photo w-[100px] h-[100px] rounded-full object-cover shrink-0"
                   width="100"
@@ -287,7 +287,7 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
                 />
               ) : (
                 <Image
-                  src={testimonialImages[testimonial.image]}
+                  src={testimonialImages[testimonial.image!]}
                   alt={testimonial.name}
                   class="bp-photo w-[100px] h-[100px] rounded-full object-cover shrink-0"
                   width={100}
