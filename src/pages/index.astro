@@ -275,10 +275,10 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
         <!-- Header -->
         <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center md:text-left">Testimonials</h2>
 
-        <!-- Cards: Mobile/Tablet stacked, Desktop row -->
-        <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Cards: one column on phones and tablets, 2x2 grid on desktop -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {testimonials.filter((t) => t.image).map((testimonial) => (
-            <div class="w-full lg:flex-1 p-6 bp-box flex flex-col md:flex-row lg:flex-col items-center gap-4">
+            <div class="w-full p-6 bp-box flex flex-col md:flex-row items-center md:items-start gap-4">
               {testimonial.image!.startsWith('http') ? (
                 <img
                   src={testimonial.image!}
@@ -297,7 +297,7 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
                 />
               )}
               <div class="w-full flex flex-col gap-4">
-                <div class="pb-4 flex flex-col justify-center items-center md:items-start lg:items-center gap-2.5">
+                <div class="pb-4 flex flex-col justify-center items-center md:items-start gap-2.5">
                   <p class="text-base font-normal leading-relaxed">
                     "{testimonial.quote}"
                   </p>
