@@ -27,7 +27,7 @@ test.describe("Sponsor Page", () => {
     await expect(form).toHaveAttribute("action", /track\.bentonow\.com\/forms\/.+\/\$sponsorHoldHRDevFest/);
     const origin = new URL(page.url()).origin;
     await expect(form.locator('input[name="redirect"]')).toHaveValue(`${origin}/sponsor/thank-you`);
-    await expect(page.getByRole("button", { name: "Hold my package" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Inquire about Sponsorship" })).toBeVisible();
   });
 
   test("a real submit posts the form fields to Bento with a same-host redirect", async ({ page }) => {
@@ -45,7 +45,7 @@ test.describe("Sponsor Page", () => {
     await form.locator('[name="email"]').fill("test@example.com");
     await form.locator('[name="fields_company"]').fill("Example");
     await form.locator('[name="fields_package"]').selectOption({ index: 1 });
-    await page.getByRole("button", { name: "Hold my package" }).click();
+    await page.getByRole("button", { name: "Inquire about Sponsorship" }).click();
     await expect.poll(() => posted).toBeDefined();
     expect(posted!.method).toBe("POST");
     expect(posted!.url).toContain("/forms/57d9b8196b2b704a30da5ac245bf2cfe/$sponsorHoldHRDevFest?hardened=true");
@@ -79,7 +79,7 @@ test.describe("Sponsor Page", () => {
     await form.locator('[name="fields_company"]').fill("Example");
     await form.locator('[name="fields_package"]').selectOption({ index: 1 });
     await optIn.check();
-    await page.getByRole("button", { name: "Hold my package" }).click();
+    await page.getByRole("button", { name: "Inquire about Sponsorship" }).click();
     await expect.poll(() => body).not.toBe("");
     expect(body.match(/name="fields_newsletter_opt_in"\r\n\r\n(\w+)/g)).toEqual([
       'name="fields_newsletter_opt_in"\r\n\r\nyes',
@@ -237,7 +237,7 @@ test.describe("Sponsor Page", () => {
     await form.locator('[name="fields_company"]').fill("Example");
     await form.locator('[name="fields_package"]').selectOption({ index: 1 });
     await form.locator("[data-honeypot]").fill("spam", { force: true });
-    await page.getByRole("button", { name: "Hold my package" }).click();
+    await page.getByRole("button", { name: "Inquire about Sponsorship" }).click();
     await expect(page).toHaveURL(/\/sponsor\/thank-you\/?$/);
     expect(bentoPosted).toBe(false);
   });

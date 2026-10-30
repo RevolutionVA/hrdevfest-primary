@@ -42,7 +42,7 @@ const sponsors2026 = ((await getEntry("events", "2026/event"))?.data.sponsors ??
 const sponsorTestimonial = testimonials.find((t) => t.name === "Travis Webb");
 const volunteerTestimonial = testimonials.find((t) => t.name === "Kristina Krasnolobova");
 
-// "Hold my package" form, posted to Bento as its own event (not the attendee signup event)
+// "Inquire about Sponsorship" form, posted to Bento as its own event (not the attendee signup event)
 const BENTO_SPONSOR_FORM_ACTION =
   "https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$sponsorHoldHRDevFest?hardened=true";
 const SPONSOR_THANK_YOU_URL = "https://hrdevfest.org/sponsor/thank-you";
@@ -71,7 +71,7 @@ const sections = [
   { id: "sponsor-faq", title: "Sponsor FAQ" },
 ];
 
-// Options for the "Hold my package" form
+// Options for the "Inquire about Sponsorship" form
 const packageOptions = [
   ...glance.filter((row) => !row.checkoutHref).map((row) => `${row.package} (${row.price})`),
   ...partnerships.map((partner) => `${partner.name} (${partner.price})`),
@@ -589,7 +589,7 @@ const packageOptions = [
       </div>
     </section>
 
-    <!-- Reserve: "Hold my package" form, posted to Bento -->
+    <!-- Reserve: "Inquire about Sponsorship" form, posted to Bento -->
     <section id="reserve" class="w-full py-10 px-4 md:px-8 lg:py-16 border-t border-[var(--bp-line)] scroll-mt-4">
       <div class="max-w-[1040px] mx-auto flex flex-col gap-6">
         <div class="flex items-baseline gap-4 border-b border-[var(--bp-line)] pb-3">
@@ -634,7 +634,7 @@ const packageOptions = [
               <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" data-honeypot /></label>
             </div>
             <div class="flex flex-col gap-3 pt-2">
-              <button type="submit" class="px-8 py-3 btn-primary text-base min-h-12 w-full sm:w-auto sm:self-start">Hold my package</button>
+              <button type="submit" class="px-8 py-3 btn-primary text-base min-h-12 w-full sm:w-auto sm:self-start">Inquire about Sponsorship</button>
               <p class="text-xs bp-muted">By submitting, you agree to our <a href="https://revolutionva.org/privacy/" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
             </div>
           </form>
@@ -643,7 +643,7 @@ const packageOptions = [
               <p class="bp-label">What happens next</p>
               <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
                 <li class="py-2.5">We email you to confirm your package and payment date.</li>
-                <li class="py-2.5">We hold your package for 30 days. Need longer for approvals? Ask and we'll extend it.</li>
+                <li class="py-2.5">We hold your sponsorship for 30 days. Need longer for approvals? Ask and we'll extend it.</li>
                 <li class="py-2.5">Nothing is charged when you submit this form.</li>
               </ul>
             </div>
