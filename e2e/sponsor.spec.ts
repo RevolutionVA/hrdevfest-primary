@@ -182,6 +182,7 @@ test.describe("Sponsor Page", () => {
     await expect(body).toContainText("Hampton Roads DevFest started with a simple idea.");
     await expect(body).toContainText("The day (tentative schedule)");
     await expect(body).toContainText("Every package includes:");
+    await expect(body).toContainText("See website for FAQ and more: hrdevfest.org/sponsor");
     await expect(body).not.toContainText("Exhibitor");
     await expect(body).not.toContainText("Stripe");
     await expect(body).not.toContainText("Who the Reception Partner hosts");

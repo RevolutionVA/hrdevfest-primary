@@ -42,7 +42,7 @@ const updated = new Date().toLocaleDateString("en-US", {
 
 const corePackages = glance.filter((row) => !row.checkoutHref);
 // The site is the full FAQ; the sheet carries only what approvers ask first
-const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy", "What is the Who's hiring board?"];
+const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy"];
 const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.title));
 ---
 
@@ -260,7 +260,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       <div class="ready">
         <div>
           <h3 style="font-size: 13pt;">Ready to sponsor?</h3>
-          <p>Packages, the full FAQ and the reservation form: <a href={SPONSOR_URL}><strong>hrdevfest.org/sponsor</strong></a></p>
+          <p>See website for FAQ and more: <a href={SPONSOR_URL}><strong>hrdevfest.org/sponsor</strong></a></p>
           <p>Questions: <a href={`mailto:${email}`}><strong>{email}</strong></a></p>
         </div>
         <a href={SPONSOR_URL} class="qr" set:html={sponsorQr} aria-label="hrdevfest.org/sponsor" />
