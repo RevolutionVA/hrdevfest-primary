@@ -1,7 +1,7 @@
 // Renders /sponsor/print from the built site (dist/) to the sponsor sheet PDF linked on /sponsor.
 // Run with `yarn generate:sponsor-pdf` (builds first). The output path comes from SPONSOR_SHEET_PDF_HREF.
 import { createServer } from "node:http";
-import { readFile, readdir, unlink } from "node:fs/promises";
+import { readFile, readdir, unlink, writeFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { chromium } from "@playwright/test";
 
@@ -48,4 +48,13 @@ const dir = join("public", "sponsor");
 for (const file of await readdir(dir)) {
   if (file.endsWith(".pdf") && join(dir, file) !== out) await unlink(join(dir, file));
 }
+
+// Old sponsor sheet URLs redirect to the current file (Azure Static Web Apps routes)
+const swaConfig = join("public", "staticwebapp.config.json");
+const config = JSON.parse(await readFile(swaConfig, "utf8"));
+for (const route of config.routes ?? []) {
+  if (route.route?.startsWith("/sponsor/") && route.route.endsWith(".pdf")) route.redirect = href;
+}
+await writeFile(swaConfig, JSON.stringify(config, null, 2) + "\n");
+
 console.log(`wrote ${out}`);

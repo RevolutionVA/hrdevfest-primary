@@ -140,6 +140,19 @@ test.describe("Sponsor Page", () => {
     expect(res.headers()["content-type"]).toContain("pdf");
   });
 
+  test("old sponsor PDF URLs redirect to the current sheet", async ({ page, request }) => {
+    await page.goto("/sponsor");
+    const href = await page.locator('a[href$=".pdf"]').getAttribute("href");
+    const config = await (await request.get("/staticwebapp.config.json")).json();
+    for (const old of [
+      "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-28.pdf",
+      "/sponsor/hrdevfest-2027-sponsor-sheet-print-2026-10-28.pdf",
+    ]) {
+      const route = config.routes.find((r: { route: string }) => r.route === old);
+      expect(route).toMatchObject({ redirect: href, statusCode: 302 });
+    }
+  });
+
   test("printable sheet page matches the site copy and stays out of search", async ({ page }) => {
     await page.goto("/sponsor/print");
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
