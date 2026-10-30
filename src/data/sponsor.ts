@@ -140,7 +140,7 @@ export const partnerships: Partnership[] = [
     available: "1 exclusive",
     tickets: "1",
     benefits: [
-      "Funds 20 tickets for students and veterans",
+      "Funds 20 tickets for students, veterans and people between jobs",
       "Recognition as scholarship supporter",
     ],
   },
@@ -192,13 +192,14 @@ export const faqItems: FaqItem[] = [
     title: "Commit now. Pay in 2027 if needed.",
     open: true,
     paragraphs: [
-      "All sponsors can pay by credit card, check, or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full.",
+      "All sponsors can pay by credit card, check or ACH. We will hold your sponsorship for 30 days unless we agree on a future payment date. Logos and promotion won't start until payment is received in full.",
     ],
   },
   {
     title: "Payment",
     paragraphs: [
-      "Checkout asks for your company name, contact emails and a logo link (or we follow up). Paying an invoice by card adds 3%. Check and ACH have no fee. We accept purchase orders and can send a quote.",
+      "When you pay for Community online, checkout asks for your company name, contact emails and a logo link. No logo link yet? We follow up.",
+      "Paying an invoice by credit card adds 3%. Paying by check or ACH has no fee. We accept purchase orders and can send a quote.",
     ],
   },
   {
@@ -209,7 +210,7 @@ export const faqItems: FaqItem[] = [
     title: "Attendee privacy",
     open: true,
     paragraphs: [
-      "Sponsor email opt-in is off by default. Presenting, Main Stage and Reception each include one post-event email, sent by DevFest to attendees who opt in. That's one email per qualifying offering.",
+      "Attendees don't get sponsor email unless they opt in. Presenting, Main Stage and Reception each include one post-event email, sent by DevFest only to attendees who opt in. That's one email per qualifying offering.",
       "We never share attendee contacts with sponsors. We never sell attendee lists, and we never scan badges.",
     ],
   },
@@ -217,20 +218,26 @@ export const faqItems: FaqItem[] = [
     title: "Post-event report",
     paragraphs: [
       "Every sponsor receives the post-event report. It lists companies present, when attendees provide them, and includes photos of sponsor tables or signage.",
-      "It also shares aggregate audience data: attendance and check-ins; roles and seniority; hiring, looking for work, internship and open-to-contract ribbons; regions, students, veterans and tech stacks; military or transitioning from the military (optional at registration); scholars who attended versus scholars funded; and newsletter and social reach.",
+      "It also shares aggregate audience data: attendance and check-ins; roles and seniority; hiring, looking for work, internship and open-to-contract ribbons; regions, students, veterans and tech stacks; military or transitioning from the military, as totals only (optional at registration); scholar counts, funded and attended; and newsletter and social reach.",
       "It never includes attendee names or contact details.",
+    ],
+  },
+  {
+    title: "How do I host a Pop-up Meetup?",
+    paragraphs: [
+      "Offer a venue. A room for about twenty people and somewhere to put a screen is enough. Submit it at revolutionva.org/programs/pop-up-meetups. Hosts are thanked at the meetup they host.",
     ],
   },
   {
     title: "What is the Who's hiring board?",
     paragraphs: [
-      "The Who's hiring board is where sponsors list open roles. We put it up at DevFest, near registration, and on the DevFest site. Every package at $2,500 and up includes a listing; standalone partnerships don't. Write your listings however you want, for example noting that a clearance is required, but every role must include an expected salary range.",
+      "The Who's hiring board is where sponsors list open roles. We put it up at DevFest, near registration, and on the DevFest site. Featured, Main Stage and Presenting include a listing. Partnerships, including the Reception Partner, don't. Write your listings however you want, for example noting that a clearance is required, but every role must include an expected salary range.",
     ],
   },
   {
     title: "Ribbons and resumes",
     paragraphs: [
-      "Attendees can wear Hiring, Looking for work, Internship or Open to contract work ribbons. We don't collect resumes.",
+      "Ribbons are optional. Attendees can choose to wear Hiring, Looking for work, Internship or Open to contract work. We don't collect resumes.",
     ],
   },
   {
@@ -299,13 +306,13 @@ export const for2027 = [
   { label: "Local talent on stage.", text: "One track in one room, so everyone sees every talk." },
   { label: "The Studio.", text: "An open room for lunch and conversation." },
   { label: "Real time with attendees.", text: "Registration networking, two 30-minute breaks at the sponsor tables, and a 75-minute lunch." },
-  { label: "Scholarship seats.", text: "Our Scholarship Partner funds seats for students and veterans." },
+  { label: "Scholarship seats.", text: "Our Scholarship Partner funds seats for students, veterans and people between jobs." },
 ];
 
 // Short lists under the package and partnership tables
 export const packageIncludes = {
   every: { title: "Every package includes:", items: ["Website and slide recognition", "A group thank-you", "The post-event report"] },
-  tableTiers: { title: "Featured, Main Stage and Presenting also include:", items: ["A sponsor table", "A hiring-board listing"] },
+  tableTiers: { title: "Featured, Main Stage and Presenting also include:", items: ["A sponsor table", "A Who's hiring board listing"] },
 };
 export const partnershipIncludes = {
   every: { title: "Every partnership includes:", items: ["Website and slide recognition", "The post-event report", "The tickets shown"] },
@@ -314,7 +321,7 @@ export const partnershipIncludes = {
     items: [
       "Buy alone or add to a package",
       "One partner per offering",
-      "Tickets add to any package tickets",
+      "Partnership tickets come on top of any package tickets",
       "Standalone partnerships don't include a table",
       "Only the Pop-up Series Partner names the Pop-up Meetups",
       "Hosts are thanked at the meetup they host",

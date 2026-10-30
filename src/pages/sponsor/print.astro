@@ -101,6 +101,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       .qr svg { width: 100%; height: 100%; display: block; }
       .qr-wrap { text-align: center; }
       .qr-wrap .label { margin-top: 3pt; display: block; }
+      .qr-url { display: block; margin-top: 2pt; font-family: var(--mono); font-size: 6.5pt; color: var(--ink); max-width: 1.4in; word-break: break-all; }
       .time { font-family: var(--mono); white-space: nowrap; width: 9em; }
       .schedule td { padding-top: 3pt; padding-bottom: 3pt; }
       .sponsor-time { font-family: var(--mono); font-size: 7.5pt; color: var(--ink); white-space: nowrap; }
@@ -140,7 +141,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       </div>
       {volunteerTestimonial && (
         <div class="box" style="margin-top: 8pt; display: flex; gap: 10pt; align-items: flex-start;">
-          <Image src={kristinaKrasnolobovaImage} alt="" width={120} height={120} style="width: 0.5in; height: 0.5in; border-radius: 50%; flex: none;" />
+          <Image src={kristinaKrasnolobovaImage} alt={volunteerTestimonial.name} width={120} height={120} style="width: 0.5in; height: 0.5in; border-radius: 50%; flex: none;" />
           <div>
             <blockquote style="margin: 0; font-style: italic;">
               &ldquo;{volunteerTestimonial.quote}&rdquo;
@@ -193,11 +194,12 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
         <div>
           <h3 style="font-size: 13pt;">Small team? Sponsor for $500.</h3>
           <ul>{COMMUNITY_CALLOUT_BULLETS.map((b) => <li>{b}</li>)}</ul>
-          <p style="margin-top: 4pt;"><strong>Pay online by card or bank transfer.</strong> Scan the code to check out.</p>
+          <p style="margin-top: 4pt;"><strong>Pay online by credit card or ACH.</strong> Scan the code to check out.</p>
         </div>
         <a class="qr-wrap" href={COMMUNITY_CHECKOUT_HREF} style="text-decoration: none;">
           <div class="qr" set:html={communityQr} />
           <span class="label">Community ($500)</span>
+          <span class="qr-url">{COMMUNITY_CHECKOUT_HREF.replace("https://", "")}</span>
         </a>
       </div>
     </section>
@@ -211,7 +213,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
         <tbody>
           {partnerships.map((partner) => (
             <tr>
-              <th scope="row" class="name">{partner.name.replace(" Partner", "")}<span class="avail">{partner.available}</span></th>
+              <th scope="row" class="name">{partner.name}<span class="avail">{partner.available}</span></th>
               <td class="price">{partner.price}</td>
               <td class="num-col">{partner.tickets}</td>
               <td><ul>{partner.benefits.map((b) => <li>{b}</li>)}</ul></td>
@@ -267,7 +269,10 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
           <p>See website for FAQ and more: <a href={SPONSOR_URL}><strong>hrdevfest.org/sponsor</strong></a></p>
           <p>Questions: <a href={`mailto:${email}`}><strong>{email}</strong></a></p>
         </div>
-        <a href={SPONSOR_URL} class="qr" set:html={sponsorQr} aria-label="hrdevfest.org/sponsor" />
+        <a href={SPONSOR_URL} class="qr-wrap" style="text-decoration: none;">
+          <div class="qr" set:html={sponsorQr} />
+          <span class="qr-url">hrdevfest.org/sponsor</span>
+        </a>
       </div>
     </section>
 
