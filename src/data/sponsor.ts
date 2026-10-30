@@ -206,9 +206,21 @@ export const faqItems: FaqItem[] = [
   {
     title: "Payment",
     bullets: [
-      "Community checkout is a flat $500 by card or bank transfer.",
-      "Checkout asks for your company name, contact emails and a logo link (or we follow up).",
-      "Paying an invoice by card adds 3%. Check and ACH have no fee.",
+      {
+        text: "Checkout asks for:",
+        items: [
+          "Your company name",
+          "Contact emails",
+          "A logo link (or we follow up)",
+        ],
+      },
+      {
+        text: "Paying an invoice by card adds 3%. No fee for:",
+        items: [
+          "Check",
+          "ACH",
+        ],
+      },
       "In-kind support, such as venue or Pop-up Meetup hosting, counts toward Community recognition once we agree on a written value. It's itemized separately.",
       "We accept purchase orders and can send a quote.",
     ],
@@ -216,7 +228,14 @@ export const faqItems: FaqItem[] = [
   {
     title: "Do you work with supplier portals?",
     bullets: [
-      "Yes, for Presenting, Main Stage and Reception sponsorships.",
+      {
+        text: "Yes, for:",
+        items: [
+          "Presenting",
+          "Main Stage",
+          "Reception",
+        ],
+      },
     ],
   },
   {
@@ -224,7 +243,14 @@ export const faqItems: FaqItem[] = [
     open: true,
     bullets: [
       "Sponsor email opt-in is off by default.",
-      "Presenting, Main Stage and Reception each include one post-event email. DevFest sends it to attendees who opt in.",
+      {
+        text: "These sponsorships each include one post-event email, sent by DevFest to attendees who opt in:",
+        items: [
+          "Presenting",
+          "Main Stage",
+          "Reception",
+        ],
+      },
       "One email per qualifying offering.",
       "We never share attendee contacts with sponsors.",
       "We never sell attendee lists, and we never scan badges.",
@@ -253,11 +279,26 @@ export const faqItems: FaqItem[] = [
   {
     title: "Hiring board and ribbons",
     bullets: [
-      "Featured, Main Stage and Presenting include a hiring-board listing near registration and on the DevFest site.",
+      {
+        text: "These sponsorships include a hiring-board listing near registration and on the DevFest site:",
+        items: [
+          "Featured",
+          "Main Stage",
+          "Presenting",
+        ],
+      },
       "Standalone partnerships do not include a hiring-board listing.",
       "Sponsors write their own listings. Every role must include an expected salary range.",
       "We don't collect resumes.",
-      "Attendees can wear Hiring, Looking for work, Internship, or Open to contract work ribbons.",
+      {
+        text: "Attendees can wear ribbons:",
+        items: [
+          "Hiring",
+          "Looking for work",
+          "Internship",
+          "Open to contract work",
+        ],
+      },
     ],
   },
   {
@@ -265,16 +306,35 @@ export const faqItems: FaqItem[] = [
     bullets: [
       "We invite speakers from community recommendations. There's no open call.",
       "Anyone can be recommended, including sponsor staff. That's separate from sponsorship.",
-      "Presenting and Main Stage each include 15 minutes of Sponsor Stage Time, clearly labeled as sponsor presentations.",
+      {
+        text: "These sponsorships each include 15 minutes of Sponsor Stage Time, clearly labeled as sponsor presentations:",
+        items: [
+          "Presenting",
+          "Main Stage",
+        ],
+      },
       "The Reception Partner gives a welcome of up to two minutes at the reception, separate from conference talks.",
     ],
   },
   {
     title: "Logo files",
     bullets: [
-      "SVG, EPS or PDF preferred. We print signs from it.",
+      {
+        text: "Preferred formats (we print signs from these):",
+        items: [
+          "SVG",
+          "EPS",
+          "PDF",
+        ],
+      },
       "PNG only? Use a transparent background, at least 1,000 px wide.",
-      "Send one version for light backgrounds and one for dark, such as all-white.",
+      {
+        text: "Send two versions:",
+        items: [
+          "One for light backgrounds",
+          "One for dark backgrounds (such as all-white)",
+        ],
+      },
       "A horizontal logo works best. We'll resize it for the site.",
       "Send files to team@revolutionva.org by Apr 1, 2027.",
     ],
@@ -285,7 +345,14 @@ export const faqItems: FaqItem[] = [
       "Our W-9 and 501(c)(3) letter are available on request.",
       "Sponsorships are invoiced as sponsorships, not donations.",
       "Please consult your tax advisor on how to treat them.",
-      "Sponsorship doesn't include access to officials, including elected, government and military officials who attend.",
+      {
+        text: "Sponsorship doesn't include access to officials who attend, including:",
+        items: [
+          "Elected officials",
+          "Government officials",
+          "Military officials",
+        ],
+      },
     ],
   },
 ];
