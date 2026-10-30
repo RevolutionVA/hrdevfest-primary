@@ -28,7 +28,7 @@
     "qrcode": "^1.5.4",
     "satori": "^0.63.0",
     "tailwindcss": "^4.0.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.0"
   },
   "devDependencies": {
     "@emnapi/runtime": "^1.7.1",
