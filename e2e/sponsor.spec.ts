@@ -127,6 +127,39 @@ test.describe("Sponsor Page", () => {
     await expect(partnerList).toHaveCSS("list-style-type", "disc");
   });
 
+  test("one Download PDF link, pointing at the printer-friendly sheet", async ({ page, request }) => {
+    await page.goto("/sponsor");
+    const pdfLinks = page.locator('a[href$=".pdf"]');
+    await expect(pdfLinks).toHaveCount(1);
+    await expect(pdfLinks).toHaveText("Download PDF");
+    await expect(page.getByText(/Printer-friendly version|Download the Prospectus/)).toHaveCount(0);
+    const href = await pdfLinks.getAttribute("href");
+    expect(href).toMatch(/^\/sponsor\/hrdevfest-2027-sponsor-sheet-\d{4}-\d{2}-\d{2}\.pdf$/);
+    const res = await request.get(href!);
+    expect(res.ok()).toBe(true);
+    expect(res.headers()["content-type"]).toContain("pdf");
+  });
+
+  test("printable sheet page matches the site copy and stays out of search", async ({ page }) => {
+    await page.goto("/sponsor/print");
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex");
+    const body = page.locator("body");
+    await expect(body).toContainText("Hampton Roads DevFest started with a simple idea.");
+    await expect(body).toContainText("The day (tentative schedule)");
+    await expect(body).toContainText("Every package includes:");
+    await expect(body).not.toContainText("Exhibitor");
+    await expect(body).not.toContainText("$1,500");
+    await expect(body).not.toContainText("Stripe");
+    await expect(body).not.toContainText("Who the Reception Partner hosts");
+  });
+
+  test("why sponsor leads with Kevin's copy", async ({ page }) => {
+    await page.goto("/sponsor");
+    await expect(page.locator("#why-sponsor")).toContainText(
+      "Real tech companies back DevFest, and sponsoring shows your commitment to a strong, growing 757 tech community."
+    );
+  });
+
   test("reservation form has no budget-year or PO fields", async ({ page }) => {
     await page.goto("/sponsor");
     const form = page.locator("#reserve form");
