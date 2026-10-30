@@ -1,0 +1,285 @@
+---
+// Printer-friendly sponsor sheet. scripts/generate-sponsor-pdf.mjs renders this page to
+// the PDF linked from /sponsor. It reads the same data as /sponsor, so the copy stays in sync.
+import { Image } from "astro:assets";
+import QRCode from "qrcode";
+// Bundled fonts so the PDF looks the same on any machine that generates it
+import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
+import logo from "../../assets/logo.png";
+import kristinaKrasnolobovaImage from "../../assets/testimonials/kristina-krasnolobova.webp";
+import {
+  schedule,
+  COMMUNITY_CHECKOUT_HREF,
+  COMMUNITY_CALLOUT_BULLETS,
+  glance,
+  partnerships,
+  faqItems,
+  devfest2026Employers,
+  email,
+  whySponsorIntro,
+  whySponsorBullets,
+  for2027,
+  packageIncludes,
+  partnershipIncludes,
+  scheduleNote,
+} from "../../data/sponsor";
+import { testimonials } from "../../data/testimonials";
+
+const volunteerTestimonial = testimonials.find((t) => t.name === "Kristina Krasnolobova");
+
+const SPONSOR_URL = "https://hrdevfest.org/sponsor";
+const qr = (url: string) => QRCode.toString(url, { type: "svg", margin: 0, errorCorrectionLevel: "M" });
+const communityQr = await qr(COMMUNITY_CHECKOUT_HREF);
+const sponsorQr = await qr(SPONSOR_URL);
+
+// The sheet's "Updated" date is the day it was built
+const updated = new Date().toLocaleDateString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "America/New_York",
+});
+
+const corePackages = glance.filter((row) => !row.checkoutHref);
+// The site is the full FAQ; the sheet carries only what approvers ask first
+const PRINT_FAQ_TITLES = ["Commit now. Pay in 2027 if needed.", "Payment", "Attendee privacy"];
+const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.title));
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Sponsor Hampton Roads DevFest 2027</title>
+    <style is:global>
+      @page { size: Letter; margin: 0.5in 0.5in 0.4in; }
+      :root {
+        --ink: #0b3d6e;
+        --text: #1b2430;
+        --muted: #4a5868;
+        --line: #9fb3c8;
+        --row: #eef3f8;
+        --sans: "Inter Variable", sans-serif;
+        --mono: "JetBrains Mono Variable", monospace;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: #fff; color: var(--text); font-family: var(--sans); font-size: 9.5pt; line-height: 1.4; }
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { color: var(--ink); }
+      h1, h2, h3 { color: var(--ink); margin: 0; line-height: 1.2; }
+      h1 { font-size: 22pt; }
+      h2 { font-size: 14pt; display: flex; align-items: baseline; gap: 8pt; break-after: avoid; }
+      h2 .num { font-family: var(--mono); font-size: 8pt; border: 1px solid var(--ink); padding: 0 4pt; }
+      h3 { font-size: 10.5pt; }
+      p { margin: 0; }
+      ul { margin: 0; padding-left: 14pt; }
+      li + li { margin-top: 2pt; }
+      section { margin-top: 12pt; }
+      section > * + * { margin-top: 6pt; }
+      .header { display: flex; gap: 16pt; align-items: center; }
+      .header img { width: 1.25in; height: auto; }
+      .meta { font-weight: 700; color: var(--ink); margin-top: 4pt; }
+      .box { border: 1px solid var(--line); padding: 8pt 10pt; break-inside: avoid; }
+      .label { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+      .lead { font-size: 10.5pt; }
+      .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt 18pt; }
+      .employers { columns: 4; column-gap: 12pt; list-style: none; padding: 0; font-size: 8.5pt; }
+      .employers li { margin: 0 0 1pt; break-inside: avoid; }
+      table { width: 100%; border-collapse: collapse; border: 1px solid var(--line); }
+      table:not(.layout) th, table:not(.layout) td { text-align: left; vertical-align: top; padding: 5pt 7pt; border-top: 1px solid var(--line); }
+      thead th { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+      table:not(.layout) > tbody > tr:nth-child(odd) { background: var(--row); }
+      tr { break-inside: avoid; }
+      .name { font-weight: 700; color: var(--ink); white-space: nowrap; }
+      .avail { display: block; font-family: var(--mono); font-size: 7.5pt; color: var(--muted); font-weight: 400; }
+      .price { font-weight: 700; color: var(--ink); white-space: nowrap; font-size: 11pt; }
+      .num-col { font-weight: 700; color: var(--ink); width: 6em; }
+      .callout { border: 2px solid var(--ink); padding: 10pt 12pt; display: flex; gap: 16pt; align-items: center; justify-content: space-between; break-inside: avoid; }
+      .callout ul { columns: 2; column-gap: 18pt; margin-top: 4pt; }
+      .qr { width: 0.85in; height: 0.85in; flex: none; }
+      .qr svg { width: 100%; height: 100%; display: block; }
+      .qr-wrap { text-align: center; }
+      .qr-wrap .label { margin-top: 3pt; display: block; }
+      .time { font-family: var(--mono); white-space: nowrap; width: 9em; }
+      .schedule td { padding-top: 3pt; padding-bottom: 3pt; }
+      .sponsor-time { font-family: var(--mono); font-size: 7.5pt; color: var(--ink); white-space: nowrap; }
+      .faq { columns: 2; column-gap: 18pt; }
+      .faq .box { margin-bottom: 8pt; }
+      .faq h3 { margin-bottom: 3pt; }
+      .faq-p + .faq-p { margin-top: 4pt; }
+      .ready { border: 2px solid var(--ink); padding: 10pt 12pt; display: flex; justify-content: space-between; align-items: center; break-inside: avoid; }
+      .page-break { break-before: page; }
+      .sheet-footer { position: fixed; left: 0; right: 0; bottom: 0; padding-top: 5pt; border-top: 1px solid var(--line); display: flex; justify-content: space-between; font-family: var(--mono); font-size: 6.5pt; letter-spacing: 0.02em; color: var(--muted); white-space: nowrap; gap: 8pt; }
+      .sheet-footer b { color: var(--ink); margin-left: 3pt; }
+      @media screen { .sheet-footer { position: static; margin-top: 24pt; } }
+      /* The empty tfoot repeats on every page and keeps text clear of the fixed footer */
+      table.layout, table.layout > * > tr > td { border: 0; padding: 0; background: none; }
+      table.layout .footer-space { height: 0.45in; }
+    </style>
+  </head>
+  <body>
+    <table class="layout"><tfoot><tr><td><div class="footer-space"></div></td></tr></tfoot><tbody><tr><td>
+    <header class="header">
+      <Image src={logo} alt="Hampton Roads DevFest" width={240} />
+      <div>
+        <h1>Sponsor Hampton Roads DevFest 2027</h1>
+        <p class="meta">Apr 23, 2027 · Zeiders American Dream Theater · Virginia Beach</p>
+        <p>One day. One track. Meet developers and technology teams from across Hampton&nbsp;Roads.</p>
+        <p style="color: var(--muted); font-size: 9pt;">Presented by RevolutionVA, a 501(c)(3) nonprofit.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2><span class="num">01</span> Why sponsor DevFest</h2>
+      <p class="lead">{whySponsorIntro}</p>
+      <ul>{whySponsorBullets.map((item) => <li>{item}</li>)}</ul>
+      <div class="box">
+        <p class="label">For 2027</p>
+        <ul>{for2027.map((item) => <li><strong>{item.label}</strong> {item.text}</li>)}</ul>
+      </div>
+      {volunteerTestimonial && (
+        <div class="box" style="margin-top: 8pt; display: flex; gap: 10pt; align-items: flex-start;">
+          <Image src={kristinaKrasnolobovaImage} alt="" width={120} height={120} style="width: 0.5in; height: 0.5in; border-radius: 50%; flex: none;" />
+          <div>
+            <blockquote style="margin: 0; font-style: italic;">
+              &ldquo;{volunteerTestimonial.quote}&rdquo;
+            </blockquote>
+            <p style="margin-top: 6pt; font-weight: 700; color: var(--ink);">{volunteerTestimonial.name}, {volunteerTestimonial.role}</p>
+          </div>
+        </div>
+      )}
+    </section>
+
+    <section>
+      <h2><span class="num">02</span> Who was at DevFest 2026?</h2>
+      <div class="box">
+        <p class="label" style="margin-bottom: 4pt;">Attendees came from teams at</p>
+        <ul class="employers">
+          {devfest2026Employers.map((name) => <li>{name}</li>)}
+          <li><em>And more…</em></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span> Core sponsorship packages</h2>
+      <table>
+        <thead>
+          <tr><th>Package</th><th>Price</th><th>Tickets for your team</th><th>Additional benefits</th></tr>
+        </thead>
+        <tbody>
+          {corePackages.map((row) => (
+            <tr>
+              <th scope="row" class="name">{row.package.replace(" Sponsor", "")}<span class="avail">{row.available} available</span></th>
+              <td class="price">{row.price}</td>
+              <td class="num-col">{row.tickets}</td>
+              <td><ul>{row.benefits.map((b) => <li>{b}</li>)}</ul></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div class="cols">
+        <div>
+          <h3>{packageIncludes.every.title}</h3>
+          <ul>{packageIncludes.every.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+        <div>
+          <h3>{packageIncludes.tableTiers.title}</h3>
+          <ul>{packageIncludes.tableTiers.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+      </div>
+      <div class="callout">
+        <div>
+          <h3 style="font-size: 13pt;">Small team? Sponsor for $500.</h3>
+          <ul>{COMMUNITY_CALLOUT_BULLETS.map((b) => <li>{b}</li>)}</ul>
+          <p style="margin-top: 4pt;"><strong>Pay online by card or bank transfer.</strong> Scan the code to check out.</p>
+        </div>
+        <a class="qr-wrap" href={COMMUNITY_CHECKOUT_HREF} style="text-decoration: none;">
+          <div class="qr" set:html={communityQr} />
+          <span class="label">Community ($500)</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span> Event &amp; Community Partnerships</h2>
+      <table>
+        <thead>
+          <tr><th>Partnership</th><th>Price</th><th>Tickets for your team</th><th>Includes</th></tr>
+        </thead>
+        <tbody>
+          {partnerships.map((partner) => (
+            <tr>
+              <th scope="row" class="name">{partner.name.replace(" Partner", "")}<span class="avail">{partner.available}</span></th>
+              <td class="price">{partner.price}</td>
+              <td class="num-col">{partner.tickets}</td>
+              <td><ul>{partner.benefits.map((b) => <li>{b}</li>)}</ul></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div class="cols">
+        <div>
+          <h3>{partnershipIncludes.every.title}</h3>
+          <ul>{partnershipIncludes.every.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+        <div>
+          <h3>{partnershipIncludes.notes.title}</h3>
+          <ul>{partnershipIncludes.notes.items.map((i) => <li>{i}</li>)}</ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span> The day (tentative schedule)</h2>
+      <table class="schedule">
+        <thead><tr><th>Time</th><th>What happens</th><th></th></tr></thead>
+        <tbody>
+          {schedule.map((item) => (
+            <tr>
+              <td class="time">{item.time}</td>
+              <td>{item.what}</td>
+              <td>{item.sponsorTime && <span class="sponsor-time">Sponsor time</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p style="color: var(--muted); font-size: 9pt;">{scheduleNote}</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span> Before you commit</h2>
+      <div class="faq">
+        {faqForPrint.map((item) => (
+          <div class="box">
+            <h3>{item.title}</h3>
+            {item.paragraphs.map((text) => <p class="faq-p">{text}</p>)}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <div class="ready">
+        <div>
+          <h3 style="font-size: 13pt;">Ready to sponsor?</h3>
+          <p>See website for FAQ and more: <a href={SPONSOR_URL}><strong>hrdevfest.org/sponsor</strong></a></p>
+          <p>Questions: <a href={`mailto:${email}`}><strong>{email}</strong></a></p>
+        </div>
+        <a href={SPONSOR_URL} class="qr" set:html={sponsorQr} aria-label="hrdevfest.org/sponsor" />
+      </div>
+    </section>
+
+    </td></tr></tbody></table>
+
+    <!-- Repeats at the bottom of every printed page (position: fixed) -->
+    <footer class="sheet-footer">
+      <span>Project <b>Hampton Roads DevFest 2027</b></span>
+      <span>Date <b>04.23.2027</b></span>
+      <span>Contact <b>{email}</b></span>
+      <span>Updated <b>{updated}</b></span>
+      <span><b>RevolutionVA</b></span>
+    </footer>
+  </body>
+</html>

@@ -1,6 +1,8 @@
 ---
 import "../../../styles/global.css";
 import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
+import BentoTracking from "../../../components/BentoTracking.astro";
+import CanonicalLink from "../../../components/CanonicalLink.astro";
 import MobileMenu from "../../shared/MobileMenu.astro";
 import NavBar from "../../shared/NavBar.astro";
 import Footer from "../../shared/Footer.astro";
@@ -11,7 +13,7 @@ export interface Props {
   year: number;
 }
 
-const { title, description, year } = Astro.props;
+const { title, description } = Astro.props;
 
 const navLinks = [
   { href: "/", text: "Home" },
@@ -29,40 +31,24 @@ const navLinks = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <CanonicalLink />
     {description && <meta name="description" content={description} />}
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    
+
     <GoogleAnalytics />
+    <BentoTracking />
   </head>
-  <body class="theme-archive flex flex-col items-center min-h-screen bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
-    <div class="w-full max-w-[1920px] mx-auto bg-gray-50">
-      <MobileMenu links={navLinks} bgColor="bg-gray-800" />
-      <NavBar links={navLinks} bgColor="bg-gray-800" />
-      
+  <body class="theme-archive min-h-screen">
+    <!-- Mobile hamburger button sits outside the frame so it stays fixed -->
+    <MobileMenu links={navLinks} />
+
+    <div class="bp-frame">
+      <NavBar links={navLinks} />
+
       <main class="w-full">
         <slot />
       </main>
-      
-      <Footer showQuickLinks={true} showSocialLinks={true} bgColor="bg-gray-800" />
+
+      <Footer showQuickLinks={true} showSocialLinks={true} />
     </div>
   </body>
 </html>
-
-<style is:global>
-  .theme-archive {
-    --color-primary: #1f2937;
-    --color-secondary: #374151;
-    --color-accent: #3b82f6;
-    --color-background: #f9fafb;
-    --color-text: #111827;
-  }
-
-  .theme-archive .card-asymmetric {
-    border-radius: 12px;
-  }
-
-  .theme-archive .card-shadow {
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08);
-  }
-</style>

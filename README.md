@@ -152,3 +152,29 @@ Before submitting changes:
 
 - [Live Site](https://hrdevfest.com)
 - [Sponsor Prospectus](https://hrdevfest.org/prospectus)
+
+## Blueprint callout panel
+
+High-visibility asks on the dark blue paper use the reusable white callout:
+
+- Component: `src/components/Callout.astro`
+- Styles: `.bp-callout`, `.bp-callout__title`, `.bp-callout__body`, `.bp-callout__bullets`, `.bp-callout__actions`, plus `.btn-filled` (inverts to a dark fill on the light panel)
+
+Example:
+
+```astro
+import Callout from "../components/Callout.astro";
+
+<Callout
+  heading="Small team? Sponsor for $500."
+  bullets={["Website and slide recognition", "A group thank-you"]}
+  afterBullets="Pay in one click by card or bank."
+  buttonLabel="Sponsor at Community ($500)"
+  buttonLabelShort="Community ($500)"
+  buttonHref="https://buy.stripe.com/..."
+/>
+
+On narrow screens the short label is shown so the CTA does not look cut off; desktop keeps the full label.
+```
+
+`Become a Sponsor` stays the only red (`.btn-primary`) button. Callout CTAs use `.btn-filled`, never red.

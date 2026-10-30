@@ -58,88 +58,89 @@ function isAllTracksSession(time: string) {
 
 <YearLayout title={eventData.title} description={eventData.description} year={2017}>
   <!-- Header Section -->
-  <section class="w-full bg-gray-800 text-white py-16 px-8">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{eventData.title}</h1>
-      <p class="text-xl text-gray-300 mb-2">{eventData.dateFormatted}</p>
+  <section class="w-full py-12 md:py-16 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
+      <h1 class="text-[32px] md:text-[40px] font-bold leading-tight">{eventData.title}</h1>
+      <p class="bp-mono text-base md:text-lg">{eventData.dateFormatted}</p>
       {eventData.venue && (
-        <p class="text-lg text-gray-400">
+        <p class="bp-muted">
           {eventData.venue.name} &bull; {eventData.venue.city}, {eventData.venue.state}
         </p>
       )}
-      <p class="text-base text-gray-300 mt-6 max-w-2xl mx-auto">{eventData.description}</p>
+      <p class="text-base leading-relaxed mt-4 max-w-2xl">{eventData.description}</p>
       {hasMultipleTracks && (
-        <p class="text-sm text-blue-300 mt-4">Multi-track conference with {tracks.length} parallel sessions</p>
+        <p class="bp-label mt-2">Multi-track conference with {tracks.length} parallel sessions</p>
       )}
     </div>
   </section>
 
   <!-- Schedule Section -->
-  <section class="w-full py-12 px-8 bg-white">
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Schedule</h2>
-      
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Schedule</h2>
+
       {hasMultipleTracks ? (
         <div class="overflow-x-auto">
-          <!-- Desktop: Grid layout -->
-          <div class="hidden md:block">
-            <div class="grid gap-2" style={`grid-template-columns: auto repeat(${tracks.length}, 1fr)`}>
-              <!-- Header row -->
-              <div class="font-bold text-gray-700 p-3 bg-gray-100 rounded">Time</div>
-              {tracks.map(track => (
-                <div class="font-bold text-gray-700 p-3 bg-gray-100 rounded text-center">{track}</div>
-              ))}
-              
-              <!-- Time slots -->
+          <!-- Desktop: one column per track -->
+          <table class="bp-table hidden md:table">
+            <thead>
+              <tr>
+                <th scope="col" class="w-[8.5rem]">Time</th>
+                {tracks.map(track => (
+                  <th scope="col">{track}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
               {timeSlots.map(time => {
                 const isAllTracks = isAllTracksSession(time);
                 const allSession = getSessionsForTime(time)[0];
-                
+
                 return isAllTracks ? (
-                  <>
-                    <div class="text-blue-600 font-semibold p-3 border-b">{time}</div>
-                    <div class={`bg-blue-50 p-3 rounded border-b`} style={`grid-column: span ${tracks.length}`}>
-                      <p class="font-semibold text-gray-900">{allSession.title}</p>
-                      {allSession.description && <p class="text-sm text-gray-600 mt-1">{allSession.description}</p>}
-                    </div>
-                  </>
+                  <tr>
+                    <td class="bp-mono text-sm whitespace-nowrap">{time}</td>
+                    <td colspan={tracks.length}>
+                      <p class="font-semibold">{allSession.title}</p>
+                      {allSession.description && <p class="text-sm bp-muted mt-1">{allSession.description}</p>}
+                    </td>
+                  </tr>
                 ) : (
-                  <>
-                    <div class="text-blue-600 font-semibold p-3 border-b">{time}</div>
+                  <tr>
+                    <td class="bp-mono text-sm whitespace-nowrap">{time}</td>
                     {tracks.map(track => {
                       const sessions = getSessionsForTimeAndTrack(time, track);
                       return (
-                        <div class="bg-gray-50 p-3 rounded border-b min-h-[80px]">
+                        <td>
                           {sessions.map(session => (
                             <div>
-                              <p class="font-semibold text-gray-900 text-sm">{session.title}</p>
-                              {session.description && <p class="text-xs text-gray-600 mt-1">{session.description}</p>}
+                              <p class="font-semibold text-sm">{session.title}</p>
+                              {session.description && <p class="text-xs bp-muted mt-1">{session.description}</p>}
                             </div>
                           ))}
-                        </div>
+                        </td>
                       );
                     })}
-                  </>
+                  </tr>
                 );
               })}
-            </div>
-          </div>
-          
+            </tbody>
+          </table>
+
           <!-- Mobile: Stacked layout -->
           <div class="md:hidden flex flex-col gap-3">
             {timeSlots.map(time => {
               const sessions = getSessionsForTime(time);
               const isAllTracks = isAllTracksSession(time);
-              
+
               return (
-                <div class={`rounded-lg overflow-hidden ${isAllTracks ? 'bg-blue-50' : 'bg-gray-50'}`}>
-                  <div class="text-blue-600 font-semibold p-3 bg-white border-b">{time}</div>
-                  <div class={`p-3 ${!isAllTracks && sessions.length > 1 ? 'grid grid-cols-1 gap-3' : ''}`}>
+                <div class="bp-box">
+                  <p class="bp-mono text-sm px-3 py-2 border-b border-[var(--bp-line-faint)]">{time}</p>
+                  <div class="p-3 flex flex-col gap-3">
                     {sessions.map(session => (
-                      <div class={`${!isAllTracks && sessions.length > 1 ? 'bg-white p-3 rounded shadow-sm' : ''}`}>
-                        {!isAllTracks && session.track && <p class="text-xs text-blue-600 font-medium mb-1">{session.track}</p>}
-                        <p class="font-semibold text-gray-900">{session.title}</p>
-                        {session.description && <p class="text-sm text-gray-600 mt-1">{session.description}</p>}
+                      <div class={!isAllTracks && sessions.length > 1 ? 'pl-3 border-l border-[var(--bp-line-faint)]' : ''}>
+                        {!isAllTracks && session.track && <p class="bp-label mb-1">{session.track}</p>}
+                        <p class="font-semibold">{session.title}</p>
+                        {session.description && <p class="text-sm bp-muted mt-1">{session.description}</p>}
                       </div>
                     ))}
                   </div>
@@ -149,82 +150,90 @@ function isAllTracksSession(time: string) {
           </div>
         </div>
       ) : (
-        <div class="flex flex-col gap-3">
-          {eventData.schedule.map((item) => (
-            <div class="bg-gray-50 p-4 rounded-lg flex flex-col md:flex-row gap-3">
-              <div class="text-blue-600 font-semibold whitespace-nowrap min-w-[100px]">{item.time}</div>
-              <div class="flex-1">
-                <p class="font-semibold text-gray-900">{item.title}</p>
-                {item.description && <p class="text-sm text-gray-600 mt-1">{item.description}</p>}
-              </div>
-            </div>
-          ))}
-        </div>
+        <table class="bp-table">
+          <thead>
+            <tr>
+              <th scope="col" class="w-[6.5rem] md:w-[8.5rem]">Time</th>
+              <th scope="col">Session</th>
+            </tr>
+          </thead>
+          <tbody>
+            {eventData.schedule.map((item) => (
+              <tr>
+                <td class="bp-mono text-sm whitespace-nowrap">{item.time}</td>
+                <td>
+                  <p class="font-semibold">{item.title}</p>
+                  {item.description && <p class="text-sm bp-muted mt-1">{item.description}</p>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   </section>
 
   <!-- Speakers Section -->
-  <section class="w-full py-12 px-8 bg-gray-100">
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Speakers</h2>
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Speakers</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {eventData.speakers.map((speaker) => {
           const speakerImg = speaker.image ? getSpeakerImage(speaker.image) : null;
           const speakerId = speaker.name.toLowerCase().replace(/\s+/g, '-');
           return (
-            <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div class="bp-box p-6">
               <div class="flex items-start gap-4">
                 {speakerImg ? (
                   <Image
                     src={speakerImg}
                     alt={speaker.name}
-                    class="w-20 h-20 rounded-full object-cover shrink-0"
+                    class="bp-photo w-20 h-20 rounded-full object-cover shrink-0"
                     width={80}
                     height={80}
                   />
                 ) : (
-                  <div class="w-20 h-20 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-gray-500 text-xl font-bold">
+                  <div class="w-20 h-20 rounded-full border border-[var(--bp-line)] shrink-0 flex items-center justify-center bp-mono text-xl" aria-hidden="true">
                     {speaker.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </div>
                 )}
                 <div class="flex-1 min-w-0">
-                  <h3 class="text-lg font-semibold text-gray-900">{speaker.name}</h3>
-                  
+                  <h3 class="text-lg font-semibold">{speaker.name}</h3>
+
                   {/* Social Links */}
                   {(speaker.twitter || speaker.linkedin || speaker.github || speaker.website || speaker.bluesky || speaker.mastodon) && (
-                    <div class="flex gap-2 mt-2">
+                    <div class="flex gap-3 mt-2">
                       {speaker.twitter && (
-                        <a href={speaker.twitter} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Twitter/X" set:html={getSocialIcon('twitter')} />
+                        <a href={speaker.twitter} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Twitter/X" aria-label="Twitter/X" set:html={getSocialIcon('twitter')} />
                       )}
                       {speaker.linkedin && (
-                        <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="LinkedIn" set:html={getSocialIcon('linkedin')} />
+                        <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="LinkedIn" aria-label="LinkedIn" set:html={getSocialIcon('linkedin')} />
                       )}
                       {speaker.github && (
-                        <a href={speaker.github} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="GitHub" set:html={getSocialIcon('github')} />
+                        <a href={speaker.github} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="GitHub" aria-label="GitHub" set:html={getSocialIcon('github')} />
                       )}
                       {speaker.bluesky && (
-                        <a href={speaker.bluesky} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Bluesky" set:html={getSocialIcon('bluesky')} />
+                        <a href={speaker.bluesky} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Bluesky" aria-label="Bluesky" set:html={getSocialIcon('bluesky')} />
                       )}
                       {speaker.mastodon && (
-                        <a href={speaker.mastodon} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Mastodon" set:html={getSocialIcon('mastodon')} />
+                        <a href={speaker.mastodon} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Mastodon" aria-label="Mastodon" set:html={getSocialIcon('mastodon')} />
                       )}
                       {speaker.website && (
-                        <a href={speaker.website} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Website" set:html={getSocialIcon('website')} />
+                        <a href={speaker.website} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Website" aria-label="Website" set:html={getSocialIcon('website')} />
                       )}
                     </div>
                   )}
                 </div>
               </div>
-              
+
               {/* Bio with expand/collapse */}
               {speaker.bio && (
-                <div class="mt-4">
-                  <input type="checkbox" id={`bio-${speakerId}`} class="peer hidden" />
-                  <p class="text-sm text-gray-600 peer-checked:line-clamp-none line-clamp-3">{speaker.bio}</p>
-                  <label 
-                    for={`bio-${speakerId}`} 
-                    class="text-blue-600 text-sm cursor-pointer hover:underline mt-1 inline-block peer-checked:before:content-['Show_less'] before:content-['Read_more...']"
+                <div class="relative mt-4">
+                  <input type="checkbox" id={`bio-${speakerId}`} class="peer sr-only" />
+                  <p class="text-sm leading-relaxed peer-checked:line-clamp-none line-clamp-3">{speaker.bio}</p>
+                  <label
+                    for={`bio-${speakerId}`}
+                    class="bp-link text-sm cursor-pointer mt-1 inline-block peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--bp-ink)] peer-checked:before:content-['Show_less'] before:content-['Read_more...']"
                   ></label>
                 </div>
               )}
@@ -237,25 +246,23 @@ function isAllTracksSession(time: string) {
 
   <!-- Sponsors Section -->
   {eventData.sponsors && eventData.sponsors.length > 0 && (
-    <section class="w-full py-12 px-8 bg-white">
+    <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Sponsors</h2>
-        <div class="flex flex-wrap justify-center items-center gap-8">
+        <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Sponsors</h2>
+        <div class="flex flex-wrap justify-center items-center gap-6">
           {eventData.sponsors.map((sponsor) => {
             const sponsorImg = sponsor.logo ? getSponsorImage(sponsor.logo) : null;
-            return (
-              <div class="flex flex-col items-center">
-                {sponsorImg ? (
-                  <Image
-                    src={sponsorImg}
-                    alt={sponsor.name}
-                    class="h-16 w-auto object-contain"
-                    height={64}
-                  />
-                ) : (
-                  <span class="text-gray-700 font-medium">{sponsor.name}</span>
-                )}
+            return sponsorImg ? (
+              <div class="bp-plate p-4 flex items-center">
+                <Image
+                  src={sponsorImg}
+                  alt={sponsor.name}
+                  class="h-16 w-auto object-contain"
+                  height={64}
+                />
               </div>
+            ) : (
+              <div class="bp-box px-6 py-4 font-medium">{sponsor.name}</div>
             );
           })}
         </div>
@@ -264,9 +271,9 @@ function isAllTracksSession(time: string) {
   )}
 
   <!-- Back to Events -->
-  <section class="w-full py-8 px-8 bg-gray-50">
+  <section class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-4xl mx-auto text-center">
-      <a href="/events" class="text-blue-600 hover:text-blue-800 font-medium">
+      <a href="/events" class="bp-link font-bold">
         &larr; View All Past Events
       </a>
     </div>

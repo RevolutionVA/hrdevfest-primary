@@ -1,31 +1,30 @@
 ---
 export interface Props {
   links: Array<{ href: string; text: string; highlight?: boolean }>;
-  bgColor?: string;
 }
 
-const { links, bgColor = 'bg-[#052831]' } = Astro.props;
+const { links } = Astro.props;
 ---
 
 <!-- Mobile hamburger button -->
-<button id="mobile-menu-btn" class={`md:hidden p-2 fixed top-4 right-4 z-[60] ${bgColor} rounded-lg`} aria-label="Toggle menu">
-  <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+<button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+  <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
   </svg>
-  <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+  <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="square" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
   </svg>
 </button>
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+<div id="mobile-menu" class="fixed inset-0 z-50 bg-[var(--bp-paper)] hidden md:hidden">
   <div class="flex flex-col h-full">
     <div class="h-[60px]"></div>
     <div class="flex flex-col gap-8 px-8 pt-4">
       {links.map((link) => (
-        <a 
-          href={link.href} 
-          class={`mobile-menu-link text-base font-bold leading-relaxed ${link.highlight ? 'text-[#D33B32]' : 'text-black'}`}
+        <a
+          href={link.href}
+          class={`mobile-menu-link ${link.highlight ? 'bp-link' : 'bp-nav-link'} text-base font-bold leading-relaxed`}
         >
           {link.text}
         </a>
@@ -47,11 +46,13 @@ const { links, bgColor = 'bg-[#052831]' } = Astro.props;
       isOpen = !isOpen;
       if (isOpen) {
         mobileMenu?.classList.remove('hidden');
+        menuBtn?.setAttribute('aria-expanded', 'true');
         hamburgerIcon?.classList.add('hidden');
         closeIcon?.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
       } else {
         mobileMenu?.classList.add('hidden');
+        menuBtn?.setAttribute('aria-expanded', 'false');
         hamburgerIcon?.classList.remove('hidden');
         closeIcon?.classList.add('hidden');
         document.body.style.overflow = '';
@@ -64,6 +65,14 @@ const { links, bgColor = 'bg-[#052831]' } = Astro.props;
       link.addEventListener('click', () => {
         if (isOpen) toggleMenu();
       });
+    });
+
+    // Close menu on Escape and return focus to the button
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && isOpen) {
+        toggleMenu();
+        menuBtn?.focus();
+      }
     });
   });
 </script>

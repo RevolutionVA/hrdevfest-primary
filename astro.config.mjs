@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: "https://hrdevfest.org",
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes("/sponsor/print") })],
   vite: {
     plugins: [tailwindcss()],
     server: {

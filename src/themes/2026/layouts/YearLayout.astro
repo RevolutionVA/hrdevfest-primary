@@ -1,6 +1,8 @@
 ---
 import "../../../styles/global.css";
 import GoogleAnalytics from "../../../components/GoogleAnalytics.astro";
+import BentoTracking from "../../../components/BentoTracking.astro";
+import CanonicalLink from "../../../components/CanonicalLink.astro";
 import MobileMenu from "../../shared/MobileMenu.astro";
 import NavBar from "../../shared/NavBar.astro";
 import Footer from "../../shared/Footer.astro";
@@ -30,59 +32,30 @@ const navLinks = [
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
-    
+
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content="https://hrdevfest.org/2026" />
+    <CanonicalLink href="https://hrdevfest.org/2026" />
     {ogImage && <meta property="og:image" content={`https://hrdevfest.org${ogImage}`} />}
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    
+
     <GoogleAnalytics />
+    <BentoTracking />
   </head>
-  <body class="theme-2026 flex flex-col items-center min-h-screen bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
-    <div class="w-full max-w-[1920px] mx-auto bg-gray-100">
-      <MobileMenu links={navLinks} />
+  <body class="theme-2026 min-h-screen">
+    <!-- Mobile hamburger button sits outside the frame so it stays fixed -->
+    <MobileMenu links={navLinks} />
+
+    <div class="bp-frame">
       <NavBar links={navLinks} />
-      
-      <slot />
-      
+
+      <main class="w-full">
+        <slot />
+      </main>
+
       <Footer showQuickLinks={true} showSocialLinks={true} />
     </div>
   </body>
 </html>
-
-<style is:global>
-  .theme-2026 {
-    --color-primary: #052831;
-    --color-secondary: #123F4E;
-    --color-accent: #4DB7B9;
-    --color-red: #D33B32;
-    --color-background: #F3F4F6;
-    --color-cream: #FFFCF3;
-  }
-
-  .theme-2026 .card-asymmetric {
-    border-top-left-radius: 40px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 10px;
-  }
-
-  .theme-2026 .card-shadow {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-  }
-
-  .theme-2026 .btn-primary {
-    background: linear-gradient(0deg, #D33B32 0%, #D33B32 100%);
-    border-radius: 100px;
-    transition: all 0.3s ease;
-  }
-
-  .theme-2026 .btn-primary:hover {
-    filter: brightness(0.9);
-    transform: scale(1.02);
-  }
-</style>

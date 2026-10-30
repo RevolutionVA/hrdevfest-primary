@@ -1,44 +1,40 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
-import logo from "../assets/logo.png";
+import BentoTracking from "../components/BentoTracking.astro";
+import CanonicalLink from "../components/CanonicalLink.astro";
+import PastYearsNav from "../components/PastYearsNav.astro";
+import TitleBlock from "../components/TitleBlock.astro";
+import LandmarkLineArt from "../components/LandmarkLineArt.astro";
+import FooterBridge from "../components/FooterBridge.astro";
+import NorfolkLineArt from "../components/NorfolkLineArt.astro";
 import logoWhite from "../assets/logo-white.png";
-import heroBkgd from "../assets/hero_bkgd.png";
-import heroTablet from "../assets/hero_tablet.png";
-import heroPhone from "../assets/hero_phone.png";
-import venuePic from "../assets/venue_pic.png";
-import { speakers } from "../data/speakers";
 import { testimonials } from "../data/testimonials";
 import { faqItems } from "../data/faq";
-import lionelSappImage from "../assets/speakers/lionel-sapp.jpeg";
-import ryanCastilloImage from "../assets/speakers/ryan-castillo.jpeg";
-import katieNovotnyImage from "../assets/speakers/katie-novotny.jpeg";
-import timBanksImage from "../assets/speakers/tim-banks.jpeg";
-import ianTaylorImage from "../assets/speakers/ian-taylor.jpeg";
-import laurenPryorImage from "../assets/speakers/lauren-pryor.jpg";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
-import heroDots from "../assets/dots/hero_dots.svg";
-import headerDots from "../assets/dots/header_dots.svg";
-import aboutBkgd from "../assets/about_bkgd.png";
-import sponsorBkgd from "../assets/sponsor_bkgd.png";
-
-const speakerImages: Record<string, any> = {
-  "lionel-sapp.jpeg": lionelSappImage,
-  "ryan-castillo.jpeg": ryanCastilloImage,
-  "katie-novotny.jpeg": katieNovotnyImage,
-  "tim-banks.jpeg": timBanksImage,
-  "ian-taylor.jpeg": ianTaylorImage,
-  "lauren-pryor.jpg": laurenPryorImage,
-};
+import michaelBuckbeeImage from "../assets/testimonials/michael-buckbee.jpg";
+import travisWebbImage from "../assets/testimonials/travis-webb.png";
+import kristinaKrasnolobovaImage from "../assets/testimonials/kristina-krasnolobova.webp";
 
 const testimonialImages: Record<string, any> = {
   "paul-chin-jr.jpeg": paulChinJrImage,
+  "michael-buckbee.jpg": michaelBuckbeeImage,
+  "travis-webb.png": travisWebbImage,
+  "kristina-krasnolobova.webp": kristinaKrasnolobovaImage,
 };
 
 const events = await getCollection('events');
 const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
+
+// 2026 platinum and gold sponsors for the logo row above the signup form
+const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
+const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
+  Object.entries(sponsorLogoFiles).map(([path, mod]) => [path.split("/").pop()!, mod.default])
+);
+const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ?? [])
+  .filter((sponsor) => sponsor.tier === 'platinum' || sponsor.tier === 'gold');
 ---
 
 <html lang="en">
@@ -51,106 +47,25 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Hampton Roads DevFest 2027 | Virginia Beach, VA</title>
-    <meta name="description" content="Hampton Roads DevFest returns in 2027 in Virginia Beach, VA. Dates coming soon — sign up for updates on our community-driven conference featuring local speakers, networking, and technical sessions." />
+    <meta name="description" content="Hampton Roads DevFest 2027 is Apr 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA. Sign up for updates about our community-driven developer conference." />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
-    <meta property="og:description" content="Hampton Roads DevFest returns in 2027. Dates coming soon — sign up to be the first to know about our community-driven developer conference." />
+    <meta property="og:description" content="Hampton Roads DevFest 2027 is Apr 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA." />
     <meta property="og:url" content="https://hrdevfest.org" />
-    <meta property="og:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
+    <CanonicalLink href="https://hrdevfest.org" />
+    <meta property="og:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
     <meta property="og:site_name" content="Hampton Roads DevFest" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hrdevfest" />
     <meta name="twitter:title" content="Hampton Roads DevFest 2027 | Virginia Beach, VA" />
-    <meta name="twitter:description" content="Hampton Roads DevFest returns in 2027. Dates coming soon — sign up to be the first to know." />
-    <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
+    <meta name="twitter:description" content="Hampton Roads DevFest 2027 is Apr 23, 2027, at Zeiders American Dream Theater in Virginia Beach, VA." />
+    <meta name="twitter:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-      :root {
-        --teal-dark: #052831;
-        --teal-mid: #123F4E;
-        --teal-accent: #4DB7B9;
-        --teal-line: #2B5F6D;
-        --red-primary: #D33B32;
-        --green-check: #35B724;
-        --blue-link: #3361C9;
-        --cream: #FFFCF3;
-        --gray-bg: #F3F4F6;
-      }
-
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-
-      /* Asymmetric card corners */
-      .card-asymmetric {
-        border-top-left-radius: 40px;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 40px;
-        border-bottom-left-radius: 10px;
-      }
-
-      .card-shadow {
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-      }
-
-      .btn-primary {
-        background: linear-gradient(0deg, var(--red-primary) 0%, var(--red-primary) 100%);
-        border-radius: 100px;
-        transition: all 0.3s ease;
-      }
-      .btn-primary:hover {
-        filter: brightness(0.9);
-        transform: scale(1.02);
-      }
-
-      .btn-secondary {
-        background: white;
-        border: 2px solid var(--red-primary);
-        border-radius: 100px;
-        color: var(--red-primary);
-        transition: all 0.3s ease;
-      }
-      .btn-secondary:hover {
-        background: var(--red-primary);
-        color: white;
-      }
-
-      /* Hero section */
-      .hero-section {
-        background: linear-gradient(125deg, var(--teal-mid) 0.73%, var(--teal-dark) 99.53%);
-      }
-
-      /* Hero image breakpoints - desktop starts at 1370px */
-      .hero-tablet {
-        display: none;
-      }
-      .hero-desktop {
-        display: none;
-      }
-      @media (min-width: 768px) {
-        .hero-tablet {
-          display: block;
-        }
-      }
-      @media (min-width: 1370px) {
-        .hero-tablet {
-          display: none;
-        }
-        .hero-desktop {
-          display: block;
-        }
-      }
-
-      /* Sponsor section */
-      .sponsor-section {
-        background: linear-gradient(135deg, var(--teal-mid) 0%, var(--teal-dark) 100%);
-      }
-
       /* FAQ Accordion */
       .faq-item .faq-answer {
         max-height: 0;
@@ -160,231 +75,188 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
       .faq-item.active .faq-answer {
         max-height: 500px;
       }
-      .faq-icon {
-        transition: transform 0.3s ease;
-      }
       .faq-item.active .faq-icon {
         transform: rotate(180deg);
       }
-
-      /* Venue section */
-      .venue-section {
-        background: linear-gradient(134deg, var(--teal-mid) 0%, var(--teal-dark) 100%);
-      }
-
     </style>
 
     <GoogleAnalytics />
+    <BentoTracking />
   </head>
-  <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
-    <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">
-
-    <!-- 2027 Teaser Banner -->
-    <a href="#signup" class="block w-full bg-[#D33B32] text-white text-center py-3 pl-4 pr-16 md:px-4 font-bold text-sm md:text-base hover:brightness-95 transition-all">
-      Hampton Roads DevFest returns in 2027 — sign up to be the first to know! 🎉
-    </a>
-
-    <!-- Mobile hamburger button - outside hero to avoid overflow:hidden clipping -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
+  <body class="min-h-screen">
+    <!-- Mobile hamburger button - outside the frame so it stays fixed -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
       <!-- Hamburger icon -->
-      <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
       <!-- X icon (hidden by default) -->
-      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
 
+    <div class="bp-frame">
+
     <!-- Hero Section with Nav -->
-    <section class="hero-section w-full relative overflow-hidden">
-      <!-- Hero background image - responsive for phone/tablet/desktop -->
-      <div class="absolute inset-0 pointer-events-none">
-        <!-- Phone hero (up to 767px) -->
-        <Image src={heroPhone} alt="" class="w-full h-full object-cover object-center md:hidden" width={390} height={680} />
-        <!-- Tablet hero (768px to 1369px) -->
-        <Image src={heroTablet} alt="" class="hero-tablet w-full h-full object-cover object-center" width={768} height={400} />
-        <!-- Desktop hero (1370px+) -->
-        <Image src={heroBkgd} alt="" class="hero-desktop w-full h-full object-cover object-left-top" width={1920} height={800} />
-      </div>
+    <section class="hero-section w-full relative">
       <!-- Navigation -->
-      <nav class="w-full px-4 md:px-8 lg:pr-[40px] pt-[17px] pb-[17px] relative z-10">
+      <nav class="w-full px-4 md:px-8 py-4 border-b border-[var(--bp-line)] relative z-20">
         <div class="max-w-7xl mx-auto flex justify-end">
           <!-- Desktop/Tablet nav links -->
           <div class="hidden md:flex items-center gap-6 lg:gap-10">
-            <a href="#about" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">About</a>
-            <a href="#venue" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Venue</a>
-            <a href="#testimonials" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Testimonials</a>
-            <a href="#faq" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">FAQ</a>
-            <a href="#signup" class="text-white text-base font-bold leading-relaxed hover:text-[#4DB7B9] transition-colors">Sign Up</a>
+            <a href="#about" class="bp-nav-link text-base font-bold leading-relaxed">About</a>
+            <a href="#venue" class="bp-nav-link text-base font-bold leading-relaxed">Venue</a>
+            <a href="#testimonials" class="bp-nav-link text-base font-bold leading-relaxed">Testimonials</a>
+            <PastYearsNav variant="desktop" />
+            <a href="#faq" class="bp-nav-link text-base font-bold leading-relaxed">FAQ</a>
+            <a href="/sponsor" class="bp-nav-link text-base font-bold leading-relaxed">Sponsor</a>
+            <a href="#signup" class="bp-nav-link text-base font-bold leading-relaxed">Sign Up</a>
           </div>
         </div>
       </nav>
 
       <!-- Mobile Menu Overlay -->
-      <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+      <div id="mobile-menu" class="fixed inset-0 z-50 bg-[var(--bp-paper)] hidden md:hidden">
         <div class="flex flex-col h-full">
           <!-- Spacer for hamburger button area -->
           <div class="h-[60px]"></div>
           <!-- Menu links -->
           <div class="flex flex-col gap-8 px-8 pt-4">
-            <a href="#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
-            <a href="#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
-            <a href="#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
-            <a href="#faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
-            <a href="#signup" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Sign Up</a>
+            <a href="#about" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">About</a>
+            <a href="#venue" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Venue</a>
+            <a href="#testimonials" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Testimonials</a>
+            <PastYearsNav variant="mobile" />
+            <a href="#faq" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">FAQ</a>
+            <a href="/sponsor" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Sponsor</a>
+            <a href="#signup" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Sign Up</a>
           </div>
         </div>
       </div>
 
-      <!-- Hero Content -->
-      <div class="w-full px-4 md:px-8 lg:pr-[40px] pb-8 pt-8 relative z-10">
+      <!-- Hero Content (bottom padding leaves room for the line art row) -->
+      <div class="relative z-10 w-full px-4 md:px-8 pt-16 pb-8 md:pb-[400px] min-[90rem]:pt-8 min-[90rem]:pb-[250px]">
         <div class="max-w-7xl mx-auto">
-          <!-- Mobile: Stacked vertical layout, Tablet/Desktop: Horizontal layout -->
-          <div class="flex flex-col md:flex-row justify-center lg:justify-end items-center gap-4 md:gap-2.5">
-            <div class="flex-shrink-0">
-              <Image src={logoWhite} alt="Hampton Roads DevFest" class="w-[160px] md:w-[230px] h-auto" width={230} height={173} />
+          <!-- Logo, headline, and the event date and place -->
+          <div class="w-fit mx-auto px-6 py-8 md:px-12 bp-surface flex flex-col items-center gap-6 md:gap-5 text-center">
+            <h1>
+              <Image src={logoWhite} alt="Hampton Roads DevFest 2027" class="w-[200px] md:w-[300px] h-auto" width={300} height={225} loading="eager" fetchpriority="high" />
+            </h1>
+            <div class="flex flex-col items-center gap-2">
+              <p class="text-[32px] md:text-[48px] font-bold leading-tight">Built in the 757</p>
+              <p class="bp-muted text-base md:text-lg">A one-day, single-track developer conference in Virginia Beach.</p>
             </div>
-            <div class="py-4 md:py-6 md:pl-6 md:border-l border-[#4DB7B9] flex flex-col items-center lg:items-end gap-2 md:gap-4">
-              <!-- Mobile: 32px stacked, Tablet: 48px centered, Desktop: 56px right-aligned on one line -->
-              <h1 class="text-center lg:text-right text-white text-[32px] md:text-[48px] lg:text-[56px] font-bold leading-[1.1] lg:leading-normal">
-                <span class="block lg:inline">Hampton Roads </span>
-                <span class="block lg:inline">DevFest 2027</span>
-              </h1>
-              <!-- Mobile: 18px stacked, Tablet: 24px centered, Desktop: 32px right-aligned on one line -->
-              <p class="text-center lg:text-right text-white text-[18px] md:text-[24px] lg:text-[32px] font-semibold leading-[1.3] lg:leading-10">
-                <span class="block lg:inline">Dates coming soon - </span>
-                <span class="block lg:inline">Virginia Beach, VA</span>
-              </p>
-              <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-white text-base font-bold">Notify Me</a>
-            </div>
+            <p class="text-[18px] md:text-[22px] font-semibold leading-[1.3]">
+              <span class="block sm:inline">Apr 23, 2027<span class="hidden sm:inline"> · </span></span>
+              <span class="block sm:inline">Zeiders American Dream Theater, Virginia Beach</span>
+            </p>
+            <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-base">Join the list</a>
           </div>
         </div>
       </div>
+
+      <!-- Landmark line art: under the button on mobile, a skyline row in the hero's bottom padding from md -->
+      <LandmarkLineArt />
     </section>
 
     <!-- Mailing List Signup - primary CTA -->
-    <section id="signup" class="w-full py-12 md:py-16 px-8 bg-gradient-to-br from-[#123F4E] to-[#052831] scroll-mt-4">
-      <div class="max-w-xl mx-auto p-8 md:p-10 bg-white shadow-2xl card-asymmetric text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-black mb-2">Be the First to Know</h2>
-        <p class="text-gray-600 mb-6">2027 dates haven't been announced yet — sign up and we'll email you the moment tickets go live.</p>
+    <section id="signup" class="w-full py-12 md:py-16 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4">
+      {sponsors2026.length > 0 && (
+        <div class="max-w-4xl mx-auto mb-10 flex flex-col items-center gap-4">
+          <p class="bp-label">DevFest 2026 sponsors</p>
+          <div class="flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
+            {sponsors2026.filter((sponsor) => sponsorLogos[sponsor.logo]).map((sponsor) => (
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="bp-plate px-3 py-2" title={sponsor.name}>
+                <Image src={sponsorLogos[sponsor.logo]} alt={sponsor.name} class={sponsor.tier === 'platinum' ? 'h-14 w-auto object-contain' : 'h-8 w-auto object-contain'} />
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+      <div class="max-w-xl mx-auto p-8 md:p-10 bp-box text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Be first to know</h2>
+        <p class="bp-muted mb-6">We'll email you when tickets go on sale and speakers are announced.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
-          <input type="text" name="fields_first_name" aria-label="First name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <input type="text" name="fields_last_name" aria-label="Last name" placeholder="Last Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <input type="email" name="email" aria-label="Email address" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full mb-4 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Subscribe</button>
-          <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our Privacy Policy and Terms of Service.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <input type="text" name="fields_first_name" aria-label="First name" placeholder="First name (optional)" autocomplete="given-name" class="bp-input px-4 py-3 text-base" />
+            <input type="text" name="fields_last_name" aria-label="Last name" placeholder="Last name (optional)" autocomplete="family-name" class="bp-input px-4 py-3 text-base" />
+          </div>
+          <input type="email" name="email" aria-label="Email address" placeholder="Email" required autocomplete="email" class="bp-input mb-4 px-4 py-3 text-base" />
+          <button type="submit" class="px-8 py-3 btn-primary text-base">Join the list</button>
+          <p class="text-xs bp-muted mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
         </form>
+        <p class="text-sm bp-muted mt-6">Add to calendar: <a href="/2027/hrdevfest-2027.ics" download class="bp-link font-bold">Apple / Outlook (.ics)</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hampton+Roads+DevFest+2027&amp;dates=20270423/20270424&amp;location=Zeiders+American+Dream+Theater,+4509+Commerce+Street,+Virginia+Beach,+VA+23462&amp;details=Hampton+Roads+DevFest+2027.+Details+at+https://hrdevfest.org" target="_blank" rel="noopener" class="bp-link font-bold">Google Calendar</a></p>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="w-full py-10 lg:py-20 px-8 lg:px-[200px] bg-[#F3F4F6] relative overflow-hidden">
-      <!-- Background image - grayscale, anchored to top with object-cover -->
-      <div class="absolute inset-0 pointer-events-none grayscale">
-        <Image src={aboutBkgd} alt="" class="w-full h-full object-cover object-top" width={1920} height={600} />
-      </div>
-      <!-- Decorative dots - hidden on mobile, shown on desktop -->
-      <div class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none">
-        <Image src={heroDots} alt="" class="w-auto h-auto max-w-[350px]" width={460} height={403} />
-      </div>
-      <div class="max-w-[1040px] mx-auto p-8 bg-white card-shadow card-asymmetric flex flex-col gap-2 relative z-10">
-        <h2 class="text-black text-[24px] lg:text-[32px] font-semibold leading-8 lg:leading-10 text-center lg:text-left">About</h2>
-        <p class="text-black text-base font-normal leading-relaxed">
-          Hampton Roads DevFest is returning in 2027 to once again spotlight local speakers and celebrate the deep, diverse talent of our developer community.
-          <br/><br/>
-          DevFest is more than a conference; it's a tribute to our dynamic local developer community. It's an ideal platform to highlight the exceptional places to work in the Hampton Roads area, emphasizing innovative technological strides. The event caters to everyone in the tech sphere, from seasoned developers and industry veterans to emerging talents and students.
-          <br/><br/>
-          Organized by RevolutionVA, a dedicated 501(c)(3) non-profit, our mission is to advance software development education throughout Virginia. Our passion for promoting learning and growth in technology is at the heart of DevFest.
-          <br/><br/>
-          We can't wait to bring the community back together to network, learn from top industry professionals, and recognize the extraordinary tech talent that thrives in Hampton Roads. Sign up above to be the first to know when 2027 dates are announced.
-        </p>
+    <section id="about" class="w-full py-10 lg:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <div class="max-w-[1040px] mx-auto p-6 lg:p-8 bp-surface flex flex-col gap-2">
+        <h2 class="text-[24px] lg:text-[32px] font-semibold leading-8 lg:leading-10 text-center lg:text-left">About</h2>
+        <div class="flex flex-col gap-4 text-base font-normal leading-relaxed max-w-[68ch]">
+          <p>DevFest returns in 2027 to spotlight local speakers and our developer community.</p>
+          <p>RevolutionVA, a 501(c)(3) nonprofit, runs DevFest. Our mission is to advance software development education across Virginia.</p>
+          <p>Come to network, learn from local pros and meet the tech talent in Hampton Roads. Sign up above for 2027 updates.</p>
+        </div>
+        <NorfolkLineArt class="mt-6 w-full max-w-[880px] mx-auto" />
       </div>
     </section>
 
     <!-- Sponsor 2027 CTA -->
-    <section id="sponsors" class="w-full py-10 md:py-20 px-8 lg:px-20 relative overflow-hidden">
-      <!-- Background - NO opacity on image per user requirement -->
-      <div class="absolute inset-0 pointer-events-none">
-        <div class="absolute inset-0 bg-gradient-to-br from-[#123F4E] to-[#052831]"></div>
-        <Image src={sponsorBkgd} alt="" class="absolute inset-0 w-full h-full object-cover" width={1920} height={800} />
-      </div>
-
-      <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 relative z-10 text-center">
-        <!-- Header with heart icon -->
-        <div class="flex items-center gap-4">
-          <svg class="w-10 h-10" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 35.5L17.55 33.27C9.4 25.86 4 21.03 4 15.05C4 10.22 7.82 6.4 12.65 6.4C15.34 6.4 17.92 7.66 20 9.74C22.08 7.66 24.66 6.4 27.35 6.4C32.18 6.4 36 10.22 36 15.05C36 21.03 30.6 25.86 22.45 33.27L20 35.5Z" fill="#D33B32"/>
-          </svg>
-          <h2 class="text-center text-white text-[32px] font-bold leading-10">Sponsor DevFest 2027</h2>
-        </div>
-        <p class="text-white text-base font-normal leading-relaxed">
-          Hampton Roads DevFest is powered by sponsors who believe in our local tech community. 2027 sponsorship details are coming soon — sign up above to be the first to hear.
+    <section id="sponsors" class="w-full py-10 md:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center">
+        <h2 class="text-center text-[32px] font-bold leading-10">Sponsor DevFest 2027</h2>
+        <p class="text-base font-normal leading-relaxed">
+          Sponsors make DevFest possible. Put your company in front of the developers building tech in Hampton Roads.
         </p>
-        <a href="/2026#sponsors" class="text-[#4DB7B9] text-base font-bold hover:underline">See our 2026 sponsors →</a>
+        <a href="/sponsor" class="px-8 py-3 btn-primary text-base">View the 2027 Sponsorship Prospectus</a>
+        <a href="/2026#sponsors" class="bp-link text-base font-bold">See our 2026 sponsors →</a>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="w-full p-8 md:py-10 lg:py-20 lg:px-[200px] bg-[#F3F4F6] relative">
-      <!-- Decorative dots - top left (hidden on mobile) -->
-      <div class="hidden lg:block absolute left-0 top-0 pointer-events-none w-[460px] h-[403px]">
-        <Image src={headerDots} alt="" class="w-full h-full" width={460} height={403} />
-      </div>
-      <!-- Decorative dots - bottom right (hidden on mobile) -->
-      <div class="hidden lg:block absolute right-0 bottom-0 pointer-events-none w-[460px] h-[403px] rotate-180">
-        <Image src={headerDots} alt="" class="w-full h-full" width={460} height={403} />
-      </div>
-
-      <div class="max-w-[1040px] mx-auto flex flex-col items-center gap-6 relative z-10">
-        <h2 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">FAQ</h2>
+    <section id="faq" class="w-full py-10 lg:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <div class="max-w-[1040px] mx-auto flex flex-col items-center gap-4">
+        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 mb-2">FAQ</h2>
 
         {faqItems.map((item, index) => (
-          <div class="faq-item w-full p-8 bg-white card-shadow card-asymmetric flex flex-col gap-4" data-index={index}>
-            <button class="faq-question w-full flex justify-between items-center cursor-pointer">
-              <span class="flex-1 text-black text-base font-bold leading-relaxed text-left">{item.question}</span>
-              <svg class="faq-icon w-[25px] h-[25px] text-[#AAAAAA]" viewBox="0 0 25 25" fill="none">
-                <path d="M6 9L12.5 16L19 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <div class="faq-item w-full p-6 md:p-8 bp-box flex flex-col gap-4" data-index={index}>
+            <button class="faq-question w-full flex justify-between items-center gap-4 cursor-pointer">
+              <span class="flex-1 text-base font-bold leading-relaxed text-left">{item.question}</span>
+              <svg class="faq-icon w-[25px] h-[25px] transition-transform" viewBox="0 0 25 25" fill="none" aria-hidden="true">
+                <path d="M6 9L12.5 16L19 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
               </svg>
             </button>
-            <div class="faq-answer text-black text-base font-normal leading-relaxed">
+            <div class="faq-answer text-base font-normal leading-relaxed bp-prose">
               {item.answer}
             </div>
           </div>
         ))}
 
-        <div class="h-10 px-4 rounded-[10px] flex flex-col justify-center items-center">
-          <a href="/faq" class="text-center text-[#D33B32] text-base font-bold leading-relaxed hover:underline">More FAQ</a>
-        </div>
+        <a href="/faq" class="mt-2 px-6 py-2 btn-secondary text-sm">More FAQ</a>
       </div>
     </section>
 
     <!-- Venue Section -->
-    <section id="venue" class="w-full card-shadow flex flex-col lg:flex-row relative">
-      <!-- Top/Left section with gradient and venue info -->
-      <div class="w-full lg:flex-1 h-[200px] lg:h-[530px] flex flex-col justify-center items-center gap-2.5 relative overflow-hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 pointer-events-none">
-          <Image src={venuePic} alt="" class="absolute left-0 top-0 h-full w-auto min-w-full object-left-top object-cover" />
-        </div>
-
-        <!-- Venue info - right aligned -->
-        <div class="w-full px-8 md:pr-10 md:pl-8 text-right relative z-10">
-          <h2 class="text-white text-[32px] md:text-[40px] font-bold mb-4">Venue</h2>
-          <p class="text-white text-base md:text-2xl font-normal leading-relaxed md:leading-[30px]">
+    <section id="venue" class="w-full flex flex-col lg:flex-row border-t border-[var(--bp-line)]">
+      <!-- Venue info -->
+      <div class="w-full lg:flex-1 py-10 lg:py-0 flex flex-col justify-center">
+        <div class="w-full px-8 md:px-10">
+          <h2 class="text-[32px] md:text-[40px] font-bold mb-4">Venue</h2>
+          <p class="text-base md:text-2xl font-normal leading-relaxed md:leading-[30px]">
             Zeiders American Dream Theater<br/>
             4509 Commerce Street,<br/>
             Virginia Beach, VA 23462
           </p>
-          <p class="text-white/80 text-sm md:text-base font-normal italic mt-3">
-            Our 2026 venue — 2027 location to be confirmed.
+          <p class="bp-muted text-sm md:text-base font-normal italic mt-3">
+            Our confirmed venue for Hampton Roads DevFest 2027.
           </p>
         </div>
       </div>
 
-      <!-- Bottom/Right section with map -->
-      <div class="w-full lg:flex-1">
+      <!-- Map -->
+      <div class="w-full lg:flex-1 border-t lg:border-t-0 lg:border-l border-[var(--bp-line)]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d798.259579003214!2d-76.13574812406885!3d36.84155839379043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ba959f7490b19d%3A0x2946d6df48a4c3ba!2sZeiders%20American%20Dream%20Theater!5e0!3m2!1sen!2sus!4v1708011885150!5m2!1sen!2sus"
           width="100%"
@@ -393,68 +265,70 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          class="h-[283px] md:h-[530px]"></iframe>
+          class="block h-[283px] md:h-[530px]"></iframe>
       </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="w-full p-8 md:py-10 md:px-8 lg:p-20 bg-[#F3F4F6] rounded-[10px]">
+    <section id="testimonials" class="w-full py-10 lg:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
       <div class="max-w-7xl mx-auto flex flex-col gap-6">
         <!-- Header -->
-        <h2 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center md:text-left">Testimonials</h2>
+        <h2 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10 text-center md:text-left">Testimonials</h2>
 
-        <!-- Cards: Mobile/Tablet stacked, Desktop row -->
-        <div class="flex flex-col lg:flex-row gap-8">
-          <!-- Card: Mobile/Desktop vertical layout, Tablet horizontal layout -->
-          {testimonials.map((testimonial) => (
-            <div class="w-full lg:flex-1 p-6 bg-white card-shadow card-asymmetric flex flex-col md:flex-row lg:flex-col items-center gap-4">
-              {testimonial.image.startsWith('http') ? (
+        <!-- Cards: one column on phones and tablets, 2x2 grid on desktop -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {testimonials.filter((t) => t.image).map((testimonial) => (
+            <div class="w-full p-6 bp-box flex flex-col md:flex-row items-center md:items-start gap-4">
+              {testimonial.image!.startsWith('http') ? (
                 <img
-                  src={testimonial.image}
+                  src={testimonial.image!}
                   alt={testimonial.name}
-                  class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+                  class="bp-photo w-[100px] h-[100px] rounded-full object-cover shrink-0"
                   width="100"
                   height="100"
                 />
               ) : (
                 <Image
-                  src={testimonialImages[testimonial.image]}
+                  src={testimonialImages[testimonial.image!]}
                   alt={testimonial.name}
-                  class="w-[100px] h-[100px] rounded-full object-cover shrink-0"
+                  class="bp-photo w-[100px] h-[100px] rounded-full object-cover shrink-0"
                   width={100}
                   height={100}
                 />
               )}
               <div class="w-full flex flex-col gap-4">
-                <div class="pb-4 flex flex-col justify-center items-center md:items-start lg:items-center gap-2.5">
-                  <p class="text-black text-base font-normal leading-relaxed">
+                <div class="pb-4 flex flex-col justify-center items-center md:items-start gap-2.5">
+                  <p class="text-base font-normal leading-relaxed">
                     "{testimonial.quote}"
                   </p>
-                  <p class="w-full text-black text-base font-semibold">{testimonial.name}</p>
+                  <div class="w-full flex flex-col gap-1">
+                    <p class="bp-label">{testimonial.name}</p>
+                    {testimonial.role && <p class="text-sm bp-muted">{testimonial.role}</p>}
+                  </div>
                 </div>
                 <div class="flex items-center gap-4">
                   {testimonial.linkedin && (
-                    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0077B5] hover:opacity-80">
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <a href={testimonial.linkedin} target="_blank" rel="noopener noreferrer" class="bp-link flex items-center gap-1">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                       </svg>
                       <span class="text-sm font-medium">LinkedIn</span>
                     </a>
                   )}
                   {testimonial.twitter && (
-                    <a href={testimonial.twitter} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-black hover:opacity-80">
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <a href={testimonial.twitter} target="_blank" rel="noopener noreferrer" class="bp-link flex items-center gap-1">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                       </svg>
-                      <span class="text-sm font-medium text-[#27B738]">Twitter</span>
+                      <span class="text-sm font-medium">Twitter</span>
                     </a>
                   )}
                   {testimonial.bluesky && (
-                    <a href={testimonial.bluesky} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 text-[#0085FF] hover:opacity-80">
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <a href={testimonial.bluesky} target="_blank" rel="noopener noreferrer" class="bp-link flex items-center gap-1">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.038.415-.055-.265.2-.532.34-.796.531-2.32 1.673-2.788 2.927-1.706 4.649 1.082 1.723 4.883 1.08 5.67-.542.364-.75.28-1.68.28-2.722 0 1.042-.084 1.972.28 2.722.787 1.622 4.588 2.265 5.67.542 1.082-1.722.614-2.976-1.706-4.649-.264-.191-.531-.331-.796-.531.14.017.279.035.415.055 2.67.296 5.568-.628 6.383-3.364.246-.829.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/>
                       </svg>
-                      <span class="text-sm font-medium">Website</span>
+                      <span class="text-sm font-medium">Bluesky</span>
                     </a>
                   )}
                 </div>
@@ -465,33 +339,38 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
       </div>
     </section>
 
+    <!-- Final Signup Prompt -->
+    <section id="event-date" class="w-full py-12 md:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <div class="max-w-3xl mx-auto flex flex-col items-center gap-4 text-center">
+        <Image src={logoWhite} alt="Hampton Roads DevFest" class="w-[140px] md:w-[180px] h-auto" width={180} height={135} />
+        <p class="text-base md:text-lg font-semibold leading-relaxed">Apr 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
+        <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-base">Join the list</a>
+        <p class="text-sm bp-muted">Add to calendar: <a href="/2027/hrdevfest-2027.ics" download class="bp-link font-bold">Apple / Outlook (.ics)</a> · <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Hampton+Roads+DevFest+2027&amp;dates=20270423/20270424&amp;location=Zeiders+American+Dream+Theater,+4509+Commerce+Street,+Virginia+Beach,+VA+23462&amp;details=Hampton+Roads+DevFest+2027.+Details+at+https://hrdevfest.org" target="_blank" rel="noopener" class="bp-link font-bold">Google Calendar</a></p>
+      </div>
+    </section>
+
     <!-- Shop Merch Section -->
-    <section id="merch" class="py-16 md:py-24" style="background-color: #FFFCF3;">
+    <section id="merch" class="py-16 md:py-24 border-t border-[var(--bp-line)]">
       <div class="container mx-auto px-4 md:px-8">
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <!-- Content -->
           <div class="flex-1 text-center lg:text-left">
-            <div class="flex items-center justify-center lg:justify-start gap-3 mb-6">
-              <svg class="w-8 h-8 text-[#D33B32]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-              </svg>
-              <h2 class="text-2xl md:text-3xl font-bold text-[#052831]">Shop Merch</h2>
-            </div>
-            <p class="text-xl md:text-2xl text-[#052831] mb-4">
-              Support RevolutionVA with official merchandise
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">Shop Merch</h2>
+            <p class="text-xl md:text-2xl mb-4">
+              Official RevolutionVA merch
             </p>
-            <p class="text-[#052831]/70 mb-8 max-w-md mx-auto lg:mx-0">
-              All purchases support the 501(c)(3) <a href="https://revolutionva.org" target="_blank" rel="noopener noreferrer" class="text-[#D33B32] hover:underline font-medium">RevolutionVA</a> and future community events like Hampton Roads DevFest.
+            <p class="bp-muted mb-8 max-w-md mx-auto lg:mx-0">
+              Every purchase supports <a href="https://revolutionva.org" target="_blank" rel="noopener noreferrer" class="bp-link font-medium">RevolutionVA</a> and future events like DevFest.
             </p>
             <a
               href="https://www.bonfire.com/store/revolutionva/"
               target="_blank"
               rel="noopener noreferrer"
-              class="px-6 md:px-8 py-3 md:py-4 btn-primary text-white text-base font-bold inline-flex items-center justify-center gap-2"
+              class="px-6 md:px-8 py-3 md:py-4 btn-secondary text-base"
             >
               Shop Now
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="square" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
               </svg>
             </a>
           </div>
@@ -500,7 +379,7 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
             <img
               src="https://c.bonfireassets.com/thumb/store/7c612bf7-1ff6-47c9-95d3-efd29907bed1/a91b760e/"
               alt="RevolutionVA community event"
-              class="rounded-2xl shadow-xl w-full max-w-lg mx-auto object-cover"
+              class="bp-photo w-full max-w-lg mx-auto object-cover"
               loading="lazy"
             />
           </div>
@@ -509,57 +388,48 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
     </section>
 
     <!-- Footer -->
-    <footer class="w-full bg-[#052831] py-8 px-8 lg:px-20">
-      <div class="max-w-7xl mx-auto flex flex-col gap-6">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div class="flex flex-col items-center md:items-start gap-2">
-            <p class="text-white text-base font-normal leading-relaxed text-center md:text-left">
-              Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
-            </p>
-            <div class="flex items-center gap-4">
-              <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on X" class="text-white hover:text-[#4DB7B9] transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/events/7388613109579636736/" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on LinkedIn" class="text-white hover:text-[#4DB7B9] transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on Facebook" class="text-white hover:text-[#4DB7B9] transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="flex flex-wrap justify-center md:justify-end gap-4 text-sm">
-            <a href="/faq" class="text-white hover:text-[#4DB7B9] transition-colors">FAQ</a>
-            <a href="/code-of-conduct" class="text-white hover:text-[#4DB7B9] transition-colors">Code of Conduct</a>
-          </div>
-        </div>
-        <!-- Past Events row -->
-        <div class="border-t border-white/20 pt-4">
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 flex-wrap">
-            <a href="/events" class="text-white text-sm font-medium hover:text-[#4DB7B9] transition-colors">
-              Past Events
+    <footer class="relative isolate overflow-hidden w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <FooterBridge />
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
+        <div class="flex flex-col items-center md:items-start gap-4">
+          <p class="text-base font-normal leading-relaxed text-center md:text-left">
+            Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on X" class="bp-nav-link">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
             </a>
-            <span class="hidden sm:inline text-white/40">|</span>
-            <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-              {pastYears.map((year) => (
-                <a 
-                  href={`/${year}`} 
-                  class="text-white/70 text-sm hover:text-white hover:text-[#4DB7B9] transition-colors"
-                >
-                  {year}
-                </a>
-              ))}
-            </div>
+            <a href="https://www.linkedin.com/company/revolutionva/" target="_blank" rel="noopener noreferrer" aria-label="RevolutionVA on LinkedIn" class="bp-nav-link">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" aria-label="Hampton Roads DevFest on Facebook" class="bp-nav-link">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm">
+            <a href="/faq" class="bp-link">FAQ</a>
+            <a href="/sponsor" class="bp-link">Sponsor</a>
+            <a href="/code-of-conduct" class="bp-link">Code of Conduct</a>
+          </div>
+          <!-- Past Events row -->
+          <div class="w-full pt-4 border-t border-[var(--bp-line-faint)] flex flex-wrap justify-center md:justify-start items-baseline gap-x-4 gap-y-2 text-sm">
+            <a href="/events" class="bp-link font-bold">Past Events</a>
+            {pastYears.map((year) => (
+              <a href={`/${year}`} class="bp-link bp-mono">{year}</a>
+            ))}
           </div>
         </div>
+        <TitleBlock />
       </div>
     </footer>
+
+    </div>
 
     <!-- Mobile Menu JavaScript -->
     <script>
@@ -575,11 +445,13 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
           isOpen = !isOpen;
           if (isOpen) {
             mobileMenu?.classList.remove('hidden');
+            menuBtn?.setAttribute('aria-expanded', 'true');
             hamburgerIcon?.classList.add('hidden');
             closeIcon?.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
           } else {
             mobileMenu?.classList.add('hidden');
+            menuBtn?.setAttribute('aria-expanded', 'false');
             hamburgerIcon?.classList.remove('hidden');
             closeIcon?.classList.add('hidden');
             document.body.style.overflow = '';
@@ -594,6 +466,14 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
           link.addEventListener('click', () => {
             if (isOpen) toggleMenu();
           });
+        });
+
+        // Close menu on Escape and return focus to the button
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && isOpen) {
+            toggleMenu();
+            menuBtn?.focus();
+          }
         });
       });
     </script>
@@ -620,7 +500,5 @@ const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
         });
       });
     </script>
-
-    </div>
   </body>
 </html>

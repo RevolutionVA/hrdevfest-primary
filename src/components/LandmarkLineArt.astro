@@ -1,0 +1,36 @@
+---
+import neptune from "../assets/landmark-neptune.webp";
+/*
+  Decorative blueprint line art of King Neptune (Virginia Beach), traced from
+  Kevin's v2 reference sheet into white-on-transparent WebP. The Norfolk
+  skyline lives in the About section (NorfolkLineArt), and the
+  Bridge-Tunnel runs along the top of the footer.
+
+  Pure decoration: aria-hidden, empty alt, no pointer events.
+  Below md: Neptune centered, in flow after the hero text. From md it sits
+  at the bottom left of the hero, and from 1440px it rises in the left
+  gutter beside the text block.
+*/
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={["lla pointer-events-none select-none pb-10 md:pb-0 md:absolute md:inset-x-0 md:bottom-0", className]}
+  aria-hidden="true"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 min-[90rem]:max-w-none min-[90rem]:px-4 flex items-end justify-center md:justify-between gap-6">
+    <img src={neptune.src} width={neptune.width} height={neptune.height} alt="" class="lla-img h-[180px] md:h-[384px] min-[90rem]:h-[560px] w-auto shrink-0" decoding="async" loading="eager" />
+
+  </div>
+</div>
+
+<style>
+  /* A clear step above the page grid so the shapes read, still under the text */
+  .lla-img {
+    opacity: 0.6;
+  }
+</style>

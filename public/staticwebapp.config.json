@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "route": "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-28.pdf",
+      "redirect": "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-30.pdf",
+      "statusCode": 302
+    },
+    {
+      "route": "/sponsor/hrdevfest-2027-sponsor-sheet-print-2026-10-28.pdf",
+      "redirect": "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-30.pdf",
+      "statusCode": 302
+    }
+  ]
+}

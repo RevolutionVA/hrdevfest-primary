@@ -1,7 +1,13 @@
 ---
 import "../styles/global.css";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
-import headerDots from "../assets/dots/header_dots.svg";
+import BentoTracking from "../components/BentoTracking.astro";
+import CanonicalLink from "../components/CanonicalLink.astro";
+import PastYearsNav from "../components/PastYearsNav.astro";
+import TitleBlock from "../components/TitleBlock.astro";
+import { Image } from "astro:assets";
+import logoWhite from "../assets/logo-white.png";
+import FooterBridge from "../components/FooterBridge.astro";
 ---
 
 <html lang="en">
@@ -13,57 +19,36 @@ import headerDots from "../assets/dots/header_dots.svg";
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Code of Conduct | Hampton Roads DevFest 2026</title>
+    <title>Code of Conduct | Hampton Roads DevFest 2027</title>
     <meta name="description" content="Hampton Roads DevFest Code of Conduct. We are dedicated to providing a harassment-free conference experience for everyone." />
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Code of Conduct | Hampton Roads DevFest 2026" />
+    <meta property="og:title" content="Code of Conduct | Hampton Roads DevFest 2027" />
     <meta property="og:description" content="Hampton Roads DevFest Code of Conduct. We are dedicated to providing a harassment-free conference experience for everyone." />
     <meta property="og:url" content="https://hrdevfest.org/code-of-conduct" />
-    <meta property="og:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
+    <CanonicalLink href="https://hrdevfest.org/code-of-conduct" />
+    <meta property="og:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hrdevfest" />
-    <meta name="twitter:title" content="Code of Conduct | Hampton Roads DevFest 2026" />
+    <meta name="twitter:title" content="Code of Conduct | Hampton Roads DevFest 2027" />
     <meta name="twitter:description" content="Hampton Roads DevFest Code of Conduct. We are dedicated to providing a harassment-free conference experience for everyone." />
-    <meta name="twitter:image" content="https://hrdevfest.org/2026/og_promo_2026.jpeg" />
+    <meta name="twitter:image" content="https://hrdevfest.org/2027/og_promo_2027.jpg" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      .card-asymmetric {
-        border-top-left-radius: 40px;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 40px;
-        border-bottom-left-radius: 10px;
-      }
-      .card-shadow {
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
-      }
-      .btn-primary {
-        background: linear-gradient(0deg, #D33B32 0%, #D33B32 100%);
-        border-radius: 100px;
-        transition: all 0.3s ease;
-      }
-      .btn-primary:hover {
-        filter: brightness(0.9);
-        transform: scale(1.02);
-      }
       .coc-content h2 {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #000;
         margin-top: 2rem;
         margin-bottom: 0.75rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--bp-line-faint);
       }
       .coc-content p {
         font-size: 1rem;
         line-height: 1.75;
-        color: #374151;
         margin-bottom: 1rem;
       }
       .coc-content ol {
@@ -79,90 +64,86 @@ import headerDots from "../assets/dots/header_dots.svg";
       .coc-content li {
         font-size: 1rem;
         line-height: 1.75;
-        color: #374151;
         margin-bottom: 0.25rem;
-      }
-      .coc-content a {
-        color: #D33B32;
-        text-decoration: underline;
-      }
-      .coc-content a:hover {
-        opacity: 0.8;
       }
     </style>
 
     <GoogleAnalytics />
+    <BentoTracking />
   </head>
-  <body class="flex flex-col items-center min-h-screen bg-white text-gray-900">
-    <div class="w-full max-w-[1920px] mx-auto bg-[#F3F4F6]">
-    <!-- See You Next Year Banner -->
-    <div class="w-full bg-[#D33B32] text-white text-center py-3 px-4 font-bold text-sm md:text-base">
-      Thanks for an amazing Hampton Roads DevFest 2026! See you next year! 🎉
-    </div>
+  <body class="min-h-screen">
+    <!-- Mobile hamburger button - outside the frame so it stays fixed -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bp-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <div class="bp-frame">
+    <!-- Logo Bar -->
+    <a href="/" class="block w-full py-3 pl-4 pr-16 md:px-4 border-b border-[var(--bp-line)]">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
+        <Image src={logoWhite} alt="Hampton Roads DevFest home" class="h-24 md:h-28 w-auto" width={300} height={225} />
+        <p class="text-sm md:text-base font-bold">Apr 23, 2027 · Zeiders American Dream Theater, Virginia Beach</p>
+      </div>
+    </a>
 
     <!-- Mailing List Signup -->
-    <section class="w-full py-12 px-8 bg-[#F3F4F6]">
-      <div class="max-w-4xl mx-auto text-center">
-        <h2 class="text-2xl font-bold text-black mb-2">Stay in the Loop</h2>
-        <p class="text-gray-600 mb-6">Sign up for updates on next year's Hampton Roads DevFest</p>
+    <section class="w-full py-12 px-4 md:px-8">
+      <div class="max-w-xl mx-auto p-8 bp-box text-center">
+        <h2 class="text-2xl font-bold mb-2">Be first to know</h2>
+        <p class="bp-muted mb-6">Sign up for Hampton Roads DevFest 2027 updates.</p>
         <form action="https://track.bentonow.com/forms/57d9b8196b2b704a30da5ac245bf2cfe/$subscribeHRDevFest?hardened=true" method="POST" enctype="multipart/form-data" class="max-w-md mx-auto">
           <input type="hidden" name="redirect" value="https://hrdevfest.org/thank-you">
-          <input type="text" name="fields_first_name" placeholder="First Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <input type="text" name="fields_last_name" placeholder="Last Name" required class="w-full mb-3 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <input type="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full mb-4 px-4 py-3 bg-white border border-gray-300 rounded-lg text-base focus:outline-none focus:border-[#4DB7B9] focus:ring-2 focus:ring-[#4DB7B9]/20" />
-          <button type="submit" class="px-8 py-3 btn-primary text-white text-base font-bold">Subscribe</button>
-          <p class="text-xs text-gray-500 mt-4">By signing up, you agree to our Privacy Policy and Terms of Service.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+            <input type="text" name="fields_first_name" aria-label="First name" placeholder="First name (optional)" autocomplete="given-name" class="bp-input px-4 py-3 text-base" />
+            <input type="text" name="fields_last_name" aria-label="Last name" placeholder="Last name (optional)" autocomplete="family-name" class="bp-input px-4 py-3 text-base" />
+          </div>
+          <input type="email" name="email" aria-label="Email address" placeholder="Email" required autocomplete="email" class="bp-input mb-4 px-4 py-3 text-base" />
+          <button type="submit" class="px-8 py-3 btn-primary text-base">Join the list</button>
+          <p class="text-xs bp-muted mt-4">By signing up, you agree to our <a href="https://revolutionva.org/privacy" target="_blank" rel="noopener" class="bp-link">Privacy Policy</a>.</p>
         </form>
       </div>
     </section>
 
-    <!-- Mobile hamburger button -->
-    <button id="mobile-menu-btn" class="md:hidden p-2 fixed top-4 right-4 z-[60] bg-[#052831] rounded-lg" aria-label="Toggle menu">
-      <svg id="hamburger-icon" class="w-6 h-6 text-white transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-      <svg id="close-icon" class="w-6 h-6 text-white hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 bg-white hidden md:hidden">
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-[var(--bp-paper)] hidden md:hidden">
       <div class="flex flex-col h-full">
         <div class="h-[60px]"></div>
         <div class="flex flex-col gap-8 px-8 pt-4">
-          <a href="/#about" class="mobile-menu-link text-black text-base font-bold leading-relaxed">About</a>
-          <a href="/#venue" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Venue</a>
-          <a href="/#testimonials" class="mobile-menu-link text-black text-base font-bold leading-relaxed">Testimonials</a>
-          <a href="/2024" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2024</a>
-          <a href="/2026" class="mobile-menu-link text-black text-base font-bold leading-relaxed">2026</a>
-          <a href="/faq" class="mobile-menu-link text-black text-base font-bold leading-relaxed">FAQ</a>
+          <a href="/#about" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">About</a>
+          <a href="/#venue" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Venue</a>
+          <a href="/#testimonials" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Testimonials</a>
+          <PastYearsNav variant="mobile" />
+          <a href="/faq" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">FAQ</a>
+          <a href="/sponsor" class="mobile-menu-link bp-nav-link text-base font-bold leading-relaxed">Sponsor</a>
         </div>
       </div>
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="w-full bg-[#052831] py-4 px-8 lg:px-20">
+    <nav class="w-full py-4 px-8 lg:px-20 border-y border-[var(--bp-line)]">
       <div class="max-w-7xl mx-auto hidden md:flex justify-center">
         <div class="flex items-center gap-12 lg:gap-20">
-          <a href="/#about" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">About</a>
-          <a href="/#venue" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Venue</a>
-          <a href="/#testimonials" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">Testimonials</a>
-          <a href="/2024" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2024</a>
-          <a href="/2026" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">2026</a>
-          <a href="/faq" class="text-white text-base font-bold leading-relaxed hover:opacity-80 transition-opacity">FAQ</a>
+          <a href="/#about" class="bp-nav-link text-base font-bold leading-relaxed">About</a>
+          <a href="/#venue" class="bp-nav-link text-base font-bold leading-relaxed">Venue</a>
+          <a href="/#testimonials" class="bp-nav-link text-base font-bold leading-relaxed">Testimonials</a>
+          <PastYearsNav variant="desktop" />
+          <a href="/faq" class="bp-nav-link text-base font-bold leading-relaxed">FAQ</a>
+          <a href="/sponsor" class="bp-nav-link text-base font-bold leading-relaxed">Sponsor</a>
         </div>
       </div>
       <div class="md:hidden h-6"></div>
     </nav>
 
     <!-- Header Section -->
-    <section class="w-full bg-white relative overflow-hidden">
-      <img src={headerDots.src} alt="" class="absolute left-0 top-0 h-full w-auto opacity-30 pointer-events-none" />
-
-      <div class="relative z-10 flex flex-col items-center py-8 px-8 lg:py-10 lg:px-[280px] md:px-8">
+    <section class="w-full">
+      <div class="flex flex-col items-center py-8 px-8 lg:py-10">
         <div class="max-w-4xl mx-auto flex flex-col gap-2 text-center">
-          <h1 class="text-black text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">
+          <h1 class="text-[24px] lg:text-[32px] font-bold leading-8 lg:leading-10">
             Code of Conduct
           </h1>
         </div>
@@ -170,50 +151,52 @@ import headerDots from "../assets/dots/header_dots.svg";
     </section>
 
     <!-- Code of Conduct Content -->
-    <section class="w-full py-8 px-8 md:py-10 lg:py-20 lg:px-[200px] bg-[#F3F4F6]">
+    <section class="w-full pb-8 px-4 md:px-8 md:pb-10 lg:pb-20">
       <div class="max-w-4xl mx-auto">
-        <div class="bg-white p-8 md:p-12 card-asymmetric card-shadow relative overflow-hidden">
-          <!-- Dots decoration -->
-          <img
-            src={headerDots.src}
-            alt=""
-            class="absolute left-0 top-0 h-16 w-auto opacity-20 pointer-events-none"
-          />
-          <img
-            src={headerDots.src}
-            alt=""
-            class="absolute right-0 bottom-0 h-16 w-auto opacity-20 pointer-events-none rotate-180"
-          />
-
-          <div class="relative z-10 coc-content">
+        <div class="bp-box p-8 md:p-12">
+          <div class="coc-content bp-prose">
             <p>
-              All attendees, speakers, sponsors and volunteers at Hampton Roads DevFest are required to agree with the following code of conduct. Organizers will enforce this code throughout the event. We are expecting cooperation from all participants to help ensuring a safe environment for everybody.
+              Everyone at Hampton Roads DevFest, including attendees, speakers, sponsors and volunteers, must agree to this code of conduct. We enforce it throughout the event. Help us keep DevFest safe for everyone.
             </p>
 
             <h2>Need Help?</h2>
             <p>
-              If you need to report an incident or have any concerns, please contact the organizing team at <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. You can also speak directly with any staff member during the event.
+              To report an incident or concern, email <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> or talk to any staff member at the event.
             </p>
 
             <h2>The Quick Version</h2>
             <p>
-              Hampton Roads DevFest is dedicated to providing a harassment-free conference experience for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), socioeconomic status, immigration or citizenship status, pregnancy, veteran status, neurodiversity, or technology choices. We do not tolerate harassment of conference participants in any form. Sexual language and imagery is not appropriate for any conference venue, including talks, workshops, parties, social media (including Twitter/X, Discord, Slack), and other online media. Conference participants violating these rules may be sanctioned or expelled from the conference <em>without a refund</em> at the discretion of the conference organizers.
+              Hampton Roads DevFest is a harassment-free conference for everyone, regardless of gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), socioeconomic status, immigration or citizenship status, pregnancy, veteran status, neurodiversity, or technology choices.
             </p>
+            <ul>
+              <li>We don't tolerate harassment of participants in any form.</li>
+              <li>Sexual language and imagery aren't appropriate anywhere at the conference, including talks, workshops, parties, social media (including Twitter/X, Discord, Slack) and other online media.</li>
+              <li>Organizers may sanction or expel anyone who breaks these rules, <em>without a refund</em>.</li>
+            </ul>
 
             <h2>The Less Quick Version</h2>
+            <p>Harassment includes:</p>
+            <ul>
+              <li>Offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion or technology choices</li>
+              <li>Sexual images in public spaces</li>
+              <li>Deliberate intimidation, stalking or following</li>
+              <li>Harassing photography or recording</li>
+              <li>Sustained disruption of talks or other events</li>
+              <li>Inappropriate physical contact or unwelcome sexual attention</li>
+              <li>Doxing or sharing private information without consent</li>
+              <li>Deliberate misgendering or deadnaming</li>
+              <li>Threats of violence</li>
+            </ul>
             <p>
-              Harassment includes offensive verbal comments related to gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion, technology choices, sexual images in public spaces, deliberate intimidation, stalking, following, harassing photography or recording, sustained disruption of talks or other events, inappropriate physical contact, unwelcome sexual attention, doxing or sharing of private information without consent, deliberate misgendering or deadnaming, and threats of violence.
+              If you're asked to stop harassing behavior, stop immediately.
             </p>
             <p>
-              Participants asked to stop any harassing behavior are expected to comply immediately.
-            </p>
-            <p>
-              Sponsors are also subject to the anti-harassment policy. In particular, sponsors should not use sexualized images, activities, or other material. Booth staff (including volunteers) should not use sexualized clothing/uniforms/costumes, or otherwise create a sexualized environment.
+              This policy applies to sponsors too. Sponsors shouldn't use sexualized images, activities or other material. Booth staff, including volunteers, shouldn't wear sexualized clothing, uniforms or costumes, or otherwise create a sexualized environment.
             </p>
 
             <h2>Consequences</h2>
             <p>
-              If a participant engages in harassing behavior, the conference organizers may take action including but not limited to:
+              If someone harasses others, organizers may take action, including but not limited to:
             </p>
             <ol>
               <li>A verbal warning and request to stop the behavior</li>
@@ -222,42 +205,42 @@ import headerDots from "../assets/dots/header_dots.svg";
               <li>Referral to venue security or local law enforcement</li>
             </ol>
             <p>
-              The severity of the response will be determined by the organizers based on the nature and context of the behavior.
+              Organizers decide the response based on the nature and context of the behavior.
             </p>
 
             <h2>Reporting Process</h2>
             <p>
-              If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact a member of the staff immediately. Hampton Roads DevFest staff can be identified by their designated staff t-shirts and badges.
+              If you're being harassed, see someone else being harassed, or have other concerns, tell a staff member right away. Staff wear designated staff t-shirts and badges.
             </p>
             <p>
-              You can also report incidents by emailing <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. When you make a report, here is what you can expect:
+              You can also email <a href="mailto:team@revolutionva.org">team@revolutionva.org</a>. Here's what to expect:
             </p>
             <ul>
-              <li><strong>Acknowledgment:</strong> Your report will be acknowledged promptly.</li>
-              <li><strong>Confidentiality:</strong> All reports will be handled with discretion. Details will only be shared as needed to investigate and resolve the situation.</li>
-              <li><strong>Investigation:</strong> The organizers will review the report and speak with involved parties as appropriate.</li>
-              <li><strong>Outcome:</strong> You will be informed of the resolution. Actions taken will follow the consequences outlined above.</li>
+              <li><strong>Acknowledgment:</strong> We confirm we got your report promptly.</li>
+              <li><strong>Confidentiality:</strong> We handle every report with discretion and share details only as needed to resolve it.</li>
+              <li><strong>Investigation:</strong> Organizers review the report and talk with the people involved as needed.</li>
+              <li><strong>Outcome:</strong> We tell you the resolution. Actions follow the consequences above.</li>
             </ul>
             <p>
-              Hampton Roads DevFest staff will be happy to help participants contact venue/event staff or local law enforcement, or otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
+              Staff can help you contact venue staff or local law enforcement, or otherwise help you feel safe for the rest of the conference. We value your attendance.
             </p>
 
             <h2>Photography and Recording</h2>
             <p>
-              We want everyone to feel comfortable at Hampton Roads DevFest. Please ask for consent before photographing or recording other attendees. If someone asks you not to photograph or record them, please respect their wishes. Official event photographers will be clearly identified; if you prefer not to be photographed, please let them know.
+              Ask before photographing or recording other attendees. If someone says no, respect it. Official photographers are clearly identified. Tell them if you prefer not to be photographed.
             </p>
 
             <h2>Applicability</h2>
             <p>
-              We expect participants to follow these rules at all Hampton Roads DevFest venues, conference-related social events, and event-specific online platforms (such as Discord, Slack, or other community channels). This code of conduct also applies to interactions between participants after the event if they stem from conduct that occurred during the conference. Continued harassment outside the event will be treated with the same seriousness.
+              These rules apply at all DevFest venues, conference social events and event online spaces, such as Discord, Slack or other community channels. They also cover interactions after the event that stem from conduct during the conference. We treat continued harassment outside the event just as seriously.
             </p>
 
             <h2>Accessibility</h2>
             <p>
-              Hampton Roads DevFest is committed to providing an accessible and inclusive environment for all participants. If you need accommodations to fully participate in the event, please contact us at <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> and we will do our best to meet your needs.
+              We want everyone to be able to take part. If you need accommodations, email <a href="mailto:team@revolutionva.org">team@revolutionva.org</a> and we'll do our best to help.
             </p>
 
-            <p class="text-sm text-gray-400 mt-8">
+            <p class="text-sm bp-muted mt-8">
               <em>Original source and credit: JSConf 2012 &amp; <a href="https://geekfeminism.fandom.com/wiki/Conference_anti-harassment/Policy">The Ada Initiative</a>. Please help by translating or improving: <a href="https://github.com/leftlogic/confcodeofconduct.com">github.com/leftlogic/confcodeofconduct.com</a>. This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.</em>
             </p>
           </div>
@@ -266,43 +249,45 @@ import headerDots from "../assets/dots/header_dots.svg";
     </section>
 
     <!-- Footer -->
-    <footer class="w-full bg-[#052831] py-8 px-8 lg:px-20 mt-auto">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-          <!-- Left: Branding -->
-          <div class="text-center md:text-left">
-            <p class="text-white text-base font-normal leading-relaxed">
-              Hampton Roads DevFest is presented by RevolutionVA, a 501c3 organization.
-            </p>
+    <footer class="relative isolate overflow-hidden w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
+      <FooterBridge />
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-8">
+        <div class="flex flex-col items-center md:items-start gap-4">
+          <!-- Branding -->
+          <p class="text-base font-normal leading-relaxed text-center md:text-left">
+            Hampton Roads DevFest is presented by RevolutionVA, a 501(c)(3) nonprofit.
+          </p>
+
+          <!-- Quick Links -->
+          <div class="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 text-sm">
+            <a href="/faq" class="bp-link">FAQ</a>
+            <a href="/code-of-conduct" class="bp-link">Code of Conduct</a>
           </div>
 
-          <!-- Center: Quick Links -->
-          <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-            <a href="/faq" class="text-white text-sm hover:opacity-80 transition-opacity">FAQ</a>
-            <a href="/code-of-conduct" class="text-white text-sm hover:opacity-80 transition-opacity">Code of Conduct</a>
-          </div>
-
-          <!-- Right: Social Links -->
+          <!-- Social Links -->
           <div class="flex gap-4">
-            <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" aria-label="Follow us on X/Twitter">
+            <a href="https://x.com/hrdevfest" target="_blank" rel="noopener noreferrer" class="bp-nav-link" aria-label="Follow us on X/Twitter">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/events/7388613109579636736/" target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" aria-label="Follow us on LinkedIn">
+            <a href="https://www.linkedin.com/company/revolutionva/" target="_blank" rel="noopener noreferrer" class="bp-nav-link" aria-label="Follow us on LinkedIn">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" aria-label="Follow us on Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61584002302188" target="_blank" rel="noopener noreferrer" class="bp-nav-link" aria-label="Follow us on Facebook">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
           </div>
         </div>
+        <TitleBlock />
       </div>
     </footer>
+
+    </div>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -317,11 +302,13 @@ import headerDots from "../assets/dots/header_dots.svg";
           isOpen = !isOpen;
           if (isOpen) {
             mobileMenu?.classList.remove('hidden');
+            menuBtn?.setAttribute('aria-expanded', 'true');
             hamburgerIcon?.classList.add('hidden');
             closeIcon?.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
           } else {
             mobileMenu?.classList.add('hidden');
+            menuBtn?.setAttribute('aria-expanded', 'false');
             hamburgerIcon?.classList.remove('hidden');
             closeIcon?.classList.add('hidden');
             document.body.style.overflow = '';
@@ -335,8 +322,15 @@ import headerDots from "../assets/dots/header_dots.svg";
             if (isOpen) toggleMenu();
           });
         });
+
+        // Close menu on Escape and return focus to the button
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && isOpen) {
+            toggleMenu();
+            menuBtn?.focus();
+          }
+        });
       });
     </script>
-    </div>
   </body>
 </html>

@@ -1,0 +1,81 @@
+---
+/**
+ * Blueprint light callout panel with an optional solid filled CTA.
+ * Used for high-visibility asks (for example Community Sponsor) on the
+ * dark blue paper. Mobile spacing is roomier; desktop stays compact.
+ *
+ * Styles: .bp-callout, .bp-callout__title, .bp-callout__body,
+ * .bp-callout__actions, and .btn-filled (inverted to dark fill on the
+ * light panel). Optional variant="panel" is the default look.
+ *
+ * Button labels: prefer a short mobile label. Long uppercase labels with
+ * letter-spacing were nearly flush with the button edges on ~320–375px
+ * screens and read as cut off.
+ */
+interface Props {
+  heading: string;
+  buttonLabel: string;
+  /** Shorter label for narrow screens. Falls back to buttonLabel. */
+  buttonLabelShort?: string;
+  buttonHref: string;
+  /** Optional list of short benefit lines; prefer over a long paragraph on mobile. */
+  bullets?: string[];
+  /** Extra body line after bullets (for example "Pay in one click..."). */
+  afterBullets?: string;
+  /** Body text when not using bullets. Ignored when bullets are set. */
+  body?: string;
+  /** Visual variant. "panel" is the white callout box. */
+  variant?: "panel";
+  /** Open the CTA in a new tab. Default true for external checkout links. */
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  heading,
+  buttonLabel,
+  buttonLabelShort,
+  buttonHref,
+  bullets,
+  afterBullets,
+  body,
+  variant = "panel",
+  external = true,
+  class: className = "",
+} = Astro.props;
+
+const shortLabel = buttonLabelShort ?? buttonLabel;
+const linkAttrs = external
+  ? { target: "_blank", rel: "noopener noreferrer" }
+  : {};
+---
+
+<div class:list={["bp-callout", `bp-callout--${variant}`, className]}>
+  <div class="bp-callout__copy">
+    <h3 class="bp-callout__title">{heading}</h3>
+    {bullets && bullets.length > 0 ? (
+      <ul class="bp-callout__bullets">
+        {bullets.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    ) : body ? (
+      <p class="bp-callout__body">{body}</p>
+    ) : (
+      <div class="bp-callout__body">
+        <slot />
+      </div>
+    )}
+    {afterBullets && <p class="bp-callout__after">{afterBullets}</p>}
+  </div>
+  <div class="bp-callout__actions">
+    <a
+      href={buttonHref}
+      class="btn-filled bp-callout__btn"
+      {...linkAttrs}
+    >
+      <span class="bp-callout__btn-label bp-callout__btn-label--full">{buttonLabel}</span>
+      <span class="bp-callout__btn-label bp-callout__btn-label--short">{shortLabel}</span>
+    </a>
+  </div>
+</div>

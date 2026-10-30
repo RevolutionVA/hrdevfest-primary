@@ -1,23 +1,18 @@
 ---
 export interface Props {
   links: Array<{ href: string; text: string; highlight?: boolean }>;
-  bgColor?: string;
 }
 
-const { links, bgColor = 'bg-[#052831]' } = Astro.props;
+const { links } = Astro.props;
 ---
 
-<nav class={`w-full ${bgColor} py-4 px-8 lg:px-20`}>
+<nav class="w-full py-4 px-4 md:px-8 border-b border-[var(--bp-line)]">
   <div class="max-w-7xl mx-auto hidden md:flex justify-center">
-    <div class="flex items-center gap-12 lg:gap-20">
+    <div class="flex items-center gap-6 lg:gap-10">
       {links.map((link) => (
-        <a 
-          href={link.href} 
-          class={`text-base font-bold leading-relaxed hover:opacity-80 transition-opacity ${
-            link.highlight 
-              ? 'text-[#4DB7B9] hover:text-white transition-colors' 
-              : 'text-white'
-          }`}
+        <a
+          href={link.href}
+          class={`${link.highlight ? 'bp-link' : 'bp-nav-link'} text-base font-bold leading-relaxed`}
         >
           {link.text}
         </a>

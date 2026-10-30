@@ -12,11 +12,22 @@ test.describe("Homepage", () => {
   test("hero section is visible with event details", async ({ page }) => {
     const hero = page.locator(".hero-section");
     await expect(hero).toBeVisible();
-    await expect(hero.getByText("Hampton Roads DevFest 2027")).toBeVisible();
-    await expect(hero.getByText(/Dates coming soon/)).toBeVisible();
+    await expect(
+      hero.getByRole("heading", { level: 1, name: "Hampton Roads DevFest 2027" })
+    ).toBeVisible();
+    await expect(hero.getByText(/Apr 23, 2027/)).toBeVisible();
+    await expect(hero.getByText(/Zeiders American Dream Theater, Virginia Beach/)).toBeVisible();
   });
 
-  test("hero has Notify Me button", async ({ page }) => {
+  test("shows the confirmed 2027 venue", async ({ page }) => {
+    const venue = page.locator("#venue");
+    await expect(venue.getByText("Zeiders American Dream Theater")).toBeVisible();
+    await expect(
+      venue.getByText("Our confirmed venue for Hampton Roads DevFest 2027.")
+    ).toBeVisible();
+  });
+
+  test("hero has signup CTA button", async ({ page }) => {
     // Exclude mobile menu links which are hidden
     await expect(
       page.locator(".hero-section a.btn-primary:not(.mobile-menu-link)").first()
@@ -34,5 +45,13 @@ test.describe("Homepage", () => {
     await expect(footer).toBeVisible();
     await expect(footer.getByText(/RevolutionVA/)).toBeVisible();
     await expect(footer.locator("a[href*='x.com/hrdevfest']")).toBeVisible();
+  });
+
+  test("testimonials show Paul, Kristina, Michael, then Travis, each with a photo", async ({ page }) => {
+    await page.goto("/");
+    const names = await page.locator("#testimonials .bp-label").allTextContents();
+    expect(names).toEqual(["Paul Chin Jr.", "Kristina Krasnolobova", "Michael Buckbee", "Travis Webb"]);
+    await expect(page.locator("#testimonials img")).toHaveCount(4);
+    await expect(page.locator('#testimonials img[alt="Kristina Krasnolobova"]')).toBeVisible();
   });
 });

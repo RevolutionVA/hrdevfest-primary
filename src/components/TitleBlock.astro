@@ -1,0 +1,36 @@
+---
+// Engineering title block signature, recreated in HTML from the 2027 blueprint art.
+// Values are rendered in capitals in the markup (not via CSS) so they do not
+// collide with text matches for "RevolutionVA" elsewhere in the footer.
+export interface Props {
+  project?: string;
+  location?: string;
+  date?: string;
+}
+
+const {
+  project = "Hampton Roads DevFest 2027",
+  location = "Virginia Beach, VA",
+  date = "04.23.2027",
+} = Astro.props;
+
+const rows = [
+  ["Project", project.toUpperCase()],
+  ["Location", location.toUpperCase()],
+  ["Date", date],
+  ["Drawn by", "REVOLUTIONVA"],
+  ["Tagline", "Built in the 757"],
+].filter(([, value]) => value); // pass "" to omit a row with no data
+---
+
+<div class="bp-titleblock">
+  <dl>
+    {rows.map(([label, value]) => (
+      <div class="bp-titleblock-row">
+        <dt>{label}:</dt>
+        <dd>{value}</dd>
+      </div>
+    ))}
+  </dl>
+  <p class="bp-titleblock-mark">REVOLUTIONVA</p>
+</div>

@@ -38,35 +38,35 @@ function getSocialIcon(type: string): string {
 
 <YearLayout title={eventData.title} description={eventData.description} year={2024}>
   <!-- Header Section -->
-  <section class="w-full bg-gray-800 text-white py-16 px-8">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">{eventData.title}</h1>
-      <p class="text-xl text-gray-300 mb-2">{eventData.dateFormatted}</p>
+  <section class="w-full py-12 md:py-16 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-2 text-center">
+      <h1 class="text-[32px] md:text-[40px] font-bold leading-tight">{eventData.title}</h1>
+      <p class="bp-mono text-base md:text-lg">{eventData.dateFormatted}</p>
       {eventData.venue && (
-        <p class="text-lg text-gray-400">
+        <p class="bp-muted">
           {eventData.venue.name} &bull; {eventData.venue.city}, {eventData.venue.state}
         </p>
       )}
-      <p class="text-base text-gray-300 mt-6 max-w-2xl mx-auto">{eventData.description}</p>
+      <p class="text-base leading-relaxed mt-4 max-w-2xl">{eventData.description}</p>
     </div>
   </section>
 
   <!-- Photo Gallery -->
   {eventData.photos && eventData.photos.length > 0 && (
-    <section class="w-full bg-gray-100 py-12 px-8">
+    <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Event Photos</h2>
+        <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Event Photos</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {eventData.photos.map((photo, index) => (
             photoAssets[photo.src] && (
-              <div class="photo-card rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-shadow" data-index={index}>
+              <div class="photo-card bp-box cursor-pointer" data-index={index} role="button" tabindex="0">
                 <Image
                   src={photoAssets[photo.src]}
                   alt={photo.caption}
-                  class="w-full h-48 object-cover"
+                  class="w-full h-48 object-cover border-b border-[var(--bp-line)]"
                 />
-                <div class="bg-white p-3">
-                  <p class="text-sm text-gray-700">{photo.caption}</p>
+                <div class="p-3">
+                  <p class="text-sm">{photo.caption}</p>
                 </div>
               </div>
             )
@@ -77,99 +77,105 @@ function getSocialIcon(type: string): string {
   )}
 
   <!-- Schedule Section (single-track) -->
-  <section class="w-full py-12 px-8 bg-white">
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Schedule</h2>
-      <p class="text-gray-600 text-center mb-6">
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Schedule</h2>
+      <p class="text-center mb-6">
         All sessions took place in the Main Auditorium on {eventData.dateFormatted}.
       </p>
-      <div class="flex flex-col gap-3">
-        {eventData.schedule.map((item) => (
-          <div class="bg-gray-50 p-4 rounded-lg flex flex-col md:flex-row gap-3">
-            <div class="text-blue-600 font-semibold whitespace-nowrap min-w-[140px]">
-              {item.time}
-            </div>
-            <div class="flex-1">
-              <p class="font-semibold text-gray-900">{item.title}</p>
-              {item.description && (
-                <p class="text-sm text-gray-600 mt-1">{item.description}</p>
-              )}
-              {item.abstract && (
-                <p class="text-sm text-gray-700 mt-2">{item.abstract}</p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+      <table class="bp-table">
+        <thead>
+          <tr>
+            <th scope="col" class="w-[6.5rem] md:w-[11rem]">Time</th>
+            <th scope="col">Session</th>
+          </tr>
+        </thead>
+        <tbody>
+          {eventData.schedule.map((item) => (
+            <tr>
+              <td class="bp-mono text-sm">{item.time}</td>
+              <td>
+                <p class="font-semibold">{item.title}</p>
+                {item.description && (
+                  <p class="text-sm bp-muted mt-1">{item.description}</p>
+                )}
+                {item.abstract && (
+                  <p class="text-sm mt-2 whitespace-pre-line">{item.abstract}</p>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   </section>
 
   <!-- Speakers Section -->
-  <section class="w-full py-12 px-8 bg-gray-100">
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Speakers</h2>
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Speakers</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {eventData.speakers.map((speaker) => {
           const speakerId = speaker.name.toLowerCase().replace(/\s+/g, '-');
           return (
-            <div class="bg-white p-6 rounded-lg shadow-sm">
+            <div class="bp-box p-6">
               <div class="flex items-start gap-4">
                 {speaker.image ? (
                   <img
                     src={speaker.image}
                     alt={speaker.name}
-                    class="w-20 h-20 rounded-full object-cover shrink-0"
+                    class="bp-photo w-20 h-20 rounded-full object-cover shrink-0"
                     width="80"
                     height="80"
                   />
                 ) : (
-                  <div class="w-20 h-20 rounded-full bg-gray-300 shrink-0 flex items-center justify-center text-gray-500 text-xl font-bold">
+                  <div class="w-20 h-20 rounded-full border border-[var(--bp-line)] shrink-0 flex items-center justify-center bp-mono text-xl" aria-hidden="true">
                     {speaker.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                   </div>
                 )}
                 <div class="flex-1 min-w-0">
-                  <h3 class="text-lg font-semibold text-gray-900">{speaker.name}</h3>
+                  <h3 class="text-lg font-semibold">{speaker.name}</h3>
                   {speaker.role && (
-                    <p class="text-sm text-gray-500">{speaker.role}</p>
+                    <p class="text-sm bp-muted">{speaker.role}</p>
                   )}
                   {speaker.sessionTitle && (
-                    <p class="text-sm text-gray-500 italic mt-1">{speaker.sessionTitle}</p>
+                    <p class="text-sm bp-muted italic mt-1">{speaker.sessionTitle}</p>
                   )}
-                  
+
                   {/* Social Links */}
                   {(speaker.twitter || speaker.linkedin || speaker.github || speaker.website || speaker.bluesky || speaker.mastodon) && (
-                    <div class="flex gap-2 mt-2">
+                    <div class="flex gap-3 mt-2">
                       {speaker.twitter && (
-                        <a href={speaker.twitter} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Twitter/X" set:html={getSocialIcon('twitter')} />
+                        <a href={speaker.twitter} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Twitter/X" aria-label="Twitter/X" set:html={getSocialIcon('twitter')} />
                       )}
                       {speaker.linkedin && (
-                        <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="LinkedIn" set:html={getSocialIcon('linkedin')} />
+                        <a href={speaker.linkedin} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="LinkedIn" aria-label="LinkedIn" set:html={getSocialIcon('linkedin')} />
                       )}
                       {speaker.github && (
-                        <a href={speaker.github} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="GitHub" set:html={getSocialIcon('github')} />
+                        <a href={speaker.github} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="GitHub" aria-label="GitHub" set:html={getSocialIcon('github')} />
                       )}
                       {speaker.bluesky && (
-                        <a href={speaker.bluesky} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Bluesky" set:html={getSocialIcon('bluesky')} />
+                        <a href={speaker.bluesky} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Bluesky" aria-label="Bluesky" set:html={getSocialIcon('bluesky')} />
                       )}
                       {speaker.mastodon && (
-                        <a href={speaker.mastodon} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Mastodon" set:html={getSocialIcon('mastodon')} />
+                        <a href={speaker.mastodon} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Mastodon" aria-label="Mastodon" set:html={getSocialIcon('mastodon')} />
                       )}
                       {speaker.website && (
-                        <a href={speaker.website} target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors" title="Website" set:html={getSocialIcon('website')} />
+                        <a href={speaker.website} target="_blank" rel="noopener noreferrer" class="bp-nav-link" title="Website" aria-label="Website" set:html={getSocialIcon('website')} />
                       )}
                     </div>
                   )}
                 </div>
               </div>
-              
+
               {/* Bio with expand/collapse */}
               {speaker.bio && (
-                <div class="mt-4">
-                  <input type="checkbox" id={`bio-${speakerId}`} class="peer hidden" />
-                  <p class="text-sm text-gray-600 peer-checked:line-clamp-none line-clamp-3">{speaker.bio}</p>
-                  <label 
-                    for={`bio-${speakerId}`} 
-                    class="text-blue-600 text-sm cursor-pointer hover:underline mt-1 inline-block peer-checked:before:content-['Show_less'] before:content-['Read_more...']"
+                <div class="relative mt-4">
+                  <input type="checkbox" id={`bio-${speakerId}`} class="peer sr-only" />
+                  <p class="text-sm leading-relaxed peer-checked:line-clamp-none line-clamp-3">{speaker.bio}</p>
+                  <label
+                    for={`bio-${speakerId}`}
+                    class="bp-link text-sm cursor-pointer mt-1 inline-block peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-[var(--bp-ink)] peer-checked:before:content-['Show_less'] before:content-['Read_more...']"
                   ></label>
                 </div>
               )}
@@ -181,20 +187,20 @@ function getSocialIcon(type: string): string {
   </section>
 
   <!-- Photo Modal -->
-  <div id="photo-modal" class="fixed inset-0 z-[100] bg-black/80 hidden items-center justify-center p-4">
-    <button id="modal-close" class="absolute top-4 right-4 text-white text-4xl font-light hover:opacity-80">&times;</button>
-    <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-4xl font-light hover:opacity-80 p-2">&larr;</button>
-    <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-4xl font-light hover:opacity-80 p-2">&rarr;</button>
+  <div id="photo-modal" class="fixed inset-0 z-[100] bg-[var(--bp-paper-deep)] hidden items-center justify-center p-4">
+    <button id="modal-close" class="absolute top-4 right-4 bp-nav-link text-4xl font-light" aria-label="Close">&times;</button>
+    <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bp-nav-link text-4xl font-light p-2" aria-label="Previous">&larr;</button>
+    <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 bp-nav-link text-4xl font-light p-2" aria-label="Next">&rarr;</button>
     <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
-      <img id="modal-image" src="" alt="" class="max-w-full max-h-[80vh] object-contain" />
-      <p id="modal-caption" class="text-white text-center mt-4 text-lg"></p>
+      <img id="modal-image" src="" alt="" class="bp-photo max-w-full max-h-[80vh] object-contain" />
+      <p id="modal-caption" class="text-center mt-4 text-lg"></p>
     </div>
   </div>
 
   <!-- Back to Events -->
-  <section class="w-full py-8 px-8 bg-gray-50">
+  <section class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-4xl mx-auto text-center">
-      <a href="/events" class="text-blue-600 hover:text-blue-800 font-medium">
+      <a href="/events" class="bp-link font-bold">
         &larr; View All Past Events
       </a>
     </div>
@@ -244,9 +250,15 @@ function getSocialIcon(type: string): string {
     }
 
     photoCards.forEach((card) => {
-      card.addEventListener('click', () => {
-        const index = parseInt((card as HTMLElement).dataset.index || '0');
-        openModal(index);
+      const index = parseInt((card as HTMLElement).dataset.index || '0');
+      card.addEventListener('click', () => openModal(index));
+      // Cards are role="button", so Enter and Space open them too
+      card.addEventListener('keydown', (e) => {
+        const key = (e as KeyboardEvent).key;
+        if (key === 'Enter' || key === ' ') {
+          e.preventDefault();
+          openModal(index);
+        }
       });
     });
 

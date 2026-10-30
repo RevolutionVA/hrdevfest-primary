@@ -1,0 +1,47 @@
+---
+import skyline from "../assets/landmark-skyline.webp";
+/*
+  Decorative blueprint line art of the Norfolk skyline, traced from Kevin's
+  v2 reference sheets. Ship and waves were removed so the skyline stands
+  alone. Pure decoration: aria-hidden, empty alt.
+*/
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["nla pointer-events-none select-none", className]} aria-hidden="true">
+  <img
+    src={skyline.src}
+    width={skyline.width}
+    height={skyline.height}
+    alt=""
+    class="nla-skyline"
+    decoding="async"
+    loading="lazy"
+  />
+</div>
+
+<style>
+  .nla {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nla-skyline {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    opacity: 0.55;
+  }
+
+  @media (min-width: 768px) {
+    .nla-skyline {
+      max-width: 800px;
+      opacity: 0.5;
+    }
+  }
+</style>

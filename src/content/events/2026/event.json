@@ -3,7 +3,7 @@
   "theme": "2026",
   "title": "Hampton Roads DevFest 2026",
   "date": "2026-02-27",
-  "dateFormatted": "February 27, 2026",
+  "dateFormatted": "Feb 27, 2026",
   "tagline": "Event Highlights",
   "description": "Take a look back at Hampton Roads DevFest 2026! Our 6th annual event brought together local developers, industry professionals, and tech enthusiasts for a day of learning and networking at Zeiders American Dream Theater.",
   "venue": {
@@ -263,7 +263,7 @@
     },
     {
       "question": "Who should attend?",
-      "answer": "This event is designed for a broad technical audience—from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels.",
+      "answer": "This event is designed for a broad technical audience, from junior developers through senior engineers, directors, and C-level leaders. Sessions are selected to be accessible, practical, and relevant across experience levels.",
       "category": "General"
     },
     {

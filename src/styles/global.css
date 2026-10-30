@@ -1,1 +1,527 @@
+/*
+  Blueprint theme. Kevin's rule: less is more.
+
+  One paper color, one ink color, one accent. No gradients, shadows, or blobs.
+
+  Contrast (WCAG 2.x) on --bp-paper #0b3d6e:
+    --bp-ink        #f4f8fc  about 10.3:1  body text, headings, line work, links
+    --bp-ink-muted  #c6d6e8  about 7.4:1   secondary text, labels
+  Links are --bp-ink and underlined, so no extra link color is needed.
+
+  Readability: text sits on solid --bp-surface (same blue as the paper), so
+  the grid stops at the edge of a box instead of running behind the words.
+  The grid is faint enough that text left on it still clears AA: muted text
+  is about 6.6:1 on a major grid line and 6.1:1 where two lines cross.
+  Box borders use --bp-line-soft (white at 40%, about 3.1:1 against the
+  paper, so it still meets the 3:1 non-text minimum). The page frame,
+  section rules, title block, and form fields stay crisp --bp-line.
+
+  Primary button decision: KEEP red #d33b32 for .btn-primary only.
+    White text on #d33b32 is about 4.7:1, which passes AA even for normal
+    size text (4.5:1), and the buttons are bold anyway. Red against the blue
+    paper is only about 2.3:1, so .btn-primary also gets a 1px near-white
+    border to keep a 3:1 component boundary (WCAG 1.4.11). It reads like a
+    redline markup on a drawing. Outline buttons use .btn-secondary. Filled
+    high-visibility actions that must stay off red use .btn-filled: solid
+    near-white (#ffffff) with dark paper text (#0b3d6e), about 11:1. If red
+    ever feels loud, drop the background and .btn-primary falls back to the
+    outline look.
+*/
 @import "tailwindcss";
+
+:root {
+  --bp-paper: #0b3d6e;
+  --bp-paper-deep: #08305a;
+  --bp-ink: #f4f8fc;
+  --bp-ink-muted: #c6d6e8;
+  --bp-line: #dbe6f1;
+  --bp-surface: #0b3d6e;
+  /* Alternating table rows: ~6% white into paper. Ink ~8.7:1, muted ~6.3:1 (AA). */
+  --bp-row-alt: #1a4977;
+  --bp-line-soft: rgb(255 255 255 / 0.4);
+  --bp-line-faint: rgb(255 255 255 / 0.35);
+  --bp-grid: rgb(255 255 255 / 0.025);
+  --bp-grid-major: rgb(255 255 255 / 0.045);
+  --bp-red: #d33b32;
+  --bp-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bp-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Running text: 16px at 1.65 (Tailwind defaults are 1.5 and 1.625) */
+@theme {
+  --text-base--line-height: 1.65;
+  --leading-relaxed: 1.65;
+}
+
+@layer base {
+  html {
+    background-color: var(--bp-paper);
+  }
+
+  body {
+    line-height: 1.65;
+    font-family: var(--bp-sans);
+    color: var(--bp-ink);
+    background-color: var(--bp-paper);
+    background-image:
+      linear-gradient(var(--bp-grid-major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bp-grid-major) 1px, transparent 1px),
+      linear-gradient(var(--bp-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--bp-ink);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--bp-ink);
+    color: var(--bp-paper);
+  }
+}
+
+@layer components {
+  /* Thin double border frame around the page content */
+  .bp-frame {
+    margin: 10px;
+    border: 1px solid var(--bp-line);
+    outline: 1px solid var(--bp-line);
+    outline-offset: 4px;
+  }
+  @media (min-width: 768px) {
+    .bp-frame {
+      margin: 20px;
+      outline-offset: 6px;
+    }
+  }
+
+  /* Title block box: cards, tiers, panels. Solid so the grid stays out of the text. */
+  .bp-box {
+    border: 1px solid var(--bp-line-soft);
+    background-color: var(--bp-surface);
+  }
+
+  /* Borderless solid panel for text blocks that sit on the open grid */
+  .bp-surface {
+    background-color: var(--bp-surface);
+  }
+
+  /* Fixed mobile menu button: opaque paper so page text never shows through */
+  .bp-menu-btn {
+    border: 1px solid var(--bp-line);
+    background-color: var(--bp-paper);
+  }
+
+  /* Small uppercase drafting label */
+  .bp-label {
+    font-family: var(--bp-mono);
+    font-size: 0.75rem;
+    line-height: 1.4;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bp-ink-muted);
+  }
+
+  .bp-mono {
+    font-family: var(--bp-mono);
+  }
+
+  .bp-muted {
+    color: var(--bp-ink-muted);
+  }
+
+  .bp-rule {
+    border: 0;
+    border-top: 1px solid var(--bp-line);
+  }
+
+  /* Underlined near-white links inside running text */
+  .bp-link,
+  .bp-prose a {
+    color: var(--bp-ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+  .bp-link:hover,
+  .bp-prose a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Nav links: plain ink, underline on hover */
+  .bp-nav-link {
+    color: var(--bp-ink);
+    text-underline-offset: 4px;
+  }
+  .bp-nav-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Paper plate for full color art (sponsor logos) so it stays legible on blue */
+  .bp-plate {
+    background-color: #ffffff;
+    border: 1px solid var(--bp-line);
+  }
+
+  /* Photos get a thin ink border */
+  .bp-photo {
+    border: 1px solid var(--bp-line);
+  }
+
+  /* Buttons */
+  .btn-primary,
+  .btn-secondary,
+  .btn-filled {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid var(--bp-line);
+    border-radius: 0;
+    font-family: var(--bp-mono);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary {
+    background-color: var(--bp-red);
+    color: #ffffff;
+  }
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--bp-ink);
+  }
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--bp-ink);
+  }
+  .btn-secondary:hover {
+    background-color: var(--bp-ink);
+    color: var(--bp-paper);
+  }
+  /* Solid near-white fill, dark blue text. ~11:1 on #ffffff. Not red. */
+  .btn-filled {
+    background-color: #ffffff;
+    color: var(--bp-paper);
+    border-color: #ffffff;
+  }
+  .btn-filled:hover {
+    background-color: var(--bp-paper-deep);
+    color: var(--bp-ink);
+    border-color: var(--bp-ink);
+  }
+  .btn-filled:focus-visible {
+    outline: 2px solid var(--bp-ink);
+    outline-offset: 3px;
+  }
+
+  /* Reusable light callout panel (.bp-callout / Callout.astro).
+     White panel on blue paper. Mobile is roomier; desktop matches the
+     prior compact Community band. Button on the panel uses dark fill. */
+  .bp-callout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background-color: #ffffff;
+    color: var(--bp-paper);
+    border: 2px solid var(--bp-line);
+    outline: 1px solid #ffffff;
+    outline-offset: 4px;
+    padding: 1.5rem; /* 24px on mobile */
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .bp-callout__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .bp-callout__title {
+    color: var(--bp-paper);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.35;
+  }
+  .bp-callout__body,
+  .bp-callout__after {
+    color: var(--bp-paper);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .bp-callout__bullets {
+    color: var(--bp-paper);
+    font-size: 1rem;
+    line-height: 1.7;
+    list-style: disc;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .bp-callout__actions {
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+  /* Full-width, border-box, wrapping label. Long uppercase + letter-spacing
+     was nearly flush with the content edges on ~320–375px and looked cut off. */
+  .bp-callout__btn {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 48px;
+    padding: 0.875rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .bp-callout__btn-label--full {
+    display: none;
+  }
+  .bp-callout__btn-label--short {
+    display: inline;
+  }
+  /* On the light panel, invert .btn-filled to dark blue / near-white (~10:1) */
+  .bp-callout .btn-filled {
+    background-color: var(--bp-paper);
+    color: var(--bp-ink);
+    border-color: var(--bp-paper);
+  }
+  .bp-callout .btn-filled:hover {
+    background-color: var(--bp-paper-deep);
+    color: #ffffff;
+    border-color: var(--bp-paper-deep);
+  }
+  .bp-callout .btn-filled:focus-visible {
+    outline: 2px solid var(--bp-paper);
+    outline-offset: 3px;
+  }
+  @media (min-width: 768px) {
+    .bp-callout {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 1.5rem 1.75rem;
+    }
+    .bp-callout__copy {
+      gap: 0.5rem;
+    }
+    .bp-callout__title {
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+    .bp-callout__body,
+    .bp-callout__after {
+      line-height: 1.65;
+    }
+    .bp-callout__bullets {
+      gap: 0.25rem;
+      line-height: 1.65;
+    }
+    .bp-callout__actions {
+      width: auto;
+      flex-shrink: 0;
+      max-width: none;
+    }
+    .bp-callout__btn {
+      width: auto;
+      max-width: none;
+      min-height: 0;
+      height: auto;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      overflow-wrap: normal;
+    }
+    .bp-callout__btn-label--full {
+      display: inline;
+    }
+    .bp-callout__btn-label--short {
+      display: none;
+    }
+  }
+
+  /* Form fields */
+  .bp-input {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--bp-line);
+    border-radius: 0;
+    color: var(--bp-ink);
+  }
+  .bp-input::placeholder {
+    color: var(--bp-ink-muted);
+    opacity: 1;
+  }
+
+  /* Select: square, ink chevron drawn as two lines */
+  .bp-select {
+    appearance: none;
+    padding-right: 2.5rem;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--bp-ink) 50%),
+      linear-gradient(135deg, var(--bp-ink) 50%, transparent 50%);
+    background-position: calc(100% - 1.25rem) 50%, calc(100% - 0.9rem) 50%;
+    background-size: 0.35rem 0.35rem;
+    background-repeat: no-repeat;
+  }
+  .bp-select option {
+    color: var(--bp-paper);
+    background-color: #ffffff;
+  }
+
+  /* Radio and checkbox: native control in ink */
+  .bp-check {
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--bp-ink);
+  }
+
+  /* FAQ disclosure: hide the native marker; the +/- sits in the summary */
+  .bp-faq > summary::-webkit-details-marker {
+    display: none;
+  }
+  .bp-faq > summary:hover h3 {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* Tables: ruled like a drawing schedule */
+  .bp-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--bp-line-soft);
+    background-color: var(--bp-surface);
+    font-size: 1rem; /* 16px body, including benefits */
+    line-height: 1.5;
+  }
+  .bp-table th,
+  .bp-table td {
+    border: 1px solid var(--bp-line-faint);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+  .bp-table th {
+    font-family: var(--bp-mono);
+    font-size: 0.875rem; /* 14px uppercase column headings */
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bp-ink-muted);
+    border-bottom-color: var(--bp-line-soft);
+  }
+  /* Row headers are names (tiers, tickets), so they stay in readable sans */
+  .bp-table th[scope="row"] {
+    font-family: var(--bp-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--bp-ink);
+  }
+  .bp-table tbody tr:nth-child(even) {
+    background-color: var(--bp-row-alt);
+  }
+  .bp-table tbody tr:nth-child(even) th[scope="row"],
+  .bp-table tbody tr:nth-child(even) td {
+    background-color: transparent;
+  }
+
+  /* Callout mark: the one round thing on the page, because a drawing callout is a circle.
+     Keys a detail (tier card, room on the plan) to its reference in a schedule or legend. */
+  .bp-mark {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bp-line);
+    border-radius: 9999px;
+    background-color: var(--bp-surface);
+    font-family: var(--bp-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--bp-ink);
+    text-decoration: none;
+  }
+  a.bp-mark:hover {
+    background-color: var(--bp-ink);
+    color: var(--bp-paper);
+  }
+
+  /* Sheet reference on section headings: "2.4" before "Tier details" */
+  .bp-sheet-ref {
+    font-family: var(--bp-mono);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    color: var(--bp-ink-muted);
+  }
+
+  /* Rooms on the plan diagram: dashed, because dashed on a drawing means proposed */
+  .bp-room {
+    position: relative;
+    border: 1px dashed var(--bp-line-soft);
+    background-color: var(--bp-surface);
+  }
+  .bp-room > .bp-mark {
+    position: absolute;
+    top: -1.125rem;
+    right: -1.125rem;
+  }
+
+  /* Engineering title block (footer signature) */
+  .bp-titleblock {
+    width: 100%;
+    max-width: 28rem;
+    border: 1px solid var(--bp-line);
+    background-color: var(--bp-surface);
+    font-family: var(--bp-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .bp-titleblock dl {
+    margin: 0;
+  }
+  .bp-titleblock-row {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    border-bottom: 1px solid var(--bp-line);
+  }
+  .bp-titleblock dt,
+  .bp-titleblock dd {
+    margin: 0;
+    padding: 0.45rem 0.75rem;
+  }
+  .bp-titleblock dt {
+    border-right: 1px solid var(--bp-line);
+  }
+  .bp-titleblock-mark {
+    padding: 0.5rem 0.75rem;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+  }
+}
