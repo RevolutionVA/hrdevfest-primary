@@ -223,9 +223,9 @@ export const faqItems: FaqItem[] = [
     ],
   },
   {
-    title: "How do I host a Pop-up Meetup?",
+    title: "What is a Pop-up Meetup?",
     paragraphs: [
-      "Offer a venue. A room for about twenty people and somewhere to put a screen is enough. Submit it at revolutionva.org/programs/pop-up-meetups. Hosts are thanked at the meetup they host.",
+      "We build each Pop-up Meetup around a topic instead of a language, platform, city or user group. Some are a conversation, with someone framing the topic for twenty minutes and the room doing the rest. Others are formal talks. Venues change each time, from coffee shops and public libraries to coworking spaces. We announce each one in the 757 Tech newsletter.",
     ],
   },
   {

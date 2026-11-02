@@ -234,13 +234,16 @@ test.describe("Sponsor Page", () => {
       await expect(body, path).not.toContainText("hiring-board");
       await expect(body, path).toContainText("Pay online by credit card or ACH.");
       await expect(body, path).toContainText("students, veterans and people between jobs");
+      await expect(body, path).toContainText("What is a Pop-up Meetup?");
+      await expect(body, path).toContainText("We build each Pop-up Meetup around a topic");
+      await expect(body, path).not.toContainText("How do I host a Pop-up Meetup?");
     }
     await page.goto("/sponsor");
     const faq = page.locator("#sponsor-faq");
     await expect(faq).toContainText("Ribbons are optional.");
     await expect(faq).toContainText("as totals only");
     await expect(faq).toContainText("scholar counts, funded and attended");
-    await expect(faq).toContainText("How do I host a Pop-up Meetup?");
+    await expect(faq).toContainText("What is a Pop-up Meetup?");
     await expect(page.getByText("Small team?")).toHaveCount(1);
     const prices = await page.locator("#partnerships tr").filter({ hasText: "$1,000" }).locator("th").allTextContents();
     expect(prices.map((t) => t.trim())).toEqual(["Scholarship Partner", "Coffee Partner", "Lanyard Partner"]);
