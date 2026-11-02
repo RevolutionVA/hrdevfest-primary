@@ -188,6 +188,12 @@ test.describe("Sponsor Page", () => {
     await expect(body).not.toContainText("Who the Reception Partner hosts");
   });
 
+  test("the 2026 sponsors list ends with And more so it doesn't read as complete", async ({ page }) => {
+    await page.goto("/sponsor");
+    const list = page.getByText("Our 2026 sponsors included:").locator("xpath=following-sibling::ul[1]");
+    await expect(list.locator("li").last()).toHaveText("And more…");
+  });
+
   test("why sponsor leads with Kevin's copy", async ({ page }) => {
     await page.goto("/sponsor");
     await expect(page.locator("#why-sponsor")).toContainText(
