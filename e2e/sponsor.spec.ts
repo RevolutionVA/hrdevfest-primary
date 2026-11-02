@@ -192,6 +192,8 @@ test.describe("Sponsor Page", () => {
     await page.goto("/sponsor");
     const list = page.getByText("Our 2026 sponsors included:").locator("xpath=following-sibling::ul[1]");
     await expect(list.locator("li").last()).toHaveText("And more…");
+    await page.goto("/sponsor/print");
+    await expect(page.locator("body")).toContainText(/Our 2026 sponsors included .+ and more…/);
   });
 
   test("why sponsor leads with Kevin's copy", async ({ page }) => {
