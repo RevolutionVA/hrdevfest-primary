@@ -210,7 +210,7 @@ export const faqItems: FaqItem[] = [
     title: "Attendee privacy",
     open: true,
     paragraphs: [
-      "Attendees don't get sponsor email unless they opt in. Presenting, Main Stage and Reception each include one post-event email, sent by DevFest only to attendees who opt in. That's one email per qualifying offering.",
+      "Attendees don't get sponsor email unless they opt in. Presenting, Main Stage and Reception each include one post-event email, which we send only to attendees who opt in. That's one email per qualifying offering.",
       "We never share attendee contacts with sponsors. We never sell attendee lists, and we never scan badges.",
     ],
   },
