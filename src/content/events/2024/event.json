@@ -137,11 +137,78 @@
     }
   ],
   "photos": [
-    { "src": "2024-05-31 08.30.41.jpg", "caption": "Attendees arriving at the venue" },
-    { "src": "2024-05-31 09.48.48.jpg", "caption": "Morning keynote session" },
-    { "src": "2024-05-31 12.04.00.jpg", "caption": "Lunch and networking" },
-    { "src": "2024-05-31 12.11.53.jpg", "caption": "Workshop in progress" },
-    { "src": "2024-05-31 14.13.46.jpg", "caption": "Panel discussion" }
+    {
+      "src": "2024-hrdevfest-kurt-kemple-026.jpg",
+      "caption": "Morning coffee and conversation outside the venue",
+      "alt": "Two men sit on an outdoor bench talking, one holding a coffee cup and the other a notebook",
+      "credit": "Kurt Kemple"
+    },
+    {
+      "src": "2024-hrdevfest-alex-proaps-012.jpg",
+      "caption": "The lobby filling up before the first talk",
+      "alt": "Crowd of people networking and drinking coffee in a sunlit conference lobby",
+      "credit": "Alex Proaps"
+    },
+    {
+      "src": "2024-hrdevfest-linda-nichols-021.jpg",
+      "caption": "Friends catching up near the sponsor booths",
+      "alt": "Two smiling attendees posing playfully together at a tech conference near sponsor booths",
+      "credit": "Linda Nichols"
+    },
+    {
+      "src": "2024-hrdevfest-linda-nichols-039.jpg",
+      "caption": "Badges on and ready for the day",
+      "alt": "Four smiling people with conference badges standing together for a group photo",
+      "credit": "Linda Nichols"
+    },
+    {
+      "src": "2024-hrdevfest-kevin-griffin-061.jpg",
+      "caption": "Sorting the sticker pile on stage",
+      "alt": "Group of people arranging stickers on a stage floor in an auditorium",
+      "credit": "Kevin Griffin"
+    },
+    {
+      "src": "2024-hrdevfest-kurt-kemple-091.jpg",
+      "caption": "Laughs at the snack table",
+      "alt": "Attendees laughing and networking near a food table",
+      "credit": "Kurt Kemple"
+    },
+    {
+      "src": "2024-hrdevfest-greg-norman-141.jpg",
+      "caption": "Jefferson Lab takes the main stage",
+      "alt": "Two female speakers presenting on stage next to a large projection screen showing a diagram of atoms and molecules",
+      "credit": "Greg Norman"
+    },
+    {
+      "src": "2024-hrdevfest-kurt-kemple-183.jpg",
+      "caption": "All smiles on stage",
+      "alt": "Smiling speaker wearing a cap standing on stage during a tech talk",
+      "credit": "Kurt Kemple"
+    },
+    {
+      "src": "2024-hrdevfest-linda-nichols-156.jpg",
+      "caption": "Checking out gadgets at a sponsor table",
+      "alt": "People gathered around a black table looking at tech gadgets and stickers",
+      "credit": "Linda Nichols"
+    },
+    {
+      "src": "2024-hrdevfest-alex-proaps-178.jpg",
+      "caption": "Experts.js on the big screen",
+      "alt": "Speaker standing on stage next to a large screen displaying an Experts.js flowchart diagram",
+      "credit": "Alex Proaps"
+    },
+    {
+      "src": "2024-hrdevfest-kurt-kemple-202.jpg",
+      "caption": "The hallway track, auditorium edition",
+      "alt": "Group of attendees talking in an auditorium with rows of empty seats in the background",
+      "credit": "Kurt Kemple"
+    },
+    {
+      "src": "2024-hrdevfest-alex-proaps-216.jpg",
+      "caption": "Wrapping up the day with the DevFest poster",
+      "alt": "Three people posing with an HR Dev Fest sign",
+      "credit": "Alex Proaps"
+    }
   ],
   "sponsors": [],
   "testimonials": [],

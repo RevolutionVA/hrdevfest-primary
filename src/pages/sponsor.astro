@@ -13,6 +13,12 @@ import { getEntry } from "astro:content";
 import { testimonials } from "../data/testimonials";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
 import kristinaKrasnolobovaImage from "../assets/testimonials/kristina-krasnolobova.webp";
+import crowdMainStage from "../assets/2026-photos/2026-hrdevfest-linda-nichols-130.jpg";
+import crowdLobby2026 from "../assets/2026-photos/2026-hrdevfest-travis-webb-002.jpg";
+import crowdHallway2026 from "../assets/2026-photos/2026-hrdevfest-travis-webb-005.jpg";
+import crowdRegistration2026 from "../assets/2026-photos/2026-hrdevfest-travis-webb-015.jpg";
+import crowdLobby2024 from "../assets/2024-photos/2024-hrdevfest-alex-proaps-012.jpg";
+import crowdTables2024 from "../assets/2024-photos/2024-hrdevfest-kevin-griffin-011.jpg";
 import {
   SPONSOR_SHEET_PDF_HREF,
   schedule,
@@ -30,6 +36,15 @@ import {
   partnershipIncludes,
   scheduleNote,
 } from "../data/sponsor";
+
+const crowdPhotos = [
+  { src: crowdMainStage, caption: "A full main stage, 2026", credit: "Linda Nichols", alt: "Large crowd of attendees filling tiered auditorium seats" },
+  { src: crowdLobby2026, caption: "The lobby between sessions, 2026", credit: "Travis Webb", alt: "Crowd of attendees networking in a sunlit lobby with city views" },
+  { src: crowdHallway2026, caption: "Hallway traffic past sponsor tables, 2026", credit: "Travis Webb", alt: "Attendees walking a busy hallway past a Marathon Consulting banner and a City of Virginia Beach table" },
+  { src: crowdRegistration2026, caption: "Registration morning, 2026", credit: "Travis Webb", alt: "Volunteers handing out swag to a line of attendees at registration" },
+  { src: crowdLobby2024, caption: "A packed lobby, 2024", credit: "Alex Proaps", alt: "Crowd of attendees with coffee filling a sunlit conference lobby" },
+  { src: crowdTables2024, caption: "Lobby tables at DevFest 2024", credit: "Kevin Griffin", alt: "Attendees gathered around tables in a bright conference lobby" },
+];
 
 // 2026 platinum and gold sponsors, shown on white plates next to the 2026 attendee list
 const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
@@ -318,6 +333,28 @@ const packageOptions = [
             </ul>
           </div>
         )}
+        <div class="flex flex-col gap-3">
+          <p class="text-base leading-relaxed bp-muted">The crowd your sponsorship reaches:</p>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {crowdPhotos.map((photo) => (
+              <li>
+                <figure class="bp-box h-full">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    widths={[400, 800]}
+                    sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 100vw"
+                    class="w-full h-52 object-cover border-b border-[var(--bp-line)]"
+                  />
+                  <figcaption class="p-3">
+                    <span class="block text-sm">{photo.caption}</span>
+                    <span class="block text-xs opacity-70 mt-1">Photo: {photo.credit}</span>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
+        </div>
         {sponsorTestimonial && (
           <figure class="bp-box p-5 md:p-6 flex flex-col sm:flex-row gap-4 sm:items-start max-w-[72ch]">
             <Image src={travisWebbImage} alt="" class="bp-photo w-16 h-16 object-cover shrink-0" width={64} height={64} />

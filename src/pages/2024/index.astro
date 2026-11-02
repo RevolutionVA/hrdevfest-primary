@@ -2,12 +2,8 @@
 import { getEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
+import PhotoGallery from "../../components/PhotoGallery.astro";
 
-import photo1 from "../../assets/2024-photos/2024-05-31 08.30.41.jpg";
-import photo2 from "../../assets/2024-photos/2024-05-31 09.48.48.jpg";
-import photo3 from "../../assets/2024-photos/2024-05-31 12.04.00.jpg";
-import photo4 from "../../assets/2024-photos/2024-05-31 12.11.53.jpg";
-import photo5 from "../../assets/2024-photos/2024-05-31 14.13.46.jpg";
 
 const event = await getEntry('events', '2024/event');
 if (!event) {
@@ -15,13 +11,6 @@ if (!event) {
 }
 const eventData = event.data;
 
-const photoAssets: Record<string, ImageMetadata> = {
-  "2024-05-31 08.30.41.jpg": photo1,
-  "2024-05-31 09.48.48.jpg": photo2,
-  "2024-05-31 12.04.00.jpg": photo3,
-  "2024-05-31 12.11.53.jpg": photo4,
-  "2024-05-31 14.13.46.jpg": photo5,
-};
 
 function getSocialIcon(type: string): string {
   const icons: Record<string, string> = {
@@ -51,30 +40,7 @@ function getSocialIcon(type: string): string {
     </div>
   </section>
 
-  <!-- Photo Gallery -->
-  {eventData.photos && eventData.photos.length > 0 && (
-    <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Event Photos</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {eventData.photos.map((photo, index) => (
-            photoAssets[photo.src] && (
-              <div class="photo-card bp-box cursor-pointer" data-index={index} role="button" tabindex="0">
-                <Image
-                  src={photoAssets[photo.src]}
-                  alt={photo.caption}
-                  class="w-full h-48 object-cover border-b border-[var(--bp-line)]"
-                />
-                <div class="p-3">
-                  <p class="text-sm">{photo.caption}</p>
-                </div>
-              </div>
-            )
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  <PhotoGallery year={2024} photos={eventData.photos} />
 
   <!-- Schedule Section (single-track) -->
   <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
@@ -186,17 +152,6 @@ function getSocialIcon(type: string): string {
     </div>
   </section>
 
-  <!-- Photo Modal -->
-  <div id="photo-modal" class="fixed inset-0 z-[100] bg-[var(--bp-paper-deep)] hidden items-center justify-center p-4">
-    <button id="modal-close" class="absolute top-4 right-4 bp-nav-link text-4xl font-light" aria-label="Close">&times;</button>
-    <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bp-nav-link text-4xl font-light p-2" aria-label="Previous">&larr;</button>
-    <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 bp-nav-link text-4xl font-light p-2" aria-label="Next">&rarr;</button>
-    <div class="max-w-5xl max-h-[90vh] flex flex-col items-center">
-      <img id="modal-image" src="" alt="" class="bp-photo max-w-full max-h-[80vh] object-contain" />
-      <p id="modal-caption" class="text-center mt-4 text-lg"></p>
-    </div>
-  </div>
-
   <!-- Back to Events -->
   <section class="w-full py-8 px-4 md:px-8 border-t border-[var(--bp-line)]">
     <div class="max-w-4xl mx-auto text-center">
@@ -207,92 +162,6 @@ function getSocialIcon(type: string): string {
   </section>
 </YearLayout>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('photo-modal');
-    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-    const modalCaption = document.getElementById('modal-caption');
-    const modalClose = document.getElementById('modal-close');
-    const modalPrev = document.getElementById('modal-prev');
-    const modalNext = document.getElementById('modal-next');
-    const photoCards = document.querySelectorAll('.photo-card');
-
-    const photos: { src: string; caption: string }[] = [];
-    photoCards.forEach((card) => {
-      const img = card.querySelector('img') as HTMLImageElement;
-      const caption = card.querySelector('p')?.textContent || '';
-      if (img) {
-        photos.push({ src: img.src, caption });
-      }
-    });
-
-    let currentIndex = 0;
-
-    function showPhoto(index: number) {
-      if (photos[index]) {
-        currentIndex = index;
-        if (modalImage) modalImage.src = photos[index].src;
-        if (modalCaption) modalCaption.textContent = photos[index].caption;
-      }
-    }
-
-    function openModal(index: number) {
-      showPhoto(index);
-      modal?.classList.remove('hidden');
-      modal?.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      modal?.classList.add('hidden');
-      modal?.classList.remove('flex');
-      document.body.style.overflow = '';
-    }
-
-    photoCards.forEach((card) => {
-      const index = parseInt((card as HTMLElement).dataset.index || '0');
-      card.addEventListener('click', () => openModal(index));
-      // Cards are role="button", so Enter and Space open them too
-      card.addEventListener('keydown', (e) => {
-        const key = (e as KeyboardEvent).key;
-        if (key === 'Enter' || key === ' ') {
-          e.preventDefault();
-          openModal(index);
-        }
-      });
-    });
-
-    modalClose?.addEventListener('click', closeModal);
-
-    modalPrev?.addEventListener('click', () => {
-      const newIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
-      showPhoto(newIndex);
-    });
-
-    modalNext?.addEventListener('click', () => {
-      const newIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
-      showPhoto(newIndex);
-    });
-
-    modal?.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (modal?.classList.contains('hidden')) return;
-
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowLeft') {
-        const newIndex = currentIndex > 0 ? currentIndex - 1 : photos.length - 1;
-        showPhoto(newIndex);
-      }
-      if (e.key === 'ArrowRight') {
-        const newIndex = currentIndex < photos.length - 1 ? currentIndex + 1 : 0;
-        showPhoto(newIndex);
-      }
-    });
-  });
-</script>
 
 <style>
   .line-clamp-3 {

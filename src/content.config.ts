@@ -66,6 +66,8 @@ const venueSchema = z.object({
 const photoSchema = z.object({
   src: z.string(),
   caption: z.string(),
+  alt: z.string().optional(),
+  credit: z.string().optional(),
 });
 
 const eventSchema = z.object({
