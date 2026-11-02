@@ -2,6 +2,7 @@
 import { getEntry } from 'astro:content';
 import { Image } from "astro:assets";
 import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
+import PhotoGallery from "../../components/PhotoGallery.astro";
 
 import lionelSappImage from "../../assets/speakers/lionel-sapp.jpeg";
 import ryanCastilloImage from "../../assets/speakers/ryan-castillo.jpeg";
@@ -91,6 +92,8 @@ const sponsorsByTier = {
       <p class="text-base leading-relaxed mt-4 max-w-2xl">{eventData.description}</p>
     </div>
   </section>
+
+  <PhotoGallery year={2026} photos={eventData.photos} />
 
   <!-- Schedule Section (single-track) -->
   <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">

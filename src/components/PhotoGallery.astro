@@ -1,0 +1,134 @@
+---
+import { Image, getImage } from "astro:assets";
+
+interface Photo {
+  src: string;
+  caption: string;
+  alt?: string;
+  credit?: string;
+}
+
+interface Props {
+  year: number;
+  photos: Photo[];
+}
+
+const { year, photos } = Astro.props;
+
+// Photos live in src/assets/<year>-photos/; event.json references them by file name.
+const assets = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*-photos/*.{jpg,jpeg,png,webp}",
+  { eager: true }
+);
+
+const items = await Promise.all(
+  photos.map(async (photo) => {
+    const asset = assets[`/src/assets/${year}-photos/${photo.src}`]?.default;
+    if (!asset) throw new Error(`Missing photo for ${year}: ${photo.src}`);
+    const full = await getImage({ src: asset, width: 1600, format: "webp" });
+    return { ...photo, asset, fullSrc: full.src };
+  })
+);
+---
+
+{items.length > 0 && (
+  <section class="w-full py-10 lg:py-16 px-4 md:px-8 border-t border-[var(--bp-line)]">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-[24px] md:text-[32px] font-bold text-center mb-8">Event Photos</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map((photo, index) => (
+          <button
+            type="button"
+            class="photo-card bp-box text-left cursor-pointer"
+            data-index={index}
+            data-full={photo.fullSrc}
+            data-caption={photo.caption}
+            data-credit={photo.credit ?? ""}
+            data-alt={photo.alt ?? photo.caption}
+          >
+            <Image
+              src={photo.asset}
+              alt={photo.alt ?? photo.caption}
+              widths={[400, 800]}
+              sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
+              class="w-full h-56 object-cover border-b border-[var(--bp-line)]"
+            />
+            <span class="block p-3">
+              <span class="block text-sm">{photo.caption}</span>
+              {photo.credit && <span class="block text-xs opacity-70 mt-1">Photo: {photo.credit}</span>}
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<div
+  id="photo-modal"
+  class="fixed inset-0 z-[100] bg-[var(--bp-paper-deep)] hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Event photo"
+>
+  <button id="modal-close" class="absolute top-4 right-4 bp-nav-link text-4xl font-light" aria-label="Close">&times;</button>
+  <button id="modal-prev" class="absolute left-4 top-1/2 -translate-y-1/2 bp-nav-link text-4xl font-light p-2" aria-label="Previous photo">&larr;</button>
+  <button id="modal-next" class="absolute right-4 top-1/2 -translate-y-1/2 bp-nav-link text-4xl font-light p-2" aria-label="Next photo">&rarr;</button>
+  <figure class="max-w-5xl max-h-[90vh] flex flex-col items-center">
+    <img id="modal-image" src="" alt="" class="bp-photo max-w-full max-h-[78vh] object-contain" />
+    <figcaption class="text-center mt-4">
+      <span id="modal-caption" class="block text-lg"></span>
+      <span id="modal-credit" class="block text-sm opacity-70 mt-1"></span>
+    </figcaption>
+  </figure>
+</div>
+
+<script>
+  const modal = document.getElementById("photo-modal");
+  const modalImage = document.getElementById("modal-image") as HTMLImageElement | null;
+  const modalCaption = document.getElementById("modal-caption");
+  const modalCredit = document.getElementById("modal-credit");
+  const cards = Array.from(document.querySelectorAll<HTMLElement>(".photo-card"));
+  let current = 0;
+  let opener: HTMLElement | null = null;
+
+  function show(index: number) {
+    current = (index + cards.length) % cards.length;
+    const { full, caption, credit, alt } = cards[current].dataset;
+    if (modalImage) {
+      modalImage.src = full ?? "";
+      modalImage.alt = alt ?? "";
+    }
+    if (modalCaption) modalCaption.textContent = caption ?? "";
+    if (modalCredit) modalCredit.textContent = credit ? `Photo: ${credit}` : "";
+  }
+
+  function open(index: number) {
+    opener = cards[index];
+    show(index);
+    modal?.classList.replace("hidden", "flex");
+    document.body.style.overflow = "hidden";
+    document.getElementById("modal-close")?.focus();
+  }
+
+  function close() {
+    modal?.classList.replace("flex", "hidden");
+    document.body.style.overflow = "";
+    opener?.focus();
+  }
+
+  cards.forEach((card, index) => card.addEventListener("click", () => open(index)));
+  document.getElementById("modal-close")?.addEventListener("click", close);
+  document.getElementById("modal-prev")?.addEventListener("click", () => show(current - 1));
+  document.getElementById("modal-next")?.addEventListener("click", () => show(current + 1));
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) close();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!modal || modal.classList.contains("hidden")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(current - 1);
+    if (e.key === "ArrowRight") show(current + 1);
+  });
+</script>

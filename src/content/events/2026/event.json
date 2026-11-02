@@ -272,7 +272,80 @@
       "category": "Tickets"
     }
   ],
-  "photos": [],
+  "photos": [
+    {
+      "src": "2026-hrdevfest-travis-webb-015.jpg",
+      "caption": "Volunteers handing out swag at registration",
+      "alt": "Smiling volunteers at a tech conference booth handing out swag to attendees",
+      "credit": "Travis Webb"
+    },
+    {
+      "src": "2026-hrdevfest-travis-webb-002.jpg",
+      "caption": "A packed lobby before the opening session",
+      "alt": "Crowd of people networking in a sunlit convention center lobby with city views through large windows",
+      "credit": "Travis Webb"
+    },
+    {
+      "src": "2026-hrdevfest-linda-nichols-130.jpg",
+      "caption": "A full house in the main auditorium",
+      "alt": "Large crowd of attendees sitting in tiered auditorium seats facing the front of a conference hall",
+      "credit": "Linda Nichols"
+    },
+    {
+      "src": "2026-hrdevfest-linda-nichols-148.jpg",
+      "caption": "Opening the day in front of a full room",
+      "alt": "Speaker presenting to a full auditorium of attendees",
+      "credit": "Linda Nichols"
+    },
+    {
+      "src": "2026-hrdevfest-paul-chin-jr-182.jpg",
+      "caption": "Custom keyboards at a sponsor table",
+      "alt": "Two men giving thumbs up behind a table full of colorful custom keyboards",
+      "credit": "Paul Chin Jr."
+    },
+    {
+      "src": "2026-hrdevfest-katie-novotny-201.jpg",
+      "caption": "A rooftop break between sessions",
+      "alt": "Two smiling women standing together outdoors on a rooftop with city buildings in the background",
+      "credit": "Katie Novotny"
+    },
+    {
+      "src": "2026-hrdevfest-travis-webb-090.jpg",
+      "caption": "There Are No Shortcuts",
+      "alt": "Speaker presenting on stage next to a screen displaying the text 'There Are No Shortcuts'",
+      "credit": "Travis Webb"
+    },
+    {
+      "src": "2026-hrdevfest-paul-chin-jr-209.jpg",
+      "caption": "Big laughs from the crowd",
+      "alt": "Audience members sitting in theater seats laughing and watching a presentation",
+      "credit": "Paul Chin Jr."
+    },
+    {
+      "src": "2026-hrdevfest-travis-webb-078.jpg",
+      "caption": "A live jiu-jitsu demo on stage",
+      "alt": "Two men demonstrating a grappling move on stage with an audience watching in the background",
+      "credit": "Travis Webb"
+    },
+    {
+      "src": "2026-hrdevfest-aleksandr-podiachev-224.jpg",
+      "caption": "Acting it out on stage",
+      "alt": "Two men perform a skit on stage in front of a projector screen",
+      "credit": "Aleksandr Podiachev"
+    },
+    {
+      "src": "2026-hrdevfest-jay-woodcook-156.jpg",
+      "caption": "Presenting the Connector Award",
+      "alt": "Speakers on stage receiving an award as the audience claps",
+      "credit": "Jay Woodcook"
+    },
+    {
+      "src": "2026-hrdevfest-linda-nichols-257.jpg",
+      "caption": "All smiles at the end of the day",
+      "alt": "Three smiling people standing together on a stage at a tech event",
+      "credit": "Linda Nichols"
+    }
+  ],
   "isArchive": true,
   "ogImage": "/2026/og_promo_2026.jpeg"
 }
