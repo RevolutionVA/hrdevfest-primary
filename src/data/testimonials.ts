@@ -20,7 +20,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     name: "Kristina Krasnolobova",
-    role: "BSides Hampton Roads Organizer",
+    role: "Founder of BSides Hampton Roads",
     quote: "I've been attending and volunteering at Hampton Roads DevFest for several years, and it's an event I always look forward to. The organizers consistently do an amazing job putting together a well-organized conference filled with great speakers, valuable content, and opportunities to connect with others in the tech community. What really makes DevFest special is the welcoming atmosphere. Whether you're new to the industry or have years of experience, there's something for everyone. It's a fantastic event, and I'm proud to be a small part of it!",
     image: "kristina-krasnolobova.webp",
     linkedin: "https://www.linkedin.com/in/kristina-k-19ba7a132/",
