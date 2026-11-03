@@ -13,6 +13,7 @@ import NorfolkLineArt from "../components/NorfolkLineArt.astro";
 import logoWhite from "../assets/logo-white.png";
 import { testimonials } from "../data/testimonials";
 import { faqItems } from "../data/faq";
+import { SPEAKER_NOMINATION_URL } from "../data/links";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
 import michaelBuckbeeImage from "../assets/testimonials/michael-buckbee.jpg";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
@@ -150,7 +151,10 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
               <span class="block sm:inline">Apr 23, 2027<span class="hidden sm:inline"> · </span></span>
               <span class="block sm:inline">Zeiders American Dream Theater, Virginia Beach</span>
             </p>
-            <a href="#signup" class="mt-2 px-8 py-3 btn-primary text-base">Join the list</a>
+            <div class="mt-2 flex flex-col items-center gap-3">
+              <a href="#signup" class="px-8 py-3 btn-primary text-base">Join the list</a>
+              <a href={SPEAKER_NOMINATION_URL} target="_blank" rel="noopener noreferrer" class="px-6 py-2 btn-secondary text-sm">Nominate a speaker</a>
+            </div>
           </div>
         </div>
       </div>

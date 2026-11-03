@@ -8,6 +8,7 @@ import TitleBlock from "../components/TitleBlock.astro";
 import { Image } from "astro:assets";
 import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
+import { SPEAKER_NOMINATION_URL } from "../data/links";
 
 interface FAQItem {
   question: string;
@@ -108,7 +109,7 @@ const faqData: FAQCategory[] = [
       },
       {
         question: "How are speakers selected?",
-        answer: "We invite speakers based on community recommendations. There's no open call or Call for Proposals (CFP). Speakers are local to Hampton Roads or alumni of the regional tech community."
+        answer: `We invite speakers based on community recommendations. There's no open call or Call for Proposals (CFP). Our speakers live or work in Hampton Roads, or are alumni of our local tech community. Anyone can nominate a speaker, including themselves, using our <a href="${SPEAKER_NOMINATION_URL}" target="_blank" rel="noopener noreferrer" class="bp-link">speaker nomination form</a>.`
       },
       {
         question: "Are there opportunities for local user groups?",
