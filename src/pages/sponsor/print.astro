@@ -25,8 +25,13 @@ import {
   scheduleNote,
 } from "../../data/sponsor";
 import { testimonials } from "../../data/testimonials";
+import { getEntry } from "astro:content";
 
 const volunteerTestimonial = testimonials.find((t) => t.name === "Kristina Krasnolobova");
+// Same list as /sponsor, as names: logos would not fit on the sheet
+const sponsors2026 = ((await getEntry("events", "2026/event"))?.data.sponsors ?? [])
+  .filter((sponsor) => sponsor.tier === "platinum" || sponsor.tier === "gold")
+  .map((sponsor) => sponsor.name);
 
 const SPONSOR_URL = "https://hrdevfest.org/sponsor";
 const qr = (url: string) => QRCode.toString(url, { type: "svg", margin: 0, errorCorrectionLevel: "M" });
@@ -160,6 +165,9 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
           {devfest2026Employers.map((name) => <li>{name}</li>)}
           <li><em>And more…</em></li>
         </ul>
+        {sponsors2026.length > 0 && (
+          <p style="margin-top: 6pt;"><span class="label">Our 2026 sponsors included</span> {sponsors2026.join(", ")} <em>and more…</em></p>
+        )}
       </div>
     </section>
 
