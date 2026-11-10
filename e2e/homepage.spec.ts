@@ -47,6 +47,11 @@ test.describe("Homepage", () => {
     await expect(footer.locator("a[href*='x.com/hrdevfest']")).toBeVisible();
   });
 
+  test("2027 is not listed as a past year and has no speakers section yet", async ({ page }) => {
+    await expect(page.locator('a[href="/2027"]')).toHaveCount(0);
+    await expect(page.getByText("Kathryn Grayson Nanz")).toHaveCount(0);
+  });
+
   test("testimonials show Paul, Kristina, Michael, then Travis, each with a photo", async ({ page }) => {
     await page.goto("/");
     const names = await page.locator("#testimonials .bp-label").allTextContents();
