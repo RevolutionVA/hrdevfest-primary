@@ -83,6 +83,9 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       .box { border: 1px solid var(--line); padding: 8pt 10pt; break-inside: avoid; }
       .label { font-family: var(--mono); font-size: 7.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
       .lead { font-size: 10.5pt; }
+      /* Two columns keep the package table on one page now that table + hiring board are listed per package */
+      .pkg-benefits { columns: 2; column-gap: 16pt; }
+      .pkg-benefits li { break-inside: avoid; }
       .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt 18pt; }
       .employers { columns: 4; column-gap: 12pt; list-style: none; padding: 0; font-size: 8.5pt; }
       .employers li { margin: 0 0 1pt; break-inside: avoid; }
@@ -175,7 +178,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
               <th scope="row" class="name">{row.package.replace(" Sponsor", "")}<span class="avail">{row.available} available</span></th>
               <td class="price">{row.price}</td>
               <td class="num-col">{row.tickets}</td>
-              <td><ul>{row.benefits.map((b) => <li>{b}</li>)}</ul></td>
+              <td><ul class="pkg-benefits">{row.benefits.map((b) => <li>{b}</li>)}</ul></td>
             </tr>
           ))}
         </tbody>
@@ -184,10 +187,6 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
         <div>
           <h3>{packageIncludes.every.title}</h3>
           <ul>{packageIncludes.every.items.map((i) => <li>{i}</li>)}</ul>
-        </div>
-        <div>
-          <h3>{packageIncludes.tableTiers.title}</h3>
-          <ul>{packageIncludes.tableTiers.items.map((i) => <li>{i}</li>)}</ul>
         </div>
       </div>
       <div class="callout">

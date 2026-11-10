@@ -1,6 +1,6 @@
 // Sponsor page data, shared by /sponsor and the printable sponsor sheet (/sponsor/print)
 
-export const SPONSOR_SHEET_PDF_HREF = "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-30.pdf";
+export const SPONSOR_SHEET_PDF_HREF = "/sponsor/hrdevfest-2027-sponsor-sheet-2026-11-10.pdf";
 
 export interface ScheduleItem {
   time: string;
@@ -50,6 +50,8 @@ export const glance: GlanceRow[] = [
     available: "1",
     tickets: "12",
     benefits: [
+      "A sponsor table",
+      "A Who's hiring board listing",
       '"DevFest presented by [Company]" naming',
       "Top branding on the website, event emails and signage",
       "15 min of Sponsor Stage Time at opening",
@@ -64,6 +66,8 @@ export const glance: GlanceRow[] = [
     available: "1",
     tickets: "10",
     benefits: [
+      "A sponsor table",
+      "A Who's hiring board listing",
       '"[Company] Main Stage" naming on signage and schedule',
       "15 min of Sponsor Stage Time in the afternoon",
       "Newsletter feature",
@@ -77,6 +81,8 @@ export const glance: GlanceRow[] = [
     available: "5",
     tickets: "4",
     benefits: [
+      "A sponsor table",
+      "A Who's hiring board listing",
       "Larger logo",
       "Newsletter mention",
       "2 dedicated social posts",
@@ -312,7 +318,6 @@ export const for2027 = [
 // Short lists under the package and partnership tables
 export const packageIncludes = {
   every: { title: "Every package includes:", items: ["Website and slide recognition", "A group thank-you", "The post-event report"] },
-  tableTiers: { title: "Featured, Main Stage and Presenting also include:", items: ["A sponsor table", "A Who's hiring board listing"] },
 };
 export const partnershipIncludes = {
   every: { title: "Every partnership includes:", items: ["Website and slide recognition", "The post-event report", "The tickets shown"] },

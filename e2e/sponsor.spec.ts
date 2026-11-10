@@ -89,10 +89,8 @@ test.describe("Sponsor Page", () => {
   test("the $1,500 Exhibitor package is gone and tables start at $2,500", async ({ page }) => {
     await page.goto("/sponsor");
     await expect(page.locator("body")).not.toContainText("Exhibitor");
-    const tableGroup = page.locator("#at-a-glance div").filter({
-      has: page.getByRole("heading", { name: "Featured, Main Stage and Presenting also include:" }),
-    }).last();
-    await expect(tableGroup.locator("li").filter({ hasText: /^A sponsor table$/ })).toHaveCount(1);
+    const featured = page.locator("#at-a-glance tr").filter({ hasText: "Featured Sponsor" });
+    await expect(featured.locator("li").filter({ hasText: /^A sponsor table$/ })).toHaveCount(1);
     const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
     expect(options).toContain("Featured Sponsor ($2,500)");
     expect(options.some((o) => o.includes("Exhibitor"))).toBe(false);
@@ -159,6 +157,7 @@ test.describe("Sponsor Page", () => {
     for (const old of [
       "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-28.pdf",
       "/sponsor/hrdevfest-2027-sponsor-sheet-print-2026-10-28.pdf",
+      "/sponsor/hrdevfest-2027-sponsor-sheet-2026-10-30.pdf",
     ]) {
       const route = config.routes.find((r: { route: string }) => r.route === old);
       expect(route).toMatchObject({ redirect: href, statusCode: 302 });
