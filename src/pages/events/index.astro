@@ -5,6 +5,7 @@ import YearLayout from "../../themes/archive/layouts/YearLayout.astro";
 const allEvents = await getCollection('events');
 
 const events = allEvents
+  .filter(event => event.data.isArchive)
   .map(event => event.data)
   .sort((a, b) => b.year - a.year);
 

@@ -27,7 +27,7 @@ const testimonialImages: Record<string, any> = {
 };
 
 const events = await getCollection('events');
-const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
+const pastYears = events.filter(e => e.data.isArchive).map(e => e.data.year).sort((a, b) => b - a);
 
 // 2026 platinum and gold sponsors for the logo row above the signup form
 const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
