@@ -193,6 +193,40 @@ test.describe("Sponsor Page", () => {
     await expect(list.locator("li").last()).toHaveText("And more…");
   });
 
+  test("the 2026 sponsors link lives on the prospectus", async ({ page }) => {
+    await page.goto("/sponsor");
+    await expect(
+      page.locator("#who-was-at-devfest-2026").getByRole("link", { name: /See our 2026 sponsors/ })
+    ).toHaveAttribute("href", "/2026#sponsors");
+  });
+
+  test("the claimed Reception partnership reads Claimed by Stigian Consulting", async ({ page }) => {
+    await page.goto("/sponsor");
+    const partnerships = page.locator("#partnerships");
+    // One on the phone card, one in the desktop table
+    await expect(partnerships.locator("article").filter({ hasText: "Post-Event Reception Partner" })).toContainText(
+      "Claimed by Stigian Consulting"
+    );
+    await expect(partnerships.locator("tr").filter({ hasText: "Post-Event Reception Partner" })).toContainText(
+      "Claimed by Stigian Consulting"
+    );
+    await expect(partnerships.getByText("Claimed by Stigian Consulting", { exact: true }).locator("visible=true")).toHaveCount(1);
+    await expect(partnerships.locator("tr").filter({ hasText: "Lunch Partner" })).toContainText("1 exclusive");
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table:not(.layout) tr").filter({ hasText: "Post-Event Reception Partner" })).toContainText(
+      "Claimed by Stigian Consulting"
+    );
+  });
+
+  test("the reservation form leaves out the claimed Reception partnership", async ({ page }) => {
+    await page.goto("/sponsor");
+    const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
+    expect(options.some((o) => /Reception/i.test(o))).toBe(false);
+    expect(options).toContain("Pop-up Series Partner ($1,500)");
+    expect(options).toContain("Lunch Partner ($2,000)");
+    expect(options).toContain("Presenting Sponsor ($10,000)");
+  });
+
   test("why sponsor leads with Kevin's copy", async ({ page }) => {
     await page.goto("/sponsor");
     await expect(page.locator("#why-sponsor")).toContainText(

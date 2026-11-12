@@ -10,6 +10,7 @@ import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
 import Callout from "../components/Callout.astro";
 import { getEntry } from "astro:content";
+import { offeringAvailability, openPackageOptions, tierForPackage, tierForPartnership } from "../data/sponsors2027";
 import { testimonials } from "../data/testimonials";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
 import kristinaKrasnolobovaImage from "../assets/testimonials/kristina-krasnolobova.webp";
@@ -88,11 +89,7 @@ const sections = [
 ];
 
 // Options for the "Inquire about Sponsorship" form
-const packageOptions = [
-  ...glance.filter((row) => !row.checkoutHref).map((row) => `${row.package} (${row.price})`),
-  ...partnerships.map((partner) => `${partner.name} (${partner.price})`),
-  "Not sure yet",
-];
+const packageOptions = [...openPackageOptions(), "Not sure yet"];
 
 
 ---
@@ -331,6 +328,7 @@ const packageOptions = [
               ))}
               <li class="italic">And more&hellip;</li>
             </ul>
+            <a href="/2026#sponsors" class="bp-link text-base font-bold self-start">See our 2026 sponsors →</a>
           </div>
         )}
         <div class="flex flex-col gap-3">
@@ -400,7 +398,7 @@ const packageOptions = [
                 <p class="bp-mono text-xl font-bold mt-1">{row.price}</p>
               </div>
               <ul class="flex flex-col divide-y divide-[var(--bp-line-faint)] border-y border-[var(--bp-line-faint)] text-base leading-relaxed">
-                <li class="py-2.5"><span class="bp-label">Available</span> {row.available}</li>
+                <li class="py-2.5"><span class="bp-label">Available</span> {offeringAvailability(tierForPackage(row.package), row.available)}</li>
                 <li class="py-2.5"><span class="bp-label">Tickets for your team</span> {row.tickets}</li>
                 <li class="py-2.5">
                   <span class="bp-label">Additional benefits</span>
@@ -436,7 +434,7 @@ const packageOptions = [
                 <tr>
                   <th scope="row" class="font-bold whitespace-nowrap">{row.package}</th>
                   <td class="bp-mono whitespace-nowrap">{row.price}</td>
-                  <td>{row.available}</td>
+                  <td>{offeringAvailability(tierForPackage(row.package), row.available)}</td>
                   <td>{row.tickets}</td>
                   <td class="leading-snug">
                     <ul class="flex flex-col gap-1 list-disc m-0 pl-5">
@@ -497,7 +495,7 @@ const packageOptions = [
                 <h3 class="text-base font-bold leading-tight">{partner.name}</h3>
                 <p class="bp-mono font-bold whitespace-nowrap">{partner.price}</p>
               </div>
-              <p class="bp-label">{partner.available}</p>
+              <p class="bp-label">{offeringAvailability(tierForPartnership(partner.id), partner.available)}</p>
               <p class="text-base leading-relaxed"><span class="bp-label">Tickets for your team</span> {partner.tickets}</p>
               <ul class="pl-5 list-disc text-base leading-relaxed flex flex-col gap-1">
                 {partner.benefits.map((benefit) => (
@@ -532,7 +530,7 @@ const packageOptions = [
                 <tr>
                   <th scope="row" class="font-bold whitespace-nowrap">{partner.name}</th>
                   <td class="bp-mono whitespace-nowrap">{partner.price}</td>
-                  <td>{partner.available}</td>
+                  <td>{offeringAvailability(tierForPartnership(partner.id), partner.available)}</td>
                   <td>{partner.tickets}</td>
                   <td class="leading-snug">
                     <ul class="flex flex-col gap-1 list-disc m-0 pl-5">
