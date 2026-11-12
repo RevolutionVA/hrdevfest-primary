@@ -14,6 +14,7 @@ import logoWhite from "../assets/logo-white.png";
 import { testimonials } from "../data/testimonials";
 import { faqItems } from "../data/faq";
 import { SPEAKER_NOMINATION_URL } from "../data/links";
+import { sponsors2027, sponsor2027TierLabels, sponsor2027TierOrder } from "../data/sponsors2027";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
 import michaelBuckbeeImage from "../assets/testimonials/michael-buckbee.jpg";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
@@ -36,6 +37,14 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
 );
 const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ?? [])
   .filter((sponsor) => sponsor.tier === 'platinum' || sponsor.tier === 'gold');
+
+const sponsorGroups2027 = sponsor2027TierOrder
+  .map((tier) => ({
+    tier,
+    label: sponsor2027TierLabels[tier],
+    sponsors: sponsors2027.filter((sponsor) => sponsor.tier === tier),
+  }))
+  .filter((group) => group.sponsors.length > 0);
 ---
 
 <html lang="en">
@@ -207,10 +216,37 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
       </div>
     </section>
 
-    <!-- Sponsor 2027 CTA -->
+    <!-- 2027 sponsors and sponsor CTA -->
     <section id="sponsors" class="w-full py-10 md:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
       <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center">
         <h2 class="text-center text-[32px] font-bold leading-10">Sponsor DevFest 2027</h2>
+        {sponsorGroups2027.map((group) => (
+          <div class="w-full">
+            <h3 class="bp-label text-center mb-4">{group.label}</h3>
+            <div class="flex flex-wrap justify-center items-center gap-6">
+              {group.sponsors.map((sponsor) => (
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`${sponsorLogos[sponsor.logo] ? 'bp-plate' : 'bp-box bp-link'} p-6 flex items-center gap-3`}
+                  title={sponsor.name}
+                >
+                  {sponsorLogos[sponsor.logo] && (
+                    <Image
+                      src={sponsorLogos[sponsor.logo]}
+                      alt={sponsor.showName ? "" : sponsor.name}
+                      class={sponsor.showName ? "h-12 w-12 object-contain" : "h-16 w-auto object-contain"}
+                    />
+                  )}
+                  {(sponsor.showName || !sponsorLogos[sponsor.logo]) && (
+                    <span class={`font-bold text-2xl ${sponsorLogos[sponsor.logo] ? 'text-[var(--bp-paper-deep)]' : ''}`}>{sponsor.name}</span>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
         <p class="text-base font-normal leading-relaxed">
           Sponsors make DevFest possible. Put your company in front of the developers building tech in Hampton Roads.
         </p>

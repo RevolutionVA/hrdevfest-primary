@@ -40,6 +40,25 @@ test.describe("Homepage", () => {
     ).toBeVisible();
   });
 
+  test("lists the 2027 sponsors by tier", async ({ page }) => {
+    const sponsors = page.locator("#sponsors");
+    await expect(
+      sponsors.getByRole("heading", { level: 3, name: "Post-Event Reception Partner" })
+    ).toBeVisible();
+    await expect(sponsors.getByRole("link", { name: "Stigian", exact: true })).toHaveAttribute(
+      "href",
+      "https://stigian.com/"
+    );
+    await expect(
+      sponsors.getByRole("heading", { level: 3, name: "Featured Sponsor" })
+    ).toBeVisible();
+    const landstats = sponsors.getByRole("link", { name: "Landstats", exact: true });
+    await expect(landstats).toHaveAttribute("href", "https://www.landstats.com/");
+    await expect(landstats.locator("img")).toBeVisible();
+    await expect(sponsors.getByRole("heading", { level: 3 })).toHaveCount(2);
+    await expect(sponsors).not.toContainText(/Marathon|TECHEAD/i);
+  });
+
   test("footer is visible with social links", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
