@@ -6,6 +6,7 @@ export interface ScheduleItem {
   time: string;
   what: string;
   sponsorTime?: boolean; // a moment sponsors are on, at a table, or being named
+  reception?: boolean; // credited to the Reception Partner once claimed (see sponsorSchedule in sponsors2027.ts)
 }
 
 export const schedule: ScheduleItem[] = [
@@ -23,7 +24,7 @@ export const schedule: ScheduleItem[] = [
   { time: "3:00", what: "Talk" },
   { time: "3:45", what: "Talk" },
   { time: "4:30", what: "Closing, then networking and sponsor teardown (building closes at 6:00)", sponsorTime: true },
-  { time: "After conference closing", what: "Official DevFest Reception: venue and exact timing to be announced", sponsorTime: true },
+  { time: "After conference closing", what: "Official DevFest Reception. Venue and time to be announced.", sponsorTime: true, reception: true },
 ];
 
 export const COMMUNITY_CHECKOUT_HREF = "https://buy.stripe.com/cNi3cv4eG6CpcnP1b44AU06";

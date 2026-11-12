@@ -166,6 +166,24 @@
     border: 1px solid var(--bp-line);
   }
 
+  /* Sponsor tier heading: a step up from .bp-label, in full ink */
+  .bp-tier-label {
+    font-family: var(--bp-mono);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--bp-ink);
+  }
+
+  /* Sponsor logo tile: light plate for logo contrast, with the soft .bp-box border */
+  .bp-tile {
+    background-color: #ffffff;
+    border: 1px solid var(--bp-line-soft);
+    background-clip: padding-box;
+  }
+
   /* Photos get a thin ink border */
   .bp-photo {
     border: 1px solid var(--bp-line);

@@ -193,6 +193,61 @@ test.describe("Sponsor Page", () => {
     await expect(list.locator("li").last()).toHaveText("And more…");
   });
 
+  test("the 2026 sponsors link lives on the prospectus", async ({ page }) => {
+    await page.goto("/sponsor");
+    await expect(
+      page.locator("#who-was-at-devfest-2026").getByRole("link", { name: /See our 2026 sponsors/ })
+    ).toHaveAttribute("href", "/2026#sponsors");
+  });
+
+  test("the claimed Reception partnership reads Claimed by Stigian Consulting", async ({ page }) => {
+    await page.goto("/sponsor");
+    const partnerships = page.locator("#partnerships");
+    // One on the phone card, one in the desktop table
+    await expect(partnerships.locator("article").filter({ hasText: "Post-Event Reception Partner" })).toContainText(
+      "Claimed by Stigian Consulting"
+    );
+    await expect(partnerships.locator("tr").filter({ hasText: "Post-Event Reception Partner" })).toContainText(
+      "Claimed by Stigian Consulting"
+    );
+    await expect(partnerships.getByText("Claimed by Stigian Consulting", { exact: true }).locator("visible=true")).toHaveCount(1);
+    await expect(partnerships.locator("tr").filter({ hasText: "Lunch Partner" })).toContainText("1 exclusive");
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table:not(.layout) tr").filter({ hasText: "Post-Event Reception Partner" })).toContainText(
+      "Claimed by Stigian Consulting"
+    );
+  });
+
+  test("Featured shows remaining slots from the 2027 sponsor list", async ({ page }) => {
+    await page.goto("/sponsor");
+    const packages = page.locator("#at-a-glance");
+    await expect(packages.locator("article").filter({ hasText: "Featured" }).first()).toContainText("4 remaining");
+    await expect(packages.locator("tr").filter({ hasText: "Featured" }).first()).toContainText("4 remaining");
+    await expect(packages.getByText("4 remaining", { exact: false }).locator("visible=true")).toHaveCount(1);
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table:not(.layout) tr").filter({ hasText: "Featured" }).first()).toContainText("4 remaining");
+  });
+
+  test("the schedule ends with the reception credit", async ({ page }) => {
+    const credit = "DevFest Reception presented by Stigian Consulting. Venue and time to be announced.";
+    await page.goto("/sponsor");
+    const day = page.locator("#the-day");
+    await expect(day.locator("tbody tr").last()).toContainText("After conference closing");
+    await expect(day.locator("tbody tr").last()).toContainText(credit);
+    await expect(day.locator("ol li").last()).toContainText(credit);
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table.schedule tbody tr").last()).toContainText(credit);
+  });
+
+  test("the reservation form leaves out the claimed Reception partnership", async ({ page }) => {
+    await page.goto("/sponsor");
+    const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
+    expect(options.some((o) => /Reception/i.test(o))).toBe(false);
+    expect(options).toContain("Pop-up Series Partner ($1,500)");
+    expect(options).toContain("Lunch Partner ($2,000)");
+    expect(options).toContain("Presenting Sponsor ($10,000)");
+  });
+
   test("why sponsor leads with Kevin's copy", async ({ page }) => {
     await page.goto("/sponsor");
     await expect(page.locator("#why-sponsor")).toContainText(

@@ -9,7 +9,6 @@ import "@fontsource-variable/jetbrains-mono";
 import logo from "../../assets/logo.png";
 import kristinaKrasnolobovaImage from "../../assets/testimonials/kristina-krasnolobova.webp";
 import {
-  schedule,
   COMMUNITY_CHECKOUT_HREF,
   COMMUNITY_CALLOUT_BULLETS,
   glance,
@@ -25,6 +24,13 @@ import {
   scheduleNote,
 } from "../../data/sponsor";
 import { testimonials } from "../../data/testimonials";
+import { offeringAvailability, sponsorSchedule, tierForPackage, tierForPartnership } from "../../data/sponsors2027";
+
+// "Claimed by" or "N remaining" once sponsors sign on, else the plain count
+const packageAvailability = (pkg: string, available: string) => {
+  const text = offeringAvailability(tierForPackage(pkg), available);
+  return text === available ? `${available} available` : text;
+};
 
 const volunteerTestimonial = testimonials.find((t) => t.name === "Kristina Krasnolobova");
 
@@ -175,7 +181,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
         <tbody>
           {corePackages.map((row) => (
             <tr>
-              <th scope="row" class="name">{row.package.replace(" Sponsor", "")}<span class="avail">{row.available} available</span></th>
+              <th scope="row" class="name">{row.package.replace(" Sponsor", "")}<span class="avail">{packageAvailability(row.package, row.available)}</span></th>
               <td class="price">{row.price}</td>
               <td class="num-col">{row.tickets}</td>
               <td><ul class="pkg-benefits">{row.benefits.map((b) => <li>{b}</li>)}</ul></td>
@@ -212,7 +218,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
         <tbody>
           {partnerships.map((partner) => (
             <tr>
-              <th scope="row" class="name">{partner.name}<span class="avail">{partner.available}</span></th>
+              <th scope="row" class="name">{partner.name}<span class="avail">{offeringAvailability(tierForPartnership(partner.id), partner.available)}</span></th>
               <td class="price">{partner.price}</td>
               <td class="num-col">{partner.tickets}</td>
               <td><ul>{partner.benefits.map((b) => <li>{b}</li>)}</ul></td>
@@ -237,7 +243,7 @@ const faqForPrint = faqItems.filter((item) => PRINT_FAQ_TITLES.includes(item.tit
       <table class="schedule">
         <thead><tr><th>Time</th><th>What happens</th><th></th></tr></thead>
         <tbody>
-          {schedule.map((item) => (
+          {sponsorSchedule.map((item) => (
             <tr>
               <td class="time">{item.time}</td>
               <td>{item.what}</td>
