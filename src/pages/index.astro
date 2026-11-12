@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import BentoTracking from "../components/BentoTracking.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
@@ -30,13 +30,11 @@ const testimonialImages: Record<string, any> = {
 const events = await getCollection('events');
 const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
 
-// 2026 platinum and gold sponsors for the logo row above the signup form
+// Sponsor logos keyed by filename, for the 2027 sponsor cards
 const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
 const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
   Object.entries(sponsorLogoFiles).map(([path, mod]) => [path.split("/").pop()!, mod.default])
 );
-const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ?? [])
-  .filter((sponsor) => sponsor.tier === 'platinum' || sponsor.tier === 'gold');
 
 const sponsorGroups2027 = sponsor2027TierOrder
   .map((tier) => ({
@@ -174,18 +172,6 @@ const sponsorGroups2027 = sponsor2027TierOrder
 
     <!-- Mailing List Signup - primary CTA -->
     <section id="signup" class="w-full py-12 md:py-16 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4">
-      {sponsors2026.length > 0 && (
-        <div class="max-w-4xl mx-auto mb-10 flex flex-col items-center gap-4">
-          <p class="bp-label">DevFest 2026 sponsors</p>
-          <div class="flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
-            {sponsors2026.filter((sponsor) => sponsorLogos[sponsor.logo]).map((sponsor) => (
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="bp-plate px-3 py-2" title={sponsor.name}>
-                <Image src={sponsorLogos[sponsor.logo]} alt={sponsor.name} class={sponsor.tier === 'platinum' ? 'h-14 w-auto object-contain' : 'h-8 w-auto object-contain'} />
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
       <div class="max-w-xl mx-auto p-8 md:p-10 bp-box text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-2">Be first to know</h2>
         <p class="bp-muted mb-6">We'll email you when tickets go on sale and speakers are announced.</p>

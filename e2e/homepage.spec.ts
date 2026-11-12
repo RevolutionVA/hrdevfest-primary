@@ -59,6 +59,12 @@ test.describe("Homepage", () => {
     await expect(sponsors).not.toContainText(/Marathon|TECHEAD/i);
   });
 
+  test("signup section has no 2026 sponsor logo row", async ({ page }) => {
+    const signup = page.locator("#signup");
+    await expect(signup.getByText("DevFest 2026 sponsors")).toHaveCount(0);
+    await expect(signup.locator("img")).toHaveCount(0);
+  });
+
   test("footer is visible with social links", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer).toBeVisible();
