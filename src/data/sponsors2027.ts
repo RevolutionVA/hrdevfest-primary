@@ -1,6 +1,6 @@
 // 2027 sponsors. One record drives the homepage credits and the prospectus availability,
 // so adding a paid commitment here updates both. Tier names match the 2027 prospectus in sponsor.ts.
-import { glance, partnerships } from './sponsor';
+import { glance, partnerships, schedule, type ScheduleItem } from './sponsor';
 
 export type Sponsor2027Tier =
   | 'presenting'
@@ -114,10 +114,22 @@ export function claimedByName(tier: Sponsor2027Tier | undefined): string | undef
   return names.length > 0 ? names.join(', ') : undefined;
 }
 
-/** Availability text for the prospectus: "Claimed by [Company]" once sold, else the default from sponsor.ts. */
+/**
+ * Availability text for the prospectus: "Claimed by [Company]" once sold out, "N remaining" when a counted
+ * allotment is partly claimed, else the default from sponsor.ts ("1 exclusive", "5", "Unlimited").
+ */
 export function offeringAvailability(tier: Sponsor2027Tier | undefined, available: string): string {
-  return isOfferingClaimed(tier, available) ? `Claimed by ${claimedByName(tier)}` : available;
+  if (isOfferingClaimed(tier, available)) return `Claimed by ${claimedByName(tier)}`;
+  const claimed = tier ? sponsorsInTier(tier).length : 0;
+  const total = capacity(available);
+  return claimed > 0 && Number.isFinite(total) ? `${total - claimed} remaining` : available;
 }
+
+/** The sponsor-page schedule, with the reception row credited to the Reception Partner once claimed. */
+export const sponsorSchedule: ScheduleItem[] = schedule.map((item) => {
+  const host = item.reception ? sponsorsInTier('reception-partner')[0] : undefined;
+  return host ? { ...item, what: `${sponsorCredit(host)}. Venue and time to be announced.` } : item;
+});
 
 /** Reservation form choices that are still open. Community is left out: it has its own checkout. */
 export function openPackageOptions(): string[] {

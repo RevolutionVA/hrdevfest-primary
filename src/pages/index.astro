@@ -36,11 +36,12 @@ const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
   Object.entries(sponsorLogoFiles).map(([path, mod]) => [path.split("/").pop()!, mod.default])
 );
 
-// Fixed tile size per tier: higher tiers get bigger tiles. "wide" tiers take a full row on desktop.
-interface TierSize { wide: boolean; grid: string; tile: string; logo: string; icon: string; name: string }
-const largeTier: TierSize = { wide: true, grid: "grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]", tile: "h-40", logo: "max-h-28", icon: "h-20 w-20", name: "text-3xl" };
-const mediumTier: TierSize = { wide: false, grid: "grid-cols-[repeat(auto-fit,minmax(13rem,1fr))]", tile: "h-32", logo: "max-h-20", icon: "h-14 w-14", name: "text-2xl" };
-const smallTier: TierSize = { wide: false, grid: "grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]", tile: "h-24", logo: "max-h-14", icon: "h-10 w-10", name: "text-xl" };
+// Tile size per tier: higher tiers get bigger tiles. Each tile has a capped width, so a tier with many
+// sponsors wraps into a row of cards. "wide" tiers take a full row; the others share rows with each other.
+interface TierSize { wide: boolean; card: string; tile: string; logo: string; icon: string; name: string }
+const largeTier: TierSize = { wide: true, card: "w-[320px]", tile: "h-40", logo: "max-h-28", icon: "h-20 w-20", name: "text-3xl" };
+const mediumTier: TierSize = { wide: false, card: "w-[300px]", tile: "h-32", logo: "max-h-20", icon: "h-14 w-14", name: "text-2xl" };
+const smallTier: TierSize = { wide: false, card: "w-[240px]", tile: "h-24", logo: "max-h-14", icon: "h-10 w-10", name: "text-xl" };
 const tierSizes: Record<Sponsor2027Tier, TierSize> = {
   presenting: largeTier,
   "main-stage": { ...largeTier, tile: "h-36", logo: "max-h-24" },
@@ -51,7 +52,7 @@ const tierSizes: Record<Sponsor2027Tier, TierSize> = {
   "popup-series-partner": smallTier,
   "coffee-partner": smallTier,
   "lanyard-partner": smallTier,
-  community: { wide: true, grid: "grid-cols-[repeat(auto-fill,minmax(8rem,1fr))]", tile: "h-20", logo: "max-h-10", icon: "h-8 w-8", name: "text-base" },
+  community: { wide: true, card: "w-[180px]", tile: "h-20", logo: "max-h-10", icon: "h-8 w-8", name: "text-base" },
 };
 
 const sponsorGroups2027 = sponsor2027TierOrder
@@ -225,16 +226,16 @@ const sponsorGroups2027 = sponsor2027TierOrder
     <section id="sponsors" class="w-full py-10 md:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
       <div class="max-w-4xl mx-auto flex flex-col gap-10">
         <h2 class="text-center text-[32px] font-bold leading-10">2027 Sponsors</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-10">
           {sponsorGroups2027.map((group) => (
-            <div class:list={["flex flex-col gap-4", { "md:col-span-2": group.size.wide }]} data-tier={group.tier}>
+            <div class:list={["flex flex-col gap-4 min-w-0", { "basis-full": group.size.wide }]} data-tier={group.tier}>
               <h3 class="bp-tier-label text-center">{group.label}</h3>
-              <ul class={`grid ${group.size.grid} gap-4`}>
+              <ul class="flex flex-wrap justify-center gap-4">
                 {group.sponsors.map((sponsor) => {
                   const logo = sponsorLogos[sponsor.logo];
                   const credit = sponsorCredit(sponsor);
                   return (
-                    <li class="flex flex-col gap-2">
+                    <li class={`${group.size.card} max-w-full flex flex-col gap-2`} data-testid="sponsor-card">
                       <a
                         href={sponsor.url}
                         target="_blank"
@@ -261,9 +262,13 @@ const sponsorGroups2027 = sponsor2027TierOrder
             </div>
           ))}
         </div>
-        <div class="bp-box px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left" data-testid="become-a-sponsor">
-          <h3 class="text-xl font-bold leading-tight">Become a sponsor</h3>
-          <a href="/sponsor" class="px-5 py-2 btn-secondary text-sm">View the prospectus</a>
+        <div class="bp-box px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left" data-testid="become-a-sponsor">
+          <div class="flex flex-col gap-2">
+            <h3 class="text-xl font-bold leading-tight">Become a sponsor</h3>
+            <p class="text-base leading-relaxed">Put your company in front of the developers and tech professionals building in Hampton Roads.</p>
+            <a href="/2026#sponsors" class="bp-link text-base font-bold self-center md:self-start">See our 2026 sponsors →</a>
+          </div>
+          <a href="/sponsor" class="shrink-0 px-8 py-3 btn-primary text-base">View the prospectus</a>
         </div>
       </div>
     </section>

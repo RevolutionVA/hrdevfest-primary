@@ -218,6 +218,27 @@ test.describe("Sponsor Page", () => {
     );
   });
 
+  test("Featured shows remaining slots from the 2027 sponsor list", async ({ page }) => {
+    await page.goto("/sponsor");
+    const packages = page.locator("#at-a-glance");
+    await expect(packages.locator("article").filter({ hasText: "Featured" }).first()).toContainText("4 remaining");
+    await expect(packages.locator("tr").filter({ hasText: "Featured" }).first()).toContainText("4 remaining");
+    await expect(packages.getByText("4 remaining", { exact: false }).locator("visible=true")).toHaveCount(1);
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table:not(.layout) tr").filter({ hasText: "Featured" }).first()).toContainText("4 remaining");
+  });
+
+  test("the schedule ends with the reception credit", async ({ page }) => {
+    const credit = "DevFest Reception presented by Stigian Consulting. Venue and time to be announced.";
+    await page.goto("/sponsor");
+    const day = page.locator("#the-day");
+    await expect(day.locator("tbody tr").last()).toContainText("After conference closing");
+    await expect(day.locator("tbody tr").last()).toContainText(credit);
+    await expect(day.locator("ol li").last()).toContainText(credit);
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table.schedule tbody tr").last()).toContainText(credit);
+  });
+
   test("the reservation form leaves out the claimed Reception partnership", async ({ page }) => {
     await page.goto("/sponsor");
     const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();

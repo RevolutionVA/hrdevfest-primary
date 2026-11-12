@@ -10,7 +10,7 @@ import logoWhite from "../assets/logo-white.png";
 import FooterBridge from "../components/FooterBridge.astro";
 import Callout from "../components/Callout.astro";
 import { getEntry } from "astro:content";
-import { offeringAvailability, openPackageOptions, tierForPackage, tierForPartnership } from "../data/sponsors2027";
+import { offeringAvailability, openPackageOptions, sponsorSchedule, tierForPackage, tierForPartnership } from "../data/sponsors2027";
 import { testimonials } from "../data/testimonials";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
 import kristinaKrasnolobovaImage from "../assets/testimonials/kristina-krasnolobova.webp";
@@ -22,7 +22,6 @@ import crowdLobby2024 from "../assets/2024-photos/2024-hrdevfest-alex-proaps-012
 import crowdTables2024 from "../assets/2024-photos/2024-hrdevfest-kevin-griffin-011.jpg";
 import {
   SPONSOR_SHEET_PDF_HREF,
-  schedule,
   COMMUNITY_CHECKOUT_HREF,
   COMMUNITY_CALLOUT_BULLETS,
   glance,
@@ -581,7 +580,7 @@ const packageOptions = [...openPackageOptions(), "Not sure yet"];
         </div>
         <!-- Mobile: one ruled row per slot, so the sponsor-time flag never scrolls off-screen -->
         <ol class="md:hidden bp-surface flex flex-col divide-y divide-[var(--bp-line-faint)] border border-[var(--bp-line-soft)]">
-          {schedule.map((item) => (
+          {sponsorSchedule.map((item) => (
             <li class="grid grid-cols-[4.5rem_1fr] gap-x-3 gap-y-1 px-3 py-2.5">
               <span class:list={["bp-mono text-base leading-snug", item.time.length > 5 && "col-span-2"]}>{item.time}</span>
               <div class:list={["min-w-0 flex flex-col gap-1", item.time.length > 5 && "col-start-2"]}>
@@ -601,7 +600,7 @@ const packageOptions = [...openPackageOptions(), "Not sure yet"];
               </tr>
             </thead>
             <tbody>
-              {schedule.map((item) => (
+              {sponsorSchedule.map((item) => (
                 <tr>
                   <td class="bp-mono">{item.time}</td>
                   <td class:list={[item.sponsorTime && "font-semibold"]}>{item.what}</td>

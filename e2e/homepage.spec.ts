@@ -41,18 +41,35 @@ test.describe("Homepage", () => {
     await expect(page.getByRole("heading", { name: "Sponsor DevFest 2027" })).toHaveCount(0);
   });
 
-  test("Become a sponsor band has one button to the prospectus", async ({ page }) => {
+  test("Become a sponsor band has the primary prospectus button, a reach line and the 2026 link", async ({ page }) => {
     const band = page.getByTestId("become-a-sponsor");
     await expect(band.getByRole("heading", { name: "Become a sponsor" })).toBeVisible();
-    await expect(band.getByRole("link")).toHaveCount(1);
-    await expect(band.getByRole("link", { name: "View the prospectus" })).toHaveAttribute("href", "/sponsor");
+    const button = band.getByRole("link", { name: "View the prospectus" });
+    await expect(button).toHaveAttribute("href", "/sponsor");
+    await expect(button).toHaveClass(/btn-primary/);
+    await expect(band).toContainText(
+      "Put your company in front of the developers and tech professionals building in Hampton Roads."
+    );
+    await expect(band.getByRole("link", { name: /See our 2026 sponsors/ })).toHaveAttribute("href", "/2026#sponsors");
+    await expect(band.getByRole("link")).toHaveCount(2);
+    await expect(band).not.toContainText("—");
   });
 
-  test("sponsors section has no pitch paragraph and no 2026 sponsors link", async ({ page }) => {
-    const sponsors = page.locator("#sponsors");
-    await expect(sponsors).not.toContainText("Sponsors make DevFest possible");
-    await expect(sponsors.getByRole("link", { name: /See our 2026 sponsors/ })).toHaveCount(0);
-    await expect(sponsors.locator('a[href="/2026#sponsors"]')).toHaveCount(0);
+  test("sponsors section has no pitch paragraph", async ({ page }) => {
+    await expect(page.locator("#sponsors")).not.toContainText("Sponsors make DevFest possible");
+  });
+
+  test("sponsor tiles are capped cards, not full-width slabs", async ({ page }) => {
+    await page.setViewportSize({ width: 700, height: 900 });
+    const section = await page.locator("#sponsors > div").boundingBox();
+    const cards = page.getByTestId("sponsor-card");
+    await expect(cards.first()).toBeVisible();
+    for (const card of await cards.all()) {
+      const box = (await card.boundingBox())!;
+      expect(box.width).toBeLessThanOrEqual(320);
+      // Two cards and the gap fit across the section, so a tier with more sponsors wraps into a row
+      expect(box.width * 2 + 16).toBeLessThanOrEqual(section!.width);
+    }
   });
 
   test("lists the 2027 sponsors by tier", async ({ page }) => {
