@@ -153,7 +153,8 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
             </p>
             <div class="mt-2 flex flex-col items-center gap-3">
               <a href="#signup" class="px-8 py-3 btn-primary text-base">Join the list</a>
-              <a href={SPEAKER_NOMINATION_URL} target="_blank" rel="noopener noreferrer" class="px-6 py-2 btn-secondary text-sm">Nominate a speaker</a>
+              <a href={SPEAKER_NOMINATION_URL} target="_blank" rel="noopener noreferrer" class="px-6 py-2 btn-secondary text-sm" aria-describedby="speaker-nomination-eligibility">Nominate a speaker</a>
+              <p id="speaker-nomination-eligibility" class="max-w-[40ch] text-sm bp-muted">Nominees can live or work in Hampton Roads or be alumni of its tech community.</p>
             </div>
           </div>
         </div>
