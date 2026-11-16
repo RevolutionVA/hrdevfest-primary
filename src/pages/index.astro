@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { Image } from "astro:assets";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import BentoTracking from "../components/BentoTracking.astro";
 import CanonicalLink from "../components/CanonicalLink.astro";
@@ -14,6 +14,7 @@ import logoWhite from "../assets/logo-white.png";
 import { testimonials } from "../data/testimonials";
 import { faqItems } from "../data/faq";
 import { SPEAKER_NOMINATION_URL } from "../data/links";
+import { sponsor2027TierLabels, sponsor2027TierOrder, sponsorCredit, sponsorsInTier, type Sponsor2027Tier } from "../data/sponsors2027";
 import paulChinJrImage from "../assets/testimonials/paul-chin-jr.jpeg";
 import michaelBuckbeeImage from "../assets/testimonials/michael-buckbee.jpg";
 import travisWebbImage from "../assets/testimonials/travis-webb.png";
@@ -29,13 +30,39 @@ const testimonialImages: Record<string, any> = {
 const events = await getCollection('events');
 const pastYears = events.map(e => e.data.year).sort((a, b) => b - a);
 
-// 2026 platinum and gold sponsors for the logo row above the signup form
+// Sponsor logos keyed by filename, for the 2027 sponsor cards
 const sponsorLogoFiles = import.meta.glob<{ default: ImageMetadata }>("../assets/sponsors/*", { eager: true });
 const sponsorLogos: Record<string, ImageMetadata> = Object.fromEntries(
   Object.entries(sponsorLogoFiles).map(([path, mod]) => [path.split("/").pop()!, mod.default])
 );
-const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ?? [])
-  .filter((sponsor) => sponsor.tier === 'platinum' || sponsor.tier === 'gold');
+
+// Tile size per tier: higher tiers get bigger tiles. Each tile has a capped width, so a tier with many
+// sponsors wraps into a row of cards. "wide" tiers take a full row; the others share rows with each other.
+interface TierSize { wide: boolean; card: string; tile: string; logo: string; icon: string; name: string }
+const largeTier: TierSize = { wide: true, card: "w-[320px]", tile: "h-40", logo: "max-h-28", icon: "h-20 w-20", name: "text-3xl" };
+const mediumTier: TierSize = { wide: false, card: "w-[300px]", tile: "h-32", logo: "max-h-20", icon: "h-14 w-14", name: "text-2xl" };
+const smallTier: TierSize = { wide: false, card: "w-[240px]", tile: "h-24", logo: "max-h-14", icon: "h-10 w-10", name: "text-xl" };
+const tierSizes: Record<Sponsor2027Tier, TierSize> = {
+  presenting: largeTier,
+  "main-stage": { ...largeTier, tile: "h-36", logo: "max-h-24" },
+  "reception-partner": mediumTier,
+  featured: mediumTier,
+  "lunch-partner": smallTier,
+  "scholarship-partner": smallTier,
+  "popup-series-partner": smallTier,
+  "coffee-partner": smallTier,
+  "lanyard-partner": smallTier,
+  community: { wide: true, card: "w-[180px]", tile: "h-20", logo: "max-h-10", icon: "h-8 w-8", name: "text-base" },
+};
+
+const sponsorGroups2027 = sponsor2027TierOrder
+  .map((tier) => ({
+    tier,
+    label: sponsor2027TierLabels[tier],
+    size: tierSizes[tier],
+    sponsors: sponsorsInTier(tier),
+  }))
+  .filter((group) => group.sponsors.length > 0);
 ---
 
 <html lang="en">
@@ -165,18 +192,6 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
 
     <!-- Mailing List Signup - primary CTA -->
     <section id="signup" class="w-full py-12 md:py-16 px-4 md:px-8 border-t border-[var(--bp-line)] scroll-mt-4">
-      {sponsors2026.length > 0 && (
-        <div class="max-w-4xl mx-auto mb-10 flex flex-col items-center gap-4">
-          <p class="bp-label">DevFest 2026 sponsors</p>
-          <div class="flex flex-wrap md:flex-nowrap justify-center items-center gap-3">
-            {sponsors2026.filter((sponsor) => sponsorLogos[sponsor.logo]).map((sponsor) => (
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="bp-plate px-3 py-2" title={sponsor.name}>
-                <Image src={sponsorLogos[sponsor.logo]} alt={sponsor.name} class={sponsor.tier === 'platinum' ? 'h-14 w-auto object-contain' : 'h-8 w-auto object-contain'} />
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
       <div class="max-w-xl mx-auto p-8 md:p-10 bp-box text-center">
         <h2 class="text-2xl md:text-3xl font-bold mb-2">Be first to know</h2>
         <p class="bp-muted mb-6">We'll email you when tickets go on sale and speakers are announced.</p>
@@ -207,15 +222,54 @@ const sponsors2026 = ((await getEntry('events', '2026/event'))?.data.sponsors ??
       </div>
     </section>
 
-    <!-- Sponsor 2027 CTA -->
+    <!-- 2027 sponsors and sponsor CTA -->
     <section id="sponsors" class="w-full py-10 md:py-20 px-4 md:px-8 border-t border-[var(--bp-line)]">
-      <div class="max-w-3xl mx-auto flex flex-col items-center gap-6 text-center">
-        <h2 class="text-center text-[32px] font-bold leading-10">Sponsor DevFest 2027</h2>
-        <p class="text-base font-normal leading-relaxed">
-          Sponsors make DevFest possible. Put your company in front of the developers building tech in Hampton Roads.
-        </p>
-        <a href="/sponsor" class="px-8 py-3 btn-primary text-base">View the 2027 Sponsorship Prospectus</a>
-        <a href="/2026#sponsors" class="bp-link text-base font-bold">See our 2026 sponsors →</a>
+      <div class="max-w-4xl mx-auto flex flex-col gap-10">
+        <h2 class="text-center text-[32px] font-bold leading-10">2027 Sponsors</h2>
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-10">
+          {sponsorGroups2027.map((group) => (
+            <div class:list={["flex flex-col gap-4 min-w-0", { "basis-full": group.size.wide }]} data-tier={group.tier}>
+              <h3 class="bp-tier-label text-center">{group.label}</h3>
+              <ul class="flex flex-wrap justify-center gap-4">
+                {group.sponsors.map((sponsor) => {
+                  const logo = sponsorLogos[sponsor.logo];
+                  const credit = sponsorCredit(sponsor);
+                  return (
+                    <li class={`${group.size.card} max-w-full flex flex-col gap-2`} data-testid="sponsor-card">
+                      <a
+                        href={sponsor.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={`bp-tile ${group.size.tile} p-5 flex items-center justify-center gap-3`}
+                        title={sponsor.name}
+                      >
+                        {logo && (
+                          <Image
+                            src={logo}
+                            alt={sponsor.showName ? "" : sponsor.name}
+                            class={sponsor.showName ? `${group.size.icon} object-contain` : `${group.size.logo} h-full w-auto max-w-full object-contain`}
+                          />
+                        )}
+                        {(sponsor.showName || !logo) && (
+                          <span class={`font-bold ${group.size.name} text-[var(--bp-paper-deep)]`}>{sponsor.name}</span>
+                        )}
+                      </a>
+                      {credit && <p class="text-center text-base font-bold leading-snug">{credit}</p>}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div class="bp-box px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left" data-testid="become-a-sponsor">
+          <div class="flex flex-col gap-2">
+            <h3 class="text-xl font-bold leading-tight">Become a sponsor</h3>
+            <p class="text-base leading-relaxed">Put your company in front of the developers and tech professionals building in Hampton Roads.</p>
+            <a href="/2026#sponsors" class="bp-link text-base font-bold self-center md:self-start">See our 2026 sponsors →</a>
+          </div>
+          <a href="/sponsor" class="shrink-0 px-8 py-3 btn-primary text-base">View the prospectus</a>
+        </div>
       </div>
     </section>
 
