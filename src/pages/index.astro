@@ -52,7 +52,7 @@ const tierSizes: Record<Sponsor2027Tier, TierSize> = {
   "popup-series-partner": smallTier,
   "coffee-partner": smallTier,
   "lanyard-partner": smallTier,
-  community: { wide: true, card: "w-[180px]", tile: "h-20", logo: "max-h-10", icon: "h-8 w-8", name: "text-base" },
+  community: { ...smallTier, wide: true },
 };
 
 const sponsorGroups2027 = sponsor2027TierOrder
