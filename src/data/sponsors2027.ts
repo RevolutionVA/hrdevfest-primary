@@ -72,6 +72,12 @@ export const sponsors2027: Sponsor2027[] = [
     tier: 'featured',
     showName: true,
   },
+  {
+    name: 'TECHEAD',
+    logo: 'TECHEAD.png',
+    url: 'https://www.techead.com',
+    tier: 'scholarship-partner',
+  },
 ];
 
 export function sponsorCredit(sponsor: Sponsor2027): string | undefined {

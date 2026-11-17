@@ -218,6 +218,22 @@ test.describe("Sponsor Page", () => {
     );
   });
 
+  test("the claimed Scholarship partnership reads Claimed by TECHEAD", async ({ page }) => {
+    await page.goto("/sponsor");
+    const partnerships = page.locator("#partnerships");
+    await expect(partnerships.locator("article").filter({ hasText: "Scholarship Partner" })).toContainText(
+      "Claimed by TECHEAD"
+    );
+    await expect(partnerships.locator("tr").filter({ hasText: "Scholarship Partner" })).toContainText(
+      "Claimed by TECHEAD"
+    );
+    await expect(partnerships.getByText("Claimed by TECHEAD", { exact: true }).locator("visible=true")).toHaveCount(1);
+    await page.goto("/sponsor/print");
+    await expect(page.locator("table:not(.layout) tr").filter({ hasText: "Scholarship Partner" })).toContainText(
+      "Claimed by TECHEAD"
+    );
+  });
+
   test("Featured shows remaining slots from the 2027 sponsor list", async ({ page }) => {
     await page.goto("/sponsor");
     const packages = page.locator("#at-a-glance");
@@ -239,10 +255,11 @@ test.describe("Sponsor Page", () => {
     await expect(page.locator("table.schedule tbody tr").last()).toContainText(credit);
   });
 
-  test("the reservation form leaves out the claimed Reception partnership", async ({ page }) => {
+  test("the reservation form leaves out the claimed Reception and Scholarship partnerships", async ({ page }) => {
     await page.goto("/sponsor");
     const options = await page.locator('#reserve select[name="fields_package"] option').allTextContents();
     expect(options.some((o) => /Reception/i.test(o))).toBe(false);
+    expect(options.some((o) => /Scholarship/i.test(o))).toBe(false);
     expect(options).toContain("Pop-up Series Partner ($1,500)");
     expect(options).toContain("Lunch Partner ($2,000)");
     expect(options).toContain("Presenting Sponsor ($10,000)");
