@@ -90,8 +90,16 @@ test.describe("Homepage", () => {
     await expect(landstats).toHaveAttribute("href", "https://www.landstats.com/");
     await expect(landstats.locator("img")).toBeVisible();
 
-    await expect(sponsors.locator("[data-tier]")).toHaveCount(2);
-    await expect(sponsors).not.toContainText(/Marathon|TECHEAD/i);
+    const scholarship = sponsors.locator('[data-tier="scholarship-partner"]');
+    await expect(scholarship.getByRole("heading", { level: 3, name: "Scholarship Partner" })).toBeVisible();
+    await expect(scholarship.getByRole("link", { name: "TECHEAD", exact: true })).toHaveAttribute(
+      "href",
+      "https://www.techead.com"
+    );
+    await expect(scholarship.locator("img")).toBeVisible();
+
+    await expect(sponsors.locator("[data-tier]")).toHaveCount(3);
+    await expect(sponsors).not.toContainText(/Marathon/i);
   });
 
   test("tier labels are larger and in full ink, not the small muted label", async ({ page }) => {
