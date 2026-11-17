@@ -98,7 +98,15 @@ test.describe("Homepage", () => {
     );
     await expect(scholarship.locator("img")).toBeVisible();
 
-    await expect(sponsors.locator("[data-tier]")).toHaveCount(3);
+    const community = sponsors.locator('[data-tier="community"]');
+    await expect(community.getByRole("heading", { level: 3, name: "Community Sponsor" })).toBeVisible();
+    await expect(community.getByRole("link", { name: "Swift Kick", exact: true })).toHaveAttribute(
+      "href",
+      "https://consultwithgriff.com"
+    );
+    await expect(community.locator("img")).toBeVisible();
+
+    await expect(sponsors.locator("[data-tier]")).toHaveCount(4);
     await expect(sponsors).not.toContainText(/Marathon/i);
   });
 
