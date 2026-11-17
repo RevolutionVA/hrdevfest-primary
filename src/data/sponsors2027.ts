@@ -78,6 +78,12 @@ export const sponsors2027: Sponsor2027[] = [
     url: 'https://www.techead.com',
     tier: 'scholarship-partner',
   },
+  {
+    name: 'Swift Kick',
+    logo: 'swiftkick.png',
+    url: 'https://consultwithgriff.com',
+    tier: 'community',
+  },
 ];
 
 export function sponsorCredit(sponsor: Sponsor2027): string | undefined {
