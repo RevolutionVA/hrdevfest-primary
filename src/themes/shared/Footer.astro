@@ -13,6 +13,7 @@ const { showSocialLinks = true, showQuickLinks = true } = Astro.props;
 
 const events = await getCollection('events');
 const pastYears = events
+  .filter(e => e.data.isArchive)
   .map(e => e.data.year)
   .sort((a, b) => b - a);
 

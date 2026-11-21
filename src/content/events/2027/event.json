@@ -1,0 +1,22 @@
+{
+  "year": 2027,
+  "theme": "2027",
+  "title": "Hampton Roads DevFest 2027",
+  "date": "2027-04-23",
+  "dateFormatted": "Apr 23, 2027",
+  "venue": {
+    "name": "Zeiders American Dream Theater",
+    "address": "4509 Commerce Street",
+    "city": "Virginia Beach",
+    "state": "VA",
+    "zip": "23462"
+  },
+  "speakers": [
+    {
+      "name": "Kathryn Grayson Nanz",
+      "bio": "Kathryn Grayson Nanz is a Senior Design & Developer Advocate at Progress with a passion for front-end development and UI / UX. She started her career as a graphic designer and was told by her Creative Director to never let anyone find out she could code because she'd be stuck doing it forever — but she ignored his warning and has never been happier. Years later, she went back to school and earned her Master's in Software Systems Design and Engineering. She's especially interested in React, UI design and design systems, accessibility, and creating applications and websites that center the human experience.",
+      "image": "kathryn-grayson-nanz.jpg"
+    }
+  ],
+  "isArchive": false
+}
