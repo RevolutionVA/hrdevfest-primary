@@ -67,10 +67,9 @@ export const sponsors2027: Sponsor2027[] = [
   },
   {
     name: 'Landstats',
-    logo: 'landstats.svg',
+    logo: 'landstats.png',
     url: 'https://www.landstats.com/',
     tier: 'featured',
-    showName: true,
   },
   {
     name: 'TECHEAD',
